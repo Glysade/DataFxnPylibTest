@@ -1,0 +1,2009 @@
+
+GBBCT1.SEQ          Genetic Sequence Data Bank
+                        December 15 2016
+
+                NCBI-GenBank Flat File Release 217.0
+
+                     Bacterial Sequences (Part 1)
+
+   63560 loci,    86577176 bases, from    63560 reported sequences
+
+
+LOCUS       AB000100                2992 bp    DNA     linear   BCT 15-MAY-2009
+DEFINITION  Synechococcus elongatus PCC 7942 genes for intrinsic membrane
+            protein, malK-like protein, cyanase, complete cds.
+ACCESSION   AB000100
+VERSION     AB000100.1  GI:2330514
+KEYWORDS    .
+SOURCE      Synechococcus elongatus PCC 7942
+  ORGANISM  Synechococcus elongatus PCC 7942
+            Bacteria; Cyanobacteria; Synechococcales; Synechococcaceae;
+            Synechococcus.
+REFERENCE   1
+  AUTHORS   Harano,Y., Suzuki,I., Maeda,S., Kaneko,T., Tabata,S. and Omata,T.
+  TITLE     Identification and nitrogen regulation of the cyanase gene from the
+            cyanobacteria Synechocystis sp. strain PCC 6803 and Synechococcus
+            sp. strain PCC 7942
+  JOURNAL   J. Bacteriol. 179 (18), 5744-5750 (1997)
+   PUBMED   9294430
+REFERENCE   2  (bases 1 to 2992)
+  AUTHORS   Omata,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (26-DEC-1996) Contact:Tatsuo Omata School of Agricultural
+            Sciences, Nagoya University, Department of Applied Biological
+            Sciences; Chikusa, Nagoya, Aichi 464-01, Japan
+COMMENT     On Aug 16, 1997 this sequence version replaced gi:1943948.
+FEATURES             Location/Qualifiers
+     source          1..2992
+                     /organism="Synechococcus elongatus PCC 7942"
+                     /mol_type="genomic DNA"
+                     /strain="PCC 7942"
+                     /db_xref="taxon:1140"
+                     /clone_lib="constructed in pBluescript II KS-"
+     gene            121..912
+                     /gene="cynB"
+     CDS             121..912
+                     /gene="cynB"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="intrinsic membrane protein"
+                     /protein_id="BAA21794.1"
+                     /db_xref="GI:2330515"
+                     /translation="MVRTPVPLYLRWAVSILSVLAFLAIWQIAAASGFLGKTFPGSLR
+                     TLQDLFGWLSDPFFDNGPNDLGIGWNLLISLRRVAIGYLLATVVAIPLGIAIGMSALA
+                     SSIFSPFVQLLKPVSPLAWLPIGLFLFRDSELTGVFVILISSLWPTLINTAFGVANVN
+                     PDFLKVSQSLGASRWRTILKVILPAALPSIIAGMRISMGIAWLVIVAAEMLLGTGIGY
+                     FIWNEWNNLSLPNIFSAIIIIGIVGILLDQGFRFLENQFSYAGNR"
+     gene            916..1785
+                     /gene="cynD"
+     CDS             916..1785
+                     /gene="cynD"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="malK-like protein"
+                     /protein_id="BAA21795.1"
+                     /db_xref="GI:2330516"
+                     /translation="MISEAVPAKEETGQAQLLIEQVGKVFTVNSPSLLDRLRQRSPKR
+                     YVALEDVNLTIASNTFVSIIGPSGCGKSTLLNLIAGLDLPTSGQILLDGQRIRSPGPD
+                     RGIVFQNYALMPWMTALENVIFAVETARPNLSKSQAREVAREHLELVGLTKAADRYPG
+                     QISGGMKQRVAIARALSIRPKLLLMDEPFGALDALTRGYLQEEVLRIWEANKLSVVLI
+                     THSIDEALLLSDRIVVMSRGPRATIREVIDLPAVRPRQRSVIEEDERFVKIKLRLEEH
+                     LFNETRAVEEASV"
+     gene            1796..2236
+                     /gene="cynS"
+     CDS             1796..2236
+                     /gene="cynS"
+                     /EC_number="4.2.1.104"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="cyanase"
+                     /protein_id="BAA19515.1"
+                     /db_xref="GI:1943951"
+                     /translation="MTSAITEQLLKAKKAKGITFTELEQLLGRDEVWIASVFYRQSTA
+                     SPEEAEKLLTALGLDLALADELTTPPVKGCLEPVIPTDPLIYRFYEIMQVYGLPLKDV
+                     IQEKFGDGIMSAIDFTLDVDKVEDPKGDRVKVTMCGKFLAYKKW"
+ORIGIN      
+        1 ctgcagccgc cgactgaaat ctatcgggaa gaaaagctcg cttacgacac ctttaacccg
+       61 caggatccag tcgcttacct cgcatctcaa aagcagaaat acgggagata aacacaactt
+      121 atggtgagaa ctcctgtacc gctttaccta cgttgggcgg tctccatcct cagcgtgctt
+      181 gcgttcctag ccatttggca aattgcggca gcttcaggat ttttaggcaa aacttttcct
+      241 ggctccctgc gcactttgca ggatttgttt ggatggcttt cagatccctt ctttgataac
+      301 ggccccaatg acttagggat tggctggaac ttactgatta gtttgcgtcg cgttgcgatc
+      361 ggctacctgc tggcaacagt tgttgcaatt cctttgggga ttgcaatcgg tatgtcggcg
+      421 ctagcttcca gtattttttc gccctttgtg caactcctga agccagtttc acctttggcc
+      481 tggttgccga ttggtctctt cttattccga gattcggaat tgacgggtgt ttttgtcatc
+      541 ctgatttcga gtctgtggcc aacgttgatc aacacagcgt ttggggtggc gaatgtcaat
+      601 cctgactttt tgaaggtttc gcaatctttg ggagctagtc gttggcgcac gattctgaag
+      661 gtgattctgc ccgcagcatt gcccagcatc atcgcgggaa tgcggatcag catgggcatt
+      721 gcttggctgg tcattgtggc agcagagatg ctgttgggaa caggaattgg ctatttcatt
+      781 tggaatgagt ggaataacct atcacttcct aatattttct cggccatcat catcattggg
+      841 attgttggca ttcttctcga ccaaggcttc cgttttcttg agaaccagtt ttcttacgca
+      901 ggcaaccgat aacccatgat ttctgaagct gtgccagcca aggaggagac agggcaggct
+      961 caattgctga ttgagcaagt tggcaaagtt tttactgtca attcaccttc tctcctcgat
+     1021 cgccttcgac agcgatcgcc caaacgctac gttgcattag aagatgtcaa cctcacgatc
+     1081 gcgtcgaaca catttgtctc gattattggc ccttcgggtt gtggtaaatc aacccttctc
+     1141 aacttgattg ctggccttga tttaccaacg tctggccaga ttctgctgga tggtcaacgc
+     1201 attcgatcgc cggggcccga tcgtggcatc gtcttccaga actatgccct gatgccctgg
+     1261 atgaccgcgc ttgagaatgt catctttgca gttgaaacgg cgcgcccaaa cctgagcaaa
+     1321 tcccaagctc gcgaagtggc acgagagcat ctagagctgg tgggtttaac caaagctgcc
+     1381 gatcgctatc cgggccaaat ttcagggggg atgaaacagc gcgtagcgat cgcccgtgcc
+     1441 ctctccatcc gtcctaagct cctgctgatg gatgaaccct ttggtgcctt ggatgccctc
+     1501 acccgtggct acctccaaga agaagtgctg cggatttggg aagccaacaa actgagtgtg
+     1561 gtgctcatca ctcacagtat tgatgaagca ctgctgcttt ccgatcgcat tgtggtgatg
+     1621 tctcgtgggc cacgagccac tattcgagaa gtgattgatt taccagccgt tcgccctcgg
+     1681 caacggtctg tgatcgaaga agatgagcgc ttcgtcaaaa tcaaattgcg ccttgaagaa
+     1741 catttgttca acgagacgcg tgcagttgaa gaagccagtg tttaggagaa ttccaatgac
+     1801 ctcagcgatt actgaacaac ttctgaaagc gaaaaaagca aagggaatta cctttactga
+     1861 gcttgagcaa ttacttggac gggatgaagt ctggattgcg agtgtgttct accgtcaatc
+     1921 tacggcttcg cctgaagagg cagaaaagct actgactgct ctgggcttag atctggcctt
+     1981 ggctgatgag ttgacgactc cgccggtcaa aggttgtttg gaaccggtga ttccaactga
+     2041 tccgttgatc tatcgcttct acgaaatcat gcaggtctat ggcttgcccc tcaaggatgt
+     2101 tatccaagaa aaatttggcg atggcatcat gagtgcgatt gatttcacct tagatgtcga
+     2161 taaggttgaa gatcccaaag gcgatcgcgt taaggtcacg atgtgtggca agttcttggc
+     2221 gtacaagaag tggtaaatac tgctagctaa tcaagcttca attcttgatc actggaggag
+     2281 agaggtttcc gcttctctcc ttttttgatt ggaattctct cattaactac gataccgctc
+     2341 tgcactgaat gacctcgagc tgagtggaag gtagctcgcc gccgatgata atggcgcctc
+     2401 tggaagagtt tggctaagct gtggacggcg atcgcggttg tctgtctgtg ctatgccctt
+     2461 gatttcggtg acccgactca agcttagaaa tgttctttat ttgccccgct tgcttccctt
+     2521 ctcgttgcga tcgacgtggc aggctaaacg agcgcctggc aatctgggcg ttaagctgtt
+     2581 gcaggatcgt aacttggctt tttggacctg caccgcttgg acggatgaag gagccatgcg
+     2641 tcggttcatg agagcggatg cccacgggca ggccatgacg aaattgatgg attggtgcag
+     2701 cgaagcctca gtcgtccatt ggcagcagga tcagccagac ttgcccgact ggcaggaagc
+     2761 tcaccgccgc atgatcgcgg aggggcgccc ctccaaagtg aaccatcctt cggctgccca
+     2821 ccaagcattt caggtcgatc cgccgcgccg cgcctagctc agtgactgcg gtcgcgctgt
+     2881 cttgcatcat tgcttcgctc taccagcccg gatcgctggc acagtccacg gtgatctcac
+     2941 ccgaggcggc atcgggaatc gcagtgatac agccgcagac tggctcgcca tc
+//
+LOCUS       AB000106                1343 bp    rRNA    linear   BCT 05-FEB-1999
+DEFINITION  Sphingomonas sp. 16S ribosomal RNA.
+ACCESSION   AB000106
+VERSION     AB000106.1  GI:1754587
+KEYWORDS    16S rRNA.
+SOURCE      Sphingomonas sp.
+  ORGANISM  Sphingomonas sp.
+            Bacteria; Proteobacteria; Alphaproteobacteria; Sphingomonadales;
+            Sphingomonadaceae; Sphingomonas.
+REFERENCE   1  (bases 1 to 1343)
+  AUTHORS   Iwabuchi,T.
+  TITLE     Sphingomonas sp. VT1 16s rRNA
+  JOURNAL   Unpublished
+REFERENCE   2  (bases 1 to 1343)
+  AUTHORS   Iwabuchi,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (25-DEC-1996) Tokuro Iwabuchi, Shiseido Research Center,
+            Pharmaco Science Laboratories; 1050 Nippa, Kouhoku-ku, Yokohama,
+            Kanagawa 223, Japan (E-mail:PEH01461@niftyserve.or.jp,
+            Tel:+81-45-542-1337, Fax:+81-45-545-5931)
+FEATURES             Location/Qualifiers
+     source          1..1343
+                     /organism="Sphingomonas sp."
+                     /mol_type="rRNA"
+                     /strain="VT1"
+                     /db_xref="taxon:28214"
+     rRNA            1..1343
+                     /product="16S ribosomal RNA"
+ORIGIN      
+        1 ggaatctgcc cttgggttcg gaataacgtc tggaaacgga cgctaatacc ggatgatgac
+       61 gtaagtccaa agatttatcg cccagggatg agcccgcgta ggattagcta gttggtgagg
+      121 taaaggctca ccaaggcgac gatccttagc tggtctgaga ggatgatcag ccacactggg
+      181 actgagacac ggcccagact cctacgggag gcagcagtag ggaatattgg acaatgggcg
+      241 aaagcctgat ccagcaatgc cgcgtgagtg atgaaggcct tagggttgta aagctctttt
+      301 acccgggatg ataatgacag taccgggaga ataagccccg gctaactccg tgccagcagc
+      361 cgcggtaata cggagggggc tagcgttgtt cggaattact gggcgtaaag cgcacgtagg
+      421 cggcgattta agtcagaggt gaaagcccgg ggctcaaccc cggaatagcc tttgagactg
+      481 gattgcttga atccgggaga ggtgagtgga attccgagtg tagaggtgaa attcgtagat
+      541 attcggaaga acaccagtgg cgaaggcgga tcactggacc ggcattgacg ctgaggtgcg
+      601 aaagcgtggg gagcaaacag gattagatac cctggtagtc cacgccgtaa acgatgataa
+      661 ctagctgctg gggctcatgg agtttcagtg gcgcagctaa cgcattaagt tatccgcctg
+      721 gggagtacgg tcgcaagatt aaaactcaaa ggaattgacg ggggcctgca caagcggtgg
+      781 agcatgtggt ttaattcgaa gcaacgcgca gaaccttacc aacgtttgac atccctagta
+      841 tggttaccag agatggtttc cttcagttcg gctggctagg tgacaggtgc tgcatggctg
+      901 tcgtcagctc gtgtcgtgag atgttgggtt aagtcccgca acgagcgcaa ccctcgcctt
+      961 tagttgccat cattcagttg ggtactctaa aggaaccgcc ggtgataagc cggaggaagg
+     1021 tggggatgac gtcaagtcct catggccctt acgcgttggg ctacacacgt gctacaatgg
+     1081 cgactacagt gggcagctat ctcgcgagag tgcgctaatc tccaaaagtc gtctcagttc
+     1141 ggatcgttct ctgcaactcg agagcgtgaa ggcggaatcg ctagtaatcg cggatcagca
+     1201 tgccgcggtg aatacgtccc caggtcttgt acacaccgcc cgtcacacca tgggagttgg
+     1261 tttcacccga aggcgctgcg ctaactcgca agagaggcag gcgaccacgg tgggatcagc
+     1321 gactgggtga gtcgtacagg tgc
+//
+LOCUS       AB000111               14024 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Synechococcus elongatus PCC 6301 genes for ribosomal proteins,
+            complete cds.
+ACCESSION   AB000111
+VERSION     AB000111.1  GI:2446888
+KEYWORDS    .
+SOURCE      Synechococcus elongatus PCC 6301 (Synechococcus leopoliensis SAG
+            1402-1)
+  ORGANISM  Synechococcus elongatus PCC 6301
+            Bacteria; Cyanobacteria; Synechococcales; Synechococcaceae;
+            Synechococcus.
+REFERENCE   1
+  AUTHORS   Sugita,M., Sugishita,H., Fujishiro,T., Tsuboi,M., Sugita,C.,
+            Endo,T. and Sugiura,M.
+  TITLE     Organization of a large gene cluster encoding ribosomal proteins in
+            the cyanobacterium Synechococcus sp. strain PCC 6301: comparison of
+            gene clusters among cyanobacteria, eubacteria and chloroplast
+            genomes
+  JOURNAL   Gene 195 (1), 73-79 (1997)
+   PUBMED   9300823
+REFERENCE   2  (bases 1 to 14024)
+  AUTHORS   Sugita,M.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (26-DEC-1996) Mamoru Sugita, Nagoya University, Center
+            for Gene Research; Furo-cho, Nagoya, Aichi 464-01, Japan
+            (E-mail:h44979a@nucc.cc.nagoya-u.ac.jp, Tel:81-52-789-3087,
+            Fax:81-52-789-3081)
+FEATURES             Location/Qualifiers
+     source          1..14024
+                     /organism="Synechococcus elongatus PCC 6301"
+                     /mol_type="genomic DNA"
+                     /strain="PCC 6301"
+                     /db_xref="taxon:269084"
+                     /clone="lambda D5"
+                     /clone_lib="lambda dash II library"
+     CDS             89..406
+                     /note="unnamed protein product"
+                     /codon_start=1
+                     /transl_table=11
+                     /protein_id="BAA22448.1"
+                     /db_xref="GI:2446889"
+                     /translation="MLARISELTKIGTTIFIVAIDQVAEPNSWGSSQLVLLAKIAGAL
+                     KAIPPNPVCTSRHRQAASVSPFRSAIVGTLLQLEAIKNLLTVSVDTIQQNGVLFIFVA
+                     LLR"
+     gene            684..1325
+                     /gene="rpl3"
+     CDS             684..1325
+                     /gene="rpl3"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L3"
+                     /protein_id="BAA22449.1"
+                     /db_xref="GI:2446890"
+                     /translation="MSIGILGTKLGMTQIFDESGKAVPVTVIQAGPCPITQIKTVATD
+                     GYNAIQIGFLEVREKQLSKPELGHLSKAGAPPLRHLLEYRVPSTDGLELGQALTADRF
+                     EAGQKVDVQGHTIGRGFTGYQKRHGFARGPMSHGSKNHRLPGSTGAGTTPGRVYPGKR
+                     MAGRSGNDKTTIRGLTVVRVDADRNLLLVKGSVPGKPGALLNITPATVVGQQA"
+     gene            1370..2002
+                     /gene="rpl4"
+     CDS             1370..2002
+                     /gene="rpl4"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L4"
+                     /protein_id="BAA22450.1"
+                     /db_xref="GI:2446891"
+                     /translation="MVDYVIQDWQGQTAGNITVELRVAKEESAAAIVHRALIRQLANA
+                     RQGTHASKTRSEVRGGGRKPWKQKGTGRARAGSIRSPLWRGGGVIFGPKPRDYSVKMN
+                     RKERRLALRTALISRSADLVVVQEFADQISRPKTRDVAEALTRWGVEPGVKVLLITAD
+                     RDQNVELSVRNLPNVKLITATNLNIFDLLNADRIVSTSAALEKIQEVYGG"
+     gene            1995..2297
+                     /gene="rpl23"
+     CDS             1995..2297
+                     /gene="rpl23"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L23"
+                     /protein_id="BAA22451.1"
+                     /db_xref="GI:2446892"
+                     /translation="MAEANIRALADIIRRPIITEKATRLLENNQYTFEVDPRASKPEI
+                     KAAIEALFQVKVVGLSTQLPPRKARRVGRFAGHRAQVKRAVARLADGDSITLFPEV"
+     gene            2327..3190
+                     /gene="rpl2"
+     CDS             2327..3190
+                     /gene="rpl2"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L2"
+                     /protein_id="BAA22452.1"
+                     /db_xref="GI:2446893"
+                     /translation="MGIRAFRPYTPGTRERVVSDYAEITRNEPEKSLLVSKHRRKGRN
+                     NRGVITCRHRGGGHKRLYRIIDFKRDKRNVPGKIVSIEYDPNRNARISLVYYEDGEKR
+                     YILTPAGVHVGTPIIAGDETPIEVGNAMPLQNIPLGTTVHNVELVAGKGGQIVRAAGA
+                     SAQVVAKEGNYVALKLPSTEVRLVRKECYATIGAVGNAEVRNTSLGKAGRKRWLGRRP
+                     EVRGSVMNPVDHPHGGGEGRAPIGRSGPVTPWGKPALGRKTRKKNKQSDRLIQRRRRK
+                     SSKRGRGGRDA"
+     gene            3222..3497
+                     /gene="rps19"
+     CDS             3222..3497
+                     /gene="rps19"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="30S ribosomal protein S19"
+                     /protein_id="BAA22453.1"
+                     /db_xref="GI:2446894"
+                     /translation="MARSLKKGPFVADHLLRKVEKLNAKGDKQVIKTWSRASTILPQM
+                     IGHTIAVHNGRQHVPVYVTEQMVGHKLGEFAPTRTFRGHTKDKKAGR"
+     gene            3516..3869
+                     /gene="rpl22"
+     CDS             3516..3869
+                     /gene="rpl22"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L22"
+                     /protein_id="BAA22454.1"
+                     /db_xref="GI:2446895"
+                     /translation="MAVDTANEVKAIARYIRMSPSKVRRVLDQLRGRSYREALILLEF
+                     MPYKSCEPILKVLRSAVANAEHNQGLDPTQLVISQAYADMGPSLKRFRPRAQGRAYQI
+                     RKQTCHITIAVAPQV"
+     gene            3894..4628
+                     /gene="rps3"
+     CDS             3894..4628
+                     /gene="rps3"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="30S ribosomal protein S3"
+                     /protein_id="BAA22455.1"
+                     /db_xref="GI:2446896"
+                     /translation="MGQKINPVGFRLGVTQEHRSRWFADPNRYPQLLQEDKKIRDYVR
+                     KNLSNAGIADIRVERKADQVELEIRTARPGVVVGRGGAGIDTLREGLQALLKDSSRQI
+                     RINVIEVERVDADAALLGEYIAQQLERRVAFRRCVRQAIQRAQRAGVQGIKIQVAGRL
+                     NGAEIARTEWTREGRVPLHTLRADIDYAYTTATTTYGILGIKVWVFRGEIIPGQEDAA
+                     PSNVGQPRRRNQQRRRQQFEDRSNEG"
+     gene            4637..5065
+                     /gene="rpl16"
+     CDS             4637..5065
+                     /gene="rpl16"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L16"
+                     /protein_id="BAA22456.1"
+                     /db_xref="GI:2446897"
+                     /translation="MLSPRRTKFRKQQRGRMTGKATRGNTLAFGNFGLQALECSWITA
+                     RQIEASRRAMTRYTRRGGKIWIRIFPDKPITMRPAETRMGSGKGNPEFWVAVVKPGRV
+                     LFEIGGEVAEETAREAMRLASHKLPIKTKFITRDSEAQEA"
+     gene            5068..5262
+                     /gene="rpl29"
+     CDS             5068..5262
+                     /gene="rpl29"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L29"
+                     /protein_id="BAA22457.1"
+                     /db_xref="GI:2446898"
+                     /translation="MALPKIEDVRNLSDADLAEKIAEAKRELFDLRFQRATRQLEKPH
+                     LFKHTKHRLAQLLTVERERQ"
+     gene            5297..5545
+                     /gene="rps17"
+     CDS             5297..5545
+                     /gene="rps17"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="30S ribosomal protein S17"
+                     /protein_id="BAA22458.1"
+                     /db_xref="GI:2446899"
+                     /translation="MAVKERVGVVVSDKMDKTVVVAIEDRTAHPKYGKIVVRTKRYKA
+                     HDEDNRAKTGDRVRIQETRPLSRTKRWTVAEILESVGA"
+     gene            5557..5922
+                     /gene="rpl14"
+     CDS             5557..5922
+                     /gene="rpl14"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L14"
+                     /protein_id="BAA22459.1"
+                     /db_xref="GI:2446900"
+                     /translation="MIQQETYLNVADNSGARKLMCIRVLGSNRRYAGVGDVIIAVVKD
+                     ALPNMPVKKSDVVRAVVVRTKKSLRRDSGNVIRFDDNAAVIINADGNPRGTRVFGPVA
+                     RELRDRNFTKIVSLAPEVI"
+     gene            5922..6263
+                     /gene="rpl24"
+     CDS             5922..6263
+                     /gene="rpl24"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L24"
+                     /protein_id="BAA22460.1"
+                     /db_xref="GI:2446901"
+                     /translation="MAAQKPVRHSVHVKKGDTVQVIAGKDKGTVGEVLQVFPKTSRVL
+                     VKGVNLRTKHVKPRQEGESGQIVVEEASIHSSNVQLYSTTQKVASRVAYTFTEDGRKV
+                     RKLKKTGEIID"
+     gene            6306..6845
+                     /gene="rpl5"
+     CDS             6306..6845
+                     /gene="rpl5"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L5"
+                     /protein_id="BAA22461.1"
+                     /db_xref="GI:2446902"
+                     /translation="MSLKTKYRDIIVPKLMKEFGYTNIHQVPKVVKVTINRGLGEGAQ
+                     NAKALESSLAEIAKIAGQKPVVTRAKKAIAGFKIRAGMPVGLMVTLRGDRRDAFLERL
+                     INLSLPRIRDFRGISPRSFDGRGNYTLGLREQLIFPEITYDSIDQIRGMDITIVTSAN
+                     SDEEGRALLRELGMPFREN"
+     gene            6873..7274
+                     /gene="rps8"
+     CDS             6873..7274
+                     /gene="rps8"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="30S ribosomal protein S8"
+                     /protein_id="BAA22462.1"
+                     /db_xref="GI:2446903"
+                     /translation="MAVNDPIADMLTRIRNASEARHATTVVPASRLARSIAEVLKREG
+                     FIADFEESGEGVQRHLVLSLKYKGKNQQPIIKALKRVSKPGLRVYSNRRDLPRVLGGI
+                     GIAIISTSQGIMTDRDARRQGVGGEVLCYVW"
+     gene            7311..7850
+                     /gene="rpl6"
+     CDS             7311..7850
+                     /gene="rpl6"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L6"
+                     /protein_id="BAA22463.1"
+                     /db_xref="GI:2446904"
+                     /translation="MSRIGKRPIPIPAKVSVAIDGRLVSVKGPKGELSRELPSGVVVT
+                     QEDGNIIVSRADESRLARQRHGLSRTLVANLVEGVDSGFQKRLEIIGVGYRAQVQGTT
+                     LILNVGYSNPVQIEPPEGIQFVVENNTNVVVSGISKEVVGNTAARIRAVRPPEPYKGK
+                     GIRYAGEVVLRKAGKTGKK"
+     gene            7850..8212
+                     /gene="rpl18"
+     CDS             7850..8212
+                     /gene="rpl18"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L18"
+                     /protein_id="BAA22464.1"
+                     /db_xref="GI:2446905"
+                     /translation="MKVSRRESTRRRHRRVRRTIVGTPARPRLSVFRSNNHIYAQVID
+                     DAAGHTLAAASSLDPDLRQSLTSGGNQQASAAVGKLIAERAQAKGVTTVVFDRGGNLY
+                     HGRVKALAEAAREAGLEF"
+     gene            8216..8758
+                     /gene="rps5"
+     CDS             8216..8758
+                     /gene="rps5"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="30S ribosomal protein S5"
+                     /protein_id="BAA22465.1"
+                     /db_xref="GI:2446906"
+                     /translation="MAEEKDKKQSSRRRNNRRTEKESEWQERVVQIRRVTKVVKGGKK
+                     LSFRAIVIVGNERGQVGVGVGKASDVIGAVRKGVADGKKHLVNVPLTRDQSIPHPSTG
+                     EGGAAQVLIRPAAPGTGVIAGGAVRTVLELAGVKNVLAKRLGSKSPLNNARAALEALS
+                     SLRTFQEVAQSRDIPVEQLY"
+     gene            8796..9239
+                     /gene="rpl15"
+     CDS             8796..9239
+                     /gene="rpl15"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L15"
+                     /protein_id="BAA22466.1"
+                     /db_xref="GI:2446907"
+                     /translation="MKLDNLAPQPGAKKRKRRVGRGIAAGQGASCGFGMRGQKSRSGR
+                     PTRPGFEGGQMPLYRRVPKLKHFPLINRKFYTVVNVGALAGLAAGTEVTLESLMAVGI
+                     VTQNDGPLKILGDGELSVSLSVSAAAFTATAQQKIEAAGGSIALV"
+     gene            9361..10680
+                     /gene="secY"
+     CDS             9361..10680
+                     /gene="secY"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="preprotein translocase SecY subunit"
+                     /protein_id="BAA22467.1"
+                     /db_xref="GI:2446908"
+                     /translation="MVVSRGKTPNAQETFLQMAQASGLRGRILITVGLLILCRLGIFI
+                     PVPGIDRVAFSNDLQGNANLGGVIGFLDIFSGGGLSALGVFALGILPYINASIILQLL
+                     TAAVPALEDLQKNEGEAGRRKIAQLTRYVSLGWALLQSIVIAVWVTRYAVTPGPLFTI
+                     QTALALVAGSMFVMWISELITERGIGNGASLLIFLNIVATLPRSLQQTLELAQSGDRS
+                     TVGGIVILLIVFLATIVGIVFVQEGTRRIPVVSARRQVGNRVYSERSSYLPLRLNQGG
+                     VMPIIFASAILVLPFSLANFTSNEVVLRIANYLSPNGPTPWIYALFYLVLIVAFSYFY
+                     SSLILNPVDLAQNLKKMGSSIPGVRPGRATSQYVQGVLNRLTILGAVFLGLVAIIPTA
+                     VEGATRIRTFQGFGATSLLILVGVAIDTAKQVQTYVISQRYEGMVKD"
+     gene            10680..11240
+                     /gene="adk"
+     CDS             10680..11240
+                     /gene="adk"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="adenylate kinase"
+                     /protein_id="BAA22468.1"
+                     /db_xref="GI:2446909"
+                     /translation="MARLIFLGPPGAGKGTQAVVVAEQLQLAHISTGELLRAAVTAQT
+                     PLGIEAKGYMDRGELVPDSLVLGLVRDRLQQPDTANGWILDGFPRNRSQAEALNLLLT
+                     EINQQVDRAVNLDVPDPVIIERMLARGRADDTESVIRRRLEVYREQTAPLIDFFRDRQ
+                     QLLAIDGNSEVAAVTDRLVSALQVAA"
+     gene            11314..11427
+                     /gene="rpl36"
+     CDS             11314..11427
+                     /gene="rpl36"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L36"
+                     /protein_id="BAA22469.1"
+                     /db_xref="GI:2446910"
+                     /translation="MKVRASVRKICEKCRVIKRRGRVMVICANPKHKQRQG"
+     gene            11582..11959
+                     /gene="rps13"
+     CDS             11582..11959
+                     /gene="rps13"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="30S ribosomal protein S13"
+                     /protein_id="BAA22470.1"
+                     /db_xref="GI:2446911"
+                     /translation="MARIAGVDLPRDKRAEIGLTYIYGIGPTRAKEILAKTGVSPDTR
+                     IKDLNDSEVAALRQVVENDYQVEGDLRRLEAMSIKRLMDIGTVRGRRHRAGLPVRGQR
+                     TRTNARTRRGARKTVAGKKKATR"
+     gene            12029..12421
+                     /gene="rps11"
+     CDS             12029..12421
+                     /gene="rps11"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="30S ribosomal protein S11"
+                     /protein_id="BAA22471.1"
+                     /db_xref="GI:2446912"
+                     /translation="MARPTKKSGPRKQKRNVPSGVAHIQSTFNNTIVSIADPAGEVIS
+                     WASAGSSGFKGAKKGTPFAAQTAAEAAARRAIDQGMRQLEVMVSGPGSGRETAIRALQ
+                     SAGLEITLIRDVTPIPHNGCRPPKRRRV"
+     gene            12467..13396
+                     /gene="rpoA"
+     CDS             12467..13396
+                     /gene="rpoA"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="DNA-dircted RNA polymerase alpha chain"
+                     /protein_id="BAA22472.1"
+                     /db_xref="GI:2446913"
+                     /translation="MTFQVECVESRTEADQGQYGRFSIEPLARGQGTTVGNALRRVLL
+                     SNLEGTAVTAVRIGGVNHEFATIPGVREDVLDILLNVRELVVHAHSPQPQIGRLRVVG
+                     PATVTAADVDFGPEVEVINPNHYIASLSEGATLEMELKVEWGTGYRAIDRSHDETTAL
+                     DFLQLDAVFMPVRRVNYSVEDARVGESTAIDRLVLEVWTNGSLSPQEALSQAASCLVA
+                     LFEPLKNVSVGSTHTADPEPTPESQTPIEDLQLSVRAYNCLKRAQVNSVADLLSYTYE
+                     DLLEIKNFGQKSAEEVVEALERIGIKLQESKVS"
+     gene            13432..13782
+                     /gene="rpl17"
+     CDS             13432..13782
+                     /gene="rpl17"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="50S ribosomal protein L17"
+                     /protein_id="BAA22473.1"
+                     /db_xref="GI:2446914"
+                     /translation="MRHRCNVPQLGRPADQRKALLRSLTTEIIRNGTVTTTKARAKAV
+                     RSEVERMVTLAKDGSLAARRQALGYIYDKQLVHLLFEQAPERYAKRQGGYTRILRTVR
+                     RRGDNAEMAIIELT"
+     gene            13782..>14024
+                     /gene="hisT"
+     CDS             13782..>14024
+                     /gene="hisT"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="tRNA pseudouridine synthase I"
+                     /protein_id="BAA22474.1"
+                     /db_xref="GI:2446915"
+                     /translation="MMAIAEEPAQAPVIQRIALVIQYLGQGFCGWQRQPRQRSVQGEL
+                     ESAIAAVVGHPVSVQSAGRTDTGVHRAAQVAHFETTS"
+ORIGIN      
+        1 gaattcggat caatgccatt cagaccttcc tcgggtagcg tgattgctgg atacagtcgc
+       61 agtgaccttg cttattttgg cctaggcggt gctggcgcgg atctcagaac tgaccaaaat
+      121 cgggacaaca atttttatcg tcgctattga tcaagttgcc gaaccgaata gttggggctc
+      181 aagtcagctg gttctgttgg caaagatcgc tggggccttg aaagcaatcc ctcccaaccc
+      241 tgtatgtact agccggcatc gacaggctgc gtctgtgagt ccttttcgat ctgcgatcgt
+      301 gggcactcta ctccagcttg aagcaatcaa aaatctcctt accgtatcgg tagacacgat
+      361 tcagcaaaat ggtgtattgt ttatatttgt cgctctgttg cggtaagcac gacccaacgc
+      421 tctcgtgcct aggccgctgc aaaccagcga taatttcgtt gccgaccgga aaacgctctg
+      481 gcaatttgca agattagtct tgcagttcag gatactgaag ttttgcttca agtccttgcc
+      541 agtcagatag caggtttcac cagcgatcgc ctcccacgtc gacacgaata attgcttggg
+      601 gatgaaacat aacctgtttc acccgctcgg gctgctttgc agtctgagaa cctcgtagcg
+      661 ttgatgcagg agtctcattg accgtgtcta tcggcatact cggcaccaag ctcggcatga
+      721 cccagatttt cgatgaatct ggcaaggcag ttcccgtaac tgtcattcag gctgggcctt
+      781 gcccaatcac tcagatcaaa accgtggcga cggatggtta caacgccatc caaatcggtt
+      841 tcttggaagt gcgtgaaaag caactgtcca agcccgagct aggtcacctc tccaaagcag
+      901 gtgcaccgcc ccttcgtcac ctcttggagt accgcgttcc cagcaccgat ggtttggagc
+      961 tgggtcaagc cctgaccgcc gatcgctttg aagcgggtca aaaggtggat gtgcaaggtc
+     1021 acaccattgg tcgtggtttc accggttatc aaaagcgtca cggttttgcc cgtggcccta
+     1081 tgagccacgg ttcgaaaaac catcgtctcc ccggttcgac gggtgcaggg acgacgccgg
+     1141 gtcgcgtcta tcccggtaag cggatggccg gtcgctctgg caacgacaaa acgacgattc
+     1201 gcggcttgac cgttgttcga gtcgatgcag accgtaatct gcttctagtc aaaggttcgg
+     1261 ttccgggtaa accaggcgct ctgctcaaca tcacgcccgc cactgtggtc gggcagcagg
+     1321 cctaagaaga tgtgggcgat tgcagaactg actcgtttgg tgcagaagca tggttgatta
+     1381 cgtcattcag gattggcaag gccaaaccgc aggcaacatc acagttgagc tgcgggtcgc
+     1441 gaaggaagaa agtgctgcgg cgatcgtgca ccgcgccttg attcgtcagt tggccaatgc
+     1501 acgccaaggg acccacgcca gcaaaactcg ttcggaagtt cggggcggtg gtcgcaagcc
+     1561 ttggaaacaa aaaggaacgg gtcgcgcccg tgccggttcg attcggtctc ccctctggcg
+     1621 gggcggcggt gtcatctttg ggcccaaacc ccgcgattac agcgtcaaga tgaaccgcaa
+     1681 agagcgtcgt ttggcgctgc ggactgccct gatcagtcgg agtgcggatc tggtggttgt
+     1741 gcaagagttt gccgaccaaa tcagccgccc caagaccaga gatgtcgctg aagccttgac
+     1801 tcgttggggc gttgagcccg gtgtcaaggt tctgttgatc acggccgatc gcgaccaaaa
+     1861 cgttgagctg tcggttcgca acttgccgaa tgtcaaattg atcacggcta cgaacctcaa
+     1921 catttttgat ctgctgaatg cagatcgcat tgtcagcacc agtgcagcgc tggagaagat
+     1981 tcaggaggtc tacggtggct gaagctaata ttcgtgcact cgcggatatc atccgtcgcc
+     2041 cgatcatcac cgagaaggca acgcgcctac tggaaaacaa ccagtacacc tttgaagtcg
+     2101 atccccgcgc gagcaagcct gaaatcaagg ctgcgatcga agccctcttc caagtcaaag
+     2161 tggtgggttt aagtacgcag ttaccaccgc ggaaagctcg tcgtgttggc cgttttgccg
+     2221 gtcaccgtgc ccaggtcaag cgagctgttg cccgcttggc tgatggcgac agcatcacgc
+     2281 tcttccccga agtttgagtc gtcgcaagta ggaaatcacc aagattatgg gaatccgagc
+     2341 ctttcggccc tacacaccgg gaacccgcga acgcgtcgtc tctgactacg ctgaaattac
+     2401 gcgtaacgag cctgaaaagt cgctgctggt ttccaagcat cggcgtaaag gccgcaataa
+     2461 ccgcggtgtg atcacctgcc gtcaccgagg cggcggtcat aaacgtctct atcgcatcat
+     2521 tgacttcaag cgggacaagc gaaacgttcc cggcaaaatc gtctcgattg agtacgatcc
+     2581 gaaccggaat gctcgtattt cgctggtcta ttacgaagat ggcgaaaagc gctacatctt
+     2641 gacccctgca ggggttcacg ttggcacgcc gattattgct ggcgatgaaa cgccgatcga
+     2701 agtcggcaac gccatgccct tgcaaaacat ccccttgggt accacggttc acaacgttga
+     2761 acttgtggct ggcaagggcg gacaaattgt tcgtgcggcg ggtgcttcgg ctcaagtcgt
+     2821 tgcgaaagaa ggcaactatg tagcactcaa gttgccctcg accgaggtgc gcttggttcg
+     2881 caaagagtgc tacgccacga tcggtgcggt tggcaacgcc gaagtccgca acaccagctt
+     2941 gggtaaagcg ggccgcaaac gctggctcgg tcgccgtccg gaagtgcgcg gtagcgtcat
+     3001 gaacccggtg gatcaccccc acggtggtgg tgaaggtcgg gcgccgatcg gtcgcagtgg
+     3061 cccggtcacc ccttggggca agccagctct gggtcggaaa acacggaaga agaacaagca
+     3121 gagcgatcgc ttgattcagc gtcgtcgccg caagtcttcc aaacggggtc gcggtggtcg
+     3181 cgacgcgtaa ggcttctgct attcacggac ggagttgaat tatggctcgc tcactcaaaa
+     3241 aaggtccttt tgtcgcagac catctgctgc gcaaagtcga aaaactgaat gccaaaggcg
+     3301 acaagcaagt catcaagact tggtcgcgcg cctcaaccat tcttccgcag atgatcggtc
+     3361 acaccattgc ggtgcacaac ggtcgtcaac atgtgccggt ctacgtgacc gagcagatgg
+     3421 tgggtcacaa gctgggtgaa ttcgccccga cccgcacctt ccgcggtcat accaaggata
+     3481 agaaagccgg tcgttgagat ttctgagata gatccatggc tgtagatact gcaaacgaag
+     3541 tcaaggcgat cgcccgctat atccgtatgt cacccagtaa ggtgcgtcgg gtgctcgatc
+     3601 agctgcgcgg acgttcgtac cgcgaggcgc tgatcttgct ggagttcatg ccttacaagt
+     3661 cctgcgaacc gatcctgaag gttctgcgat cggcggttgc caacgcagag cacaatcagg
+     3721 gtcttgatcc cacccagttg gtgatcagtc aggcctacgc tgacatgggc ccgtccctga
+     3781 agcgtttccg gcctcgggca caaggtcgtg cttaccaaat ccgcaagcag acctgtcaca
+     3841 tcacgatcgc tgtggccccg caagtctagg acgcgaacag agagggaata cctgtgggac
+     3901 agaaaattaa tccagtcgga ttccgcctcg gcgtcaccca agagcaccgc tcccgttggt
+     3961 tcgccgaccc caatcgttat ccgcaactgc tgcaagaaga taaaaaaatc cgcgactacg
+     4021 ttcgcaaaaa cctgagcaat gctggcattg ccgacattcg ggttgaacgg aaagccgatc
+     4081 aagttgagct ggaaattcgt acggctcgtc ctggcgtggt cgttggtcgt ggtggcgctg
+     4141 ggattgacac cctgcgtgag ggtctgcaag cactgctgaa agactccagt cgccaaattc
+     4201 gcatcaacgt catcgaagtt gagcgggttg atgccgatgc agccttgctt ggtgagtaca
+     4261 tcgctcaaca gctcgagcgt cgggttgctt tccgccgctg tgtgcgtcaa gccattcaac
+     4321 gggctcagcg cgctggcgtt caaggcatca agattcaagt ggctggccgc ttgaatggag
+     4381 cagaaattgc tcggaccgag tggacgcgtg aaggtcgagt gccgctgcat acgctgcgag
+     4441 ctgacatcga ctacgcctac accacggcca ccacgaccta cgggatcttg gggattaagg
+     4501 tttgggtctt ccggggtgaa attatccctg gccaagaaga cgcagccccc agtaatgtcg
+     4561 gtcagccgcg tcgtcgcaat caacagcgcc gtcgccagca gtttgaagat cgctctaacg
+     4621 aaggttaaga gtcaccatgc tcagtccacg tcgtaccaaa ttccggaagc agcaacgtgg
+     4681 ccgcatgacc ggcaaagcga cgcgcgggaa tactctcgcc ttcggtaact tcggtctgca
+     4741 ggcgctggaa tgctcctgga tcacggctcg ccaaattgag gctagccgtc gtgccatgac
+     4801 ccgctacacc cgtcggggcg gcaaaatctg gattcggatt ttccccgata agccgatcac
+     4861 gatgcgccct gcagaaaccc ggatgggttc tggtaaaggg aacccggaat tctgggttgc
+     4921 agtggttaaa ccgggccgcg tcctctttga aatcgggggc gaggtcgctg aagagacggc
+     4981 tcgtgaagca atgcgtctgg cttcgcacaa actgccgatc aaaaccaagt tcatcactcg
+     5041 cgatagcgaa gctcaggagg cgtagagatg gctctgccga agattgagga cgtgcggaat
+     5101 ctcagtgacg ccgaccttgc tgaaaagatt gccgaagcca aacgggaact gtttgatctc
+     5161 cgttttcaac gggccacccg gcagcttgaa aagccccatc ttttcaaaca caccaaacat
+     5221 cgtctggctc agctgctcac cgttgaacgt gagcgccaat agggtcggaa tcatctaagc
+     5281 gagagttcag gttgctatgg cagtcaaaga acgcgtgggc gtcgtcgtta gcgacaagat
+     5341 ggataaaacc gtcgtcgtcg cgatcgaaga ccgtactgcc caccccaagt acggaaagat
+     5401 cgttgttcgg acgaagcgct acaaggcgca tgatgaggac aatcgcgcca aaactggcga
+     5461 tcgcgtccgc attcaggaaa cccgtccgct gagccgcacc aagcgctgga ctgtggctga
+     5521 gattctcgaa agcgtcggtg cctgaggaag ccatccatga ttcagcagga aacctatctc
+     5581 aacgttgccg ataacagtgg cgctcggaag ctaatgtgca tccgcgttct gggcagcaac
+     5641 cgccgctatg ctggcgtcgg cgatgtgatc attgccgtcg ttaaggatgc gctgcccaac
+     5701 atgccggtta aaaaatcgga cgtggtgcgg gccgtggttg tgcggaccaa aaaaagcttg
+     5761 cgtcgcgata gcggcaatgt catccgtttc gatgacaacg cagcagtgat catcaacgct
+     5821 gatggcaacc ctcgcggtac gcgggtcttt ggacctgtgg ctcgggagtt gcgcgatcgc
+     5881 aacttcacca aaattgtttc gcttgctccg gaggtgatct aatggctgct cagaagccag
+     5941 ttcgccacag cgttcacgtc aaaaaaggtg acaccgttca ggtgattgcc ggcaaagaca
+     6001 aaggcaccgt gggcgaagtg ctgcaggttt tcccgaaaac cagccgtgtg ttggtcaaag
+     6061 gtgtcaacct tcgcaccaaa cacgtcaagc ctcgccaaga aggggagtct ggacaaatcg
+     6121 tggttgagga agcctcgatt catagctcca atgtgcagct ctattccact acccaaaaag
+     6181 tggcgagccg agttgcctac acctttacgg aagacggtcg gaaagtgcgc aagctcaaaa
+     6241 agaccggcga aatcatcgac tgattcccca gtccctgacc cagcccaggg aaatgagagt
+     6301 tttctatgtc cctcaaaacc aagtaccgag acatcatcgt tccgaaattg atgaaggagt
+     6361 tcggctacac gaacattcat caagttccca aagttgtcaa agtgacgatt aaccgaggcc
+     6421 tgggcgaagg agctcagaat gccaaggcgt tagagtcctc cctcgctgaa attgccaaga
+     6481 tcgctggtca aaagccagtc gtgacccggg cgaaaaaagc gatcgcaggc ttcaagattc
+     6541 gtgctggcat gcccgtcggc ctgatggtga ccctgcgggg cgatcgccgt gacgcgttcc
+     6601 tcgaacggct gatcaacctg tccttgccgc gaattcgtga ctttcgtggc atcagccccc
+     6661 gcagctttga tgggcgtggg aactacaccc ttggtctgcg tgagcagctg atctttcccg
+     6721 agatcactta cgacagcatc gaccagatcc gtggcatgga catcaccatt gtcaccagtg
+     6781 ccaacagcga cgaagaaggc cgtgcgctgc tgcgtgagct gggcatgcct ttccgggaga
+     6841 actaagaggc acttccaagc gaagaggaaa ttatggcggt caacgatccg attgcagata
+     6901 tgctgacgcg catccggaat gccagtgaag cgcgccacgc gaccaccgtg gtgcccgcat
+     6961 cccggcttgc tcgcagcatt gctgaagtgc tcaagcgcga aggcttcatt gccgactttg
+     7021 aagaaagcgg cgaaggcgtc caacgtcacc ttgtgctgag cctgaaatac aagggtaaaa
+     7081 atcagcagcc catcatcaaa gccctcaagc gggtcagcaa gcctggcttg cgagtctatt
+     7141 ccaaccgtcg tgacctaccg cgcgttttgg gcggtattgg catcgcgatt atctccactt
+     7201 cccaaggcat catgacggac cgagatgcgc gccgtcaggg agtgggtggc gaagtgctct
+     7261 gctacgtctg gtagtcggcc ggttgtcgga gtccccacag gagtcgtcca gtgtctcgta
+     7321 ttggtaaacg tcccatccct atccccgcaa aggtcagtgt cgcgatcgac ggccgtttgg
+     7381 tgtccgtaaa aggcccaaaa ggtgaactca gtcgtgagct gcctagcggc gttgtcgtga
+     7441 cccaagaaga cggcaacatt atcgtgtcgc gcgctgacga atcgcgcctt gcccgccaac
+     7501 gtcatggtct tagccggacg ctggttgcca acttggttga gggcgttgat tcaggcttcc
+     7561 aaaagcgctt ggaaatcatc ggcgttggct atcgggccca ggttcaaggc accactttga
+     7621 tcctgaacgt tggctacagc aaccccgtgc aaattgaacc gccggaaggt attcagtttg
+     7681 tggtcgagaa caacaccaac gtggttgtta gcggcatcag caaggaagtc gtgggtaaca
+     7741 cggctgcccg tatccgcgcc gtacggcccc ccgaacccta caagggcaaa gggattcgct
+     7801 atgcaggcga ggtcgtcctc cgtaaggctg gcaagacagg taagaagtga tgaaagtaag
+     7861 tcgtcgcgaa tccacccgtc gcagacaccg ccgtgttcgc cgcacgattg tcggcacgcc
+     7921 ggctcgtccg cgtctctcgg tatttcgctc caacaaccac atttacgcgc aagtgatcga
+     7981 cgatgctgca ggccacaccc tggcagcagc atccagtctc gatcccgatc tgcgccaatc
+     8041 attgacgtct ggtggcaacc agcaagcttc ggcagccgta ggcaaattaa ttgccgaacg
+     8101 ggctcaagcc aagggcgtta cgactgtcgt gttcgatcgc ggcggcaacc tttaccatgg
+     8161 tcgcgtcaag gctttggccg aagcggctcg cgaagctgga ctggagttct aggtgatggc
+     8221 tgaagagaaa gacaagaagc agtcttcccg tcggcgcaac aatcgtcgca ccgagaagga
+     8281 aagtgagtgg caagagcggg tggttcaaat ccgtcgcgtc accaaagtgg ttaagggcgg
+     8341 taaaaagctc agcttccgag cgatcgtgat cgtcggtaac gaacgtggcc aagtcggtgt
+     8401 tggcgttggc aaagccagcg atgtgattgg tgcggtgcgc aaaggtgtgg ccgatggcaa
+     8461 aaagcatctc gtcaatgtgc cgttgacccg cgatcaatct atccctcacc ccagcacagg
+     8521 tgaaggtggc gcagctcaag ttctgatccg tcctgctgct cctggtaccg gtgtaattgc
+     8581 cggtggtgca gtccggactg ttctagagct cgctggcgtc aaaaacgtgt tggcgaagcg
+     8641 cttgggttcc aagagcccgc tcaacaatgc gcgtgctgct ctggaagccc tctccagcct
+     8701 gcggaccttc caagaggttg ctcagtcccg cgacattccg gtcgagcaac tgtactaggt
+     8761 cgttttcttt gctcttggtt tcaaggtgat ggttcatgaa actcgataat ctcgctccgc
+     8821 aaccgggagc gaaaaagcgt aagcgccgag tgggtcgggg cattgccgct ggccaaggcg
+     8881 caagctgcgg tttcggtatg cgcggtcaaa agtcgcgatc gggtcgtccg actcgaccgg
+     8941 gctttgaggg ggggcaaatg cccctctacc gccgcgttcc caagctgaag cacttcccgc
+     9001 taatcaaccg caagttctat acggtggtca atgtgggtgc tctggccggt ttggcggctg
+     9061 gaactgaagt gacacttgag agcttgatgg ctgtaggaat tgtcactcag aatgacggtc
+     9121 ctctcaaaat cctaggcgac ggtgaactgt cggtgagtct gtcggtgtcg gctgctgcat
+     9181 ttacggcgac ggcacaacag aaaattgaag cagcaggcgg tagcatcgcg ctggtctaga
+     9241 tcagcgatcg caggttccgt tgccaaaagc caatgctgaa tgggggcaga cacctgcccc
+     9301 tcttccgttg tttaagctgg ctttagctcg gggcctagat gtcccctttg gagtattgct
+     9361 atggtcgtca gtcgcgggaa gaccccaaac gcccaagaaa cttttttaca gatggcccaa
+     9421 gcctcgggac tgagggggcg cattctgatc acggtcggcc tgttaatcct gtgtcgactg
+     9481 ggcattttta ttccggttcc cggcattgat cgagttgcct ttagcaacga tctgcagggc
+     9541 aatgcaaatc tcggcggcgt gattggcttt ctcgatattt tttcgggggg tggtctgtcc
+     9601 gctttgggcg tttttgccct tgggattttg ccctacatta atgcctcgat cattttgcag
+     9661 ttgctaactg ccgctgtgcc ggctctcgaa gacctgcaaa aaaatgaagg tgaggcaggc
+     9721 cgccgcaaga tcgcgcagtt aacccgctac gtctccctcg gctgggcctt gctccagagt
+     9781 attgttatcg ccgtatgggt gacccgctac gccgtcacac ccggacccct gttcaccatt
+     9841 cagacggctt tggccttggt ggccggctcc atgtttgtga tgtggatcag tgagttgatc
+     9901 actgagcgtg gcattggcaa tggggcatca ctgctgatct ttctcaacat tgttgcgacc
+     9961 ttgccgcgat cgctgcagca gaccttagag ctcgcccaga gcggtgatcg cagcactgtg
+    10021 ggtgggattg tcatcctgct gatcgtcttc ttggccacga ttgttggcat cgtcttcgtc
+    10081 caagagggga cgcggcggat tccggtcgtc tcggctcgtc ggcaagttgg gaatcgcgtc
+    10141 tacagcgagc gcagtagcta tctgccgctg cgcctcaacc aaggtggtgt gatgccgatc
+    10201 atctttgcct cggcgatttt ggtgctgccc ttctccttgg ctaacttcac cagtaacgaa
+    10261 gttgtgctgc ggattgctaa ctacctcagc cccaatggtc cgaccccttg gatttacgcc
+    10321 cttttctacc ttgtgttgat tgtggcgttt agctatttct actcctcctt gatcctcaac
+    10381 cccgtcgact tggctcagaa cctcaaaaaa atggggtcga gtattcctgg agtgcgtcct
+    10441 ggtcgagcaa ccagccaata cgtacaggga gtgctcaacc gtctgacaat cctgggggca
+    10501 gtgttcctgg gtttggtggc catcatcccc acggctgttg aaggtgcgac tcggattcgg
+    10561 actttccaag gctttggggc aacctcgctg ctgatcctgg tgggtgtcgc gatcgatacc
+    10621 gccaagcagg tgcaaaccta cgtgatctcg cagcgctatg aaggaatggt gaaagactag
+    10681 tggcgcgact gatttttctg gggccgcctg gggcaggtaa agggacacaa gcagttgttg
+    10741 tcgcggaaca gctgcaattg gcccacatct cgacgggtga gcttctgcgg gcagctgtga
+    10801 ctgctcaaac acccctaggc atcgaagcta aaggctatat ggatcgtggt gagctagtcc
+    10861 cagattcact agtgcttggc ctcgtccgcg atcgccttca gcaacctgat acggctaacg
+    10921 gctggatctt ggatgggttt ccccgtaacc gcagtcaggc ggaagccctt aacctgttgc
+    10981 tgaccgagat caatcaacag gttgatcgcg ccgtcaatct cgatgttccc gatccggtaa
+    11041 tcatcgagcg tatgctggct cgcggccgag cagacgatac cgaatcagtg attcggcgtc
+    11101 ggctagaggt ctaccgcgag caaactgctc cgctgattga cttcttccgc gatcgccagc
+    11161 aactgttagc gatcgatggc aactcagaag tggccgcagt cacagaccgt ttagtcagtg
+    11221 ccttgcaggt tgctgcctaa acgaaccacc tccctaccca gccttgtcga actgtggtag
+    11281 tatcaaaact ttggagtctt gccgaatact ggcatgaaag taagagcttc tgttcgcaaa
+    11341 atctgcgaaa aatgccgcgt catcaaacgt cgcggtcgtg tgatggtcat ctgtgctaac
+    11401 cccaagcata agcaacgcca aggctaggcg atcgctcgct ccccgttcgc gagtgccctg
+    11461 ctgttggctt ctgctgtcgg agcttcagac cagactatcc tcaggcgatt cgcgcctgtc
+    11521 agcatcatcg aattttgcat tgttttacct cacgagtagc caaagatagg gagtagagag
+    11581 cgtggcacgg attgctggcg tggatctgcc ccgcgacaag cgggctgaga tcggccttac
+    11641 ctacatctat ggaattggtc ctacccgggc caaagaaatt ctcgccaaaa ccggcgttag
+    11701 ccctgatacc cgcatcaagg atctcaacga ttctgaagtt gcggctctgc gccaagtggt
+    11761 cgagaacgat taccaggtcg aaggcgatct gcgccgtttg gaagccatga gcatcaagcg
+    11821 cctcatggat attggcactg ttcgcggtcg tcgccatcgg gctggcttgc cagtgcgggg
+    11881 tcagcggact cggaccaatg ctcggacccg ccgaggtgct cgtaagaccg tcgctggtaa
+    11941 gaagaaagcg acccgttaag gtctttaatc gctctgctgt tgagccttgg gttcatcagc
+    12001 attttgtctt gctcagacga ggtttactat ggctcgaccc actaaaaaat cggggccccg
+    12061 caaacagaag cgcaacgttc ctagcggtgt tgcccacatc caatccacct tcaataacac
+    12121 gatcgtttcg atcgctgacc ccgccggtga agtcatctct tgggcttccg ctggttctag
+    12181 cggcttcaaa ggcgccaaaa aggggactcc ctttgcagca caaactgcgg ctgaggctgc
+    12241 tgcccgtcgg gcgatcgacc aaggcatgcg ccagctcgaa gtgatggtca gtggcccagg
+    12301 ctcgggtcgt gaaaccgcca tccgggcgtt gcaaagcgct ggcctagaaa tcaccctgat
+    12361 tcgtgacgtc acgccgattc ctcacaacgg ctgccgcccg cccaaacgtc gtcgcgttta
+    12421 gaccgcgatc gctccgtctg catttcgaga tccccgagga acccctgtga catttcaagt
+    12481 cgaatgcgtc gagagccgca ctgaagccga ccaagggcaa tatggccgct tttccatcga
+    12541 gcctctcgct cgtgggcaag gtacaacggt tggcaatgcg ctccggcgtg tgttgctctc
+    12601 caacctagaa ggaacagccg tcacagctgt ccggatcggt ggtgtcaacc acgaattcgc
+    12661 aaccatcccc ggcgtgcggg aggatgtcct cgacatcttg ctcaacgtcc gtgagttggt
+    12721 ggtgcatgcc cacagtcctc agccccagat tggtcggctg cgggtggtgg gtccggcaac
+    12781 tgtcacggct gctgatgttg actttggccc tgaagttgaa gtcatcaatc ccaatcacta
+    12841 catcgcttcg ctctctgagg gtgccaccct cgagatggag ttgaaagttg agtggggcac
+    12901 gggctaccgc gccatcgacc gcagccatga cgaaacgact gccctagact ttctgcaact
+    12961 tgatgctgta ttcatgccgg tgcgtcgggt gaactacagc gttgaagatg cgcgcgtcgg
+    13021 ggaatccacg gccatcgacc gcctcgtact cgaggtttgg accaatggca gtctctcgcc
+    13081 ccaggaagca ctgagccaag ccgcctcttg tctcgtcgcg ctgttcgagc cgttgaaaaa
+    13141 cgtcagtgtt ggcagtaccc acaccgccga tcctgagccc acgcccgaaa gccaaacgcc
+    13201 gatcgaagat ctgcagcttt cggttcgggc ttacaactgc ctgaagcggg cgcaagtgaa
+    13261 ctccgttgct gacttgctga gctacaccta cgaagatcta ctggagatca aaaacttcgg
+    13321 ccagaaatcg gctgaagagg tggtcgaagc tctcgagcgc atcggcatta agctccagga
+    13381 atcgaaagtt tcctgagtct gtccgtttgt tttgcgaaca cggtttctcc catgcgtcat
+    13441 cgttgtaatg ttccacagct gggtcgccca gctgaccagc gcaaggctct gttgcgctct
+    13501 ctgaccaccg aaattattcg gaatggtacg gttacgacca ccaaagctcg tgccaaagcc
+    13561 gtgcgttctg aagtggagcg gatggtgacc ctcgccaaag atggcagcct agccgctcgg
+    13621 cgtcaggcct tgggttacat ctacgacaaa cagctggttc acttgctgtt tgagcaggct
+    13681 cccgagcgct acgcaaaacg tcaaggtggc tacacccgca tcttgcggac tgtccgccgc
+    13741 cgtggcgaca atgcagaaat ggccatcatt gagttgactt agtgatggcg atcgcagaag
+    13801 aacccgctca agcccctgtg attcagcgta ttgcgctggt cattcagtac ttgggtcaag
+    13861 gcttctgcgg ctggcagcgt caaccgcgcc agcgttctgt gcagggtgaa ctcgagtctg
+    13921 cgatcgcagc tgttgtgggt catcccgtct cagtacagtc cgccggacgt actgataccg
+    13981 gcgttcatcg tgccgcccag gtggcacatt tcgaaacgac tagt
+//
+LOCUS       AB000126                1728 bp    DNA     linear   BCT 26-MAY-1999
+DEFINITION  Klebsiella pneumoniae DNA for mannosyl transferase,
+            phosphoribosyl-ATP pyrophosphohydrolase, complete cds.
+ACCESSION   AB000126
+VERSION     AB000126.1  GI:2588931
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase; phosphoribosyl-AMP
+            cyclohydrolase; mannosyl transferase.
+SOURCE      Klebsiella pneumoniae
+  ORGANISM  Klebsiella pneumoniae
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Klebsiella.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 1728)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical University
+            Aichi Medical University, Department of Microbiology and Immunology
+            Department of Microbiology and Immunology; Yazako Yazako, Nagakute,
+            Aichi 480-11, Japan (Tel:0561-62-3311(ex.2271), Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..1728
+                     /organism="Klebsiella pneumoniae"
+                     /mol_type="genomic DNA"
+                     /strain="K53 serotype O3"
+                     /db_xref="taxon:573"
+     gene            159..983
+                     /gene="wbdC"
+     CDS             159..983
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23228.1"
+                     /db_xref="GI:2588932"
+                     /translation="MDMLHLSARPDARTVVTYHSDIVKQKRLMKLYQPLQERFLASVD
+                     CIVASSPNYVASSQTLKKYQDKTVVIPFGLEQHDVQHDPQRVAHWRETVGDNFFLFVG
+                     AFRYYKGLHILLDAAERSRLPVVIVGGGPLEAEVRREAQQRGLSNVVFTGMLNDEDKY
+                     ILFQLCRGVVFPSHLRSEAFGITLLEGARFARPLISCEIGTGTSFINQDKVNGCVIPP
+                     NDSQALVEAMNELWHNDETASRYGENSRRRFEEMFTADHMIDAYVNLYTTLLESKS"
+     regulatory      992..1014
+                     /regulatory_class="terminator"
+     gene            complement(1022..1618)
+                     /gene="hisI"
+     CDS             complement(1022..1618)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /note="phosphoribosyl-AMP cyclohydrolase"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP pyrophosphohydrolase"
+                     /protein_id="BAA23229.1"
+                     /db_xref="GI:2588933"
+                     /translation="MLTEQLDWEKTDGMMPAIVQHAVSGEVLMLGYMNKEALEKTEAT
+                     GKVTFYSRTKQRLWTKGETSGNVLNVVSITPDCDNDTLLVLVNPIGPTCHKGTTSCFG
+                     ETGHQWLFLYQLEQLLAERKHADPESSYTAKLYASGTKRIAQKVGEEGVETALAATVN
+                     DRFELKNEASDLMYHLLVLLQDQGLDLGEVIDNLKSRH"
+ORIGIN      
+        1 aagagacagg acctgtcgcc tacgaagacc atcgggtcat ttataataag cagctttttg
+       61 aaattgcctc cacgccgttt tcgttgaaag cgttaaagcg ttttaagcag attaaagatg
+      121 attacgacat catcaactac cattttccgt ttccattcat ggatatgttg catctctcgg
+      181 cgcggcctga cgccagaacg gtggtgacct atcactcgga tattgtgaaa caaaaacggt
+      241 taatgaagtt gtaccagccg ctgcaggagc gattcctcgc cagcgtagac tgcatcgtcg
+      301 cctcgtcgcc caactacgtg gcctccagcc agaccctgaa aaaatatcag gataaaaccg
+      361 tggtgatccc gtttggtctg gagcagcatg acgtgcagca cgatccgcag cgggtggcgc
+      421 actggcggga aaccgtcggc gataacttct tcctcttcgt cggcgctttc cgctactaca
+      481 aagggctgca cattctgctg gatgccgccg agcgtagccg gctgccggtg gtgatcgtcg
+      541 ggggcgggcc gctggaggcg gaagtgcggc gtgaggcgca gcaacgcggg ctgagcaatg
+      601 tggtgtttac cggcatgctc aacgacgaag ataaatacat tctcttccag ctctgccggg
+      661 gcgtggtctt cccctcgcat ctgcgctccg aggcgtttgg cattacgtta ctggaaggcg
+      721 cgcgcttcgc caggccgctg atctcttgcg agatcggcac cgggacctcg ttcattaacc
+      781 aggacaaagt gaatggctgt gtgatcccgc cgaatgacag tcaggcgctg gtggaggcga
+      841 tgaatgagct ctggcataac gatgaaaccg ccagccgcta tggcgaaaac tcgcgtcgtc
+      901 gttttgaaga gatgtttact gccgaccata tgattgacgc ttacgtcaat ctctacacta
+      961 cgctgctgga aagcaaatcc tgaggtcagc tacccccgcc gttgcggcgg gggttaacgc
+     1021 gttagtgacg actcttcaga ttatcaatca cttccccgag atccagcccc tggtcctgca
+     1081 gcagcaccag caggtggtac atcaaatccg acgcctcatt cttcagctcg aagcggtcgt
+     1141 tcaccgtggc ggccagcgcg gtctccacgc cttcttcccc cactttctgc gcaatacgct
+     1201 tggtgccgct ggcgtacagc ttcgccgtgt aggagctctc cgggtcggcg tgcttacgct
+     1261 cggccagcag ctgctccagc tgatagagga acagccactg gtggccggtt tcgccgaagc
+     1321 agctggtggt gcctttgtgg caggtcggcc cgatcgggtt caccagcacc agcagcgtat
+     1381 cgttgtcaca atccggcgtg atgctcacta cgttgaggac attgcccgag gtttcaccct
+     1441 tggtccacag ccgttgtttg gtgcgtgagt aaaaggtgac cttgccggtg gcttcggttt
+     1501 tctccagcgc ctccttgttc atgtagccca gcatcagcac ttcgccggat acggcgtgct
+     1561 gcacgatggc cggcatcatg ccgtccgttt tttcccagtc cagctgttca gtcaacatac
+     1621 ccttatctcc acgccctgtg ccgccaggta cgctttcagt tcgccaatat taataatctg
+     1681 tttgtggaat accgaggccg ccagcgcgcc gtcaacgttg gcgtcgcg
+//
+LOCUS       AB000176                 241 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Escherichia coli DNA for mannosyl transferase, phosphoribosyl-ATP
+            pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase, partial
+            cds.
+ACCESSION   AB000176
+VERSION     AB000176.1  GI:2588934
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP
+            cyclohydrolase; phosphoribosyl-ATP pyrophosphohydrolase;
+            phosphoribosyl-AMP cycl ohydrolase; mannosyl transferase.
+SOURCE      Escherichia coli
+  ORGANISM  Escherichia coli
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Escherichia.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 241)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical
+            University, Department of Microbiology and Immunology; Yazako,
+            Nagakute, Aichi 480-11, Japan (E-mail:sugiyama@aichi-med-u.ac.jp,
+            Tel:0561-62-3311, Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..241
+                     /organism="Escherichia coli"
+                     /mol_type="genomic DNA"
+                     /strain="B1002 serotype O8"
+                     /db_xref="taxon:562"
+     gene            <1..60
+                     /gene="wbdC"
+     CDS             <1..60
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23230.1"
+                     /db_xref="GI:2588935"
+                     /translation="DHMIDAYVNLYTTLLESKS"
+     regulatory      70..90
+                     /regulatory_class="terminator"
+     gene            complement(99..>241)
+                     /gene="hisI"
+     CDS             complement(99..>241)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /codon_start=3
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP
+                     pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase"
+                     /protein_id="BAA23231.1"
+                     /db_xref="GI:2588936"
+                     /translation="TALAATVHDRFELTNEASDLMYHLLVLLQDQGLDLGEVIDNLKN
+                     RH"
+ORIGIN      
+        1 gaccatatga ttgacgccta tgtcaatctc tacactacat tgctggaaag caaatcctga
+       61 gagatgctac ccccgccgtt gctgcggggg ccaacgcgtt aatgccgatt cttcagatta
+      121 tcaatcactt ctccgagatc cagcccttga tcctgcaaca acaccagcag gtgatacatc
+      181 aaatcagatg cctcgttggt cagttcaaag cggtcatgta ctgtcgctgc cagtgcggtt
+      241 t
+//
+LOCUS       AB000177                 241 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Escherichia coli DNA for mannosyl transferase, phosphoribosyl-ATP
+            pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase, partial
+            cds.
+ACCESSION   AB000177
+VERSION     AB000177.1  GI:2588937
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP
+            cyclohydrolase; phosphoribosyl-ATP pyrophosphohydrolase;
+            phosphoribosyl-AMP cycl ohydrolase; mannosyl transferase.
+SOURCE      Escherichia coli
+  ORGANISM  Escherichia coli
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Escherichia.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 241)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical
+            University, Department of Microbiology and Immunology; Yazako,
+            Nagakute, Aichi 480-11, Japan (E-mail:sugiyama@aichi-med-u.ac.jp,
+            Tel:0561-62-3311, Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..241
+                     /organism="Escherichia coli"
+                     /mol_type="genomic DNA"
+                     /strain="CO8 serotype O8"
+                     /db_xref="taxon:562"
+     gene            <1..60
+                     /gene="wbdC"
+     CDS             <1..60
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23232.1"
+                     /db_xref="GI:2588938"
+                     /translation="DHMIDAYVNLYTTLLESKS"
+     regulatory      70..90
+                     /regulatory_class="terminator"
+     gene            complement(99..>241)
+                     /gene="hisI"
+     CDS             complement(99..>241)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /codon_start=3
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP
+                     pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase"
+                     /protein_id="BAA23233.1"
+                     /db_xref="GI:2588939"
+                     /translation="TALAATVNDRFELKNEASDLVYHLLVLLQDQGLDLGEVIDNLKN
+                     RH"
+ORIGIN      
+        1 gaccatatga ttgacgccta tgtcaatctc tacactacat tgctggaaag caaatcctga
+       61 gagatgctac ccccgccgtt gctgcggggg ccaacgcgtt aatgccgatt cttcagatta
+      121 tcaatcactt ctccgagatc cagcccctga tcctgcaaca gcaccagcag gtgatacacc
+      181 aaatcagatg cctcattctt cagctcaaag cggtcattta ccgttgcggc cagtgcggtt
+      241 t
+//
+LOCUS       AB000178                 241 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Escherichia coli DNA for mannosyl transferase, phosphoribosyl-ATP
+            pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase, partial
+            cds.
+ACCESSION   AB000178
+VERSION     AB000178.1  GI:2588940
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP
+            cyclohydrolase; phosphoribosyl-ATP pyrophosphohydrolase;
+            phosphoribosyl-AMP cycl ohydrolase; mannosyl transferase.
+SOURCE      Escherichia coli
+  ORGANISM  Escherichia coli
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Escherichia.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 241)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical
+            University, Department of Microbiology and Immunology; Yazako,
+            Nagakute, Aichi 480-11, Japan (E-mail:sugiyama@aichi-med-u.ac.jp,
+            Tel:0561-62-3311, Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..241
+                     /organism="Escherichia coli"
+                     /mol_type="genomic DNA"
+                     /strain="D282 serotype O8"
+                     /db_xref="taxon:562"
+     gene            <1..60
+                     /gene="wbdC"
+     CDS             <1..60
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23234.1"
+                     /db_xref="GI:2588941"
+                     /translation="DHMIDAYVNLYTTLLESKS"
+     regulatory      70..90
+                     /regulatory_class="terminator"
+     gene            complement(99..>241)
+                     /gene="hisI"
+     CDS             complement(99..>241)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /codon_start=3
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP
+                     pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase"
+                     /protein_id="BAA23235.1"
+                     /db_xref="GI:2588942"
+                     /translation="TALAPTVHDRFELTNEASDLMYHLLVLLQDQGLDLGEVIDNLKN
+                     RH"
+ORIGIN      
+        1 gaccatatga ttgacgccta tgtcaatctc tacactacat tgctggaaag caaatcctga
+       61 gagatgctac ccccgccgtt gctgcggggg ccaatgcgtt aatgccgatt cttcagatta
+      121 tcaatcactt ctccgagatc cagcccctga tcctgtaaca gcaccagcag gtgatacatc
+      181 aaatcagatg cctcgttggt cagctcaaag cggtcatgta ccgttggtgc cagtgcggtt
+      241 t
+//
+LOCUS       AB000179                 241 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Escherichia coli DNA for mannosyl transferase, phosphoribosyl-ATP
+            pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase, partial
+            cds.
+ACCESSION   AB000179
+VERSION     AB000179.1  GI:2588943
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP
+            cyclohydrolase; mannosyl transferase.
+SOURCE      Escherichia coli
+  ORGANISM  Escherichia coli
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Escherichia.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 241)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical
+            University, Department of Microbiology and Immunology; Yazako,
+            Nagakute, Aichi 480-11, Japan (E-mail:sugiyama@aichi-med-u.ac.jp,
+            Tel:0561-62-3311, Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..241
+                     /organism="Escherichia coli"
+                     /mol_type="genomic DNA"
+                     /strain="F492 serotype O8"
+                     /db_xref="taxon:562"
+     gene            <1..60
+                     /gene="wbdC"
+     CDS             <1..60
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23236.1"
+                     /db_xref="GI:2588944"
+                     /translation="DHMIDAYVNLYTTLLESKS"
+     regulatory      70..90
+                     /regulatory_class="terminator"
+     gene            complement(99..>241)
+                     /gene="hisI"
+     CDS             complement(99..>241)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /codon_start=3
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP
+                     pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase"
+                     /protein_id="BAA23237.1"
+                     /db_xref="GI:2588945"
+                     /translation="TALAATVHDRFELTNEASDLMYHLLVLLQDQGLDLGEVIDNLKN
+                     RH"
+ORIGIN      
+        1 gaccatatga ttgacgccta tgtcaatctc tacactacat tgctggaaag caaatcctga
+       61 gagatgctac ccccgccgtt gctgcggggg ccaatgcgtt aatgccgatt cttcagatta
+      121 tcaatcactt ctccgagatc cagcccctga tcctgtaaca gcaccagcag gtgatacatc
+      181 aaatcagatg cctcgttggt cagctcaaag cggtcatgta ccgtcgcggc cagtgcagtt
+      241 t
+//
+LOCUS       AB000180                 241 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Escherichia coli DNA for mannosyl transferase, phosphoribosyl-ATP
+            pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase, partial
+            cds.
+ACCESSION   AB000180
+VERSION     AB000180.1  GI:2588946
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP cycl
+            ohydrolase; mannosyl transferase.
+SOURCE      Escherichia coli
+  ORGANISM  Escherichia coli
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Escherichia.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 241)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical
+            University, Department of Microbiology and Immunology; Yazako,
+            Nagakute, Aichi 480-11, Japan (E-mail:sugiyama@aichi-med-u.ac.jp,
+            Tel:0561-62-3311, Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..241
+                     /organism="Escherichia coli"
+                     /mol_type="genomic DNA"
+                     /strain="B993 serotype O9"
+                     /db_xref="taxon:562"
+     gene            <1..60
+                     /gene="wbdC"
+     CDS             <1..60
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23238.1"
+                     /db_xref="GI:2588947"
+                     /translation="DHMIDAYVNLYTTLLESKS"
+     regulatory      70..90
+                     /regulatory_class="terminator"
+     gene            complement(99..>241)
+                     /gene="hisI"
+     CDS             complement(99..>241)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /codon_start=3
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP
+                     pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase"
+                     /protein_id="BAA23239.1"
+                     /db_xref="GI:2588948"
+                     /translation="TALAATVHDRFELTNEASDLMYHLLVLLQDQGLDLGEVIDNLKN
+                     RH"
+ORIGIN      
+        1 gaccatatga ttgacgccta tgtcaatctc tacactacat tgctggaaag caaatcctga
+       61 gagatgctac ccccgccgtt gctgcggggg ccaacgcgtt aatgccgatt cttcagatta
+      121 tcaatcactt ctccgagatc cagcccttga tcctgcaaca acaccagcag gtgatacatc
+      181 aaatcagatg cctcgttggt cagttcaaag cggtcatgta ctgtcgctgc cagtgcggtt
+      241 t
+//
+LOCUS       AB000181                 241 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Escherichia coli DNA for mannosyl transferase, phosphoribosyl-ATP
+            pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase, partial
+            cds.
+ACCESSION   AB000181
+VERSION     AB000181.1  GI:2588949
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP
+            cyclohydrolase; mannosyl transferase.
+SOURCE      Escherichia coli
+  ORGANISM  Escherichia coli
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Escherichia.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 241)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical
+            University, Department of Microbiology and Immunology; Yazako,
+            Nagakute, Aichi 480-11, Japan (E-mail:sugiyama@aichi-med-u.ac.jp,
+            Tel:0561-62-3311, Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..241
+                     /organism="Escherichia coli"
+                     /mol_type="genomic DNA"
+                     /strain="Bi316-42 serotype O9"
+                     /db_xref="taxon:562"
+     gene            <1..60
+                     /gene="wbdC"
+     CDS             <1..60
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23240.1"
+                     /db_xref="GI:2588950"
+                     /translation="DHMIDAYVNLYTTLLESKS"
+     regulatory      70..90
+                     /regulatory_class="terminator"
+     gene            complement(99..>241)
+                     /gene="hisI"
+     CDS             complement(99..>241)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /codon_start=3
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP
+                     pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase"
+                     /protein_id="BAA23241.1"
+                     /db_xref="GI:2588951"
+                     /translation="TALAATVHDRFELTNEASDLMYHLLVLLQDQGLDLGEVIDNLKN
+                     RH"
+ORIGIN      
+        1 gaccatatga ttgacgccta tgtcaatctc tacactacat tgctggaaag caaatcctga
+       61 gagatgctac ccccgccgtt gctgcggggg ccaacgcgtt aatgccgatt cttcagatta
+      121 tcaatcactt ctccgagatc cagcccttga tcctgcaaca acaccagcag gtgatacatc
+      181 aaatcagatg cctcgttggt cagttcaaag cggtcatgta ccgttgctgc cagtgcggtt
+      241 t
+//
+LOCUS       AB000182                 241 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Escherichia coli DNA for mannosyl transferase, phosphoribosyl-ATP
+            pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase, partial
+            cds.
+ACCESSION   AB000182
+VERSION     AB000182.1  GI:2588952
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP cycl
+            ohydrolase; mannosyl transferase.
+SOURCE      Escherichia coli
+  ORGANISM  Escherichia coli
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Escherichia.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 241)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical
+            University, Department of Microbiology and Immunology; Yazako,
+            Nagakute, Aichi 480-11, Japan (E-mail:sugiyama@aichi-med-u.ac.jp,
+            Tel:0561-62-3311, Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..241
+                     /organism="Escherichia coli"
+                     /mol_type="genomic DNA"
+                     /strain="F379 serotype O9"
+                     /db_xref="taxon:562"
+     gene            <1..60
+                     /gene="wbdC"
+     CDS             <1..60
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23242.1"
+                     /db_xref="GI:2588953"
+                     /translation="DHMIDAYVNLYTTLLESKS"
+     regulatory      70..90
+                     /regulatory_class="terminator"
+     gene            complement(99..>241)
+                     /gene="hisI"
+     CDS             complement(99..>241)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /codon_start=3
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP
+                     pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase"
+                     /protein_id="BAA23243.1"
+                     /db_xref="GI:2588954"
+                     /translation="TALAATVNDRFELTNEASDLMYHLLVLLQDQGLDLGEVIDNLKN
+                     RH"
+ORIGIN      
+        1 gaccatatga ttgacgccta tgtcaatctc tacactacat tgctggaaag caaatcctga
+       61 gagctgctac ccccgccgtt gctgcggggg ccaacgcgtt aatgccgatt cttcagatta
+      121 tcaatcactt ctccgagatc cagcccctga tcctgcaaca gcaccagcag gtgatacatc
+      181 aaatcagatg cctcgttggt cagctcaaag cggtcattta ccgtcgcggc cagtgcggtt
+      241 t
+//
+LOCUS       AB000183                 241 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Escherichia coli DNA for mannosyl transferase, phosphoribosyl-ATP
+            pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase, partial
+            cds.
+ACCESSION   AB000183
+VERSION     AB000183.1  GI:2588955
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP cycl
+            ohydrolase; mannosyl transferase.
+SOURCE      Escherichia coli
+  ORGANISM  Escherichia coli
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Escherichia.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 241)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical
+            University, Department of Microbiology and Immunology; Yazako,
+            Nagakute, Aichi 480-11, Japan (E-mail:sugiyama@aichi-med-u.ac.jp,
+            Tel:0561-62-3311, Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..241
+                     /organism="Escherichia coli"
+                     /mol_type="genomic DNA"
+                     /strain="N24c serotype O9"
+                     /db_xref="taxon:562"
+     gene            <1..60
+                     /gene="wbdC"
+     CDS             <1..60
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23244.1"
+                     /db_xref="GI:2588956"
+                     /translation="DHMIDAYVNLYTTLLESKS"
+     regulatory      70..90
+                     /regulatory_class="CAAT_signal"
+     gene            complement(99..>241)
+                     /gene="hisI"
+     CDS             complement(99..>241)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /codon_start=3
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP
+                     pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase"
+                     /protein_id="BAA23245.1"
+                     /db_xref="GI:2588957"
+                     /translation="TALSATVNDRFELTNEASDLMYHLLVLLQDQGLDLGEVIDNLKN
+                     RH"
+ORIGIN      
+        1 gaccatatga ttgacgccta tgtcaatctc tacactacat tgctggaaag caaatcctga
+       61 gagctgctac ccccgccgtt gctgcggggg ccaacgcgtt aatgccgatt cttcagatta
+      121 tcaatcactt ctccgagatc cagcccctga tcctgcaaca gcaccagcag gtgatacatc
+      181 aaatcagatg cctcgttggt cagctcaaag cggtcattta ccgtcgcgga cagtgcggtt
+      241 t
+//
+LOCUS       AB000184                 241 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Klebsiella pneumoniae DNA for mannosyl transferase and
+            phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP
+            cyclohydrolase, partial cds.
+ACCESSION   AB000184
+VERSION     AB000184.1  GI:2588958
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP cycl
+            ohydrolase; mannosyl transferase.
+SOURCE      Klebsiella pneumoniae
+  ORGANISM  Klebsiella pneumoniae
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Klebsiella.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 241)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical
+            University, Department of Microbiology and Immunology; Yazako,
+            Nagakute, Aichi 480-11, Japan (E-mail:sugiyama@aichi-med-u.ac.jp,
+            Tel:0561-62-3311, Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..241
+                     /organism="Klebsiella pneumoniae"
+                     /mol_type="genomic DNA"
+                     /strain="K-11 serotype O3"
+                     /db_xref="taxon:573"
+     gene            <1..60
+                     /gene="wbdC"
+     CDS             <1..60
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23246.1"
+                     /db_xref="GI:2588959"
+                     /translation="DHMIDAYVNLYTTLLESKS"
+     regulatory      69..91
+                     /regulatory_class="terminator"
+     gene            complement(99..>241)
+                     /gene="hisI"
+     CDS             complement(99..>241)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /codon_start=3
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP
+                     pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase"
+                     /protein_id="BAA23247.1"
+                     /db_xref="GI:2588960"
+                     /translation="TALAATVNDRFELKNEASDLMYHLLVLLQDQGLDLGEVIDNLKS
+                     RH"
+ORIGIN      
+        1 gaccatatga ttgacgctta cgtcaatctc tacacaacgc tgctggaaag caaatcctga
+       61 ggccagctac ccccgccgtt gcggcggggg tcaacgcgtt agtgtcgact cttcagatta
+      121 tcaatcactt ccccgagatc cagcccctgg tcctgcagca gcaccagcag gtgatacatc
+      181 aggtccgacg cctcattctt cagctcgaag cggtcgttca cggtggcggc cagcgcggtc
+      241 t
+//
+LOCUS       AB000185                 241 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Klebsiella pneumoniae DNA for mannosyl transferase and
+            phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP
+            cyclohydrolase, partial cds.
+ACCESSION   AB000185
+VERSION     AB000185.1  GI:2588961
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP cycl
+            ohydrolase; mannosyl transferase.
+SOURCE      Klebsiella pneumoniae
+  ORGANISM  Klebsiella pneumoniae
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Klebsiella.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 241)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical
+            University, Department of Microbiology and Immunology; Yazako,
+            Nagakute, Aichi 480-11, Japan (E-mail:sugiyama@aichi-med-u.ac.jp,
+            Tel:0561-62-3311, Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..241
+                     /organism="Klebsiella pneumoniae"
+                     /mol_type="genomic DNA"
+                     /strain="K49S serotype O3"
+                     /db_xref="taxon:573"
+     gene            <1..60
+                     /gene="wbdC"
+     CDS             <1..60
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23248.1"
+                     /db_xref="GI:2588962"
+                     /translation="DHMIDAYVNLYTTLLESKS"
+     regulatory      69..91
+                     /regulatory_class="terminator"
+     gene            complement(99..>241)
+                     /gene="hisI"
+     CDS             complement(99..>241)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /codon_start=3
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP
+                     pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase"
+                     /protein_id="BAA23249.1"
+                     /db_xref="GI:2588963"
+                     /translation="TALAATVNDRFELKNEASDLMYHLLVLLQDQGLDLGEVIDNLKS
+                     RH"
+ORIGIN      
+        1 gaccatatga ttgacgctta cgtcaatctc tacactacgc tgctggaaag caaatcctga
+       61 ggtcagctac ccccgccatt gcggcggggg ttaacgcgtt agtgacgact cttcagatta
+      121 tcaatcactt ccccgagatc cagcccctgg tcctgcagca gcaccagcag gtgatacatc
+      181 aaatccgacg cctcattctt cagctcgaag cggtcgttca ccgtggcggc cagcgcggtc
+      241 t
+//
+LOCUS       AB000186                 241 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Klebsiella pneumoniae DNA for mannosyl transferase and
+            phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP
+            cyclohydrolase, partial cds.
+ACCESSION   AB000186
+VERSION     AB000186.1  GI:2588964
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP
+            cyclohydrolase; mannosyl transferase.
+SOURCE      Klebsiella pneumoniae
+  ORGANISM  Klebsiella pneumoniae
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Klebsiella.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 241)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical
+            University, Department of Microbiology and Immunology; Yazako,
+            Nagakute, Aichi 480-11, Japan (E-mail:sugiyama@aichi-med-u.ac.jp,
+            Tel:0561-62-3311, Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..241
+                     /organism="Klebsiella pneumoniae"
+                     /mol_type="genomic DNA"
+                     /strain="Kasuya serotype O3"
+                     /db_xref="taxon:573"
+     gene            <1..60
+                     /gene="wbdC"
+     CDS             <1..60
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23250.1"
+                     /db_xref="GI:2588965"
+                     /translation="DHMIDAYVNLYTTLLESKS"
+     regulatory      69..91
+                     /regulatory_class="terminator"
+     gene            complement(99..>241)
+                     /gene="hisI"
+     CDS             complement(99..>241)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /codon_start=3
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP
+                     pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase"
+                     /protein_id="BAA23251.1"
+                     /db_xref="GI:2588966"
+                     /translation="TALVGTVNDRFELKNEASDLMYHLLVLLQDQGLDLGEVIDNLKS
+                     RH"
+ORIGIN      
+        1 gaccatatga ttgacgctta cgtcaatctc tacactacgc tgctggaaag caaatcctga
+       61 ggcctgctac ccccgccgtt gcggcggggg ttaacgcgtt agtgacgact cttcagatta
+      121 tcaatcactt ccccgagatc cagcccctgg tcctgcagca gcaccagcag gtggtacatc
+      181 aggtccgacg cctcattctt cagctcgaag cggtcgttca ccgtgccgac cagcgcggtc
+      241 t
+//
+LOCUS       AB000187                 241 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Klebsiella pneumoniae DNA for mannosyl transferase and
+            phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP
+            cyclohydrolase, partial cds.
+ACCESSION   AB000187
+VERSION     AB000187.1  GI:2588967
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP cycl
+            ohydrolase; mannosyl transferase.
+SOURCE      Klebsiella pneumoniae
+  ORGANISM  Klebsiella pneumoniae
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Klebsiella.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 241)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical
+            University, Department of Microbiology and Immunology; Yazako,
+            Nagakute, Aichi 480-11, Japan (E-mail:sugiyama@aichi-med-u.ac.jp,
+            Tel:0561-62-3311, Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..241
+                     /organism="Klebsiella pneumoniae"
+                     /mol_type="genomic DNA"
+                     /strain="K57M serotype O5"
+                     /db_xref="taxon:573"
+     gene            <1..60
+                     /gene="wbdC"
+     CDS             <1..60
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23252.1"
+                     /db_xref="GI:2588968"
+                     /translation="DHMIDAYVNLYTTLLESKS"
+     regulatory      69..91
+                     /regulatory_class="terminator"
+     gene            complement(99..>241)
+                     /gene="hisI"
+     CDS             complement(99..>241)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /codon_start=3
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP
+                     pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase"
+                     /protein_id="BAA23253.1"
+                     /db_xref="GI:2588969"
+                     /translation="TALAATVNDRFELKNEASDLMYHLLVLLQDQGLDLGEVIDNLKS
+                     RH"
+ORIGIN      
+        1 gaccatatga ttgacgctta cgtcaatctc tacactacgc tgctggaaag caaatcctga
+       61 ggcctgctac ccccgccgtt gcggcggggg ttaacgcgtt agtgacgact cttcagatta
+      121 tcaatcactt ccccgagatc cagcccctgg tcctgcagca gcaccagcag gtggtacatc
+      181 aggtccgacg cctcattctt cagctcgaag cggtcgttca ccgtggcggc cagcgcggtc
+      241 t
+//
+LOCUS       AB000188                 241 bp    DNA     linear   BCT 24-JUL-2016
+DEFINITION  Klebsiella pneumoniae DNA for mannosyl transferase and
+            phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP
+            cyclohydrolase, partial cds.
+ACCESSION   AB000188
+VERSION     AB000188.1  GI:2588970
+KEYWORDS    phosphoribosyl-ATP pyrophosphohydrolase:phosphoribosyl-AMP
+            cyclohydrolase; mannosyl transferase.
+SOURCE      Klebsiella pneumoniae
+  ORGANISM  Klebsiella pneumoniae
+            Bacteria; Proteobacteria; Gammaproteobacteria; Enterobacterales;
+            Enterobacteriaceae; Klebsiella.
+REFERENCE   1
+  AUTHORS   Sugiyama,T., Kido,N., Kato,Y., Koide,N., Yoshida,T. and Yokochi,T.
+  TITLE     Evolutionary relationship among rfb gene clusters synthesizing
+            mannose homopolymer as O-specific polysaccharides in Escherichia
+            coli and Klebsiella
+  JOURNAL   Gene 198 (1-2), 111-113 (1997)
+   PUBMED   9370271
+REFERENCE   2  (bases 1 to 241)
+  AUTHORS   Sugiyama,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-1996) Tsuyoshi Sugiyama, Aichi Medical
+            University, Department of Microbiology and Immunology; Yazako,
+            Nagakute, Aichi 480-11, Japan (E-mail:sugiyama@aichi-med-u.ac.jp,
+            Tel:0561-62-3311, Fax:0561-63-9187)
+FEATURES             Location/Qualifiers
+     source          1..241
+                     /organism="Klebsiella pneumoniae"
+                     /mol_type="genomic DNA"
+                     /strain="K61S serotype O5"
+                     /db_xref="taxon:573"
+     gene            <1..60
+                     /gene="wbdC"
+     CDS             <1..60
+                     /gene="wbdC"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="mannosyl transferase"
+                     /protein_id="BAA23254.1"
+                     /db_xref="GI:2588971"
+                     /translation="DHMIDAYVNLYTTLLESKS"
+     regulatory      69..91
+                     /regulatory_class="terminator"
+     gene            complement(99..>241)
+                     /gene="hisI"
+     CDS             complement(99..>241)
+                     /gene="hisI"
+                     /EC_number="3.5.4.19"
+                     /codon_start=3
+                     /transl_table=11
+                     /product="phosphoribosyl-ATP
+                     pyrophosphohydrolase:phosphoribosyl-AMP cyclohydrolase"
+                     /protein_id="BAA23255.1"
+                     /db_xref="GI:2588972"
+                     /translation="TALAATVNDRFELKNEASDLMYHLLVLLQDQGLDLGEVIDNLKS
+                     RH"
+ORIGIN      
+        1 gaccatatga ttgacgctta cgtcaatctc tatactacgc tgctggaaag caaatcctga
+       61 ggccagctac ccccgccgtt gcggcggggg tcaacgcgtt agtgtcgact cttcagatta
+      121 tcaatcactt ccccgagatc cagcccctgg tcctgcagca gcaccagcag gtgatacatc
+      181 aggtccgacg cctcattctt cagctcgaag cggtcgttca cggtggcggc cagcgcggtc
+      241 t
+//
+LOCUS       AB000222                2527 bp    DNA     linear   BCT 16-DEC-2003
+DEFINITION  Staphylococcus capitis epr gene, complete cds.
+ACCESSION   AB000222
+VERSION     AB000222.2  GI:39930304
+KEYWORDS    .
+SOURCE      Staphylococcus capitis
+  ORGANISM  Staphylococcus capitis
+            Bacteria; Firmicutes; Bacilli; Bacillales; Staphylococcaceae;
+            Staphylococcus.
+REFERENCE   1
+  AUTHORS   Sugai,M., Fujiwara,T., Ohta,K., Komatsuzawa,H., Ohara,M. and
+            Suginaka,H.
+  TITLE     epr, which encodes glycylglycine endopeptidase resistance, is
+            homologous to femAB and affects serine content of peptidoglycan
+            cross bridges in Staphylococcus capitis and Staphylococcus aureus
+  JOURNAL   J. Bacteriol. 179 (13), 4311-4318 (1997)
+   PUBMED   9209049
+REFERENCE   2  (bases 1 to 2527)
+  AUTHORS   Sugai,M.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (04-JAN-1997) Motoyuki Sugai, Hiroshima University School
+            of Dentistry, Department of Microbiology; Kasumi 1-2-3, Hiroshima,
+            Hiroshima 734-8553, Japan (E-mail:sugai@ipc.hiroshima-u.ac.jp,
+            Tel:81-82-257-5637(ex.3153), Fax:81-82-257-5639)
+COMMENT     On Dec 15, 2003 this sequence version replaced gi:2257457.
+FEATURES             Location/Qualifiers
+     source          1..2527
+                     /organism="Staphylococcus capitis"
+                     /mol_type="genomic DNA"
+                     /db_xref="taxon:29388"
+     gene            426..1667
+                     /gene="epr"
+     CDS             426..1667
+                     /gene="epr"
+                     /function="glycylglycine endopeptidase resistance"
+                     /codon_start=1
+                     /transl_table=11
+                     /protein_id="BAA21486.1"
+                     /db_xref="GI:2257458"
+                     /translation="MKFVQLSKTEFQNFVNSHFSHYTQSNQHFDYRNKFQNDVHLVGV
+                     KDNVGTVIAACLLTEAQALKVFKYFYTHRGPVLDFKNFELVRFFYKNLTRYLKKNRGL
+                     FVLTDPYTLENIRNAQGEILTSYDNRPLIKTLKNIGYKHQGYSIGYSQTSQIRWLSVL
+                     DLNNKNTDMLLSEMDYQTRRNIKKTYEMNVQVRTLSIEETSRFFKLFKMAEEKHGFKF
+                     RNQDYFEKMQKIYNDNSMLKLAYINLSDLLEKQNNKITQLNKQYEEIINALKANPNSK
+                     KNKNKANQINQQISAQNRKINETKELIKTDGKIIDLAAAFYIYNNDEVYYLSSGSNPK
+                     YNAYMGAYRLQWEMIKFAKQNNIPRYNFYGITGDFSETAEDYGVQRFKEGFNAYVEEY
+                     IGDFIKPLRPFIYKIYTLLKR"
+     CDS             1886..2275
+                     /note="unnamed protein product; orf2"
+                     /codon_start=1
+                     /transl_table=11
+                     /protein_id="BAA21487.1"
+                     /db_xref="GI:2257459"
+                     /translation="MSEQNTFVASDETVGRNHKPNRKEPKQISFRVSESEYLKLKQSA
+                     ETLNMSVPAFVKKKAQGARLVAPKLDQATRQSVAKDLSMLGANANQIAKYCNQHQHEA
+                     PNYEALERNISELRERLDEVWKTLKEQ"
+ORIGIN      
+        1 cagaagcttc atcatttacg gttaaaaata ctgatccaac taaaaaagtt cctaatccaa
+       61 ttgacaaaga ttttactaaa gtgaattttc tatttgtatc cataaattta aacctcctaa
+      121 tatttaaaat acattagtta taataacata taactaatat gtataattta tattttgaaa
+      181 tatcaacaaa atctttacat tttatttaag ataagatatt attttatagt aattaaatat
+      241 tggagggata cccaagtctg gtttaaggga aattaatact atgtattaat tagaagctta
+      301 tgcttgcgca ttggttcaaa tccttctccc tccgctgtaa acttcattat taaaccaagc
+      361 attaaaatgc ttggtctttt ttctgcatat gttgctatat tattctctta gaaagtcggt
+      421 gtcctatgaa atttgtccaa ttatccaaaa ctgaatttca aaattttgta aacagtcatt
+      481 tttctcacta tactcaatca aatcaacatt tcgattatcg aaataaattt caaaatgacg
+      541 ttcatttagt tggcgttaaa gataatgtag gaacagtcat tgcagcatgt ttattaacag
+      601 aagcccaagc tctaaaagtt tttaaatact tttatactca tcgtggccct gttttagact
+      661 ttaaaaactt tgaattagtg agattttttt ataaaaattt aactagatat cttaaaaaaa
+      721 atcgtggttt atttgtttta acagatcctt atactttaga aaatataaga aatgcacaag
+      781 gtgagatatt aacaagctat gataatagac ctctgattaa aactttgaaa aatatagggt
+      841 ataaacatca aggttattcc ataggttatt ctcaaacgag tcaaatcaga tggctgtctg
+      901 tcttagattt aaataataaa aatacagata tgcttttatc cgaaatggat tatcaaacaa
+      961 gaagaaatat taaaaaaaca tatgaaatga atgttcaagt gagaacttta tctattgaag
+     1021 aaacatctag atttttcaaa ttatttaaaa tggcagaaga aaaacatgga tttaaattta
+     1081 gaaatcaaga ttattttgaa aaaatgcaaa aaatatataa tgacaatagt atgttaaaac
+     1141 tcgcatatat caatttatcc gatttattag aaaaacaaaa taataaaata actcaattaa
+     1201 acaaacaata cgaagaaata ataaacgcat taaaagcaaa tcctaattcg aaaaaaaata
+     1261 aaaataaggc taatcaaatt aatcaacaaa ttagtgcaca aaacagaaaa ataaatgaaa
+     1321 caaaagaatt aatcaaaaca gatggcaaaa taattgattt agctgcagct ttctatatat
+     1381 ataacaatga cgaagtttat tatctttcaa gtggatcaaa tcccaaatac aatgcttata
+     1441 tgggagccta tcgtttacag tgggaaatga ttaaatttgc taaacagaat aacattccta
+     1501 gatataattt ttatggtatt actggagatt ttagtgaaac agccgaagat tatggtgttc
+     1561 aaagatttaa agaaggattt aatgcttatg ttgaagaata tataggagat tttattaaac
+     1621 ctcttagacc ctttatttac aaaatataca ctctactaaa aagatgattt tttatatagt
+     1681 ggctatcaat tagccactat tttttcgcca gaaaaaatac ataaggggct tggggagtat
+     1741 cccaacaagc tggcacgtct gccacgtgag tggctagcaa agccaatgct tgccaaacca
+     1801 cttaacgact tgatgaattt tactttatcc tataaagtaa aatgtaagaa aggcgttatc
+     1861 tttcgaagaa agcgtggtgg gaataatgag cgaacaaaac acatttgtgg ctagcgacga
+     1921 aactgttggg cgaaaccata aacccaaccg taaggagcca aaacaaatca gttttcgtgt
+     1981 gagcgaatcc gaatatttaa agttgaaaca atcagctgaa actttaaata tgagtgtgcc
+     2041 tgcgttcgtt aagaaaaaag cacaaggcgc ccgattggtc gcacccaaat tggatcaagc
+     2101 aacgcgacaa tcggtagcga aagatttgag tatgttgggc gcaaatgcca atcagattgc
+     2161 gaaatattgc aaccaacatc aacacgaagc accgaactat gaagcattag aacgcaatat
+     2221 cagtgaatta cgtgaaaggc ttgatgaggt atggaaaaca ctaaaggaac aatgattgta
+     2281 agtgcaatat tattagttgt ttgtttagca attgccagtt ttttaatttt ccatgaacaa
+     2341 caaatttttc caagtttgat ttttttagga ttagctttta ttgatggcac taaattttat
+     2401 ttgtcttatc aaaaattgaa agaacgtgat catcatggcg acaactaaat taagtgcgac
+     2461 caaatcaacg tcacgtgcca ttaattatgc tgaaaaacgt gcggttgaaa aaagtggttt
+     2521 aaattgt
+//
+LOCUS       AB000264                2012 bp    DNA     linear   BCT 26-JUL-2016
+DEFINITION  Bacillus firmus DNA for beta-amylase, partial cds.
+ACCESSION   AB000264
+VERSION     AB000264.1  GI:1805349
+KEYWORDS    beta-amylase.
+SOURCE      Bacillus firmus
+  ORGANISM  Bacillus firmus
+            Bacteria; Firmicutes; Bacilli; Bacillales; Bacillaceae; Bacillus.
+REFERENCE   1  (bases 1 to 2012)
+  AUTHORS   Chen,W. and He,W.B.
+  TITLE     Nucleotide Sequence and Characteristics of beta-amylase Gene from
+            Bacillus firmus
+  JOURNAL   Unpublished
+REFERENCE   2  (bases 1 to 2012)
+  AUTHORS   Chen,W.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (06-JAN-1997) Wei Chen, Institute of Microbiolory,Chinese
+            Academy of Science, Enzymology; Haidian,zhongguancun, Beijing
+            10008o, P.R.China (E-mail:chenw@sun.im.ac.cn, Tel:86-106-255-0184,
+            Fax:86-106-256-0912)
+FEATURES             Location/Qualifiers
+     source          1..2012
+                     /organism="Bacillus firmus"
+                     /mol_type="genomic DNA"
+                     /db_xref="taxon:1399"
+     CDS             607..>2012
+                     /function="hydrolysis of starch to maltose mainly"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="beta-amylase"
+                     /protein_id="BAA19075.1"
+                     /db_xref="GI:1805350"
+                     /translation="MTLYRSLWKKGCMLLLSLVLSLTAFIGSPSNTASAAVADDIQAS
+                     VMGPLAKINDWGSFKKQLQTLKNNGVYAITTDVWWGYVESAGDNQFDWSYYKTYADAV
+                     KEAGLKWVPIISTHKCGGNVGDDCNIPLPSWLSSKGSADEMQFKDESGYANNEALSPL
+                     WSGTGKQYDELYASFAQNFAGYKSIIPKIYLSGGPSGELRYPSYYPAAGWSYPGRGKF
+                     QAYTETAKNAFRTAMNDKYGSLDKINTAWGTKLTSLSQINPPTDGDGFYTNGGYNSAY
+                     GKDFLSWYQSVLEKHLGVIGAAAHKNFDSVFGVRIGAKISGLHWQMNNPAMPHSTEQA
+                     GGYYDYNRLIQKFKDADLDLTFTCLEMSDSGTAPNYSLPSTLVDTVSSIANAKGVRLN
+                     GENALQTGGSGFQKIEEKITKFGYHGFTLLRINNLVNNDGSPTGELSGFKQYIISKAK
+                     PDNNGGTGNKVTIYYKKG"
+ORIGIN      
+        1 tacacgtgat ctacgagtct acagacacct gtccggatga actgctctta ttctttcacc
+       61 atgtccctta tacgcacacg ctccactccg gccaaacggt catacagcat atttatgata
+      121 ctcattttga aggtgcagaa cgtgcagccc atctccgaga tacatgggtt agtctgcgtg
+      181 agcaaataaa tgaaaagata tatgaacagg tgctgaagcg gctagagcat caggctgagc
+      241 acgccaagga atggcgggat cgaatcaata cgtattttta tcgtaaaagt ggtattcccg
+      301 acgaaaaaaa tcgccctatc tattaagaag gttgtctcat gcaatacttg catacacact
+      361 ggggttttct ttcccttatt ttattgcggg aatttactat ctataaaaga cacgcgtctt
+      421 attcagacct gtgtcttttt tcctggtcta atttaagcat acggttgcta acgcaaaatg
+      481 tcatatttgt ccaccttgag tgtgcaataa attcttcttt ttatgcaacc gcttgctcta
+      541 tactattttt gtagacgttt acaaaatgtt gtcgaattag actatgcttt ggggaggatg
+      601 atcggtttga ccttgtatcg aagtctatgg aaaaaagggt gtatgcttct actaagcctt
+      661 gtgctgtctc tgaccgcctt cattggctca ccctctaata cggcgagcgc cgcggttgca
+      721 gatgatattc aggcttccgt tatgggacca ctggcgaaaa tcaacgactg gggttccttc
+      781 aaaaagcaac tgcaaacgtt gaaaaacaat ggcgtgtatg ccatcactac cgacgtctgg
+      841 tggggctatg tggaaagtgc aggagataac cagttcgatt ggagctacta caaaacctat
+      901 gcagatgccg tgaaagaagc gggactgaag tgggttccta ttatctctac gcataagtgt
+      961 ggaggaaatg tgggagatga ttgcaacatc ccactgccaa gctggctgtc aagcaagggt
+     1021 agtgcagatg aaatgcagtt caaggacgaa agcggctatg ccaataacga agccctttcc
+     1081 ccattgtgga gcgggactgg caaacaatat gacgagttgt atgcctcatt cgctcaaaac
+     1141 tttgccgggt ataaaagtat cattcccaaa atttatttaa gcggcggtcc ttccggggaa
+     1201 ttgcgctatc cgtcctacta cccggcagcg ggctggagtt acccgggacg gggcaagttc
+     1261 caagcctata ctgaaacagc caaaaatgca ttccgtacag ctatgaatga caagtacgga
+     1321 tcattggaca agattaatac tgcttggggc accaagctta ccagccttag ccaaatcaat
+     1381 ccaccgaccg acggggatgg attttacacg aacggcgggt ataattccgc gtatggaaag
+     1441 gattttctgt cgtggtacca aagtgtgctt gagaagcatc taggtgtcat cggagcagct
+     1501 gcccacaaga acttcgattc tgtgtttggt gtccgtattg gggccaaaat ttccggtctg
+     1561 cactggcaga tgaacaatcc tgccatgccg cacagcacag aacaagcagg tggatattat
+     1621 gattacaacc gtctcattca gaagttcaag gatgccgatc tagacttgac atttacttgc
+     1681 ctggagatga gtgacagtgg cacagcaccg aattattcgt tgccgtccac cctggttgat
+     1741 accgtttcct ccatcgcgaa tgccaagggt gttcgcctga atggtgaaaa tgcactccag
+     1801 acaggcggca gcggcttcca aaaaatcgag gagaaaatca cgaagttcgg ttatcacggg
+     1861 tttacgttat tgcgcatcaa caatctcgtc aacaatgacg gctcaccaac cggtgagttg
+     1921 agtggattta aacaatatat catcagcaaa gccaaacctg acaataatgg cggtacaggc
+     1981 aacaaagtaa cgatatacta caaaaaaggc tt
+//
+LOCUS       AB000278                1410 bp    DNA     linear   BCT 13-NOV-2007
+DEFINITION  Photobacterium iliopiscarium gene for 16S ribosomal RNA, partial
+            sequence.
+ACCESSION   AB000278
+VERSION     AB000278.1  GI:1817503
+KEYWORDS    .
+SOURCE      Photobacterium iliopiscarium
+  ORGANISM  Photobacterium iliopiscarium
+            Bacteria; Proteobacteria; Gammaproteobacteria; Vibrionales;
+            Vibrionaceae; Photobacterium.
+REFERENCE   1
+  AUTHORS   Urakawa,H., Kita-Tsukamoto,K. and Ohwada,K.
+  TITLE     Reassessment of the taxonomic position of Vibrio iliopiscarius
+            (Onarheim et al. 1994) and proposal for Photobacterium
+            iliopiscarium comb. nov
+  JOURNAL   Int. J. Syst. Bacteriol. 49 (PT 1), 257-260 (1999)
+   PUBMED   10028270
+REFERENCE   2  (bases 1 to 1410)
+  AUTHORS   Kita-Tsukamoto,K.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (07-JAN-1997) Kumiko Kita-Tsukamoto, Ocean Rsearch
+            Institute, University of Tokyo, Marine microbiology; 1-15-1,
+            Minamidai, Nakano, Tokyo 164-8639, Japan
+            (E-mail:tukamoto@ori.u-tokyo.ac.jp, Tel:81-3-5351-6484,
+            Fax:81-3-5351-6482)
+COMMENT     On Feb 6, 1997 this sequence version replaced gi:1785475.
+FEATURES             Location/Qualifiers
+     source          1..1410
+                     /organism="Photobacterium iliopiscarium"
+                     /mol_type="genomic DNA"
+                     /strain="ATCC 51760"
+                     /db_xref="taxon:56192"
+                     /note="synonym: Vibrio iliopiscarius"
+     rRNA            <1..>1410
+                     /product="16S ribosomal RNA"
+ORIGIN      
+        1 caggcctaac acatgcaagt cgaacggtaa nagattgata gcttgctatc aatgctgacg
+       61 ancggcggac gggtgagtaa tgcctgggaa tataccctga tgtgggggat aactattgga
+      121 aacgatagct aataccgcat aatctcttcg gagcaaagag ggggaccttc gggcctctcg
+      181 cgtcaggatt agcccaggtg ggattagcta gttggtgggg taatggctca ccaaggcgac
+      241 gatccctagc tggtctgaga ggatgatcag ccacactgga actgagacac ggtccagact
+      301 cctacgggag gcagcagtgg ggaatattgc acaatggggg aaaccctgat gcagccatgc
+      361 cgcgtgtatg aagaaggcct tcgggttgta aagtactttc agttgtgagg aaggcgttgg
+      421 agttaatagc tttagcgttt gacgttagca acagaagaag caccggctaa ctccgtgcca
+      481 gcagccgcgg taatacggag ggtgcgagcg ttaatcggaa ttactgggcg taaagcgcat
+      541 gcaggcggtc tgttaagcaa gatgtgaaag cccggggctc aacctcggaa cagcattttg
+      601 aactggcaga ctagagtctt gtagaggggg gtagaatttc aggtgtagcg gtgaaatgcg
+      661 tagagatctg aaggaatacc ggtggcgaag gcggccccct ggacaaagac tgacgctcag
+      721 atgcgaaagc gtggggagca aacaggatta gataccctgg tagtccacgc cgtaaacgat
+      781 gtctacttga aggttgtggc cttgagccgt ggctttcgga tctaacgcgt taagtagacc
+      841 gcctggggag tacggtcgca agattaaaac tcaaatgaat tgacgggggc ccgcacaagc
+      901 ggtggagcat gtggtttaat tcgatgcaac gcgaagaacc ttacctactc ttgacatcca
+      961 gagaattcgc tagagatagc ttagtgcctt cgggaacact gagacaggtg ctgcatggct
+     1021 gtcgtcagct cgtgttgtga aatgttgggt taagtcccgc aacgagcgca acccttatcc
+     1081 ttgtttgcca gcacgtaatg gtgggaactc cagggagact gccggtgata aaccggagga
+     1141 aggtggggac gacgtcaagt catcatggcc cttacgagta gggctacaca cgtgctacaa
+     1201 tggcgtatac agagggctgc aagctagcga tagtgagcga atcccacaaa gtacgtcgta
+     1261 gtccggattg gagtctgcaa ctcgactcca tgaagtggga atcgctagta atcgtgaatc
+     1321 agaatgtcac ggtgaatacg ttcccgggcc ttgtacacac cgcccgtcac accatgggag
+     1381 tnggctgcac cagaagtaga tagcttaacc
+//
+LOCUS       AB000343                 616 bp    DNA     linear   BCT 26-JUL-2016
+DEFINITION  Borrelia afzelii DNA for Outer surface protein C, partial cds.
+ACCESSION   AB000343
+VERSION     AB000343.1  GI:1783135
+KEYWORDS    Outer surface protein C.
+SOURCE      Borreliella afzelii
+  ORGANISM  Borreliella afzelii
+            Bacteria; Spirochaetes; Spirochaetales; Borreliaceae; Borreliella.
+REFERENCE   1
+  AUTHORS   Masuzawa,T., Komikado,T., Fukui,T. and Yanagihara,Y.
+  TITLE     B. afzelii(Strain K205) ospC, partial cds
+  JOURNAL   Unpublished
+REFERENCE   2  (bases 1 to 616)
+  AUTHORS   Komikado,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (08-JAN-1997) Tetsuro Komikado, University of Shizuoka,
+            School of Pharmaceutical Sciences; Yada 52-1, Shizuoka, Shizuoka
+            422, Japan (E-mail:d5127@ys2.u-shizuoka-ken.ac.jp,
+            Tel:054-264-5710, Fax:054-264-5715)
+FEATURES             Location/Qualifiers
+     source          1..616
+                     /organism="Borreliella afzelii"
+                     /mol_type="genomic DNA"
+                     /strain="K205"
+                     /db_xref="taxon:29518"
+     CDS             <1..>616
+                     /note="OspC"
+                     /codon_start=2
+                     /transl_table=11
+                     /product="Outer surface protein C"
+                     /protein_id="BAA19076.1"
+                     /db_xref="GI:1783136"
+                     /translation="SAILMTLFLFISCNNSGKGGDSASTNPADESAKGPNLTEISKKI
+                     TDSNAFVLAVKEVETLVSSIDELAAQAIGKKIQNNGLSAEADKNGSLLAGAYAISALI
+                     TKKLDELTKNSGELKGEVEKAKKCSEEFTNKLKNSHAELGAANGATTDENAKKAILKT
+                     HGTKDKGAEELEKLFKSVEGLSKAAKESLTNSVKELTNPVVAERF"
+ORIGIN      
+        1 aagtgcgata ttaatgactt tatttttatt tatatcttgt aataattcag ggaaaggtgg
+       61 ggattctgca tctactaatc ctgctgacga gtctgcaaaa ggacctaatc ttacagaaat
+      121 aagcaaaaaa attacagatt ctaatgcatt tgtactagct gttaaagaag ttgagacttt
+      181 agtttcatct atagatgaac ttgccgctca agctattggt aaaaaaatac aaaacaatgg
+      241 tttatctgct gaagcagata aaaacggatc attgttagcc ggagcttatg caatatcagc
+      301 cctaataaca aaaaaattag atgaattgac caaaaattca ggagaattaa aaggagaagt
+      361 tgaaaaagct aagaaatgtt ccgaagaatt tactaataaa ctaaaaaata gtcatgcaga
+      421 gcttggggcg gcgaatggtg ctactactga tgaaaatgca aaaaaagcca ttttaaaaac
+      481 acatggaact aaagataagg gggctgaaga gcttgaaaag ttatttaaat cagtagaagg
+      541 cttatcaaaa gcagctaaag aatcactaac taattcagtt aaagagctta caaaccctgt
+      601 tgtggcagaa agattc
+//

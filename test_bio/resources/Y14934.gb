@@ -1,0 +1,58 @@
+LOCUS       Y14934                   351 bp    mRNA    linear   PRI 24-JUL-2016
+DEFINITION  Homo sapiens mRNA for IgG1 rheumatoid factor immunoglobulin heavy
+            chain, clones 1011, 838, 843.
+ACCESSION   Y14934
+VERSION     Y14934.1
+KEYWORDS    IgHV gene; immunoglobulin heavy chain; variable region.
+SOURCE      Homo sapiens (human)
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini;
+            Catarrhini; Hominidae; Homo.
+REFERENCE   1
+  AUTHORS   Williams,D.G., Moyes,S.P. and Mageed,R.A.
+  TITLE     Rheumatoid factor isotype switch and somatic mutation variants
+            within rheumatoid arthritis synovium
+  JOURNAL   Immunology 98 (1), 123-136 (1999)
+   PUBMED   10469243
+REFERENCE   2  (bases 1 to 351)
+  AUTHORS   Williams,D.G.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (22-SEP-1997) D.G. Williams, Kennedy Institute, 1
+            Aspenlea Road, Hammersmith, London, UK
+FEATURES             Location/Qualifiers
+     source          1..351
+                     /organism="Homo sapiens"
+                     /mol_type="mRNA"
+                     /isolate="patient A"
+                     /db_xref="taxon:9606"
+                     /chromosome="14"
+                     /clone="1011"
+                     /cell_type="B lymphocyte"
+                     /tissue_type="synovium"
+                     /dev_stage="adult"
+                     /rearranged
+     gene            <1..>351
+                     /gene="IgHV"
+     CDS             <1..>351
+                     /gene="IgHV"
+                     /codon_start=1
+                     /product="IgG1 rheumatoid factor immunoglobulin heavy
+                     chain"
+                     /protein_id="CAA75151.1"
+                     /translation="GGGLVKPGGSLRLSCAASGFPFSNYTMHWVRQAPGKGLEWVSSI
+                     TSSSSYRYYADSVEGRFTISRDNAKNSLYLQMNSLRAEDTAVYFCVRDRGYDSSGYYG
+                     NLDCWGQGTLVTVSS"
+     V_region        <1..351
+                     /gene="IgHV"
+                     /product="IgG1 rheumatoid factor immunoglobulin heavy
+                     chain"
+ORIGIN      
+        1 gggggaggcc tggtcaagcc tggggggtcc ctgagactct cctgtgcagc ctctggattc
+       61 cccttcagta actacaccat gcactgggtc cgccaggctc cagggaaggg gctggagtgg
+      121 gtctcatcca ttactagtag tagtagttac agatattacg cagactcagt ggagggccga
+      181 ttcaccatct ccagagacaa cgccaagaac tcactgtatc tgcaaatgaa cagcctgaga
+      241 gccgaggaca cggctgtgta tttctgtgtg agagatcggg gctatgatag tagtggttat
+      301 tacggaaatc ttgactgctg gggccaggga accctggtca ccgtctcctc a
+//
+
