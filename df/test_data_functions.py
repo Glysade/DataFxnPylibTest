@@ -21,6 +21,10 @@ def request_from_file(in_file: str) -> DataFunctionRequest:
     with open(in_file, 'r') as fh:
         request_json = fh.read()
 
+    # for testing on WSL convert windows paths to Linux
+    if os.name == 'posix':
+        request_json = request_json.replace(r'C:\\db\\', r'/mnt/c/db/')
+        request_json = request_json.replace(r'mmp\\', r'mmp/')
     request = DataFunctionRequest.parse_raw(request_json)
     return request
 

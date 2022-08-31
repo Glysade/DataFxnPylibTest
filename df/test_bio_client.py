@@ -6,8 +6,17 @@ from unittest import TestCase, main, skip
 from Bio import SeqIO
 
 from df.data_transfer import ColumnData, DataFunctionRequest, InputField, DataType
-from test.df.test_chem_client import run_data_function_module
-from test.df.test_data_functions import clean_output_files
+from test_chem_client import run_data_function_module
+from test_pylib.df.test_data_functions import clean_output_files
+
+
+def blast_db() -> str:
+    if os.name == 'nt':
+        return 'c:\\db\\ncbi'
+    elif os.name == 'posix':
+        return '/mnt/c/db/ncbi'
+    else:
+        raise ValueError(f'Unknown os {os.name}')
 
 
 class BioClientTest(TestCase):
@@ -83,7 +92,7 @@ class BioClientTest(TestCase):
         max_hits_input_field = InputField(id='maxHits', data=20, dataType=DataType.INTEGER)
         method_input_field = InputField(id='method', data='BLASTP', dataType=DataType.STRING)
         database_input_field = InputField(id='databaseName', data='human_nr', dataType=DataType.STRING)
-        blast_db_field = InputField(id='blastDbPath', data='c:\\db\\ncbi',
+        blast_db_field = InputField(id='blastDbPath', data=blast_db(),
                                     dataType=DataType.STRING)
         request = DataFunctionRequest(serviceName='BlastLocalTextSearch',
                                       inputFields={'query': query_input_field, 'maxHits': max_hits_input_field,
@@ -107,7 +116,7 @@ class BioClientTest(TestCase):
         database_input_field = InputField(id='databaseName', data='human_nr', dataType=DataType.STRING)
         column_input_field = InputField(id='sequenceColumn', data='sequenceColumn',
                                         dataType=DataType.STRING)
-        blast_db_field = InputField(id='blastDbPath', data='c:\\db\\ncbi',
+        blast_db_field = InputField(id='blastDbPath', data=blast_db(),
                                     dataType=DataType.STRING)
         request = DataFunctionRequest(serviceName='BlastLocalColumnSearch', inputColumns={'sequenceColumn': column},
                                       inputFields={'maxHits': max_hits_input_field,
