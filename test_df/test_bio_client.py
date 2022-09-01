@@ -6,8 +6,8 @@ from unittest import TestCase, main, skip
 from Bio import SeqIO
 
 from df.data_transfer import ColumnData, DataFunctionRequest, InputField, DataType
-from test_pylib.df.test_chem_client import run_data_function_module
-from test_pylib.df.test_data_functions import clean_output_files
+from test_pylib.test_df.test_chem_client import run_data_function_module
+from test_pylib.test_df.test_data_functions import clean_output_files
 
 
 def blast_db() -> str:
