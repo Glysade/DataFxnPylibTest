@@ -93,7 +93,7 @@ class DataFunctionTest(TestCase):
         self.assertEqual(18, len(response.outputColumns[0].values))
 
     def test_script_deprotect(self) -> None:
-        from deprotect import execute
+        from test_pylib.df.deprotect import execute
         file_in = os.path.join(os.path.dirname(__file__), 'resources', 'deprotect.json')
         _, response = run_script(file_in, execute)
         self.assertTrue(response)
@@ -110,7 +110,7 @@ class DataFunctionTest(TestCase):
         self.assertEqual(100, len(response.outputColumns[0].values))
 
     def test_exact_mass_script(self) -> None:
-        from exact_mass_script import execute
+        from test_pylib.df.exact_mass_script import execute
         file_in = os.path.join(os.path.dirname(__file__), 'resources', 'exact_mass_script.json')
         _, response = run_script(file_in, execute)
         self.assertTrue(response)
@@ -198,7 +198,7 @@ class DataFunctionTest(TestCase):
         self.assertEqual(21, len(response.outputColumns[0].values))
 
     def test_translate_sequences_script(self) -> None:
-        from translate_sequences_script import execute
+        from test_pylib.df.translate_sequences_script import execute
         file_in = os.path.join(os.path.dirname(__file__), 'resources', 'translate_sequences_script.json')
         _, response = run_script(file_in, execute)
         self.assertTrue(response)
