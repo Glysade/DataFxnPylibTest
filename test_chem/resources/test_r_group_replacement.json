@@ -1,0 +1,87 @@
+{
+  "executorId": 0,
+  "id": "89068f71-8291-4cfd-bff7-55ba737f7379",
+  "dataFxnDefId": "b297fc09-8423-bf35-4779-cd388558d007",
+  "serviceName": "Script",
+  "assembly": null,
+  "inputFields": {
+    "structureColumn": {
+      "id": "structureColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "86a20519-3817-489c-a600-bc5508b9a7b2sSMILES"
+    },
+    "useLayer1": {
+      "id": "useLayer1",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": true
+    },
+    "useLayer2": {
+      "id": "useLayer2",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": true
+    },
+    "coreSMARTS": {
+      "id": "coreSMARTS",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": null,
+      "data": "c1[nH]ccn1"
+    },
+    "coreSketcher": {
+      "id": "coreSketcher",
+      "dataType": "string",
+      "contentType": "chemical/x-mdl-molfile",
+      "selectorType": null,
+      "data": null
+    }
+  },
+  "maximumOutputColumns": 0,
+  "maximumOutputTables": 1,
+  "resultTables": null,
+  "serviceUri": "glysade.python",
+  "inputColumns": {
+    "86a20519-3817-489c-a600-bc5508b9a7b2sSMILES": {
+      "dataType": "string",
+      "name": "SMILES",
+      "contentType": "chemical/x-daylight-smiles",
+      "properties": {
+        "Name": "SMILES",
+        "ColumnType": "Imported",
+        "DataType": "String",
+        "ExternalName": "SMILES",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.StringDataComparer",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.StringFormatter",
+        "Origin": "test2",
+        "Description": ""
+      },
+      "values": [
+        "[nH]1c(C)nc(F)c1",
+        "[nH]1c(C)nc(F)c1Cl",
+        "[nH]1c(C)nc(O)c1",
+        "[nH]1c(CO)nc(F)c1c1ccc(Cl)cc1",
+        "[nH]1c([C@H](Cl)(F))nc(F)c1"
+      ]
+    }
+  },
+  "webServiceRequest": null,
+  "requestId": -1,
+  "tkid": null,
+  "script": "from rdkit.Chem.Descriptors import ExactMolWt\nfrom df.chem_helper import column_to_molecules\nfrom df.data_transfer import DataFunctionRequest, DataFunctionResponse, DataType, ColumnData, \\\n    string_input_field\n\n\ndef execute(request: DataFunctionRequest) -> DataFunctionResponse:\n    column_id = string_input_field(request, 'structureColumn')\n    input_column = request.inputColumns[column_id]\n    mols = column_to_molecules(input_column)\n    weights = [None if m is None else ExactMolWt(m) for m in mols]\n    output_column = ColumnData(name=f'{input_column.name} Exact Mass', dataType=DataType.DOUBLE, values=weights)\n    response = DataFunctionResponse(outputColumns=[output_column])\n    return response\n",
+  "updateBehavior": "automatic",
+  "allowedClients": [
+    "Analyst",
+    "WebPlayer"
+  ],
+  "limitBy": "none",
+  "ironPython": "",
+  "chartsFxnType": null,
+  "chartsRequest": null
+}
