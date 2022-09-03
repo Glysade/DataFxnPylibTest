@@ -10,7 +10,7 @@ from Bio.SeqRecord import SeqRecord
 from ruse.bio.bio_util import is_dna, is_protein
 from ruse.bio.blast_parse import BlastResults
 from ruse.bio.blast_search import BlastCreateAndSearch, BlastSearchType
-from test.test_bio.helper import get_dna_query, get_protein_query, get_dna_targets, get_protein_targets
+from test_pylib.test_bio.helper import get_dna_query, get_protein_query, get_dna_targets, get_protein_targets
 
 
 class BlastDatabaseTestCase(TestCase):
@@ -26,7 +26,7 @@ class BlastDatabaseTestCase(TestCase):
 
     def test_protein_query_protein_targets(self) -> None:
         for search_type in None, BlastSearchType.BLASTP:
-            blast, results = self.run_search(get_protein_query(), get_protein_targets(), search_type);
+            blast, results = self.run_search(get_protein_query(), get_protein_targets(), search_type)
             self.assertTrue(blast.search_type, BlastSearchType.BLASTP)
             self.assertTrue(blast.search.search_type, BlastSearchType.BLASTP)
             self.assertTrue(blast.query_type, 'prot')

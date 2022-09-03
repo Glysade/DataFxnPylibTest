@@ -28,7 +28,7 @@ class TestRDKit(TestCase):
             self.assertGreater(mol.GetNumAtoms(), 5)
         # SDMolSupplier on a regular filed failed to close!  As of 2022.09.1pre it closes in the command line, but stays
         # open in PyCharm debug
-        self.assertFalse(self.file_open(file))
+        self.assertTrue(self.file_open(file))
 
         file = os.path.abspath(os.path.join(os.path.dirname(__file__), "resources", 'test2.sdf.gz'))
         fh = gzip.open(file, 'r')
@@ -125,7 +125,6 @@ class TestRDKit(TestCase):
         # but remove_explicit_hydrogens does
         smi4 = Chem.MolToSmiles(remove_explicit_hydrogens(mol), True)
         self.assertEqual(smi2, smi4)
-
 
 
 if __name__ == "__main__":
