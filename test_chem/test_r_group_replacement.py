@@ -63,7 +63,7 @@ class ScriptTest(TestCase):
         self.assertEqual(len(analogues), 1)
         self.assertEqual(Chem.MolToSmiles(analogues[0]), 'c1ccc2c(c1)COC2')
 
-    def test_do_nothring(self) -> None:
+    def test_do_nothing(self) -> None:
         smis = ['[nH]1c(C)nc(F)c1', '[nH]1c(C)nc(F)c1Cl', '[nH]1c(C)nc(O)c1',
                 '[nH]1c(CO)nc(F)c1c1ccc(Cl)cc1']
         mols = [Chem.MolFromSmiles(s) for s in smis]
