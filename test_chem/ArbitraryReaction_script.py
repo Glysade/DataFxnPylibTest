@@ -9,7 +9,30 @@ from df.chem_helper import column_to_molecules, \
     molecules_to_column
 from df.data_transfer import DataFunctionRequest, DataFunctionResponse, DataType, \
     string_input_field
-from ruse.rdkit.rdkit_utils import string_to_reaction
+from ruse.rdkit.rdkit_utils import sanitize_mol, string_to_reaction
+
+
+def highlight_product(mol: Chem.Mol) -> None:
+    """
+    Takes the molecule, and highlights any atoms that have an
+    'old_mapno' property.
+    """
+    high_ats = []
+    for atom in mol.GetAtoms():
+        if atom.HasProp('old_mapno'):
+            high_ats.append(atom.GetIdx())
+
+    high_bnds = []
+    for at1 in high_ats:
+        for at2 in high_ats:
+            if at1 > at2:
+                bond = mol.GetBondBetweenAtoms(at1, at2)
+                if bond is not None:
+                    high_bnds.append(bond.GetIdx())
+    high_ats_str = ' '.join([str(a + 1) for a in high_ats])
+    high_bnds_str = ' '.join([str(b + 1) for b in high_bnds])
+    prop_text = f'COLOR #ff0000\nATOMS {high_ats_str}\nBONDS {high_bnds_str}'
+    mol.SetProp('Renderer_Highlight', prop_text)
 
 
 def run_reactions(mols: list[Chem.Mol], rxn: ChemicalReaction) -> list[Optional[Chem.Mol]]:
@@ -39,7 +62,8 @@ def run_reactions(mols: list[Chem.Mol], rxn: ChemicalReaction) -> list[Optional[
                     new_prod = Chem.Mol()
                     for prod in prods:
                         new_prod = Chem.CombineMols(new_prod, prod)
-                    Chem.SanitizeMol(new_prod)
+                    sanitize_mol(new_prod)
+                    highlight_product(new_prod)
                     prod_smi = Chem.MolToSmiles(new_prod)
                     if prod_smi not in final_mols_smiles:
                         final_mols.append(new_prod)
@@ -58,18 +82,9 @@ def run_reactions(mols: list[Chem.Mol], rxn: ChemicalReaction) -> list[Optional[
 
 def execute(request: DataFunctionRequest) -> DataFunctionResponse:
     column_id = string_input_field(request, 'structureColumn')
-    rxn_smarts_field = request.inputFields['reactionSmarts']
-    rxn_smarts = str(rxn_smarts_field.data)
-    if rxn_smarts is not None and rxn_smarts and rxn_smarts != 'None':
-        rxn = string_to_reaction(rxn_smarts_field.contentType, rxn_smarts)
-    else:
-        rxn_sketcher_field = request.inputFields['reactionQuery']
-        rxn_sketch_text = str(rxn_sketcher_field.data)
-        if rxn_sketch_text is not None and rxn_sketch_text and rxn_sketch_text != 'None':
-            rxn = string_to_reaction(rxn_sketcher_field.contentType, rxn_sketch_text)
-        else:
-            raise ValueError('Received neither reaction SMARTS nor'
-                             ' reaction sketch.')
+    rxn_sketcher_field = request.inputFields['reactionQuery']
+    rxn_sketch_text = str(rxn_sketcher_field.data)
+    rxn = string_to_reaction(rxn_sketcher_field.contentType, rxn_sketch_text)
 
     input_column = request.inputColumns[column_id]
     mols = column_to_molecules(input_column)

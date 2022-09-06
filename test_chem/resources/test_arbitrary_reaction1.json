@@ -22,9 +22,9 @@
     "reactionQuery": {
       "id": "reactionQuery",
       "dataType": "string",
-      "contentType": "chemical/x-mdl-rxnfile",
+      "contentType": "chemical/x-smarts",
       "selectorType": null,
-      "data": null
+      "data": "[C:0][C:1](=[O:2])[O:3][C@:4]>>[C:0][C:1]=[O:2].[O:3][C@@:4]"
     }
   },
   "maximumOutputColumns": 10,
