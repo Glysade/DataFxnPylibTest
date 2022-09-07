@@ -26,19 +26,12 @@
       "selectorType": null,
       "data": true
     },
-    "coreSMARTS": {
-      "id": "coreSMARTS",
-      "dataType": "string",
-      "contentType": null,
-      "selectorType": null,
-      "data": "c1[nH]ccn1"
-    },
     "coreSketcher": {
       "id": "coreSketcher",
       "dataType": "string",
-      "contentType": "chemical/x-mdl-molfile",
+      "contentType": "chemical/x-smarts",
       "selectorType": null,
-      "data": null
+      "data": "c1[nH]ccn1"
     }
   },
   "maximumOutputColumns": 0,
