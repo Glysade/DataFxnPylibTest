@@ -19,11 +19,38 @@ def run_script(in_file: str, test_class: DataFunction) -> DataFunctionResponse:
 
 class ScriptTest(TestCase):
 
-    def test_script(self) -> None:
+    def test_script_smarts_core(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement.json'
         rgr = RGroupReplacement()
         response = run_script(file_in, rgr)
         self.assertTrue(response)
+
+    def test_script_smarts_core2(self) -> None:
+        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
+        rgr = RGroupReplacement()
+        response = run_script(file_in, rgr)
+        self.assertTrue(response)
+        print(f'number of columns : {len(response.outputTables[0].columns)}')
+        print(f'number of prods : {len(response.outputTables[0].columns[1].values)}')
+        self.assertEqual(len(response.outputTables[0].columns), 2)
+        self.assertEqual(len(response.outputTables[0].columns[1].values), 72)
+        mols = column_to_molecules(response.outputTables[0].columns[1])
+        self.assertEqual(Chem.MolToSmiles(mols[0]), 'N#Cc1cc(S(=O)(=O)Nc2ccco2)ccc1Oc1ccccc1-c1ccccc1')
+        for mol in mols:
+            print(Chem.MolToSmiles(mol))
+
+    def test_script_molfile_core(self) -> None:
+        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement2.json'
+        rgr = RGroupReplacement()
+        response = run_script(file_in, rgr)
+        self.assertTrue(response)
+        print(f'number of columns : {len(response.outputTables[0].columns)}')
+        print(f'number of prods : {len(response.outputTables[0].columns[1].values)}')
+        self.assertEqual(len(response.outputTables[0].columns), 2)
+        mols = column_to_molecules(response.outputTables[0].columns[1])
+        for mol in mols:
+            print(Chem.MolToSmiles(mol))
+
 
     def test_2_subs_on_atom(self) -> None:
         mols = [Chem.MolFromSmiles('Cl[C@H](OC)c1nc(O)c[nH]1')]
