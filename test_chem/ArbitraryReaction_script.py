@@ -4,6 +4,7 @@ from typing import Optional
 
 from rdkit import Chem
 from rdkit.Chem.rdChemReactions import ChemicalReaction
+from rdkit.Chem.rdchem import KekulizeException, AtomValenceException, MolSanitizeException
 
 from df.chem_helper import column_to_molecules, \
     molecules_to_column
@@ -62,7 +63,16 @@ def run_reactions(mols: list[Chem.Mol], rxn: ChemicalReaction) -> list[Optional[
                     new_prod = Chem.Mol()
                     for prod in prods:
                         new_prod = Chem.CombineMols(new_prod, prod)
-                    sanitize_mol(new_prod)
+                    try:
+                        Chem.SanitizeMol(new_prod)
+                    except MolSanitizeException:
+                        continue
+                    # sometimes we'll get a molecule that sanitizes but
+                    # generates a bad SMILES.  Skip those.
+                    smi = Chem.MolToSmiles(new_prod)
+                    test_mol = Chem.MolFromSmiles(smi)
+                    if test_mol is None:
+                        continue
                     highlight_product(new_prod)
                     prod_smi = Chem.MolToSmiles(new_prod)
                     if prod_smi not in final_mols_smiles:

@@ -44,6 +44,16 @@ class ScriptTest(TestCase):
         self.assertEqual(Chem.MolToSmiles(prods[0]), 'CCC=O.O[C@@H](F)Cl')
         self.assertIsNone(prods[1])
 
+    def test_bad_phenols(self) -> None:
+        from ArbitraryReaction_script import execute
+        file_in = Path(__file__).parent / 'resources' / 'test_arbitrary_reaction2.json'
+        response = run_script(file_in, execute)
+        self.assertTrue(response)
+        self.assertEqual(len(response.outputColumns), 1)
+        print(response.outputColumns[0].values)
+        self.assertEqual(len(response.outputColumns[0].values), 1)
+        self.assertIsNone(response.outputColumns[0].values[0])
+
     def test_rxn_file(self) -> None:
         rxn_file = Path(__file__).parent / 'resources' / 'amide_2_amine.rxn'
         rxn = AllChem.ReactionFromRxnFile(str(rxn_file))
