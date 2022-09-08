@@ -429,15 +429,15 @@ list[dict[str, Union[str, int, Chem.Mol, list[Chem.Mol]]]], timed_out: bool,
             highlight_molecule(mol_cp, mcs['qmol'])
             mols.append(mol_cp)
 
-    mcs_num_column = ColumnData(name=f'MCS Number {input_column_name}',
+    mcs_num_column = ColumnData(name='MCS Number',
                                 dataType=DataType.INTEGER, values=mcs_nums)
-    qmol_column = molecules_to_column(qmols, f'MCS {input_column_name}', DataType.BINARY)
-    smarts_column = ColumnData(name=f'{input_column_name} MCS SMARTS',
+    qmol_column = molecules_to_column(qmols, 'MCS', DataType.BINARY)
+    smarts_column = ColumnData(name='MCS SMARTS', contentType='chemical/x-smarts',
                                dataType=DataType.STRING, values=smarts)
-    num_mols_column = ColumnData(name=f'MCS Mol. Count {input_column_name}', dataType=DataType.INTEGER, values=num_mols)
-    natoms_column = ColumnData(name=f'MCS Num Atoms {input_column_name}', dataType=DataType.INTEGER, values=mcs_natoms)
-    nbonds_column = ColumnData(name=f'MCS Num Bonds {input_column_name}', dataType=DataType.INTEGER, values=mcs_nbonds)
-    mol_column = molecules_to_column(mols, f'MCS Molecule {input_column_name}', DataType.BINARY)
+    num_mols_column = ColumnData(name='MCS Mol. Count', dataType=DataType.INTEGER, values=num_mols)
+    natoms_column = ColumnData(name='MCS Num Atoms', dataType=DataType.INTEGER, values=mcs_natoms)
+    nbonds_column = ColumnData(name='MCS Num Bonds', dataType=DataType.INTEGER, values=mcs_nbonds)
+    mol_column = molecules_to_column(mols, 'MCS Molecule', DataType.BINARY)
     all_cols = [mcs_num_column, qmol_column, natoms_column, nbonds_column,
                 num_mols_column, smarts_column, mol_column]
     output_table = TableData(tableName=table_name, columns=all_cols)
