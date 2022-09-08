@@ -33,11 +33,9 @@ class ScriptTest(TestCase):
         print(f'number of columns : {len(response.outputTables[0].columns)}')
         print(f'number of prods : {len(response.outputTables[0].columns[1].values)}')
         self.assertEqual(len(response.outputTables[0].columns), 2)
-        self.assertEqual(len(response.outputTables[0].columns[1].values), 72)
+        self.assertEqual(len(response.outputTables[0].columns[1].values), 42)
         mols = column_to_molecules(response.outputTables[0].columns[1])
         self.assertEqual(Chem.MolToSmiles(mols[0]), 'N#Cc1cc(S(=O)(=O)Nc2ccco2)ccc1Oc1ccccc1-c1ccccc1')
-        for mol in mols:
-            print(Chem.MolToSmiles(mol))
 
     def test_script_molfile_core(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement2.json'
@@ -48,8 +46,8 @@ class ScriptTest(TestCase):
         print(f'number of prods : {len(response.outputTables[0].columns[1].values)}')
         self.assertEqual(len(response.outputTables[0].columns), 2)
         mols = column_to_molecules(response.outputTables[0].columns[1])
-        for mol in mols:
-            print(Chem.MolToSmiles(mol))
+        self.assertEqual(len(response.outputTables[0].columns[1].values), 42)
+        self.assertEqual(Chem.MolToSmiles(mols[0]), 'N#Cc1cc(S(=O)(=O)Nc2ccco2)ccc1Oc1ccccc1-c1ccccc1')
 
 
     def test_2_subs_on_atom(self) -> None:
