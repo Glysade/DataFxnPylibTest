@@ -63,11 +63,11 @@ class ScriptTest(TestCase):
         mols = [Chem.MolFromSmiles('c1ccccc1C(=O)NC'),
                 Chem.MolFromSmiles('C1CCCCC1C(=O)NC'),
                 Chem.MolFromSmiles('CCNC(=O)c1ccc(C(=O)NC)cc1')]
-        prods = run_reactions(mols, rxn)
+        prods = run_reactions(mols, rxn, 'exhaustiveReaction')
         self.assertEqual(len(prods), 3)
-        self.assertEqual(Chem.MolToSmiles(prods[0]), 'NC(=O)c1ccccc1')
-        self.assertIsNone(prods[1])
-        self.assertEqual(Chem.MolToSmiles(prods[2]), 'NC(=O)c1ccc(C(N)=O)cc1')
+        self.assertEqual(Chem.MolToSmiles(prods[0][1]), 'NC(=O)c1ccccc1')
+        self.assertIsNone(prods[1][1])
+        self.assertEqual(Chem.MolToSmiles(prods[2][1]), 'NC(=O)c1ccc(C(N)=O)cc1')
 
     def test_two_products(self) -> None:
         rxn_file = Path(__file__).parent / 'resources' / 'amide_split.rxn'
@@ -76,11 +76,11 @@ class ScriptTest(TestCase):
         smis = ['Nc1cccc(c1)C(=O)Nc1ccc(N)cc1',
                 'c1ccccc1C(Cl)C(Cl)C(=O)Nc1ccccc1']
         mols = [Chem.MolFromSmiles(s) for s in smis]
-        prods = run_reactions(mols, rxn)
+        prods = run_reactions(mols, rxn, 'exhaustiveReaction')
         self.assertEqual(len(prods), 2)
-        self.assertEqual(Chem.MolToSmiles(prods[0]),
+        self.assertEqual(Chem.MolToSmiles(prods[0][1]),
                          'Nc1ccc(N)cc1.Nc1cccc(C=O)c1')
-        self.assertIsNone(prods[1])
+        self.assertIsNone(prods[1][1])
 
     def test_rxn_smarts(self) -> None:
         # this is the same as test_script1, but done directly
@@ -89,10 +89,37 @@ class ScriptTest(TestCase):
         smis = ['CCC(=O)O[C@H](F)Cl',
                 'c1ccccc1C(=O)O[C@@](F)Cl']
         mols = [Chem.MolFromSmiles(s) for s in smis]
-        prods = run_reactions(mols, rxn)
-        self.assertEqual(Chem.MolToSmiles(prods[0]), 'CCC=O.O[C@@H](F)Cl')
-        self.assertIsNone(prods[1])
+        prods = run_reactions(mols, rxn, 'exhaustiveReaction')
+        self.assertEqual(Chem.MolToSmiles(prods[0][1]), 'CCC=O.O[C@@H](F)Cl')
+        self.assertIsNone(prods[1][1])
 
+    def test_single_mode(self) -> None:
+        from ArbitraryReaction_script import execute
+        file_in = Path(__file__).parent / 'resources' / 'test_arbitrary_reaction3.json'
+        response = run_script(file_in, execute)
+        self.assertTrue(response)
+        prods = column_to_molecules(response.outputColumns[0])
+        self.assertEqual(len(prods), 1)
+        self.assertEqual(Chem.MolToSmiles(prods[0]), 'CN(C)c1cnc2cccc(O)c2c1')
+
+    def test_exhaustive_mode(self) -> None:
+        from ArbitraryReaction_script import execute
+        file_in = Path(__file__).parent / 'resources' / 'test_arbitrary_reaction4.json'
+        response = run_script(file_in, execute)
+        self.assertTrue(response)
+        prods = column_to_molecules(response.outputColumns[0])
+        self.assertEqual(len(prods), 1)
+        self.assertEqual(Chem.MolToSmiles(prods[0]), 'CN(C)c1cnc2c(O)c(O)c(O)c(O)c2c1')
+
+    def test_multiple_mode(self) -> None:
+        from ArbitraryReaction_script import execute
+        file_in = Path(__file__).parent / 'resources' / 'test_arbitrary_reaction5.json'
+        response = run_script(file_in, execute)
+        self.assertTrue(response)
+        prods = column_to_molecules(response.outputTables[0].columns[1])
+        self.assertEqual(Chem.MolToSmiles(prods[0]), 'CN(C)c1cnc2cccc(O)c2c1')
+        self.assertEqual(Chem.MolToSmiles(prods[10]), 'CN(C)c1cnc2cc(O)c(O)c(O)c2c1')
+        self.assertEqual(Chem.MolToSmiles(prods[14]), 'CN(C)c1cnc2c(O)c(O)c(O)c(O)c2c1')
 
 if __name__ == '__main__':
     main()
