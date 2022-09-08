@@ -47,10 +47,12 @@ class ScriptTest(TestCase):
         num_true = len([p for p in response.outputColumns[0].values if p])
         self.assertEqual(num_true, 2)
         self.assertEqual(response.outputColumns[1].values[-1], 'azo_A(324)')
-        self.assertEqual(response.outputColumns[1].name, 'SMILES PAINS NAMES')
+        self.assertEqual(response.outputColumns[1].name, 'PAINS NAMES SMILES')
         mols = column_to_molecules(response.outputColumns[3])
+        self.assertIsNotNone(mols[-1])
         self.assertEqual(mols[-1].GetProp('Renderer_Highlight'),
                          'COLOR #ff0000\nATOMS 21 22\nBONDS 21')
+        self.assertIsNone(mols[0])
 
     def test_multi_hits(self):
         from PAINSFilters_script import run_pains, highlight_molecules

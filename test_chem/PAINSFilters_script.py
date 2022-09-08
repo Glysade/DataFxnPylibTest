@@ -175,16 +175,22 @@ def execute(request: DataFunctionRequest) -> DataFunctionResponse:
     mols = column_to_molecules(input_column)
     pains = run_pains(mols)
     pains_cols = [p[0] for p in pains]
-    pains_column = ColumnData(name=f'{input_column.name} PAINS?', dataType=DataType.BOOLEAN,
+    pains_column = ColumnData(name=f'PAINS {input_column.name}?', dataType=DataType.BOOLEAN,
                               values=pains_cols)
     pains_strs = [p[1] for p in pains]
-    pains_strs_column = ColumnData(name=f'{input_column.name} PAINS NAMES', dataType=DataType.STRING,
+    pains_strs_column = ColumnData(name=f'PAINS NAMES {input_column.name}', dataType=DataType.STRING,
                                    values=pains_strs)
     pains_mols = [p[2] for p in pains]
-    pains_smarts_column = molecules_to_column(pains_mols, f'{input_column.name} PAINS SMARTS',
+    pains_smarts_column = molecules_to_column(pains_mols, f'PAINS SMARTS {input_column.name}',
                                               DataType.BINARY)
     highlight_molecules(mols, pains_mols)
-    pains_hits_column = molecules_to_column(mols, f'{input_column.name} PAINS MAP', DataType.BINARY)
+    pains_map_mols = []
+    for m, p in zip(mols, pains):
+        if p[0]:
+            pains_map_mols.append(m)
+        else:
+            pains_map_mols.append(None)
+    pains_hits_column = molecules_to_column(pains_map_mols, f'{input_column.name} PAINS MAP', DataType.BINARY)
     response = DataFunctionResponse(outputColumns=[pains_column, pains_strs_column,
                                                    pains_smarts_column, pains_hits_column])
     return response
