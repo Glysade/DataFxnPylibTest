@@ -33,6 +33,7 @@ class ScriptTest(TestCase):
         self.assertEqual(Chem.MolToSmiles(prods[2]), 'NC(=O)c1cccc(N)c1')
 
     def test_script1(self) -> None:
+        # SMARTS query
         from ArbitraryReaction_script import execute
         file_in = Path(__file__).parent / 'resources' / 'test_arbitrary_reaction1.json'
         response = run_script(file_in, execute)
@@ -45,6 +46,7 @@ class ScriptTest(TestCase):
         self.assertIsNone(prods[1])
 
     def test_bad_phenols(self) -> None:
+        # MolFile query
         from ArbitraryReaction_script import execute
         file_in = Path(__file__).parent / 'resources' / 'test_arbitrary_reaction2.json'
         response = run_script(file_in, execute)
