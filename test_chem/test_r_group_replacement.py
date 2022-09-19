@@ -115,5 +115,20 @@ class ScriptTest(TestCase):
         self.assertEqual(len(analogue_counts), 4)
         self.assertEqual(len([ac for ac in analogue_counts if ac == 0]), 4)
 
+    def test_script_bad_smarts_core(self) -> None:
+        # a poor core in this case, which results in r groups with
+        # partial aromatic rings that used to throw an exception.
+        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement3.json'
+        rgr = RGroupReplacement()
+        response = run_script(file_in, rgr)
+        self.assertTrue(response)
+        self.assertEqual(len(response.outputTables[0].columns), 3)
+        self.assertEqual(len(response.outputTables[0].columns[1].values), 176)
+        self.assertEqual(len(response.outputTables[0].columns[2].values), 176)
+        self.assertEqual(len(response.outputColumns[0].values), 15)
+        self.assertEqual(response.outputColumns[0].values[0], 0)
+        self.assertEqual(response.outputColumns[0].values[3], 75)
+
+
 if __name__ == '__main__':
     main()
