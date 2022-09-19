@@ -2,7 +2,8 @@ from pathlib import Path
 from unittest import TestCase, main
 
 from df.chem_helper import column_to_molecules
-from df.data_transfer import DataFunction, DataFunctionRequest, DataFunctionResponse
+from df.data_transfer import DataFunction, DataFunctionRequest, DataFunctionResponse,\
+    DataType
 from rdkit import Chem
 
 from df.RGroupReplacement import RGroupReplacement, replace_rgroups
@@ -63,12 +64,12 @@ class ScriptTest(TestCase):
         mols = [Chem.MolFromSmiles('Cl[C@H](OC)c1nc(O)c[nH]1')]
         ids = ['mol1']
         core_query = Chem.MolFromSmarts('Cc1nccn1')
-        analogue_table, _ = replace_rgroups(mols, ids, core_query, True, False,
-                                         'Test')
+        analogue_table, _ = replace_rgroups(mols, ids, DataType.STRING, core_query,
+                                            True, False, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
         self.assertEqual(len(analogues), 125)
-        analogue_table, _ = replace_rgroups(mols, ids, core_query, False, True,
-                                         'Test')
+        analogue_table, _ = replace_rgroups(mols, ids, DataType.STRING, core_query,
+                                            False, True, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
         self.assertEqual(len(analogues), 504)
 
@@ -76,8 +77,8 @@ class ScriptTest(TestCase):
         mols = [Chem.MolFromSmiles('Clc1ccccc1Cl')]
         ids = ['mol1']
         core_query = Chem.MolFromSmarts('c1ccccc1')
-        analogue_table, _ = replace_rgroups(mols, ids, core_query, True, False,
-                                         'Test')
+        analogue_table, _ = replace_rgroups(mols, ids, DataType.STRING, core_query,
+                                            True, False, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
         self.assertEqual(len(analogues), 15)
 
@@ -85,8 +86,8 @@ class ScriptTest(TestCase):
         mols = [Chem.MolFromSmiles('OC(=O)c1ccccc1Oc1ccc(N)cc1')]
         ids = ['mol1']
         core_query = Chem.MolFromSmarts('c1ccccc1')
-        analogue_table, _ = replace_rgroups(mols, ids, core_query, True, False,
-                                         'Test')
+        analogue_table, _ = replace_rgroups(mols, ids, DataType.STRING, core_query,
+                                            True, False, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
         self.assertEqual(len(analogues), 10)
 
@@ -94,7 +95,7 @@ class ScriptTest(TestCase):
         mols = [Chem.MolFromSmiles('c1ccc2c(c1)COC2')]
         ids = ['mol1']
         core_query = Chem.MolFromSmarts('c1ccccc1')
-        analogue_table, analogue_counts = replace_rgroups(mols, ids, core_query,
+        analogue_table, analogue_counts = replace_rgroups(mols, ids, DataType.STRING, core_query,
                                                           True, False, 'Test')
         # we should just get an empty table
         analogues = column_to_molecules(analogue_table.columns[2])
@@ -108,7 +109,7 @@ class ScriptTest(TestCase):
         mols = [Chem.MolFromSmiles(s) for s in smis]
         ids = ['mol1', 'mol2', 'mol3', 'mol4']
         core_query = Chem.MolFromSmarts('c1nccn1')
-        analogue_table, analogue_counts = replace_rgroups(mols, ids, core_query,
+        analogue_table, analogue_counts = replace_rgroups(mols, ids, DataType.STRING, core_query,
                                                           False, False, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
         self.assertEqual(len(analogues), 0)
