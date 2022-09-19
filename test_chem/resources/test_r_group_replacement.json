@@ -12,6 +12,13 @@
       "selectorType": "column",
       "data": "86a20519-3817-489c-a600-bc5508b9a7b2sSMILES"
     },
+    "idColumn": {
+      "id": "idColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "86a20519-3817-489c-a600-bc5508b9a7b2sName"
+    },
     "useLayer1": {
       "id": "useLayer1",
       "dataType": "boolean",
@@ -61,6 +68,30 @@
         "[nH]1c(C)nc(O)c1",
         "[nH]1c(CO)nc(F)c1c1ccc(Cl)cc1",
         "[nH]1c([C@H](Cl)(F))nc(F)c1"
+      ]
+    },
+    "86a20519-3817-489c-a600-bc5508b9a7b2sName": {
+      "dataType": "string",
+      "name": "Name",
+      "contentType": null,
+      "properties": {
+        "Name": "Name",
+        "ColumnType": "Imported",
+        "DataType": "String",
+        "ExternalName": "Name",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.StringDataComparer",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.StringFormatter",
+        "Origin": "test1",
+        "Description": ""
+      },
+      "values": [
+        "mol1",
+        "mol2",
+        "mol3",
+        "mol4",
+        "mol5"
       ]
     }
   },
