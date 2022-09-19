@@ -130,6 +130,17 @@ class ScriptTest(TestCase):
         self.assertEqual(response.outputColumns[0].values[0], 0)
         self.assertEqual(response.outputColumns[0].values[3], 75)
 
+    def test_analogue_in_input_set(self) -> None:
+        smis = ['COc1ccccc1N', 'CCOc1ccccc1N']
+        mols = [Chem.MolFromSmiles(s) for s in smis]
+        ids = ['mol1', 'mol2']
+        core_query = Chem.MolFromSmarts('Nc1ccccc1')
+        analogue_table, analogue_counts = replace_rgroups(mols, ids, DataType.STRING, core_query,
+                                                          True, False, 'Test')
+        analogues = column_to_molecules(analogue_table.columns[2])
+        an_smi = [Chem.MolToSmiles(an) for an in analogues]
+        self.assertNotIn(smis[1], an_smi)
+
 
 if __name__ == '__main__':
     main()
