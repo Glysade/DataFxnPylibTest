@@ -155,7 +155,7 @@ class ScriptTest(TestCase):
         analogues = column_to_molecules(analogue_table.columns[2])
         render_string1 = 'COLOR #0000ff\nATOMS 1 2 3 4 5 6 7\nBONDS 1 2 3 4 7 5 6\nCOLOR #ff0000\nATOMS 22 23\nBONDS 21 22'
         self.assertEqual(analogues[0].GetProp('Renderer_Highlight'), render_string1)
-        render_string2 = 'COLOR #0000ff\nATOMS 1 2 3 4 5 6 7\nBONDS 1 2 3 4 7 5 6\nCOLOR #ffa500\nATOMS 22\nBONDS 21'
+        render_string2 = 'COLOR #0000ff\nATOMS 1 2 3 4 5 6 7\nBONDS 1 2 3 4 7 5 6\nCOLOR #ffbf00\nATOMS 22\nBONDS 21'
         self.assertEqual(analogues[-1].GetProp('Renderer_Highlight'), render_string2)
 
 
