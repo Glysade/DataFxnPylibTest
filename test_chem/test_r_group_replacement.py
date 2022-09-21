@@ -5,6 +5,7 @@ from df.chem_helper import column_to_molecules
 from df.data_transfer import DataFunction, DataFunctionRequest, DataFunctionResponse,\
     DataType
 from rdkit import Chem
+from rdkit.Chem import rdDepictor
 
 from df.RGroupReplacement import RGroupReplacement, replace_rgroups
 
@@ -16,6 +17,33 @@ def run_script(in_file: str, test_class: DataFunction) -> DataFunctionResponse:
     request = DataFunctionRequest.parse_raw(request_json)
     response = test_class.execute(request)
     return response
+
+
+def get_core_atom_cds(mol):
+    # the atom properties have been lost by now, so dig the core atoms
+    # out of the atom colouring
+    lines = mol.GetProp('Renderer_Highlight').split('\n')
+    core_ats = lines[1][6:].split()
+    at_cds = []
+    for ca in core_ats:
+        ica = int(ca) - 1
+        at_cds.append(mol.GetConformer().GetAtomPosition(ica))
+    return at_cds
+
+
+def calc_core_rmses(mols: list[Chem.Mol]) -> float:
+    # check the cores are all lined up correctly.  Coordgen doesn't
+    # make them exactly the same, but very close
+    core_cds = get_core_atom_cds(mols[0])
+
+    rmses = []
+    for i, mol in enumerate(mols[1:], 1):
+        this_core_cds = get_core_atom_cds(mol)
+        rms = 0.0
+        for cd, tcd in zip(core_cds, this_core_cds):
+            rms += (cd.x - tcd.x) * (cd.x - tcd.x) + (cd.y - tcd.y) * (cd.y - tcd.y)
+        rmses.append(rms)
+    return max(rmses)
 
 
 class ScriptTest(TestCase):
@@ -32,6 +60,7 @@ class ScriptTest(TestCase):
         self.assertEqual(response.outputColumns[0].values[0], 7)
         self.assertEqual(response.outputColumns[0].values[1], 98)
         mols = column_to_molecules(response.outputTables[0].columns[2])
+        self.assertLess(calc_core_rmses(mols), 0.005)
 
     def test_script_smarts_core2(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
@@ -46,6 +75,7 @@ class ScriptTest(TestCase):
         self.assertEqual(len(response.outputColumns[0].values), 100)
         self.assertEqual(response.outputColumns[0].values[0], 3)
         self.assertEqual(response.outputColumns[0].values[1], 0)
+        self.assertLess(calc_core_rmses(mols), 0.005)
 
     def test_script_molfile_core(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement2.json'
@@ -60,6 +90,7 @@ class ScriptTest(TestCase):
         self.assertEqual(len(response.outputColumns[0].values), 100)
         self.assertEqual(response.outputColumns[0].values[0], 3)
         self.assertEqual(response.outputColumns[0].values[1], 0)
+        self.assertLess(calc_core_rmses(mols), 0.005)
 
     def test_2_subs_on_atom(self) -> None:
         mols = [Chem.MolFromSmiles('Cl[C@H](OC)c1nc(O)c[nH]1')]
@@ -153,9 +184,9 @@ class ScriptTest(TestCase):
         analogue_table, _ = replace_rgroups(mols, ids, DataType.STRING, core_query,
                                             True, True, False, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
-        render_string1 = 'COLOR #0000ff\nATOMS 1 2 3 4 5 6 7\nBONDS 1 2 3 4 7 5 6\nCOLOR #ff0000\nATOMS 22 23\nBONDS 21 22'
+        render_string1 = 'COLOR #0000ff\nATOMS 7 6 5 4 3 2 1\nBONDS 6 5 7 4 3 2 1\nCOLOR #ff0000\nATOMS 22 23\nBONDS 21 22'
         self.assertEqual(analogues[0].GetProp('Renderer_Highlight'), render_string1)
-        render_string2 = 'COLOR #0000ff\nATOMS 1 2 3 4 5 6 7\nBONDS 1 2 3 4 7 5 6\nCOLOR #ffbf00\nATOMS 22\nBONDS 21'
+        render_string2 = 'COLOR #0000ff\nATOMS 7 6 5 4 3 2 1\nBONDS 6 5 7 4 3 2 1\nCOLOR #ffbf00\nATOMS 22\nBONDS 21'
         self.assertEqual(analogues[-1].GetProp('Renderer_Highlight'), render_string2)
 
     def test_include_orig_rgroup(self) -> None:
