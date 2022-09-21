@@ -32,11 +32,6 @@ class ScriptTest(TestCase):
         self.assertEqual(response.outputColumns[0].values[0], 7)
         self.assertEqual(response.outputColumns[0].values[1], 98)
         mols = column_to_molecules(response.outputTables[0].columns[2])
-        print(mols[0].GetProp('Renderer_Highlight'))
-        for at in mols[0].GetAtoms():
-            print(f'{at.GetIdx()+1}  {at.GetAtomicNum()} {at.GetIsAromatic()}')
-        for b in mols[0].GetBonds():
-            print(f'{b.GetIdx()} : {b.GetBeginAtomIdx()+1} -> {b.GetEndAtomIdx()+1} : {b.GetBondType()}')
 
     def test_script_smarts_core2(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
@@ -150,15 +145,18 @@ class ScriptTest(TestCase):
     def test_dont_colour_no_change_r_groups(self) -> None:
         # because there's no replacement for FCCCCCCCCCCCCO, it should
         # not be coloured.
+        # Also check layer 1 and layer 2 colours are correct.
         smis = ['FCCCCCCCCCCCCOc1ccc(OCC)cc1N']
         mols = [Chem.MolFromSmiles(s) for s in smis]
         ids = ['mol1']
         core_query = Chem.MolFromSmarts('Nc1ccccc1')
         analogue_table, _ = replace_rgroups(mols, ids, DataType.STRING, core_query,
-                                            True, False, 'Test')
+                                            True, True, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
-        render_string = 'COLOR #0000ff\nATOMS 1 2 3 4 5 6 7\nBONDS 1 2 3 4 7 5 6\nCOLOR #ff0000\nATOMS 22 23\nBONDS 21 22'
-        self.assertEqual(analogues[0].GetProp('Renderer_Highlight'), render_string)
+        render_string1 = 'COLOR #0000ff\nATOMS 1 2 3 4 5 6 7\nBONDS 1 2 3 4 7 5 6\nCOLOR #ff0000\nATOMS 22 23\nBONDS 21 22'
+        self.assertEqual(analogues[0].GetProp('Renderer_Highlight'), render_string1)
+        render_string2 = 'COLOR #0000ff\nATOMS 1 2 3 4 5 6 7\nBONDS 1 2 3 4 7 5 6\nCOLOR #ffa500\nATOMS 22\nBONDS 21'
+        self.assertEqual(analogues[-1].GetProp('Renderer_Highlight'), render_string2)
 
 
 if __name__ == '__main__':
