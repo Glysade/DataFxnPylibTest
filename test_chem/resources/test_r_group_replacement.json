@@ -33,6 +33,13 @@
       "selectorType": null,
       "data": true
     },
+    "incOrigRGroups": {
+      "id": "incOrigRGroups",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": false
+    },
     "coreSketcher": {
       "id": "coreSketcher",
       "dataType": "string",

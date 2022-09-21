@@ -66,11 +66,11 @@ class ScriptTest(TestCase):
         ids = ['mol1']
         core_query = Chem.MolFromSmarts('Cc1nccn1')
         analogue_table, _ = replace_rgroups(mols, ids, DataType.STRING, core_query,
-                                            True, False, 'Test')
+                                            True, False, False, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
         self.assertEqual(len(analogues), 125)
         analogue_table, _ = replace_rgroups(mols, ids, DataType.STRING, core_query,
-                                            False, True, 'Test')
+                                            False, True, False, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
         self.assertEqual(len(analogues), 504)
 
@@ -79,7 +79,7 @@ class ScriptTest(TestCase):
         ids = ['mol1']
         core_query = Chem.MolFromSmarts('c1ccccc1')
         analogue_table, _ = replace_rgroups(mols, ids, DataType.STRING, core_query,
-                                            True, False, 'Test')
+                                            True, False, False, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
         self.assertEqual(len(analogues), 15)
 
@@ -88,7 +88,7 @@ class ScriptTest(TestCase):
         ids = ['mol1']
         core_query = Chem.MolFromSmarts('c1ccccc1')
         analogue_table, _ = replace_rgroups(mols, ids, DataType.STRING, core_query,
-                                            True, False, 'Test')
+                                            True, False, False, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
         self.assertEqual(len(analogues), 10)
 
@@ -97,7 +97,7 @@ class ScriptTest(TestCase):
         ids = ['mol1']
         core_query = Chem.MolFromSmarts('c1ccccc1')
         analogue_table, analogue_counts = replace_rgroups(mols, ids, DataType.STRING, core_query,
-                                                          True, False, 'Test')
+                                                          True, False, False, 'Test')
         # we should just get an empty table
         analogues = column_to_molecules(analogue_table.columns[2])
         self.assertEqual(len(analogues), 0)
@@ -111,7 +111,7 @@ class ScriptTest(TestCase):
         ids = ['mol1', 'mol2', 'mol3', 'mol4']
         core_query = Chem.MolFromSmarts('c1nccn1')
         analogue_table, analogue_counts = replace_rgroups(mols, ids, DataType.STRING, core_query,
-                                                          False, False, 'Test')
+                                                          False, False, False, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
         self.assertEqual(len(analogues), 0)
         self.assertEqual(len(analogue_counts), 4)
@@ -137,7 +137,7 @@ class ScriptTest(TestCase):
         ids = ['mol1', 'mol2']
         core_query = Chem.MolFromSmarts('Nc1ccccc1')
         analogue_table, _ = replace_rgroups(mols, ids, DataType.STRING, core_query,
-                                            True, False, 'Test')
+                                            True, False, False, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
         an_smi = [Chem.MolToSmiles(an) for an in analogues]
         self.assertNotIn(smis[1], an_smi)
@@ -151,12 +151,26 @@ class ScriptTest(TestCase):
         ids = ['mol1']
         core_query = Chem.MolFromSmarts('Nc1ccccc1')
         analogue_table, _ = replace_rgroups(mols, ids, DataType.STRING, core_query,
-                                            True, True, 'Test')
+                                            True, True, False, 'Test')
         analogues = column_to_molecules(analogue_table.columns[2])
         render_string1 = 'COLOR #0000ff\nATOMS 1 2 3 4 5 6 7\nBONDS 1 2 3 4 7 5 6\nCOLOR #ff0000\nATOMS 22 23\nBONDS 21 22'
         self.assertEqual(analogues[0].GetProp('Renderer_Highlight'), render_string1)
         render_string2 = 'COLOR #0000ff\nATOMS 1 2 3 4 5 6 7\nBONDS 1 2 3 4 7 5 6\nCOLOR #ffbf00\nATOMS 22\nBONDS 21'
         self.assertEqual(analogues[-1].GetProp('Renderer_Highlight'), render_string2)
+
+    def test_include_orig_rgroup(self) -> None:
+        smis = ['Nc1c(OCC)nccc1OCC']
+        mols = [Chem.MolFromSmiles(s) for s in smis]
+        ids = ['mol1']
+        core_query = Chem.MolFromSmarts('Nc1cnccc1')
+        analogue_table, analogue_counts =\
+            replace_rgroups(mols, ids, DataType.STRING, core_query,
+                            True, False, True, 'Test')
+        self.assertEqual(analogue_counts[0], 3)
+        analogue_table, analogue_counts =\
+            replace_rgroups(mols, ids, DataType.STRING, core_query,
+                            True, False, False, 'Test')
+        self.assertEqual(analogue_counts[0], 1)
 
 
 if __name__ == '__main__':
