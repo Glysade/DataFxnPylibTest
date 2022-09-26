@@ -49,7 +49,7 @@ def calc_core_rmses(mols: list[Chem.Mol]) -> float:
 class ScriptTest(TestCase):
 
     def test_layer1(self) -> None:
-        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement.json'
+        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
         rgr = RGroupReplacement()
         response = run_script(file_in, rgr)
         self.assertTrue(response)
@@ -68,7 +68,7 @@ class ScriptTest(TestCase):
         self.assertLess(calc_core_rmses(mols), 0.005)
 
     def test_layer1_plus_init_rgroup(self) -> None:
-        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement.json'
+        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
         with open(file_in, 'r') as fh:
             request_json = fh.read()
 
@@ -95,7 +95,7 @@ class ScriptTest(TestCase):
         self.assertLess(calc_core_rmses(mols), 0.005)
 
     def test_layer1_plus_layer2(self) -> None:
-        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement.json'
+        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
         with open(file_in, 'r') as fh:
             request_json = fh.read()
 
@@ -120,6 +120,20 @@ class ScriptTest(TestCase):
         self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1ccccc1Cl')
         self.assertEqual(Chem.MolToSmiles(mols[-1]), 'Cc1ccc(O)nc1S(=O)(=O)N(C)C')
         self.assertLess(calc_core_rmses(mols), 0.005)
+
+    def test_gyrase_multicore_decomp(self) -> None:
+        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement2.json'
+        rgr = RGroupReplacement()
+        response = run_script(file_in, rgr)
+        self.assertTrue(response)
+        self.assertEqual(sum(response.outputColumns[0].values), 1946)
+        mols = column_to_molecules(response.outputTables[0].columns[2])
+        self.assertEqual(len(response.outputTables[0].columns[0].values), 1946)
+        self.assertEqual(len(response.outputTables[0].columns[1].values), 1946)
+        self.assertEqual(len(mols), 1946)
+        self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1[nH]c(C(=O)NC2CCN(c3ccccn3)CC2)cc1Br')
+        self.assertEqual(Chem.MolToSmiles(mols[-1]), 'CNC(=O)c1cc2c(-n3ccc(C(F)(F)F)n3)c(-c3cc(-c4n[nH]c(=O)o4)cnc3OC)cnc2[nH]1')
+
 
 
 if __name__ == '__main__':
