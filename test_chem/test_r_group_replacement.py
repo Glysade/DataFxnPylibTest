@@ -132,8 +132,31 @@ class ScriptTest(TestCase):
         self.assertEqual(len(response.outputTables[0].columns[1].values), 1946)
         self.assertEqual(len(mols), 1946)
         self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1[nH]c(C(=O)NC2CCN(c3ccccn3)CC2)cc1Br')
-        self.assertEqual(Chem.MolToSmiles(mols[-1]), 'CNC(=O)c1cc2c(-n3ccc(C(F)(F)F)n3)c(-c3cc(-c4n[nH]c(=O)o4)cnc3OC)cnc2[nH]1')
+        self.assertEqual(Chem.MolToSmiles(mols[-1]),
+                         'CNC(=O)c1cc2c(-n3ccc(C(F)(F)F)n3)c(-c3cc(-c4n[nH]c(=O)o4)cnc3OC)cnc2[nH]1')
 
+    def test_gyrase_multicore_decomp_full(self) -> None:
+        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement2.json'
+        with open(file_in, 'r') as fh:
+            request_json = fh.read()
+
+        request_dict = json.loads(request_json)
+        request_dict['inputFields']['useLayer2']['data'] = True
+        request_dict['inputFields']['incOrigRGroups']['data'] = True
+        request_json = json.dumps(request_dict)
+        rgr = RGroupReplacement()
+        request = DataFunctionRequest.parse_raw(request_json)
+        response = rgr.execute(request)
+
+        self.assertTrue(response)
+        self.assertEqual(sum(response.outputColumns[0].values), 4609)
+        mols = column_to_molecules(response.outputTables[0].columns[2])
+        self.assertEqual(len(response.outputTables[0].columns[0].values), 4609)
+        self.assertEqual(len(response.outputTables[0].columns[1].values), 4609)
+        self.assertEqual(len(mols), 4609)
+        self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1[nH]c(C(=O)NC2CCN(c3ccccn3)CC2)cc1Br')
+        self.assertEqual(Chem.MolToSmiles(mols[-1]),
+                         'COc1ncc(-c2n[nH]c(=O)o2)cc1-c1cnc2[nH]c(C(=O)N(C)C)cc2c1-n1ccc(C(F)(F)F)n1')
 
 
 if __name__ == '__main__':
