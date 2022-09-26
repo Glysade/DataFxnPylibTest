@@ -1,8 +1,8 @@
 {
   "executorId": 0,
-  "id": "89068f71-8291-4cfd-bff7-55ba737f7379",
-  "dataFxnDefId": "b297fc09-8423-bf35-4779-cd388558d007",
-  "serviceName": "Script",
+  "id": "0d1c76c2-b8d0-4367-9f8d-798ff2fed18c",
+  "dataFxnDefId": "0227312a-b83e-9777-d285-196c05263676",
+  "serviceName": "RGroupReplacement",
   "assembly": null,
   "inputFields": {
     "structureColumn": {
@@ -10,14 +10,34 @@
       "dataType": "string",
       "contentType": null,
       "selectorType": "column",
-      "data": "86a20519-3817-489c-a600-bc5508b9a7b2sSMILES"
+      "data": "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50sSMILES"
     },
     "idColumn": {
       "id": "idColumn",
       "dataType": "string",
       "contentType": null,
       "selectorType": "column",
-      "data": "86a20519-3817-489c-a600-bc5508b9a7b2sName"
+      "data": "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50sName"
+    },
+    "coresColumn": {
+      "id": "coresColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50yCore"
+    },
+    "rGroupColumns": {
+      "id": "rGroupColumns",
+      "dataType": "list(string)",
+      "contentType": null,
+      "selectorType": "column",
+      "data": [
+        "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50yR1",
+        "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50yR2",
+        "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50yR3",
+        "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50yR4",
+        "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50yR5"
+      ]
     },
     "useLayer1": {
       "id": "useLayer1",
@@ -31,7 +51,7 @@
       "dataType": "boolean",
       "contentType": null,
       "selectorType": null,
-      "data": true
+      "data": false
     },
     "incOrigRGroups": {
       "id": "incOrigRGroups",
@@ -39,21 +59,14 @@
       "contentType": null,
       "selectorType": null,
       "data": false
-    },
-    "coreSketcher": {
-      "id": "coreSketcher",
-      "dataType": "string",
-      "contentType": "chemical/x-smarts",
-      "selectorType": null,
-      "data": "c1[nH]ccn1"
     }
   },
-  "maximumOutputColumns": 0,
+  "maximumOutputColumns": 1,
   "maximumOutputTables": 1,
   "resultTables": null,
   "serviceUri": "glysade.python",
   "inputColumns": {
-    "86a20519-3817-489c-a600-bc5508b9a7b2sSMILES": {
+    "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50sSMILES": {
       "dataType": "string",
       "name": "SMILES",
       "contentType": "chemical/x-daylight-smiles",
@@ -66,18 +79,22 @@
         "Expression": "",
         "Comparer": "Spotfire.Dxp.Data.Cxx.StringDataComparer",
         "Formatter": "Spotfire.Dxp.Data.Formatters.StringFormatter",
-        "Origin": "test2",
+        "Origin": "test_rgd",
         "Description": ""
       },
       "values": [
-        "[nH]1c(C)nc(F)c1",
-        "[nH]1c(C)nc(F)c1Cl",
-        "[nH]1c(C)nc(O)c1",
-        "[nH]1c(CO)nc(F)c1c1ccc(Cl)cc1",
-        "[nH]1c([C@H](Cl)(F))nc(F)c1"
+        "Cc1c(C)cccc1",
+        "Cc1c(OC)cccc1",
+        "Cc1cc(OC)ccc1",
+        "Cc1cc(F)ccc1",
+        "Cc1c(Cl)c(OC)ccc1",
+        "Cc1cc(C)cc(OC)c1",
+        "Cc1c(Cl)nccc1",
+        "Cc1c(F)ncc(OC)c1",
+        "Cc1c(OC)nc(OCC)cc1"
       ]
     },
-    "86a20519-3817-489c-a600-bc5508b9a7b2sName": {
+    "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50sName": {
       "dataType": "string",
       "name": "Name",
       "contentType": null,
@@ -90,29 +107,207 @@
         "Expression": "",
         "Comparer": "Spotfire.Dxp.Data.Cxx.StringDataComparer",
         "Formatter": "Spotfire.Dxp.Data.Formatters.StringFormatter",
-        "Origin": "test1",
+        "Origin": "test_rgd",
         "Description": ""
       },
       "values": [
-        "mol1",
-        "mol2",
-        "mol3",
-        "mol4",
-        "mol5"
+        "Mol1",
+        "Mol2",
+        "Mol3",
+        "Mol4",
+        "Mol5",
+        "Mol6",
+        "Mol7",
+        "Mol8",
+        "Mol9"
+      ]
+    },
+    "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50yCore": {
+      "dataType": "binary",
+      "name": "Core",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "Core",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "Core",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"ffbdeba4-b0a7-472a-a18c-85504e2940c8\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column1\"}"
+      },
+      "values": [
+        "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"
+      ]
+    },
+    "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50yR1": {
+      "dataType": "binary",
+      "name": "R1",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "R1",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "R1",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"ffbdeba4-b0a7-472a-a18c-85504e2940c8\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column2\"}"
+      },
+      "values": [
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKhiARVz8XLgDW8W688wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKhiARVz8XLgDW8W688wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKhiARVz8XLgDW8W688wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKhiARVz8XLgDW8W688wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKhiARVz8XLgDW8W688wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKhiARVz8XLgDW8W688wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcc3AZgYxApujiMSVImUhTIG4GOZvLF+gt9wAwBySsYAgScfVz4QIA7ACaJ/MAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLLcFHAZgYxApujiMSVImUhTIG4GOZvLF+gt9wAwBySsYAgScfVz4QIAvACiivMAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4lJQMAYyFBQMsCJLS0uFMCMDAwMukHoDPSDLGMIyNjY2gYsZKPgr4DICGYFM0TXQszAzM4SwDM3MDJBMcSbaFAWQKaaWMFPMkd0SpEykKYZgnxtCOMZgFpjjCwwp9wAwBySsYAgScfVz4QIAxe5wmkYBAAA="
+      ]
+    },
+    "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50yR2": {
+      "dataType": "binary",
+      "name": "R2",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "R2",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "R2",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"ffbdeba4-b0a7-472a-a18c-85504e2940c8\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column3\"}"
+      },
+      "values": [
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKRiARVz8XLgATzeOF8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKRiARVz8XLgATzeOF8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKRiARVz8XLgATzeOF8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKRiARVz8XLgATzeOF8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKRiARVz8XLgATzeOF8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVImUhTIG4GOZvLF+gt9wAwBySsYAQScfVz4QIAJVDChPMAAAA=",
+        null,
+        null,
+        null
+      ]
+    },
+    "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50yR3": {
+      "dataType": "binary",
+      "name": "R3",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "R3",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "R3",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"ffbdeba4-b0a7-472a-a18c-85504e2940c8\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column4\"}"
+      },
+      "values": [
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKxiARVz8XLgBQ2ZiS8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKxiARVz8XLgBQ2ZiS8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKxiARVz8XLgBQ2ZiS8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKxiARVz8XLgBQ2ZiS8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKxiARVz8XLgBQ2ZiS8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKxiARVz8XLgBQ2ZiS8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKxiARVz8XLgBQ2ZiS8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKxiARVz8XLgBQ2ZiS8wAAAA==",
+        "H4sIAAAAAAAEAJ2QQQvCMAyF7/kVDzxbsjSCOVvZYejGDv4H7/5/bLIyhCkMQyh5r+lHeQSvuQzPF9aSQgQokAH+2maGhzAz+T4nzXKuw5GTnFgXr94yRvxCfDYtbxsFG8plP6VLYibtL2r8FwUrBRvKfNhJ6WqQcbqQCLMJjSnErYbfTyHcRnbnei/0BiTb4JyZAQAA"
+      ]
+    },
+    "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50yR4": {
+      "dataType": "binary",
+      "name": "R4",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "R4",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "R4",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"ffbdeba4-b0a7-472a-a18c-85504e2940c8\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column5\"}"
+      },
+      "values": [
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKJiARVz8XLgCZtPn28wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKJiARVz8XLgCZtPn28wAAAA==",
+        "H4sIAAAAAAAEAI2QuwqEMBBF+/mKC9bKxNFo6o1YiA8s/Af7/X82k7CSQsFhinMv4ZCEoLP76fzimtoTARIA4Nt1zuGomZn0PFeBJJGINFfHWPGkyFctJVe9tSaRsZYzy+e1BWpp3d/S5XfZi5cWE19uUpBIMczhp8YtBq3RaDMsnn6Kq+fQRgEAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLLcFHAZgYxApujiMSVImUhTIG4GOZvLF+gt9wAwBySsYAIScfVz4QIA80U1wPMAAAA=",
+        "H4sIAAAAAAAEAI2QuwqEMBBF+/mKC9bKxNFo6o1YiA8s/Af7/X82k7CSQsFhinMv4ZCEoLP76fzimtoTARIA4Nt1zuGomZn0PFeBJJGINFfHWPGkyFctJVe9tSaRsZYzy+e1BWpp3d/S5XfZi5cWE19uUpBIMczhp8YtBq3RaDMsnn6Kq+fQRgEAAA==",
+        "H4sIAAAAAAAEAI2QuwqEMBBF+/mKC9bKxNFo6o1YiA8s/Af7/X82k7CSQsFhinMv4ZCEoLP76fzimtoTARIA4Nt1zuGomZn0PFeBJJGINFfHWPGkyFctJVe9tSaRsZYzy+e1BWpp3d/S5XfZi5cWE19uUpBIMczhp8YtBq3RaDMsnn6Kq+fQRgEAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKJiARVz8XLgCZtPn28wAAAA==",
+        "H4sIAAAAAAAEAI2QuwqEMBBF+/mKC9bKxNFo6o1YiA8s/Af7/X82k7CSQsFhinMv4ZCEoLP76fzimtoTARIA4Nt1zuGomZn0PFeBJJGINFfHWPGkyFctJVe9tSaRsZYzy+e1BWpp3d/S5XfZi5cWE19uUpBIMczhp8YtBq3RaDMsnn6Kq+fQRgEAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKJiARVz8XLgCZtPn28wAAAA=="
+      ]
+    },
+    "ab7df0fd-de5f-4b3c-a33f-ce22408f5a50yR5": {
+      "dataType": "binary",
+      "name": "R5",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "R5",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "R5",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"ffbdeba4-b0a7-472a-a18c-85504e2940c8\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column6\"}"
+      },
+      "values": [
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVImUhTIG4GOZvLF+gt9wAwBySsYAoScfVz4QIA7D2j4PMAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4lJQMAYyFBQMsCJLS0uFMCMDAwMukHoDPSDLGMIyNjY2gYsZKPgr4DICGYFM0TXQszAzM4SwDM3MDJBMcSbaFAWQKaaWMFPMkd0SpEykKYZgnxtCOMZgFpjjCwwp9wAwBySsYAoScfVz4QIAyb+cx0YBAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKpiARVz8XLgDaoILh8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKpiARVz8XLgDaoILh8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcc3AZgYxApujiMSVImUhTIG4GOZvLF+gt9wAwBySsYAoScfVz4QIA4FF2evMAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKpiARVz8XLgDaoILh8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKpiARVz8XLgDaoILh8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKpiARVz8XLgDaoILh8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKUiTQF4maQs7l8gd5yDwBzQMIKpiARVz8XLgDaoILh8wAAAA=="
       ]
     }
   },
   "webServiceRequest": null,
   "requestId": -1,
   "tkid": null,
-  "script": "from rdkit.Chem.Descriptors import ExactMolWt\nfrom df.chem_helper import column_to_molecules\nfrom df.data_transfer import DataFunctionRequest, DataFunctionResponse, DataType, ColumnData, \\\n    string_input_field\n\n\ndef execute(request: DataFunctionRequest) -> DataFunctionResponse:\n    column_id = string_input_field(request, 'structureColumn')\n    input_column = request.inputColumns[column_id]\n    mols = column_to_molecules(input_column)\n    weights = [None if m is None else ExactMolWt(m) for m in mols]\n    output_column = ColumnData(name=f'{input_column.name} Exact Mass', dataType=DataType.DOUBLE, values=weights)\n    response = DataFunctionResponse(outputColumns=[output_column])\n    return response\n",
+  "script": null,
   "updateBehavior": "automatic",
   "allowedClients": [
     "Analyst",
     "WebPlayer"
   ],
   "limitBy": "none",
-  "ironPython": "",
+  "ironPython": null,
   "chartsFxnType": null,
   "chartsRequest": null
 }
