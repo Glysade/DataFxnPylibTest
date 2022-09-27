@@ -53,7 +53,7 @@ class ScriptTest(TestCase):
         rgr = RGroupReplacement()
         response = run_script(file_in, rgr)
         self.assertTrue(response)
-        mols = column_to_molecules(response.outputTables[0].columns[2])
+        mols = column_to_molecules(response.outputTables[0].columns[3])
         self.assertEqual(len(response.outputTables[0].columns[0].values), 79)
         self.assertEqual(len(response.outputTables[0].columns[1].values), 79)
         self.assertEqual(len(mols), 79)
@@ -80,9 +80,10 @@ class ScriptTest(TestCase):
         response = rgr.execute(request)
 
         self.assertTrue(response)
-        mols = column_to_molecules(response.outputTables[0].columns[2])
+        mols = column_to_molecules(response.outputTables[0].columns[3])
         self.assertEqual(len(response.outputTables[0].columns[0].values), 105)
         self.assertEqual(len(response.outputTables[0].columns[1].values), 105)
+        self.assertEqual(len(response.outputTables[0].columns[2].values), 105)
         self.assertEqual(len(mols), 105)
         self.assertListEqual(response.outputColumns[0].values, [0, 5, 5, 4, 35, 5, 5, 35, 11])
         parent_counts = defaultdict(int)
@@ -107,9 +108,10 @@ class ScriptTest(TestCase):
         response = rgr.execute(request)
 
         self.assertTrue(response)
-        mols = column_to_molecules(response.outputTables[0].columns[2])
+        mols = column_to_molecules(response.outputTables[0].columns[3])
         self.assertEqual(len(response.outputTables[0].columns[0].values), 368)
         self.assertEqual(len(response.outputTables[0].columns[1].values), 368)
+        self.assertEqual(len(response.outputTables[0].columns[2].values), 368)
         self.assertEqual(len(mols), 368)
         self.assertListEqual(response.outputColumns[0].values, [0, 13, 12, 4, 182, 13, 14, 91, 39])
         parent_counts = defaultdict(int)
@@ -126,10 +128,14 @@ class ScriptTest(TestCase):
         rgr = RGroupReplacement()
         response = run_script(file_in, rgr)
         self.assertTrue(response)
+        self.assertEqual(len(response.outputColumns[0].values), 981)
+        # the sum of the output column values (the number of analogues
+        # each parent produced) should be the same as the lengths of
+        # the columns in the output table
         self.assertEqual(sum(response.outputColumns[0].values), 1781)
         parents = column_to_molecules(response.outputTables[0].columns[0])
         parent_ids = response.outputTables[0].columns[1].values
-        mols = column_to_molecules(response.outputTables[0].columns[2])
+        mols = column_to_molecules(response.outputTables[0].columns[3])
         same_smis = []
         for par_id, par, mol in zip(parent_ids, parents, mols):
             par_smi = Chem.MolToSmiles(par)
@@ -158,10 +164,14 @@ class ScriptTest(TestCase):
         response = rgr.execute(request)
 
         self.assertTrue(response)
+        self.assertEqual(len(response.outputColumns[0].values), 981)
+        # the sum of the output column values (the number of analogues
+        # each parent produced) should be the same as the lengths of
+        # the columns in the output table
         self.assertEqual(sum(response.outputColumns[0].values), 4072)
         parents = column_to_molecules(response.outputTables[0].columns[0])
         parent_ids = response.outputTables[0].columns[1].values
-        mols = column_to_molecules(response.outputTables[0].columns[2])
+        mols = column_to_molecules(response.outputTables[0].columns[3])
         self.assertEqual(len(parents), 4072)
         self.assertEqual(len(parent_ids), 4072)
         self.assertEqual(len(mols), 4072)
