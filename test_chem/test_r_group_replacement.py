@@ -126,11 +126,20 @@ class ScriptTest(TestCase):
         rgr = RGroupReplacement()
         response = run_script(file_in, rgr)
         self.assertTrue(response)
-        self.assertEqual(sum(response.outputColumns[0].values), 1946)
+        self.assertEqual(sum(response.outputColumns[0].values), 1781)
+        parents = column_to_molecules(response.outputTables[0].columns[0])
+        parent_ids = response.outputTables[0].columns[1].values
         mols = column_to_molecules(response.outputTables[0].columns[2])
-        self.assertEqual(len(response.outputTables[0].columns[0].values), 1946)
-        self.assertEqual(len(response.outputTables[0].columns[1].values), 1946)
-        self.assertEqual(len(mols), 1946)
+        same_smis = []
+        for par_id, par, mol in zip(parent_ids, parents, mols):
+            par_smi = Chem.MolToSmiles(par)
+            mol_smi = Chem.MolToSmiles(mol)
+            if par_smi == mol_smi:
+                same_smis.append(par_id)
+        self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
+        self.assertEqual(len(parents), 1781)
+        self.assertEqual(len(parent_ids), 1781)
+        self.assertEqual(len(mols), 1781)
         self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1[nH]c(C(=O)NC2CCN(c3ccccn3)CC2)cc1Br')
         self.assertEqual(Chem.MolToSmiles(mols[-1]),
                          'CNC(=O)c1cc2c(-n3ccc(C(F)(F)F)n3)c(-c3cc(-c4n[nH]c(=O)o4)cnc3OC)cnc2[nH]1')
@@ -149,14 +158,23 @@ class ScriptTest(TestCase):
         response = rgr.execute(request)
 
         self.assertTrue(response)
-        self.assertEqual(sum(response.outputColumns[0].values), 4609)
+        self.assertEqual(sum(response.outputColumns[0].values), 4072)
+        parents = column_to_molecules(response.outputTables[0].columns[0])
+        parent_ids = response.outputTables[0].columns[1].values
         mols = column_to_molecules(response.outputTables[0].columns[2])
-        self.assertEqual(len(response.outputTables[0].columns[0].values), 4609)
-        self.assertEqual(len(response.outputTables[0].columns[1].values), 4609)
-        self.assertEqual(len(mols), 4609)
+        self.assertEqual(len(parents), 4072)
+        self.assertEqual(len(parent_ids), 4072)
+        self.assertEqual(len(mols), 4072)
         self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1[nH]c(C(=O)NC2CCN(c3ccccn3)CC2)cc1Br')
         self.assertEqual(Chem.MolToSmiles(mols[-1]),
                          'COc1ncc(-c2n[nH]c(=O)o2)cc1-c1cnc2[nH]c(C(=O)N(C)C)cc2c1-n1ccc(C(F)(F)F)n1')
+        same_smis = []
+        for par_id, par, mol in zip(parent_ids, parents, mols):
+            par_smi = Chem.MolToSmiles(par)
+            mol_smi = Chem.MolToSmiles(mol)
+            if par_smi == mol_smi:
+                same_smis.append(par_id)
+        self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
 
 
 if __name__ == '__main__':
