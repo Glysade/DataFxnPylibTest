@@ -111,8 +111,8 @@ class ScriptTest(TestCase):
         self.assertEqual(parent_ids[34], 'Mol5')
         self.assertEqual(changed_rgroups[34], 'R4:R5')
         self.assertEqual(changed_rgroups[-1], 'R2')
-        self.assertEqual(core_nums.count(1), 54)
-        self.assertEqual(core_nums.count(2), 51)
+        self.assertEqual(core_nums.count('1'), 54)
+        self.assertEqual(core_nums.count('2'), 51)
 
     def test_layer1_plus_layer2(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
@@ -155,8 +155,8 @@ class ScriptTest(TestCase):
         self.assertEqual(parent_ids[273], 'Mol8')
         self.assertEqual(changed_rgroups[273], 'R1:R3')
         self.assertEqual(changed_rgroups[-1], 'R1:R2')
-        self.assertEqual(core_nums.count(1), 251)
-        self.assertEqual(core_nums.count(2), 180)
+        self.assertEqual(core_nums.count('1'), 251)
+        self.assertEqual(core_nums.count('2'), 180)
 
     def test_gyrase_multicore_decomp(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement2.json'
@@ -187,14 +187,14 @@ class ScriptTest(TestCase):
         self.assertEqual(parent_ids[1059], 'AZ1669')
         self.assertEqual(changed_rgroups[1059], 'R2:R8')
         self.assertEqual(changed_rgroups[-1], 'R1')
-        self.assertListEqual(list(set(core_nums)), [1, 5, 6, 7, 8, 11])
-        self.assertEqual(core_nums.count(1), 1751)
-        self.assertEqual(core_nums.count(2), 0)
-        self.assertEqual(core_nums.count(5), 17)
-        self.assertEqual(core_nums.count(6), 1)
-        self.assertEqual(core_nums.count(7), 22)
-        self.assertEqual(core_nums.count(8), 1)
-        self.assertEqual(core_nums.count(11), 12)
+        self.assertListEqual(sorted(list(set(core_nums))), ['1', '11', '5', '6', '7', '8'])
+        self.assertEqual(core_nums.count('1'), 1751)
+        self.assertEqual(core_nums.count('2'), 0)
+        self.assertEqual(core_nums.count('5'), 17)
+        self.assertEqual(core_nums.count('6'), 1)
+        self.assertEqual(core_nums.count('7'), 22)
+        self.assertEqual(core_nums.count('8'), 1)
+        self.assertEqual(core_nums.count('11'), 12)
 
     def test_gyrase_multicore_decomp_full(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement2.json'
@@ -233,14 +233,14 @@ class ScriptTest(TestCase):
         self.assertEqual(parent_ids[1059], 'AZ1521')
         self.assertEqual(changed_rgroups[1059], 'R2')
         self.assertEqual(changed_rgroups[-1], 'R1')
-        self.assertListEqual(list(set(core_nums)), [1, 5, 6, 7, 8, 11])
-        self.assertEqual(core_nums.count(1), 3939)
-        self.assertEqual(core_nums.count(2), 0)
-        self.assertEqual(core_nums.count(5), 38)
-        self.assertEqual(core_nums.count(6), 1)
-        self.assertEqual(core_nums.count(7), 63)
-        self.assertEqual(core_nums.count(8), 3)
-        self.assertEqual(core_nums.count(11), 28)
+        self.assertListEqual(sorted(list(set(core_nums))), ['1', '11', '5', '6', '7', '8'])
+        self.assertEqual(core_nums.count('1'), 3939)
+        self.assertEqual(core_nums.count('2'), 0)
+        self.assertEqual(core_nums.count('5'), 38)
+        self.assertEqual(core_nums.count('6'), 1)
+        self.assertEqual(core_nums.count('7'), 63)
+        self.assertEqual(core_nums.count('8'), 3)
+        self.assertEqual(core_nums.count('11'), 28)
 
 
 if __name__ == '__main__':
