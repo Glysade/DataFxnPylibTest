@@ -46,6 +46,7 @@ def calc_core_rmses(mols: list[Chem.Mol]) -> float:
         rmses.append(rms)
     return max(rmses)
 
+
 def analogues_in_parents(parents, parent_ids, analogues) -> list[str]:
     same_smis = []
     for par_id, par, an in zip(parent_ids, parents, analogues):
@@ -54,6 +55,17 @@ def analogues_in_parents(parents, parent_ids, analogues) -> list[str]:
         if par_smi == mol_smi:
             same_smis.append(par_id)
     return same_smis
+
+
+# columns used in the output table.  So that when they are moved around
+# or added to in the DataFxn code, there's only one place they need
+#changing in the tests.
+PAR_COL = 0
+PAR_IDS_COL = 1
+MOLS_COL = 2
+CORES_COL = 3
+R_CHG_COL = 4
+
 
 class ScriptTest(TestCase):
 
@@ -69,9 +81,10 @@ class ScriptTest(TestCase):
         response = rgr.execute(request)
 
         self.assertTrue(response)
-        parents = column_to_molecules(response.outputTables[0].columns[0])
-        parent_ids = response.outputTables[0].columns[1].values
-        mols = column_to_molecules(response.outputTables[0].columns[3])
+        parents = column_to_molecules(response.outputTables[0].columns[PAR_COL])
+        parent_ids = response.outputTables[0].columns[PAR_IDS_COL].values
+        mols = column_to_molecules(response.outputTables[0].columns[MOLS_COL])
+        changed_rgroups = response.outputTables[0].columns[R_CHG_COL].values
         self.assertEqual(len(parents), 105)
         self.assertEqual(len(parent_ids), 105)
         self.assertEqual(len(response.outputTables[0].columns[2].values), 105)
@@ -91,6 +104,10 @@ class ScriptTest(TestCase):
         self.assertEqual(mols[0].GetProp('Renderer_Highlight'), mol1_highs)
         molm1_highs = 'COLOR #00bfff\nATOMS\nBONDS 1 2 3 4 6 5 7\nCOLOR #dc143c\nATOMS\nBONDS 9 11'
         self.assertEqual(mols[-1].GetProp('Renderer_Highlight'), molm1_highs)
+        self.assertEqual(changed_rgroups[0], 'R5')
+        self.assertEqual(parent_ids[34], 'Mol5')
+        self.assertEqual(changed_rgroups[34], 'R4:R5')
+        self.assertEqual(changed_rgroups[-1], 'R2')
 
     def test_layer1_plus_layer2(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
@@ -105,9 +122,10 @@ class ScriptTest(TestCase):
         response = rgr.execute(request)
 
         self.assertTrue(response)
-        parents = column_to_molecules(response.outputTables[0].columns[0])
-        parent_ids = response.outputTables[0].columns[1].values
-        mols = column_to_molecules(response.outputTables[0].columns[3])
+        parents = column_to_molecules(response.outputTables[0].columns[PAR_COL])
+        parent_ids = response.outputTables[0].columns[PAR_IDS_COL].values
+        mols = column_to_molecules(response.outputTables[0].columns[MOLS_COL])
+        changed_rgroups = response.outputTables[0].columns[R_CHG_COL].values
 
         self.assertEqual(len(parents), 431)
         self.assertEqual(len(parent_ids), 431)
@@ -127,6 +145,10 @@ class ScriptTest(TestCase):
         # check for a level 2 highlight
         mol6highs = 'COLOR #00bfff\nATOMS\nBONDS 1 2 3 4 6 5 7\nCOLOR #ffbf00\nATOMS\nBONDS 8'
         self.assertEqual(mols[6].GetProp('Renderer_Highlight'), mol6highs)
+        self.assertEqual(changed_rgroups[0], 'R5')
+        self.assertEqual(parent_ids[273], 'Mol8')
+        self.assertEqual(changed_rgroups[273], 'R1:R3')
+        self.assertEqual(changed_rgroups[-1], 'R1:R2')
 
     def test_gyrase_multicore_decomp(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement2.json'
@@ -138,9 +160,10 @@ class ScriptTest(TestCase):
         # each parent produced) should be the same as the lengths of
         # the columns in the output table
         self.assertEqual(sum(response.outputColumns[0].values), 1804)
-        parents = column_to_molecules(response.outputTables[0].columns[0])
-        parent_ids = response.outputTables[0].columns[1].values
-        mols = column_to_molecules(response.outputTables[0].columns[3])
+        parents = column_to_molecules(response.outputTables[0].columns[PAR_COL])
+        parent_ids = response.outputTables[0].columns[PAR_IDS_COL].values
+        mols = column_to_molecules(response.outputTables[0].columns[MOLS_COL])
+        changed_rgroups = response.outputTables[0].columns[R_CHG_COL].values
 
         same_smis = analogues_in_parents(parents, parent_ids, mols)
         self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
@@ -151,6 +174,10 @@ class ScriptTest(TestCase):
         self.assertEqual(Chem.MolToSmiles(mols[-1]),
                          'CNC(=O)c1cc2c(-n3ccc(C(F)(F)F)n3)c(-c3cc(-c4n[nH]c(=O)o4)cnc3OC)cnc2[nH]1')
         self.assertLess(calc_core_rmses(mols), 0.005)
+        self.assertEqual(changed_rgroups[0], 'R3')
+        self.assertEqual(parent_ids[1059], 'AZ1669')
+        self.assertEqual(changed_rgroups[1059], 'R2:R8')
+        self.assertEqual(changed_rgroups[-1], 'R1')
 
     def test_gyrase_multicore_decomp_full(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement2.json'
@@ -170,9 +197,11 @@ class ScriptTest(TestCase):
         # each parent produced) should be the same as the lengths of
         # the columns in the output table
         self.assertEqual(sum(response.outputColumns[0].values), 4072)
-        parents = column_to_molecules(response.outputTables[0].columns[0])
-        parent_ids = response.outputTables[0].columns[1].values
-        mols = column_to_molecules(response.outputTables[0].columns[3])
+        parents = column_to_molecules(response.outputTables[0].columns[PAR_COL])
+        parent_ids = response.outputTables[0].columns[PAR_IDS_COL].values
+        mols = column_to_molecules(response.outputTables[0].columns[MOLS_COL])
+        changed_rgroups = response.outputTables[0].columns[R_CHG_COL].values
+
         self.assertEqual(len(parents), 4072)
         self.assertEqual(len(parent_ids), 4072)
         self.assertEqual(len(mols), 4072)
@@ -182,6 +211,10 @@ class ScriptTest(TestCase):
         same_smis = analogues_in_parents(parents, parent_ids, mols)
         self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
         self.assertLess(calc_core_rmses(mols), 0.005)
+        self.assertEqual(changed_rgroups[0], 'R3')
+        self.assertEqual(parent_ids[1059], 'AZ1521')
+        self.assertEqual(changed_rgroups[1059], 'R2')
+        self.assertEqual(changed_rgroups[-1], 'R1')
 
 
 if __name__ == '__main__':
