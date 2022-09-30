@@ -26,24 +26,8 @@
       "selectorType": "column",
       "data": "2a3d1455-7091-454e-ab9d-381064c66158yCore"
     },
-    "allRGroupColumns": {
-      "id": "allRGroupColumns",
-      "dataType": "list(string)",
-      "contentType": null,
-      "selectorType": "column",
-      "data": [
-        "2a3d1455-7091-454e-ab9d-381064c66158yR1",
-        "2a3d1455-7091-454e-ab9d-381064c66158yR2",
-        "2a3d1455-7091-454e-ab9d-381064c66158yR3",
-        "2a3d1455-7091-454e-ab9d-381064c66158yR4",
-        "2a3d1455-7091-454e-ab9d-381064c66158yR5",
-        "2a3d1455-7091-454e-ab9d-381064c66158yR6",
-        "2a3d1455-7091-454e-ab9d-381064c66158yR7",
-        "2a3d1455-7091-454e-ab9d-381064c66158yR8",
-        "2a3d1455-7091-454e-ab9d-381064c66158yR9"
-      ]
-    },"rGroupColumnsToUse": {
-      "id": "rGroupColumnsToUse",
+    "rGroupColumns": {
+      "id": "rGroupColumns",
       "dataType": "list(string)",
       "contentType": null,
       "selectorType": "column",
