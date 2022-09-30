@@ -46,44 +46,34 @@ def calc_core_rmses(mols: list[Chem.Mol]) -> float:
         rmses.append(rms)
     return max(rmses)
 
+def analogues_in_parents(parents, parent_ids, analogues) -> list[str]:
+    same_smis = []
+    for par_id, par, an in zip(parent_ids, parents, analogues):
+        par_smi = Chem.MolToSmiles(par)
+        mol_smi = Chem.MolToSmiles(an)
+        if par_smi == mol_smi:
+            same_smis.append(par_id)
+    return same_smis
 
 class ScriptTest(TestCase):
 
     def test_layer1(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
-        rgr = RGroupReplacement()
-        response = run_script(file_in, rgr)
-        self.assertTrue(response)
-        mols = column_to_molecules(response.outputTables[0].columns[3])
-        self.assertEqual(len(response.outputTables[0].columns[0].values), 79)
-        self.assertEqual(len(response.outputTables[0].columns[1].values), 79)
-        self.assertEqual(len(mols), 79)
-        self.assertListEqual(response.outputColumns[0].values, [0, 5, 5, 4, 25, 5, 5, 25, 5])
-        parent_counts = defaultdict(int)
-        for par_id in response.outputTables[0].columns[1].values:
-            parent_counts[par_id] += 1
-        for i in range(9):
-            self.assertEqual(parent_counts[f'Mol{i+1}'], response.outputColumns[0].values[i])
-        self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1ccccc1Cl')
-        self.assertEqual(Chem.MolToSmiles(mols[-1]), 'COc1ccc(C)c(S(C)(=O)=O)n1')
-        self.assertLess(calc_core_rmses(mols), 0.005)
-
-    def test_layer1_plus_init_rgroup(self) -> None:
-        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
         with open(file_in, 'r') as fh:
             request_json = fh.read()
 
         request_dict = json.loads(request_json)
-        request_dict['inputFields']['incOrigRGroups']['data'] = True
         request_json = json.dumps(request_dict)
         rgr = RGroupReplacement()
         request = DataFunctionRequest.parse_raw(request_json)
         response = rgr.execute(request)
 
         self.assertTrue(response)
+        parents = column_to_molecules(response.outputTables[0].columns[0])
+        parent_ids = response.outputTables[0].columns[1].values
         mols = column_to_molecules(response.outputTables[0].columns[3])
-        self.assertEqual(len(response.outputTables[0].columns[0].values), 105)
-        self.assertEqual(len(response.outputTables[0].columns[1].values), 105)
+        self.assertEqual(len(parents), 105)
+        self.assertEqual(len(parent_ids), 105)
         self.assertEqual(len(response.outputTables[0].columns[2].values), 105)
         self.assertEqual(len(mols), 105)
         self.assertListEqual(response.outputColumns[0].values, [0, 5, 5, 4, 35, 5, 5, 35, 11])
@@ -95,6 +85,8 @@ class ScriptTest(TestCase):
         self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1ccccc1Cl')
         self.assertEqual(Chem.MolToSmiles(mols[-1]), 'COc1ccc(C)c(OC)n1')
         self.assertLess(calc_core_rmses(mols), 0.005)
+        same_smis = analogues_in_parents(parents, parent_ids, mols)
+        self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
 
     def test_layer1_plus_layer2(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
@@ -109,12 +101,15 @@ class ScriptTest(TestCase):
         response = rgr.execute(request)
 
         self.assertTrue(response)
+        parents = column_to_molecules(response.outputTables[0].columns[0])
+        parent_ids = response.outputTables[0].columns[1].values
         mols = column_to_molecules(response.outputTables[0].columns[3])
-        self.assertEqual(len(response.outputTables[0].columns[0].values), 368)
-        self.assertEqual(len(response.outputTables[0].columns[1].values), 368)
-        self.assertEqual(len(response.outputTables[0].columns[2].values), 368)
-        self.assertEqual(len(mols), 368)
-        self.assertListEqual(response.outputColumns[0].values, [0, 13, 12, 4, 182, 13, 14, 91, 39])
+
+        self.assertEqual(len(parents), 431)
+        self.assertEqual(len(parent_ids), 431)
+        self.assertEqual(len(response.outputTables[0].columns[2].values), 431)
+        self.assertEqual(len(mols), 431)
+        self.assertListEqual(response.outputColumns[0].values, [0, 13, 12, 4, 209, 13, 14, 111, 55])
         parent_counts = defaultdict(int)
         for par_id in response.outputTables[0].columns[1].values:
             parent_counts[par_id] += 1
@@ -123,6 +118,8 @@ class ScriptTest(TestCase):
         self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1ccccc1Cl')
         self.assertEqual(Chem.MolToSmiles(mols[-1]), 'Cc1ccc(O)nc1S(=O)(=O)N(C)C')
         self.assertLess(calc_core_rmses(mols), 0.005)
+        same_smis = analogues_in_parents(parents, parent_ids, mols)
+        self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
 
     def test_gyrase_multicore_decomp(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement2.json'
@@ -137,12 +134,8 @@ class ScriptTest(TestCase):
         parents = column_to_molecules(response.outputTables[0].columns[0])
         parent_ids = response.outputTables[0].columns[1].values
         mols = column_to_molecules(response.outputTables[0].columns[3])
-        same_smis = []
-        for par_id, par, mol in zip(parent_ids, parents, mols):
-            par_smi = Chem.MolToSmiles(par)
-            mol_smi = Chem.MolToSmiles(mol)
-            if par_smi == mol_smi:
-                same_smis.append(par_id)
+
+        same_smis = analogues_in_parents(parents, parent_ids, mols)
         self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
         self.assertEqual(len(parents), 1781)
         self.assertEqual(len(parent_ids), 1781)
@@ -150,6 +143,7 @@ class ScriptTest(TestCase):
         self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1[nH]c(C(=O)NC2CCN(c3ccccn3)CC2)cc1Br')
         self.assertEqual(Chem.MolToSmiles(mols[-1]),
                          'CNC(=O)c1cc2c(-n3ccc(C(F)(F)F)n3)c(-c3cc(-c4n[nH]c(=O)o4)cnc3OC)cnc2[nH]1')
+        self.assertLess(calc_core_rmses(mols), 0.005)
 
     def test_gyrase_multicore_decomp_full(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement2.json'
@@ -179,13 +173,9 @@ class ScriptTest(TestCase):
         self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1[nH]c(C(=O)NC2CCN(c3ccccn3)CC2)cc1Br')
         self.assertEqual(Chem.MolToSmiles(mols[-1]),
                          'COc1ncc(-c2n[nH]c(=O)o2)cc1-c1cnc2[nH]c(C(=O)N(C)C)cc2c1-n1ccc(C(F)(F)F)n1')
-        same_smis = []
-        for par_id, par, mol in zip(parent_ids, parents, mols):
-            par_smi = Chem.MolToSmiles(par)
-            mol_smi = Chem.MolToSmiles(mol)
-            if par_smi == mol_smi:
-                same_smis.append(par_id)
+        same_smis = analogues_in_parents(parents, parent_ids, mols)
         self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
+        self.assertLess(calc_core_rmses(mols), 0.005)
 
 
 if __name__ == '__main__':

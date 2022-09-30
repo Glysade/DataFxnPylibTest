@@ -56,13 +56,6 @@
       "contentType": null,
       "selectorType": null,
       "data": false
-    },
-    "incOrigRGroups": {
-      "id": "incOrigRGroups",
-      "dataType": "boolean",
-      "contentType": null,
-      "selectorType": null,
-      "data": false
     }
   },
   "maximumOutputColumns": 1,
