@@ -43,7 +43,7 @@ class ScriptTest(TestCase):
         self.assertTrue(response)
         self.assertEqual(len(response.outputColumns), 0)
         self.assertEqual(len(response.outputTables), 1)
-        self.assertEqual(len(response.outputTables[0].columns), 7)
+        self.assertEqual(len(response.outputTables[0].columns), 8)
         self.assertEqual(len(response.outputTables[0].columns[0].values), 99)
         num_mcs = len(set(response.outputTables[0].columns[0].values))
         self.assertEqual(num_mcs, 19)
@@ -57,9 +57,13 @@ class ScriptTest(TestCase):
         self.assertEqual(response.outputTables[0].columns[4].values[-1], 2)
         mols = column_to_molecules(response.outputTables[0].columns[6])
         self.assertEqual(mols[0].GetProp('Renderer_Highlight'),
-                         'COLOR #ff0000\nATOMS 1 2 19 3 20 4 23 22\nBONDS 1 2 4 5 6 7 8 9')
+                         'COLOR #ff0000\nATOMS\nBONDS 1 2 4 5 6 7 8 9')
         self.assertEqual(mols[-1].GetProp('Renderer_Highlight'),
-                         'COLOR #ff0000\nATOMS 19 31 29 27 26 25 33 35 22\nBONDS 24 23 37 31 35 33 32 39 27')
+                         'COLOR #ff0000\nATOMS\nBONDS 24 23 37 31 35 33 32 39 27')
+        ids = response.outputTables[0].columns[7].values
+        self.assertEqual(ids[0], '1kmv_lig_LII')
+        self.assertEqual(ids[15], '1kmv_lig_LII')
+        self.assertEqual(ids[-1], '3s7a_lig_684')
 
     def test_script1(self) -> None:
         from MaximumCommonSubstructure_script import execute

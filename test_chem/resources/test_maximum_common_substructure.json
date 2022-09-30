@@ -12,6 +12,13 @@
       "selectorType": "column",
       "data": "1b783fd5-a63f-4d60-b0b8-9f8c1bc72c65yStructure <MOLFILE>"
     },
+    "idColumn": {
+      "id": "idColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "1b783fd5-a63f-4d60-b0b8-9f8c1bc72c65y*molname"
+    },
     "minMCSMols": {
       "id": "minMCSMols",
       "dataType": "integer",
@@ -100,6 +107,40 @@
         "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"
+      ]
+    },
+    "1b783fd5-a63f-4d60-b0b8-9f8c1bc72c65y*molname": {
+      "dataType": "string",
+      "name": "*molname",
+      "contentType": null,
+      "properties": {
+        "Name": "*molname",
+        "ColumnType": "Imported",
+        "DataType": "String",
+        "ExternalName": "*molname",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.StringDataComparer",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.StringFormatter",
+        "Origin": "P00374_2d",
+        "Description": ""
+      },
+      "values": [
+        "1kmv_lig_LII",
+        "1kms_lig_LIH",
+        "1mvt_lig_DTM",
+        "1pd8_lig_CO4",
+        "1s3v_lig_TQD",
+        "1u71_lig_MXA",
+        "2w3b_lig_VG9",
+        "3gyf_lig_51P",
+        "3nxo_lig_D2B",
+        "3nxr_lig_D2D",
+        "3nxt_lig_D2E",
+        "3nxv_lig_D2F",
+        "3nxy_lig_D2H",
+        "3oaf_lig_OAG",
+        "3s7a_lig_684"
       ]
     }
   },
