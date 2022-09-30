@@ -64,7 +64,8 @@ PAR_COL = 0
 PAR_IDS_COL = 1
 MOLS_COL = 2
 CORES_COL = 3
-R_CHG_COL = 4
+CORE_NUMS_COL = 4
+R_CHG_COL = 5
 
 
 class ScriptTest(TestCase):
@@ -85,6 +86,8 @@ class ScriptTest(TestCase):
         parent_ids = response.outputTables[0].columns[PAR_IDS_COL].values
         mols = column_to_molecules(response.outputTables[0].columns[MOLS_COL])
         changed_rgroups = response.outputTables[0].columns[R_CHG_COL].values
+        core_nums = response.outputTables[0].columns[CORE_NUMS_COL].values
+
         self.assertEqual(len(parents), 105)
         self.assertEqual(len(parent_ids), 105)
         self.assertEqual(len(response.outputTables[0].columns[2].values), 105)
@@ -108,6 +111,8 @@ class ScriptTest(TestCase):
         self.assertEqual(parent_ids[34], 'Mol5')
         self.assertEqual(changed_rgroups[34], 'R4:R5')
         self.assertEqual(changed_rgroups[-1], 'R2')
+        self.assertEqual(core_nums.count(1), 54)
+        self.assertEqual(core_nums.count(2), 51)
 
     def test_layer1_plus_layer2(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
@@ -126,6 +131,7 @@ class ScriptTest(TestCase):
         parent_ids = response.outputTables[0].columns[PAR_IDS_COL].values
         mols = column_to_molecules(response.outputTables[0].columns[MOLS_COL])
         changed_rgroups = response.outputTables[0].columns[R_CHG_COL].values
+        core_nums = response.outputTables[0].columns[CORE_NUMS_COL].values
 
         self.assertEqual(len(parents), 431)
         self.assertEqual(len(parent_ids), 431)
@@ -149,6 +155,8 @@ class ScriptTest(TestCase):
         self.assertEqual(parent_ids[273], 'Mol8')
         self.assertEqual(changed_rgroups[273], 'R1:R3')
         self.assertEqual(changed_rgroups[-1], 'R1:R2')
+        self.assertEqual(core_nums.count(1), 251)
+        self.assertEqual(core_nums.count(2), 180)
 
     def test_gyrase_multicore_decomp(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement2.json'
@@ -164,6 +172,7 @@ class ScriptTest(TestCase):
         parent_ids = response.outputTables[0].columns[PAR_IDS_COL].values
         mols = column_to_molecules(response.outputTables[0].columns[MOLS_COL])
         changed_rgroups = response.outputTables[0].columns[R_CHG_COL].values
+        core_nums = response.outputTables[0].columns[CORE_NUMS_COL].values
 
         same_smis = analogues_in_parents(parents, parent_ids, mols)
         self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
@@ -178,6 +187,14 @@ class ScriptTest(TestCase):
         self.assertEqual(parent_ids[1059], 'AZ1669')
         self.assertEqual(changed_rgroups[1059], 'R2:R8')
         self.assertEqual(changed_rgroups[-1], 'R1')
+        self.assertListEqual(list(set(core_nums)), [1, 5, 6, 7, 8, 11])
+        self.assertEqual(core_nums.count(1), 1751)
+        self.assertEqual(core_nums.count(2), 0)
+        self.assertEqual(core_nums.count(5), 17)
+        self.assertEqual(core_nums.count(6), 1)
+        self.assertEqual(core_nums.count(7), 22)
+        self.assertEqual(core_nums.count(8), 1)
+        self.assertEqual(core_nums.count(11), 12)
 
     def test_gyrase_multicore_decomp_full(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement2.json'
@@ -201,6 +218,7 @@ class ScriptTest(TestCase):
         parent_ids = response.outputTables[0].columns[PAR_IDS_COL].values
         mols = column_to_molecules(response.outputTables[0].columns[MOLS_COL])
         changed_rgroups = response.outputTables[0].columns[R_CHG_COL].values
+        core_nums = response.outputTables[0].columns[CORE_NUMS_COL].values
 
         self.assertEqual(len(parents), 4072)
         self.assertEqual(len(parent_ids), 4072)
@@ -215,6 +233,14 @@ class ScriptTest(TestCase):
         self.assertEqual(parent_ids[1059], 'AZ1521')
         self.assertEqual(changed_rgroups[1059], 'R2')
         self.assertEqual(changed_rgroups[-1], 'R1')
+        self.assertListEqual(list(set(core_nums)), [1, 5, 6, 7, 8, 11])
+        self.assertEqual(core_nums.count(1), 3939)
+        self.assertEqual(core_nums.count(2), 0)
+        self.assertEqual(core_nums.count(5), 38)
+        self.assertEqual(core_nums.count(6), 1)
+        self.assertEqual(core_nums.count(7), 63)
+        self.assertEqual(core_nums.count(8), 3)
+        self.assertEqual(core_nums.count(11), 28)
 
 
 if __name__ == '__main__':
