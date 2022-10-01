@@ -1,11 +1,9 @@
 from pathlib import Path
-from typing import Callable, Union
+from typing import Callable
 from unittest import TestCase, main
 
 from df.chem_helper import column_to_molecules
 from df.data_transfer import DataFunctionRequest, DataFunctionResponse
-
-from rdkit import Chem
 
 
 def run_script(in_file: str, execute: Callable[[DataFunctionRequest], DataFunctionResponse]) -> DataFunctionResponse:
@@ -25,13 +23,23 @@ class ScriptTest(TestCase):
         response = run_script(file_in, execute)
         self.assertTrue(response)
         self.assertEqual(len(response.outputColumns), 3)
-        self.assertEqual(len(response.outputColumns[0].values), 52)
+        self.assertEqual(len(response.outputColumns[0].values), 53)
         don_counts = response.outputColumns[1].values
         acc_counts = response.outputColumns[2].values
         self.assertEqual(don_counts[0], 2)
         self.assertEqual(acc_counts[0], 2)
-        self.assertEqual(don_counts[-1], 0)
-        self.assertEqual(acc_counts[-1], 0)
+        self.assertEqual(don_counts[-2], 0)
+        self.assertEqual(acc_counts[-2], 0)
+        self.assertEqual(don_counts[-1], 3)
+        self.assertEqual(acc_counts[-1], 3)
+        mols = column_to_molecules(response.outputColumns[0])
+        # the last molecule has 3 donors, 3 acceptors, but 2 of each
+        # are both, so coloured orange.
+        self.assertEqual(mols[-1].GetProp('Renderer_Highlight'),
+                         'COLOR #dc143c\nATOMS 12\nBONDS\n'
+                         'COLOR #00bfff\nATOMS 5\nBONDS\n'
+                         'COLOR #ffbf00\nATOMS 4 8\nBONDS')
+
 
 if __name__ == '__main__':
     main()

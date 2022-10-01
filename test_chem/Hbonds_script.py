@@ -1,6 +1,4 @@
-import itertools
 import re
-from typing import Optional, Union
 
 from df.chem_helper import column_to_molecules, molecules_to_column
 from df.data_transfer import DataFunctionRequest, DataFunctionResponse, DataType, ColumnData, \
@@ -162,10 +160,16 @@ def highlight_atoms_in_molecule(mol: Chem.Mol, atoms1: list[int],
     """
     # The highlighting code counts from 1, whereas the atom lists
     # come in counting from 0.
-    red_list = ' '.join([str(a+1) for a in atoms1])
-    blue_list = ' '.join([str(a + 1) for a in atoms2])
-    both_atoms = set.intersection(set(atoms1), set(atoms2))
+    red_atoms = set(atoms1)
+    blue_atoms = set(atoms2)
+    both_atoms = red_atoms.intersection(blue_atoms)
+    red_atoms = red_atoms.difference(both_atoms)
+    blue_atoms = blue_atoms.difference(both_atoms)
+
+    red_list = ' '.join([str(a+1) for a in red_atoms])
+    blue_list = ' '.join([str(a + 1) for a in blue_atoms])
     orange_list = ' '.join([str(a + 1) for a in both_atoms])
+
     high_str = ''
     if red_list:
         high_str += f'COLOR #dc143c\nATOMS {red_list}\nBONDS\n'
