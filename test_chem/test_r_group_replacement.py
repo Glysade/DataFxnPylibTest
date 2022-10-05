@@ -72,16 +72,10 @@ class ScriptTest(TestCase):
 
     def test_layer1(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
-        with open(file_in, 'r') as fh:
-            request_json = fh.read()
-
-        request_dict = json.loads(request_json)
-        request_json = json.dumps(request_dict)
         rgr = RGroupReplacement()
-        request = DataFunctionRequest.parse_raw(request_json)
-        response = rgr.execute(request)
-
+        response = run_script(file_in, rgr)
         self.assertTrue(response)
+
         parents = column_to_molecules(response.outputTables[0].columns[PAR_COL])
         parent_ids = response.outputTables[0].columns[PAR_IDS_COL].values
         mols = column_to_molecules(response.outputTables[0].columns[MOLS_COL])
@@ -241,6 +235,12 @@ class ScriptTest(TestCase):
         self.assertEqual(core_nums.count('7'), 63)
         self.assertEqual(core_nums.count('8'), 3)
         self.assertEqual(core_nums.count('11'), 28)
+
+    def test_pauls_aromatic_rgroup_bug(self) -> None:
+        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement3.json'
+        rgr = RGroupReplacement()
+        response = run_script(file_in, rgr)
+        self.assertTrue(response)
 
 
 if __name__ == '__main__':
