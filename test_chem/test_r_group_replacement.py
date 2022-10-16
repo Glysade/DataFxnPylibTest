@@ -108,6 +108,51 @@ class ScriptTest(TestCase):
         self.assertEqual(core_nums.count('1'), 54)
         self.assertEqual(core_nums.count('2'), 51)
 
+    def test_layer2(self) -> None:
+        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
+        with open(file_in, 'r') as fh:
+            request_json = fh.read()
+
+        request_dict = json.loads(request_json)
+        request_dict['inputFields']['useLayer1']['data'] = False
+        request_dict['inputFields']['useLayer2']['data'] = True
+        request_json = json.dumps(request_dict)
+        rgr = RGroupReplacement()
+        request = DataFunctionRequest.parse_raw(request_json)
+        response = rgr.execute(request)
+
+        self.assertTrue(response)
+        parents = column_to_molecules(response.outputTables[0].columns[PAR_COL])
+        parent_ids = response.outputTables[0].columns[PAR_IDS_COL].values
+        mols = column_to_molecules(response.outputTables[0].columns[MOLS_COL])
+        changed_rgroups = response.outputTables[0].columns[R_CHG_COL].values
+        core_nums = response.outputTables[0].columns[CORE_NUMS_COL].values
+
+        self.assertEqual(len(parents), 173)
+        self.assertEqual(len(parent_ids), 173)
+        self.assertEqual(len(response.outputTables[0].columns[2].values), 173)
+        self.assertEqual(len(mols), 173)
+        self.assertListEqual(response.outputColumns[0].values, [0, 8, 7, 0, 89, 8, 9, 26, 26])
+        parent_counts = defaultdict(int)
+        for par_id in response.outputTables[0].columns[1].values:
+            parent_counts[par_id] += 1
+        for i in range(9):
+            self.assertEqual(parent_counts[f'Mol{i+1}'], response.outputColumns[0].values[i])
+        self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1ccccc1F')
+        self.assertEqual(Chem.MolToSmiles(mols[-1]), 'Cc1ccc(O)nc1S(=O)(=O)N(C)C')
+        self.assertLess(calc_core_rmses(mols), 0.005)
+        same_smis = analogues_in_parents(parents, parent_ids, mols)
+        self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
+        # check for a level 2 highlight
+        mol6highs = 'COLOR #00bfff\nATOMS\nBONDS 1 2 3 4 6 5 7\nCOLOR #ffbf00\nATOMS\nBONDS 8 9 10 11 12'
+        self.assertEqual(mols[6].GetProp('Renderer_Highlight'), mol6highs)
+        self.assertEqual(changed_rgroups[0], 'R5')
+        self.assertEqual(parent_ids[121], 'Mol8')
+        self.assertEqual(changed_rgroups[132], 'R1:R3')
+        self.assertEqual(changed_rgroups[-1], 'R1:R2')
+        self.assertEqual(core_nums.count('1'), 112)
+        self.assertEqual(core_nums.count('2'), 61)
+
     def test_layer1_plus_layer2(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement1.json'
         with open(file_in, 'r') as fh:

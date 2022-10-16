@@ -1,1 +1,259 @@
-{"executorId":0,"id":"62a48db2-3e4e-43af-ba23-24de12aa51a9","dataFxnDefId":"2abb2403-f1f4-4f52-4695-e5f5ce1bc9a8","serviceName":"RGroupReplacement","assembly":null,"inputFields":{"structureColumn":{"id":"structureColumn","dataType":"string","contentType":null,"selectorType":"column","data":"15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yStructure <MOLFILE>"},"idColumn":{"id":"idColumn","dataType":"string","contentType":null,"selectorType":"column","data":"15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9sCode"},"coresColumn":{"id":"coresColumn","dataType":"string","contentType":null,"selectorType":"column","data":"15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yCore"},"rGroupColumns":{"id":"rGroupColumns","dataType":"list(string)","contentType":null,"selectorType":"column","data":["15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR1","15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR2","15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR3","15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR4","15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR5"]},"useLayer1":{"id":"useLayer1","dataType":"boolean","contentType":null,"selectorType":null,"data":true},"useLayer2":{"id":"useLayer2","dataType":"boolean","contentType":null,"selectorType":null,"data":false}},"maximumOutputColumns":1,"maximumOutputTables":1,"resultTables":null,"serviceUri":"glysade.python","inputColumns":{"15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yStructure <MOLFILE>":{"dataType":"binary","name":"Structure <MOLFILE>","contentType":"chemical/x-mdl-molfile","properties":{"Name":"Structure <MOLFILE>","ColumnType":"Imported","DataType":"Binary","ExternalName":"Structure <MOLFILE>","IsValid":"True","Expression":"","Comparer":"Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]","Formatter":"Spotfire.Dxp.Data.Formatters.BinaryFormatter","Origin":"buggy_rows","Description":"","Dimension":"2"},"values":["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"]},"15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9sCode":{"dataType":"string","name":"Code","contentType":null,"properties":{"Name":"Code","ColumnType":"Imported","DataType":"String","ExternalName":"Code","IsValid":"True","Expression":"","Comparer":"Spotfire.Dxp.Data.Cxx.StringDataComparer","Formatter":"Spotfire.Dxp.Data.Formatters.StringFormatter","Origin":"buggy_rows","Description":""},"values":["MBX011734","MBX011735","MBX011736"]},"15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yCore":{"dataType":"binary","name":"Core","contentType":"chemical/x-mdl-molfile","properties":{"Name":"Core","ColumnType":"Result","DataType":"Binary","ExternalName":"Core","IsValid":"True","Expression":"","Comparer":"Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]","Formatter":"Spotfire.Dxp.Data.Formatters.BinaryFormatter","Origin":"RGroupDecomposition","Description":"","ChemCharts.DFResult":"{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"1fb4f47b-8477-4554-9802-224781317efd\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column1\"}"},"values":["H4sIAAAAAAAEAK1TTYsCMQy9z68I7L00nX5MjosjHkQRhf0DiwcPuhf3/5vXgTiIgo6WwLyX5r02Yfo921H/9/t/3J/OxCK5IaxtvzycyVbom4bYI+h+iAj9BO899Fxcl3OBsnWa80B+QDN6ZDGO6iKOc0iDS0kTXYJ30Vwm32Xkwi59oCN/29H6eZfrdN+5S4EiDi6K0shl+/X0XNi1oYuDVvATTHGpc+EO2ng7lxdcrh21LopM6oi1pxog+mlrCkRRtB1FyXYUZdvJNc1GihHVdEa0WoxwfViVrPTtLTa1GFIkocLpECCPWkqonK/75gLPqOL0wQMAAA==","H4sIAAAAAAAEAKWTwWrDMAyG73kKwe5CciLZPo6m9DBaSgd7gbHDDlsv3ftPioMz2g06xwii3/H/IQn0uHmG8fz69fH2eQHOWTvwcxqf3i9QTxi7Dpg9gH6NnDO8BCJyPyuKanRnjxyEPCO0vwQb+AvxM64oAyqX7P+UiGmmCPbaSsnIGmRtLQvlZi6Hlo4C9rF1uk6Jg3v5mnJ6uJcSzBFSKrVYa7KWIsg2oiYKC0aihZLWUryjIbdQbE2sh6EIy/oqSjYL+0gVlmkVOjEWESc9P0tV2INcRQCmKsquTmJv67w7Tk7n+KUjvC53e0ludJh7QNyxPYzdNwJ3c/QcBAAA","H4sIAAAAAAAEAK2TsQrCMBCG9zzFgXu4JO01GaUVB7FIBV9AHBzUpb6/uaSkHSxo2nDQ+9P8H38Osq3P0Lyu78ft2YNyjgTw6prDvYe0dCMEKMUF+LWcc3DRiBj8hSRFFXelVBQ7lP4vQg1ziGmJ6DWDl2SRTRmzVLLKphipVqDo+Ru1OVmWTFfzXChOyCDaCaXb/ExR8zf6gzJmsZKMpjwKrZKl5OnaZXPxz0R7fxS+M0nEbhD+UybhO0qCAmMUVdDDMZuEP+CS0KAwifhWgzj657w/BSdzeJMRnIvdHImNDGMPlOzYtY34AOfaJWIcBAAA"]},"15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR1":{"dataType":"binary","name":"R1","contentType":"chemical/x-mdl-molfile","properties":{"Name":"R1","ColumnType":"Result","DataType":"Binary","ExternalName":"R1","IsValid":"True","Expression":"","Comparer":"Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]","Formatter":"Spotfire.Dxp.Data.Formatters.BinaryFormatter","Origin":"RGroupDecomposition","Description":"","ChemCharts.DFResult":"{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"1fb4f47b-8477-4554-9802-224781317efd\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column2\"}"},"values":["H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQFQnYKhuR6QZQLSaQhimYJYBiCWgYKHAi4jkBHUFAszM3OIKaYgvQhTgpSJNAXiZpCzuXyB3nIPAHNAwgqGIBFXPxcuAGpS2QbzAAAA","H4sIAAAAAAAEAJ2RSwoCMQyG9zlFwH1IUvtaW3EhDjIL7+De+2MzLaULhWFCoHn0/2gaQLO13N8fHKYFANEjnhH5p+ec8aXMDHadSWPWTUminCxiql3GBf8hZjeKJJJOYcqc3ES57KdkCiHEpo2+ag9SJKg3rasT+ZmynnZTIqX+FiUXj1HqN2hbREtkJC3qiY59waPu8/bcSlbYThtFrHNdCnwBuwb7SvQBAAA=","H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXWL2emaGZGYhlomdsYGABYhnoAWUNFDwUcBmBjMCmGOsZGpqZg1imekDjzJFMCVIm0hSIm0HO5vIFess9AMwBCSsYgkRc/Vy4ADIKsufzAAAA"]},"15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR2":{"dataType":"binary","name":"R2","contentType":"chemical/x-mdl-molfile","properties":{"Name":"R2","ColumnType":"Result","DataType":"Binary","ExternalName":"R2","IsValid":"True","Expression":"","Comparer":"Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]","Formatter":"Spotfire.Dxp.Data.Formatters.BinaryFormatter","Origin":"RGroupDecomposition","Description":"","ChemCharts.DFResult":"{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"1fb4f47b-8477-4554-9802-224781317efd\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column3\"}"},"values":[null,"H4sIAAAAAAAEAJ2RSwoCMQyG9zlFwH1IUvtaW3EhDjIL7+De+2MzLaULhWFCoHn0/2gaQLO13N8fHKYFANEjnhH5p+ec8aXMDHadSWPWTUminCxiql3GBf8hZjeKJJJOYcqc3ES57KdkCiHEpo2+ag9SJKg3rasT+ZmynnZTIqX+FiUXj1HqN2hbREtkJC3qiY59waPu8/bcSlbYThtFrHNdCnwBuwb7SvQBAAA=","H4sIAAAAAAAEAJ2RwQrCMAyG73mKgPeQpl27nq14EIfs4Dt49/0xaUc3QcEZcsjfv/lICKDFXC6PJ/aQAoA4IAZE/pg5Z7wLM0P9T87FZNVIY8piFZO6jBN+Q2wTWkcatKNSRMsN5biHkjnUCSKl91l2UHzfKFGKrVoo8+FnipBfeiOFPym6gG+HUOGqXkXowvd7wVXveb7Vn/Zglnko5pymAi9pV9gE9AEAAA=="]},"15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR3":{"dataType":"binary","name":"R3","contentType":"chemical/x-mdl-molfile","properties":{"Name":"R3","ColumnType":"Result","DataType":"Binary","ExternalName":"R3","IsValid":"True","Expression":"","Comparer":"Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]","Formatter":"Spotfire.Dxp.Data.Formatters.BinaryFormatter","Origin":"RGroupDecomposition","Description":"","ChemCharts.DFResult":"{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"1fb4f47b-8477-4554-9802-224781317efd\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column4\"}"},"values":["H4sIAAAAAAAEAI1PywqAMAy79ysC3kc3p7j7REEU8eA/ePf/cZmgHhQsofSVkAoYSxy2HVe4KJIyYAF9RQgBq1NV4bk1pWs8mWoCV7lKW0WPL4knsooaX7uKXGsqcm+VpfipcnqmbRnTW92cG45RctJOUQ5KB/4w8wAAAA==","H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSLmBnoGRhQVIp6meoaGZEYgFFAMCBQ8FXEYgI5AphpZ6QK2mIL0memaGZuZIpgQpE2kKxM0gZ3P5Ar3lHgDmgIQVjEEirn4uXAAIawNp8wAAAA==","H4sIAAAAAAAEAJ2RwQrCMAyG73mKgPeQpl27nq14EIfs4Dt49/0xaUc3QcEZcsjfv/lICKDFXC6PJ/aQAoA4IAZE/pg5Z7wLM0P9T87FZNVIY8piFZO6jBN+Q2wTWkcatKNSRMsN5biHkjnUCSKl91l2UHzfKFGKrVoo8+FnipBfeiOFPym6gG+HUOGqXkXowvd7wVXveb7Vn/Zglnko5pymAi9pV9gE9AEAAA=="]},"15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR4":{"dataType":"binary","name":"R4","contentType":"chemical/x-mdl-molfile","properties":{"Name":"R4","ColumnType":"Result","DataType":"Binary","ExternalName":"R4","IsValid":"True","Expression":"","Comparer":"Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]","Formatter":"Spotfire.Dxp.Data.Formatters.BinaryFormatter","Origin":"RGroupDecomposition","Description":"","ChemCharts.DFResult":"{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"1fb4f47b-8477-4554-9802-224781317efd\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column5\"}"},"values":["H4sIAAAAAAAEAK1Wu27kMAzs/RUC0hMi9WSdDVIE2TukyD+kz/8jlExpZewd4CViqDBBcTSkyLE3156Py9vXt5sPXbbNBe8COef/uZjZfZL3fpPtSBAilhaZIOmbB/F6d3X/g1hXR0EoxNRiMzDmFeX5PEoAzntsgJIk1ohSkdKeER0zOo8iDBAHFyZfTXVxUl3NSLj4SLaMEBLveUSgZEXxsxoFfGEjSob0C3ck1ZgoPdaEQpA1Vm4rpmpDYcA8++WY0QMTIFy0XyogHar753y/sPTL4FKzcY6k67iMaUzFyqVMBhm8eaYJqJaeEUKWhjFxwQMXa7/I9GRVhta7NVirO5SBoLCx6ySCVQ8iVLaqlKitVldQjvryQHVvM303AQ9wYcja9xWiWXcTxKl1bJ4AP7UpQPTWm5ZJ1jyqKI1Rd2WOhmYXCNabXibgTjE/nk6j3LTuTr1Po0gq2FczpLJxGnH1JDltGrnZwyjrtjoAm8HylVqg1cBNPoEjTDxIDms/rRmhA9BuxA6ontTPVU/uTvWgwzKhq6MwPexoEiW/sCbsaGpQAxxGaMQVgFYGAkUzOcodUI3Sd+q22uwbt1ZUHKzphoYNYwDwcqgURP74duNd/ghf/+41YdcTaD4Xm+fletl+ABgqZoQ2CgAA","H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQFQnYKhqZ65gYEFSKepnqGhGZhloAeUNVDwUMBlBDICm2KmZ2pmZg7Sa6JnZghhQU0JUibSFIibQc7m8gV6yz0AzAEJK5iARFz9XLgAgVdA2fMAAAA=","H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2ZnrGZmTmEZQJlGegBZQ0UPBRwGYGMwKaY4jYlSJlIUyBuBjmbyxfoLfcAMAckrGACEnH1c+ECAFK3GarzAAAA"]},"15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR5":{"dataType":"binary","name":"R5","contentType":"chemical/x-mdl-molfile","properties":{"Name":"R5","ColumnType":"Result","DataType":"Binary","ExternalName":"R5","IsValid":"True","Expression":"","Comparer":"Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]","Formatter":"Spotfire.Dxp.Data.Formatters.BinaryFormatter","Origin":"RGroupDecomposition","Description":"","ChemCharts.DFResult":"{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"1fb4f47b-8477-4554-9802-224781317efd\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column6\"}"},"values":["H4sIAAAAAAAEAK1Wu27kMAzs/RUC0hMi9WSdDVIE2TukyD+kz/8jlExpZewd4CViqDBBcTSkyLE3156Py9vXt5sPXbbNBe8COef/uZjZfZL3fpPtSBAilhaZIOmbB/F6d3X/g1hXR0EoxNRiMzDmFeX5PEoAzntsgJIk1ohSkdKeER0zOo8iDBAHFyZfTXVxUl3NSLj4SLaMEBLveUSgZEXxsxoFfGEjSob0C3ck1ZgoPdaEQpA1Vm4rpmpDYcA8++WY0QMTIFy0XyogHar753y/sPTL4FKzcY6k67iMaUzFyqVMBhm8eaYJqJaeEUKWhjFxwQMXa7/I9GRVhta7NVirO5SBoLCx6ySCVQ8iVLaqlKitVldQjvryQHVvM303AQ9wYcja9xWiWXcTxKl1bJ4AP7UpQPTWm5ZJ1jyqKI1Rd2WOhmYXCNabXibgTjE/nk6j3LTuTr1Po0gq2FczpLJxGnH1JDltGrnZwyjrtjoAm8HylVqg1cBNPoEjTDxIDms/rRmhA9BuxA6ontTPVU/uTvWgwzKhq6MwPexoEiW/sCbsaGpQAxxGaMQVgFYGAkUzOcodUI3Sd+q22uwbt1ZUHKzphoYNYwDwcqgURP74duNd/ghf/+41YdcTaD4Xm+fletl+ABgqZoQ2CgAA","H4sIAAAAAAAEAJ1WQW4DIQy87yuQereMwYDPTdVD1bTKoX/ovf9XDWvIVmqkxCsOOwEPYw94s4X+XE5v3z9hPXTatkAcqIaA/w4RCV+EiJsujwQpx9ojM0gs4w1BZzGcwy2K4xgsESoJ9dgCJPHI8nw/SwIpu4IEkRi9LE2D94wKZnKxdAVxaiHh5qpL0OpaRhm4ik+LVpetpglKSsnHgkDmdIHMzrpEBrKMNLfq9YjUGcSdhQmbm8U8qsB/nf643yNRj/bzormR0yPNQ8xfBmFEn5YKzarLkNz3iIBaHRlFQLcWvT12j/QueE+d1mXeI32rTqc1QszfvM7f4ywFxOqSVYu4z0uxU6JuebuU+ptl9t2UdlWeulSe96g2r0cNonWGuk7x4ywVyLpKger1KBbgW9+Ay9OdLCoijtGB1iQvkI8zrLstUDqeoB6XtUlobDJA2bSjzpU6E+NYRjugGdZBGuwG8pi0GNR+uthKoLVpd2PJiW0QGJDOYYBw7GMg9skJaHAYSGPlroByx1cF4Qpyn5xCW+eYBDzTxu1d/3K8fg4wugP3X17Op+0XdU+0sY8IAAA=","H4sIAAAAAAAEAKVWTU8EIQy9z68g8d6UQvk4u8aDcTUe/A/e/f+xQEEm0WRhJxzmbZnH62tp9jDl+bi8fH2b8dDlOAyxoWgM/rlyzuaTEPEo+zPYmKm8ObDEWN4QJIrmav6jmFdhsQgu21jPB/KcJpbHm1lMgBRCbFpSPGlZYIkQ2VPTEoJYscNiAzjfMhKHlG/dlwhBWRJ4PLEsZPRbIw/BNofWM7IQ1Q2CxMnd6y4Dqqp1FgZ3f6Wl68hFra+QzCxvK75k9dSPmq9riZCwKQiQz5Ve0OKA9B55yOeMlmrUWQKwPd2ABS2iQCuTgLd9CRBav0i19ns3ja7L+/dI3PXca+TPGS34QuJL63vpnIh7s07cTepGBOTdjJLMppqRuBt3b6NoceoLgQyGvckgLKyV8YBhs9LThGOwZ5aPhxtZRIStqwDJxg/g5whLdw4QCu4gzttSJywg92Cjtth2HjJG6jaqEUv9swJcZVfga3CwWR4EwdA4tPTmkGNTJVCQC4cCwnqOAluCHVDlUODqzqaAfMFTPgMIrwS70FQ4OgH3TPF4lb8cz+8V1MnC5Zen6+X4Aa8QXGKPCAAA"]}},"webServiceRequest":null,"requestId":-1,"tkid":null,"script":null,"updateBehavior":"automatic","allowedClients":["Analyst","WebPlayer"],"limitBy":"none","ironPython":null,"chartsFxnType":null,"chartsRequest":null}
+{
+  "executorId": 0,
+  "id": "62a48db2-3e4e-43af-ba23-24de12aa51a9",
+  "dataFxnDefId": "2abb2403-f1f4-4f52-4695-e5f5ce1bc9a8",
+  "serviceName": "RGroupReplacement",
+  "assembly": null,
+  "inputFields": {
+    "structureColumn": {
+      "id": "structureColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yStructure <MOLFILE>"
+    },
+    "idColumn": {
+      "id": "idColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9sCode"
+    },
+    "coresColumn": {
+      "id": "coresColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yCore"
+    },
+    "rGroupColumns": {
+      "id": "rGroupColumns",
+      "dataType": "list(string)",
+      "contentType": null,
+      "selectorType": "column",
+      "data": [
+        "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR1",
+        "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR2",
+        "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR3",
+        "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR4",
+        "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR5"
+      ]
+    },
+    "useLayer1": {
+      "id": "useLayer1",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": true
+    },
+    "useLayer2": {
+      "id": "useLayer2",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": false
+    }
+  },
+  "maximumOutputColumns": 1,
+  "maximumOutputTables": 1,
+  "resultTables": null,
+  "serviceUri": "glysade.python",
+  "inputColumns": {
+    "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yStructure <MOLFILE>": {
+      "dataType": "binary",
+      "name": "Structure <MOLFILE>",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "Structure <MOLFILE>",
+        "ColumnType": "Imported",
+        "DataType": "Binary",
+        "ExternalName": "Structure <MOLFILE>",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "buggy_rows",
+        "Description": "",
+        "Dimension": "2"
+      },
+      "values": [
+        "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"
+      ]
+    },
+    "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9sCode": {
+      "dataType": "string",
+      "name": "Code",
+      "contentType": null,
+      "properties": {
+        "Name": "Code",
+        "ColumnType": "Imported",
+        "DataType": "String",
+        "ExternalName": "Code",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.StringDataComparer",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.StringFormatter",
+        "Origin": "buggy_rows",
+        "Description": ""
+      },
+      "values": [
+        "MBX011734",
+        "MBX011735",
+        "MBX011736"
+      ]
+    },
+    "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yCore": {
+      "dataType": "binary",
+      "name": "Core",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "Core",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "Core",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"1fb4f47b-8477-4554-9802-224781317efd\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column1\"}"
+      },
+      "values": [
+        "H4sIAAAAAAAEAK1TTYsCMQy9z68I7L00nX5MjosjHkQRhf0DiwcPuhf3/5vXgTiIgo6WwLyX5r02Yfo921H/9/t/3J/OxCK5IaxtvzycyVbom4bYI+h+iAj9BO899Fxcl3OBsnWa80B+QDN6ZDGO6iKOc0iDS0kTXYJ30Vwm32Xkwi59oCN/29H6eZfrdN+5S4EiDi6K0shl+/X0XNi1oYuDVvATTHGpc+EO2ng7lxdcrh21LopM6oi1pxog+mlrCkRRtB1FyXYUZdvJNc1GihHVdEa0WoxwfViVrPTtLTa1GFIkocLpECCPWkqonK/75gLPqOL0wQMAAA==",
+        "H4sIAAAAAAAEAKWTwWrDMAyG73kKwe5CciLZPo6m9DBaSgd7gbHDDlsv3ftPioMz2g06xwii3/H/IQn0uHmG8fz69fH2eQHOWTvwcxqf3i9QTxi7Dpg9gH6NnDO8BCJyPyuKanRnjxyEPCO0vwQb+AvxM64oAyqX7P+UiGmmCPbaSsnIGmRtLQvlZi6Hlo4C9rF1uk6Jg3v5mnJ6uJcSzBFSKrVYa7KWIsg2oiYKC0aihZLWUryjIbdQbE2sh6EIy/oqSjYL+0gVlmkVOjEWESc9P0tV2INcRQCmKsquTmJv67w7Tk7n+KUjvC53e0ludJh7QNyxPYzdNwJ3c/QcBAAA",
+        "H4sIAAAAAAAEAK2TsQrCMBCG9zzFgXu4JO01GaUVB7FIBV9AHBzUpb6/uaSkHSxo2nDQ+9P8H38Osq3P0Lyu78ft2YNyjgTw6prDvYe0dCMEKMUF+LWcc3DRiBj8hSRFFXelVBQ7lP4vQg1ziGmJ6DWDl2SRTRmzVLLKphipVqDo+Ru1OVmWTFfzXChOyCDaCaXb/ExR8zf6gzJmsZKMpjwKrZKl5OnaZXPxz0R7fxS+M0nEbhD+UybhO0qCAmMUVdDDMZuEP+CS0KAwifhWgzj657w/BSdzeJMRnIvdHImNDGMPlOzYtY34AOfaJWIcBAAA"
+      ]
+    },
+    "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR1": {
+      "dataType": "binary",
+      "name": "R1",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "R1",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "R1",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"1fb4f47b-8477-4554-9802-224781317efd\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column2\"}"
+      },
+      "values": [
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQFQnYKhuR6QZQLSaQhimYJYBiCWgYKHAi4jkBHUFAszM3OIKaYgvQhTgpSJNAXiZpCzuXyB3nIPAHNAwgqGIBFXPxcuAGpS2QbzAAAA",
+        "H4sIAAAAAAAEAJ2RSwoCMQyG9zlFwH1IUvtaW3EhDjIL7+De+2MzLaULhWFCoHn0/2gaQLO13N8fHKYFANEjnhH5p+ec8aXMDHadSWPWTUminCxiql3GBf8hZjeKJJJOYcqc3ES57KdkCiHEpo2+ag9SJKg3rasT+ZmynnZTIqX+FiUXj1HqN2hbREtkJC3qiY59waPu8/bcSlbYThtFrHNdCnwBuwb7SvQBAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXWL2emaGZGYhlomdsYGABYhnoAWUNFDwUcBmBjMCmGOsZGpqZg1imekDjzJFMCVIm0hSIm0HO5vIFess9AMwBCSsYgkRc/Vy4ADIKsufzAAAA"
+      ]
+    },
+    "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR2": {
+      "dataType": "binary",
+      "name": "R2",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "R2",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "R2",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"1fb4f47b-8477-4554-9802-224781317efd\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column3\"}"
+      },
+      "values": [
+        null,
+        "H4sIAAAAAAAEAJ2RSwoCMQyG9zlFwH1IUvtaW3EhDjIL7+De+2MzLaULhWFCoHn0/2gaQLO13N8fHKYFANEjnhH5p+ec8aXMDHadSWPWTUminCxiql3GBf8hZjeKJJJOYcqc3ES57KdkCiHEpo2+ag9SJKg3rasT+ZmynnZTIqX+FiUXj1HqN2hbREtkJC3qiY59waPu8/bcSlbYThtFrHNdCnwBuwb7SvQBAAA=",
+        "H4sIAAAAAAAEAJ2RwQrCMAyG73mKgPeQpl27nq14EIfs4Dt49/0xaUc3QcEZcsjfv/lICKDFXC6PJ/aQAoA4IAZE/pg5Z7wLM0P9T87FZNVIY8piFZO6jBN+Q2wTWkcatKNSRMsN5biHkjnUCSKl91l2UHzfKFGKrVoo8+FnipBfeiOFPym6gG+HUOGqXkXowvd7wVXveb7Vn/Zglnko5pymAi9pV9gE9AEAAA=="
+      ]
+    },
+    "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR3": {
+      "dataType": "binary",
+      "name": "R3",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "R3",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "R3",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"1fb4f47b-8477-4554-9802-224781317efd\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column4\"}"
+      },
+      "values": [
+        "H4sIAAAAAAAEAI1PywqAMAy79ysC3kc3p7j7REEU8eA/ePf/cZmgHhQsofSVkAoYSxy2HVe4KJIyYAF9RQgBq1NV4bk1pWs8mWoCV7lKW0WPL4knsooaX7uKXGsqcm+VpfipcnqmbRnTW92cG45RctJOUQ5KB/4w8wAAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSLmBnoGRhQVIp6meoaGZEYgFFAMCBQ8FXEYgI5AphpZ6QK2mIL0memaGZuZIpgQpE2kKxM0gZ3P5Ar3lHgDmgIQVjEEirn4uXAAIawNp8wAAAA==",
+        "H4sIAAAAAAAEAJ2RwQrCMAyG73mKgPeQpl27nq14EIfs4Dt49/0xaUc3QcEZcsjfv/lICKDFXC6PJ/aQAoA4IAZE/pg5Z7wLM0P9T87FZNVIY8piFZO6jBN+Q2wTWkcatKNSRMsN5biHkjnUCSKl91l2UHzfKFGKrVoo8+FnipBfeiOFPym6gG+HUOGqXkXowvd7wVXveb7Vn/Zglnko5pymAi9pV9gE9AEAAA=="
+      ]
+    },
+    "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR4": {
+      "dataType": "binary",
+      "name": "R4",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "R4",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "R4",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"1fb4f47b-8477-4554-9802-224781317efd\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column5\"}"
+      },
+      "values": [
+        "H4sIAAAAAAAEAK1Wu27kMAzs/RUC0hMi9WSdDVIE2TukyD+kz/8jlExpZewd4CViqDBBcTSkyLE3156Py9vXt5sPXbbNBe8COef/uZjZfZL3fpPtSBAilhaZIOmbB/F6d3X/g1hXR0EoxNRiMzDmFeX5PEoAzntsgJIk1ohSkdKeER0zOo8iDBAHFyZfTXVxUl3NSLj4SLaMEBLveUSgZEXxsxoFfGEjSob0C3ck1ZgoPdaEQpA1Vm4rpmpDYcA8++WY0QMTIFy0XyogHar753y/sPTL4FKzcY6k67iMaUzFyqVMBhm8eaYJqJaeEUKWhjFxwQMXa7/I9GRVhta7NVirO5SBoLCx6ySCVQ8iVLaqlKitVldQjvryQHVvM303AQ9wYcja9xWiWXcTxKl1bJ4AP7UpQPTWm5ZJ1jyqKI1Rd2WOhmYXCNabXibgTjE/nk6j3LTuTr1Po0gq2FczpLJxGnH1JDltGrnZwyjrtjoAm8HylVqg1cBNPoEjTDxIDms/rRmhA9BuxA6ontTPVU/uTvWgwzKhq6MwPexoEiW/sCbsaGpQAxxGaMQVgFYGAkUzOcodUI3Sd+q22uwbt1ZUHKzphoYNYwDwcqgURP74duNd/ghf/+41YdcTaD4Xm+fletl+ABgqZoQ2CgAA",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQFQnYKhqZ65gYEFSKepnqGhGZhloAeUNVDwUMBlBDICm2KmZ2pmZg7Sa6JnZghhQU0JUibSFIibQc7m8gV6yz0AzAEJK5iARFz9XLgAgVdA2fMAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2ZnrGZmTmEZQJlGegBZQ0UPBRwGYGMwKaY4jYlSJlIUyBuBjmbyxfoLfcAMAckrGACEnH1c+ECAFK3GarzAAAA"
+      ]
+    },
+    "15a8e8d5-bc3d-40a3-ba52-1f4f6e5dc6f9yR5": {
+      "dataType": "binary",
+      "name": "R5",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "R5",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "R5",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"1fb4f47b-8477-4554-9802-224781317efd\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column6\"}"
+      },
+      "values": [
+        "H4sIAAAAAAAEAK1Wu27kMAzs/RUC0hMi9WSdDVIE2TukyD+kz/8jlExpZewd4CViqDBBcTSkyLE3156Py9vXt5sPXbbNBe8COef/uZjZfZL3fpPtSBAilhaZIOmbB/F6d3X/g1hXR0EoxNRiMzDmFeX5PEoAzntsgJIk1ohSkdKeER0zOo8iDBAHFyZfTXVxUl3NSLj4SLaMEBLveUSgZEXxsxoFfGEjSob0C3ck1ZgoPdaEQpA1Vm4rpmpDYcA8++WY0QMTIFy0XyogHar753y/sPTL4FKzcY6k67iMaUzFyqVMBhm8eaYJqJaeEUKWhjFxwQMXa7/I9GRVhta7NVirO5SBoLCx6ySCVQ8iVLaqlKitVldQjvryQHVvM303AQ9wYcja9xWiWXcTxKl1bJ4AP7UpQPTWm5ZJ1jyqKI1Rd2WOhmYXCNabXibgTjE/nk6j3LTuTr1Po0gq2FczpLJxGnH1JDltGrnZwyjrtjoAm8HylVqg1cBNPoEjTDxIDms/rRmhA9BuxA6ontTPVU/uTvWgwzKhq6MwPexoEiW/sCbsaGpQAxxGaMQVgFYGAkUzOcodUI3Sd+q22uwbt1ZUHKzphoYNYwDwcqgURP74duNd/ghf/+41YdcTaD4Xm+fletl+ABgqZoQ2CgAA",
+        "H4sIAAAAAAAEAJ1WQW4DIQy87yuQereMwYDPTdVD1bTKoX/ovf9XDWvIVmqkxCsOOwEPYw94s4X+XE5v3z9hPXTatkAcqIaA/w4RCV+EiJsujwQpx9ojM0gs4w1BZzGcwy2K4xgsESoJ9dgCJPHI8nw/SwIpu4IEkRi9LE2D94wKZnKxdAVxaiHh5qpL0OpaRhm4ik+LVpetpglKSsnHgkDmdIHMzrpEBrKMNLfq9YjUGcSdhQmbm8U8qsB/nf643yNRj/bzormR0yPNQ8xfBmFEn5YKzarLkNz3iIBaHRlFQLcWvT12j/QueE+d1mXeI32rTqc1QszfvM7f4ywFxOqSVYu4z0uxU6JuebuU+ptl9t2UdlWeulSe96g2r0cNonWGuk7x4ywVyLpKger1KBbgW9+Ay9OdLCoijtGB1iQvkI8zrLstUDqeoB6XtUlobDJA2bSjzpU6E+NYRjugGdZBGuwG8pi0GNR+uthKoLVpd2PJiW0QGJDOYYBw7GMg9skJaHAYSGPlroByx1cF4Qpyn5xCW+eYBDzTxu1d/3K8fg4wugP3X17Op+0XdU+0sY8IAAA=",
+        "H4sIAAAAAAAEAKVWTU8EIQy9z68g8d6UQvk4u8aDcTUe/A/e/f+xQEEm0WRhJxzmbZnH62tp9jDl+bi8fH2b8dDlOAyxoWgM/rlyzuaTEPEo+zPYmKm8ObDEWN4QJIrmav6jmFdhsQgu21jPB/KcJpbHm1lMgBRCbFpSPGlZYIkQ2VPTEoJYscNiAzjfMhKHlG/dlwhBWRJ4PLEsZPRbIw/BNofWM7IQ1Q2CxMnd6y4Dqqp1FgZ3f6Wl68hFra+QzCxvK75k9dSPmq9riZCwKQiQz5Ve0OKA9B55yOeMlmrUWQKwPd2ABS2iQCuTgLd9CRBav0i19ns3ja7L+/dI3PXca+TPGS34QuJL63vpnIh7s07cTepGBOTdjJLMppqRuBt3b6NoceoLgQyGvckgLKyV8YBhs9LThGOwZ5aPhxtZRIStqwDJxg/g5whLdw4QCu4gzttSJywg92Cjtth2HjJG6jaqEUv9swJcZVfga3CwWR4EwdA4tPTmkGNTJVCQC4cCwnqOAluCHVDlUODqzqaAfMFTPgMIrwS70FQ4OgH3TPF4lb8cz+8V1MnC5Zen6+X4Aa8QXGKPCAAA"
+      ]
+    }
+  },
+  "webServiceRequest": null,
+  "requestId": -1,
+  "tkid": null,
+  "script": null,
+  "updateBehavior": "automatic",
+  "allowedClients": [
+    "Analyst",
+    "WebPlayer"
+  ],
+  "limitBy": "none",
+  "ironPython": null,
+  "chartsFxnType": null,
+  "chartsRequest": null
+}
