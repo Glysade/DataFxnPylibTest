@@ -266,6 +266,14 @@ class DataFunctionTest(TestCase):
         for col in response.outputTables[0].columns:
             self.assertEqual(220, len(col.values))
 
+    def test_duplicate_msa_pair(self) -> None:
+        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'msa_error_duplicate_pair.json')
+        _, response = run_named_data_function(file_in)
+        self.assertTrue(response)
+        self.assertEqual(3, len(response.outputColumns))
+        self.assertEqual(0, len(response.outputTables))
+        self.assertEqual(2, len(response.outputColumns[0].values))
+
     @classmethod
     def tearDownClass(cls) -> None:
         clean_output_files()
