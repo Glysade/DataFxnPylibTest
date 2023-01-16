@@ -8,6 +8,7 @@ from df.chem_helper import column_to_molecules, molecules_to_column
 from df.data_transfer import DataFunctionRequest, DataFunctionResponse, DataType, ColumnData, \
     string_input_field
 from rdkit import Chem
+from rdkit.Chem import rdmolops
 
 
 def build_query_dict(query_defs: dict[str, str]) -> dict[str, Union[Chem.Mol, str]]:
@@ -21,20 +22,22 @@ def build_query_dict(query_defs: dict[str, str]) -> dict[str, Union[Chem.Mol, st
     """
     query_dict = {}
     for name, smt in query_defs.items():
-        qmol = Chem.MolFromSmarts(smt)
+        qmol = Chem.MolFromSmarts(smt, mergeHs=True)
         if not qmol:
-            print(f'ERROR : failed to process SMARTS string {smt} with name {name}.')
+            print(f'ERROR : failed to process SMARTS string {smt}'
+                  f' with name {name}.')
         else:
             query_dict[name] = {'qmol': qmol, 'SMARTS': smt}
 
     return query_dict
 
 
-def match_queries(mols: list[Chem.Mol], query_dict) -> list[list[str]]:
+def match_queries(mols: list[Chem.Mol], query_dict) -> list[tuple[list[str], Optional[Chem.Mol]]]:
     """
-    Match the queries against the molecules.  Returns list of list of
-    strings, 1 entry in outer list for each molecule, giving the
-    names of queries that matched.
+    Match the queries against the molecules.  Returns list of tuples,
+    each tuple being a list of the names of the queries that hit and a
+    query mol combining all the query mols that matched each molecule,
+    or None if there were no matches for a molecule.
     Args:
         mols ([Chem.Mol, ]):
         query_dict ({}):
@@ -44,16 +47,19 @@ def match_queries(mols: list[Chem.Mol], query_dict) -> list[list[str]]:
     """
     hits = []
     for i, mol in enumerate(mols):
-        mol_hits = []
+        hit_queries = None
+        hit_names = []
         if mol is not None and mol:
             for name, query in query_dict.items():
-                if mol.HasSubstructMatch(query['qmol']):
-                    mol_hits.append(name)
-                    # try:
-                    #     print(f'{mol.GetProp("_Name")} : {name}')
-                    # except KeyError:
-                    #     print(f'Molecule number {i} : {name}')
-        hits.append(mol_hits)
+                qmol = query['qmol']
+                if mol.HasSubstructMatch(qmol):
+                    hit_names.append(name)
+                    if hit_queries is None:
+                        hit_queries = Chem.Mol(qmol)
+                    else:
+                        hit_queries = rdmolops.CombineMols(hit_queries,
+                                                           Chem.Mol(qmol))
+        hits.append((hit_names, hit_queries))
 
     return hits
 
@@ -72,8 +78,8 @@ def read_pains_queries() -> Optional[dict[str, str]]:
         print(f'ERROR : no RDBASE')
         return None
 
-    print(os.environ['RDBASE'])
     pains_defs_file = Path(rdbase) / 'Data' / 'Pains' / 'wehi_pains.csv'
+    print(f'Reading PAINS SMARTS from {pains_defs_file}')
     queries = {}
     try:
         with open(pains_defs_file, 'r', newline='') as f:
@@ -108,7 +114,7 @@ def highlight_molecule(mol: Chem.Mol, qmol: Chem.Mol) -> None:
     # If multiple PAINS hit, and the hits overlap on a molecule, they
     # don't show up unless the individual SMARTS patterns are matched
     # separately.
-    for qmol_frag in Chem.GetMolFrags(qmol, asMols=True):
+    for qmol_frag in Chem.GetMolFrags(qmol, asMols=True, sanitizeFrags=False):
         matches = mol.GetSubstructMatches(qmol_frag)
         for match in matches:
             for pair in itertools.combinations(match, 2):
@@ -127,44 +133,39 @@ def highlight_molecule(mol: Chem.Mol, qmol: Chem.Mol) -> None:
     mol.SetProp('Renderer_Highlight', prop_text)
 
 
-def highlight_molecules(mols: list[Chem.Mol], all_smarts: list[Chem.Mol]) -> None:
+def highlight_molecules(mols: list[Chem.Mol], all_qmols: list[Chem.Mol]) -> None:
 
-    for mol, smarts in zip(mols, all_smarts):
+    for mol, qmol in zip(mols, all_qmols):
         if mol is not None:
-            highlight_molecule(mol, smarts)
+            highlight_molecule(mol, qmol)
 
 
-def run_pains(mols: list[Chem.Mol]) -> list[tuple[bool, str, str]]:
+def run_pains(mols: list[Chem.Mol]) -> list[tuple[bool, str, Chem.Mol]]:
     """
     Run the PAINS filters on each molecule.  Returns a list of tuples.
     Each tuple has a bool for whether it had a PAINS result,
     a string which is the comma-separated list of names of any hits and
-    a string which is the dot-separated list of SMARTS patterns of any
-    hits.
+    a Chem.Mol which is a query molecule made from a SMARTS string
+    which is the dot-separated list of SMARTS patterns of any hits.
     Args:
         mols ([Chem.Mol, ]):
 
     Returns:
-        [(bool, str, str), ]
+        [(bool, str, Chem.Mol), ]
     """
     pains_smarts = read_pains_queries()
     pains_queries = build_query_dict(pains_smarts)
     p_hits = match_queries(mols,pains_queries)
     results = []
     for mol, p_h in zip(mols, p_hits):
-        res_str = []
-        res_smt = []
-        res_bool = False
-        if p_h:
-            res_str.extend(p_h)
-            res_smt.extend([pains_queries[p]["SMARTS"] for p in p_h])
-            res_bool = True
-        all_smt = '.'.join(res_smt)
-        if all_smt:
-            pains_mol = Chem.MolFromSmarts(all_smt)
+        if p_h[1] is None:
+            res_bool = False
+            res_smt_names = ''
         else:
-            pains_mol = None
-        results.append((res_bool, ','.join(res_str), pains_mol))
+            res_bool = True
+            res_smt_names = ','.join(p_h[0])
+
+        results.append((res_bool, res_smt_names, p_h[1]))
 
     return results
 
