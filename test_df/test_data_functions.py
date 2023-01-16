@@ -21,6 +21,10 @@ def request_from_file(in_file: str) -> DataFunctionRequest:
     with open(in_file, 'r') as fh:
         request_json = fh.read()
 
+    # for testing on WSL convert windows paths to Linux
+    if os.name == 'posix':
+        request_json = request_json.replace(r'C:\\db\\', r'/mnt/c/db/')
+        request_json = request_json.replace(r'mmp\\', r'mmp/')
     request = DataFunctionRequest.parse_raw(request_json)
     return request
 
@@ -89,7 +93,7 @@ class DataFunctionTest(TestCase):
         self.assertEqual(18, len(response.outputColumns[0].values))
 
     def test_script_deprotect(self) -> None:
-        from deprotect import execute
+        from test_pylib.test_df.deprotect import execute
         file_in = os.path.join(os.path.dirname(__file__), 'resources', 'deprotect.json')
         _, response = run_script(file_in, execute)
         self.assertTrue(response)
@@ -106,7 +110,7 @@ class DataFunctionTest(TestCase):
         self.assertEqual(100, len(response.outputColumns[0].values))
 
     def test_exact_mass_script(self) -> None:
-        from exact_mass_script import execute
+        from test_pylib.test_df.exact_mass_script import execute
         file_in = os.path.join(os.path.dirname(__file__), 'resources', 'exact_mass_script.json')
         _, response = run_script(file_in, execute)
         self.assertTrue(response)
@@ -194,7 +198,7 @@ class DataFunctionTest(TestCase):
         self.assertEqual(21, len(response.outputColumns[0].values))
 
     def test_translate_sequences_script(self) -> None:
-        from translate_sequences_script import execute
+        from test_pylib.test_df.translate_sequences_script import execute
         file_in = os.path.join(os.path.dirname(__file__), 'resources', 'translate_sequences_script.json')
         _, response = run_script(file_in, execute)
         self.assertTrue(response)
@@ -261,6 +265,14 @@ class DataFunctionTest(TestCase):
         self.assertEqual(9, len(response.outputTables[0].columns))
         for col in response.outputTables[0].columns:
             self.assertEqual(220, len(col.values))
+
+    def test_duplicate_msa_pair(self) -> None:
+        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'msa_error_duplicate_pair.json')
+        _, response = run_named_data_function(file_in)
+        self.assertTrue(response)
+        self.assertEqual(3, len(response.outputColumns))
+        self.assertEqual(0, len(response.outputTables))
+        self.assertEqual(2, len(response.outputColumns[0].values))
 
     @classmethod
     def tearDownClass(cls) -> None:
