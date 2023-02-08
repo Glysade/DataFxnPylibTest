@@ -1,0 +1,70 @@
+{
+  "executorId": 0,
+  "id": "dff06d21-a569-4253-9a73-628f7b29cca8",
+  "dataFxnDefId": "22204149-ba9f-551e-6527-170776417d1a",
+  "serviceName": "Script",
+  "assembly": null,
+  "inputFields": {
+    "structureColumn": {
+      "id": "structureColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "566e63f8-c416-438a-8bb0-ef3a2fba4c24sSMILES"
+    },
+    "reactionSmarts": {
+      "id": "reactionSmarts",
+      "dataType": "string",
+      "contentType": "chemical/x-smarts",
+      "selectorType": null,
+      "data": "[C:0][C:1](=[O:2])[O:3][C@:4]>>[C:0][C:1]=[O:2].[O:3][C@@:4]"
+    },
+    "reactionQuery": {
+      "id": "reactionQuery",
+      "dataType": "string",
+      "contentType": "chemical/x-smarts",
+      "selectorType": null,
+      "data": "[C:0][C:1](=[O:2])[O:3][C@:4]>>[C:0][C:1]=[O:2].[O:3][C@@:4]"
+    }
+  },
+  "maximumOutputColumns": 10,
+  "maximumOutputTables": 0,
+  "resultTables": null,
+  "serviceUri": "glysade.python",
+  "inputColumns": {
+    "566e63f8-c416-438a-8bb0-ef3a2fba4c24sSMILES": {
+      "dataType": "string",
+      "name": "SMILES",
+      "contentType": "chemical/x-daylight-smiles",
+      "properties": {
+        "Name": "SMILES",
+        "ColumnType": "Imported",
+        "DataType": "String",
+        "ExternalName": "SMILES",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.StringDataComparer",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.StringFormatter",
+        "Origin": "chiral",
+        "Description": ""
+      },
+      "values": [
+        "CCC(=O)O[C@H](F)Cl",
+        "c1ccccc1C(=O)O[C@@](F)Cl"
+      ]
+    }
+  },
+  "webServiceRequest": null,
+  "requestId": -1,
+  "tkid": null,
+  "script": "from rdkit.Chem.Descriptors import ExactMolWt\nfrom df.chem_helper import column_to_molecules\nfrom df.data_transfer import DataFunctionRequest, DataFunctionResponse, DataType, ColumnData, \\\n    string_input_field\n\n\ndef execute(request: DataFunctionRequest) -> DataFunctionResponse:\n    column_id = string_input_field(request, 'structureColumn')\n    input_column = request.inputColumns[column_id]\n    mols = column_to_molecules(input_column)\n    weights = [None if m is None else ExactMolWt(m) for m in mols]\n    output_column = ColumnData(name=f'{input_column.name} Exact Mass', dataType=DataType.DOUBLE, values=weights)\n    response = DataFunctionResponse(outputColumns=[output_column])\n    return response\n",
+  "updateBehavior": "automatic",
+  "allowedClients": [
+    "Analyst",
+    "WebPlayer"
+  ],
+  "limitBy": "none",
+  "ironPython": "",
+  "chartsFxnType": null,
+  "chartsRequest": null
+}
