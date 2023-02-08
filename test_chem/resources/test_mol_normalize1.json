@@ -1,0 +1,122 @@
+{
+  "executorId": 0,
+  "id": "77d49a6c-1a36-42d4-a271-9db1ed8a72ab",
+  "dataFxnDefId": "224d9521-4c9a-4c37-8e88-f29f467e5ee4",
+  "serviceName": "Script",
+  "assembly": null,
+  "inputFields": {
+    "structureColumn": {
+      "id": "structureColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "43f9cc7b-82d2-426a-ba04-cfb9daa6664fsSMILES"
+    },
+    "normalizeID": {
+      "id": "normalizeID",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": true
+    },
+    "neutralizeID": {
+      "id": "neutralizeID",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": true
+    },
+    "reionizeID": {
+      "id": "reionizeID",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": true
+    },
+    "parentID": {
+      "id": "parentID",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": true
+    },
+    "metalID": {
+      "id": "metalID",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": true
+    },
+    "tautomerID": {
+      "id": "tautomerID",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": true
+    }
+  },
+  "maximumOutputColumns": 1,
+  "maximumOutputTables": 0,
+  "resultTables": null,
+  "serviceUri": "glysade.python",
+  "inputColumns": {
+    "43f9cc7b-82d2-426a-ba04-cfb9daa6664fsSMILES": {
+      "dataType": "string",
+      "name": "SMILES",
+      "contentType": "chemical/x-daylight-smiles",
+      "properties": {
+        "Name": "SMILES",
+        "ColumnType": "Imported",
+        "DataType": "String",
+        "ExternalName": "SMILES",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.StringDataComparer",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.StringFormatter",
+        "Origin": "normalization_tests",
+        "Description": ""
+      },
+      "values": [
+        "CC=C(O)F",
+        "Oc1c(cccc3)c3nc2ccncc12",
+        "C[S+2]([O-])([O-])CC",
+        "CC[S@](=O)C",
+        "C[P+](CC)(N)N",
+        "CN=N#N",
+        "C=N#N",
+        "[N-]=[C+]C",
+        "[nH]1c(=[N+](C)C)cccc1",
+        "NC=C-C=[N+](C)C",
+        "c1ccccc1C(=O)[O-]",
+        "c1ccccc1C(=O)[O-].[Na+]",
+        "CC[NH+](C)C",
+        "CC[N+](C)(C)C",
+        "[O-]CC(C(=O)[O-])C[NH+](C)C",
+        "[O-]CC(C(=O)[O-])C[N+](C)(C)C",
+        "c1ccccc1C(=O)[O-]",
+        "c1ccc([O-])cc1C(=O)O",
+        "c1ccccc1C(=O)[O-].[Na+]",
+        "O=C1[C@H](CC[C@H](O)c2ccc(F)cc2)[C@@H](c2ccc(O)cc2)N1c1ccc(F)cc1.c1ccccc1",
+        "CCO[Fe]",
+        "CCO[AlH2]",
+        "C[Hg]C",
+        "Br[Mg]c1ccccc1CCC(=O)O[Na]",
+        "COc1ccc2nc([nH]c2c1)[S@](=O)Cc1ncc(C)c(OC)c1C",
+        "CC1=CN=C(C(=C1OC)C)CS(=O)C2=NC3=C([N-]2)C=CC(=C3)OC.CC1=CN=C(C(=C1OC)C)CS(=O)C2=NC3=C([N-]2)C=CC(=C3)OC.[Mg+2]"
+      ]
+    }
+  },
+  "webServiceRequest": null,
+  "requestId": -1,
+  "tkid": null,
+  "script": "from rdkit.Chem.Descriptors import ExactMolWt\nfrom df.chem_helper import column_to_molecules\nfrom df.data_transfer import DataFunctionRequest, DataFunctionResponse, DataType, ColumnData, \\\n    string_input_field\n\n\ndef execute(request: DataFunctionRequest) -> DataFunctionResponse:\n    column_id = string_input_field(request, 'structureColumn')\n    input_column = request.inputColumns[column_id]\n    mols = column_to_molecules(input_column)\n    weights = [None if m is None else ExactMolWt(m) for m in mols]\n    output_column = ColumnData(name=f'{input_column.name} Exact Mass', dataType=DataType.DOUBLE, values=weights)\n    response = DataFunctionResponse(outputColumns=[output_column])\n    return response\n",
+  "updateBehavior": "automatic",
+  "allowedClients": [
+    "Analyst",
+    "WebPlayer"
+  ],
+  "limitBy": "none",
+  "ironPython": "",
+  "chartsFxnType": null,
+  "chartsRequest": null
+}
