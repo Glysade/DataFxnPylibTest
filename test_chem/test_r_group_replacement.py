@@ -188,7 +188,7 @@ class ScriptTest(TestCase):
         same_smis = analogues_in_parents(parents, parent_ids, mols)
         self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
         # check for a level 2 highlight
-        mol6highs = 'FixCOLOR #ffbf00\nATOMS\nBONDS 8'
+        mol6highs = 'COLOR #ffbf00\nATOMS\nBONDS 8'
         self.assertEqual(mols[6].GetProp('Renderer_Highlight'), mol6highs)
         self.assertEqual(changed_rgroups[0], 'R5')
         self.assertEqual(parent_ids[273], 'Mol8')
