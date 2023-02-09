@@ -63,9 +63,9 @@ def analogues_in_parents(parents, parent_ids, analogues) -> list[str]:
 PAR_COL = 0
 PAR_IDS_COL = 1
 MOLS_COL = 2
-CORES_COL = 3
+CORES_COL = 5
 CORE_NUMS_COL = 4
-R_CHG_COL = 5
+R_CHG_COL = 3
 
 
 class ScriptTest(TestCase):
