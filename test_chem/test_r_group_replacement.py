@@ -97,9 +97,9 @@ class ScriptTest(TestCase):
         self.assertLess(calc_core_rmses(mols), 0.005)
         same_smis = analogues_in_parents(parents, parent_ids, mols)
         self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
-        mol1_highs = 'COLOR #00bfff\nATOMS\nBONDS 1 2 3 4 6 5 7\nCOLOR #dc143c\nATOMS\nBONDS 8'
+        mol1_highs = 'COLOR #00bfff\nATOMS\nBONDS 8'
         self.assertEqual(mols[0].GetProp('Renderer_Highlight'), mol1_highs)
-        molm1_highs = 'COLOR #00bfff\nATOMS\nBONDS 1 2 3 4 6 5 7\nCOLOR #dc143c\nATOMS\nBONDS 9 11'
+        molm1_highs = 'COLOR #00bfff\nATOMS\nBONDS 9 11'
         self.assertEqual(mols[-1].GetProp('Renderer_Highlight'), molm1_highs)
         self.assertEqual(changed_rgroups[0], 'R5')
         self.assertEqual(parent_ids[34], 'Mol5')
@@ -144,7 +144,7 @@ class ScriptTest(TestCase):
         same_smis = analogues_in_parents(parents, parent_ids, mols)
         self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
         # check for a level 2 highlight
-        mol6highs = 'COLOR #00bfff\nATOMS\nBONDS 1 2 3 4 6 5 7\nCOLOR #ffbf00\nATOMS\nBONDS 8 9 10 11 12'
+        mol6highs = 'COLOR #ffbf00\nATOMS\nBONDS 8 9 10 11 12'
         self.assertEqual(mols[6].GetProp('Renderer_Highlight'), mol6highs)
         self.assertEqual(changed_rgroups[0], 'R5')
         self.assertEqual(parent_ids[121], 'Mol8')
@@ -188,7 +188,7 @@ class ScriptTest(TestCase):
         same_smis = analogues_in_parents(parents, parent_ids, mols)
         self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
         # check for a level 2 highlight
-        mol6highs = 'COLOR #00bfff\nATOMS\nBONDS 1 2 3 4 6 5 7\nCOLOR #ffbf00\nATOMS\nBONDS 8'
+        mol6highs = 'FixCOLOR #ffbf00\nATOMS\nBONDS 8'
         self.assertEqual(mols[6].GetProp('Renderer_Highlight'), mol6highs)
         self.assertEqual(changed_rgroups[0], 'R5')
         self.assertEqual(parent_ids[273], 'Mol8')
