@@ -3,7 +3,7 @@ from unittest import TestCase, main
 
 from df.MultipleSequenceAlignment import MultipleSequenceAlignment
 from df.data_transfer import DataFunctionRequest
-from test_pylib.test_df.test_data_functions import clean_output_files
+from test_df.test_data_functions import clean_output_files
 
 
 class TestMultipleSequenceAlignment(TestCase):

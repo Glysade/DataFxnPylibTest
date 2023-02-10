@@ -10,7 +10,7 @@ from Bio.SeqRecord import SeqRecord
 from ruse.bio.bio_util import is_dna, is_protein
 from ruse.bio.blast_parse import BlastResults
 from ruse.bio.blast_search import BlastCreateAndSearch, BlastSearchType
-from test_pylib.test_bio.helper import get_dna_query, get_protein_query, get_dna_targets, get_protein_targets
+from test_bio.helper import get_dna_query, get_protein_query, get_dna_targets, get_protein_targets
 
 
 class BlastDatabaseTestCase(TestCase):
