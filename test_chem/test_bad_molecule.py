@@ -9,6 +9,9 @@ from ruse.chem.chem_data_table_helper import data_table_column_to_mols
 from ruse.rdkit.rdkit_utils import RDKitFormat, string_to_mol
 from ruse.util.data_table import DataTable
 
+from rdkit import RDLogger
+RDLogger.DisableLog('rdApp.*')
+
 
 class TestBadMolecule(TestCase):
 

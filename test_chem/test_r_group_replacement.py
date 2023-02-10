@@ -10,6 +10,9 @@ from rdkit import Chem
 
 from df.RGroupReplacement import RGroupReplacement
 
+from rdkit import RDLogger
+RDLogger.DisableLog('rdApp.*')
+
 
 def run_script(in_file: str, test_class: DataFunction) -> DataFunctionResponse:
     with open(in_file, 'r') as fh:

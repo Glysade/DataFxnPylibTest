@@ -6,6 +6,9 @@ from df.chem_helper import column_to_molecules
 from df.data_transfer import DataFunctionRequest, DataFunctionResponse
 from rdkit import Chem
 
+from rdkit import RDLogger
+RDLogger.DisableLog('rdApp.*')
+
 
 def run_script(in_file: str, execute: Callable[[DataFunctionRequest], DataFunctionResponse]) -> DataFunctionResponse:
     with open(in_file, 'r') as fh:

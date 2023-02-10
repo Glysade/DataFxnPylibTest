@@ -9,6 +9,9 @@ from rdkit import Chem
 
 from MolNormalize_script import execute
 
+from rdkit import RDLogger
+RDLogger.DisableLog('rdApp.*')
+
 
 def run_script(in_file: str, execute: Callable[[DataFunctionRequest], DataFunctionResponse]) -> DataFunctionResponse:
     with open(in_file, 'r') as fh:

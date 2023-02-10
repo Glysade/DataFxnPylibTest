@@ -3,7 +3,6 @@ Copyright (C) 2017 Anodyne Informatics, LLC
 """
 
 import gzip
-import json
 import os
 import rdkit
 from unittest import TestCase
@@ -14,14 +13,15 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 
 from ruse.rdkit.rdkit_utils import is_three_dimensional, remove_explicit_hydrogens
-from ruse.chem.chem_data_table_helper import data_table_column_to_mols
-from ruse.util.data_table import DataTable
+
+from rdkit import RDLogger
+RDLogger.DisableLog('rdApp.*')
 
 
 class TestRDKit(TestCase):
     def test_supplier(self) -> None:
         """Can't use ForwardSDMolSupplier on a regular file handle"""
-        print(f'RDKit version {rdkit.__version__}')
+        # print(f'RDKit version {rdkit.__version__}')
         file = os.path.abspath(os.path.join(os.path.dirname(__file__), "resources", 'test.sdf'))
         suppl = Chem.SDMolSupplier(file)
         for mol in suppl:

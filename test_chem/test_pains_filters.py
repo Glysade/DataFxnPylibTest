@@ -13,6 +13,10 @@ from rdkit import Chem
 from PAINSFilters_script import (run_pains, highlight_molecule,
                                  highlight_molecules)
 
+from rdkit import RDLogger
+RDLogger.DisableLog('rdApp.*')
+
+
 def run_script(in_file: str, execute: Callable[[DataFunctionRequest], DataFunctionResponse]) -> DataFunctionResponse:
     with open(in_file, 'r') as fh:
         request_json = fh.read()
@@ -43,7 +47,7 @@ def read_mols(mol_file: Union[str, Path]) -> list[Chem.Mol]:
 class ScriptTest(TestCase):
     
     def test_script(self) -> None:
-        print(f'Running test : {inspect.stack()[0].function}', flush=True)
+        # print(f'Running test : {inspect.stack()[0].function}', flush=True)
         from PAINSFilters_script import execute
         file_in = Path(__file__).parent / 'resources' / 'test_pains_filters.json'
         response = run_script(file_in, execute)
@@ -61,7 +65,7 @@ class ScriptTest(TestCase):
         self.assertIsNone(mols[0])
 
     def test_multi_hits(self) -> None:
-        print(f'Running test : {inspect.stack()[0].function}', flush=True)
+        # print(f'Running test : {inspect.stack()[0].function}', flush=True)
         mols = read_mols(Path(__file__).parent / 'resources' / 'chembl_multi_pains.csv')
         self.assertEqual(len(mols), 5)
         pains_hits = run_pains(mols)
@@ -81,7 +85,7 @@ class ScriptTest(TestCase):
                          'COLOR #ff0000\nATOMS 1 2 3 4 14 15 16 21\nBONDS 1 2 3 13 14 15 21 23')
 
     def test_results(self) -> None:
-        print(f'Running test : {inspect.stack()[0].function}', flush=True)
+        # print(f'Running test : {inspect.stack()[0].function}', flush=True)
         try:
             rdbase = os.environ['RDBASE']
         except KeyError:

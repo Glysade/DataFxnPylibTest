@@ -13,6 +13,9 @@ from rdkit import Chem
 from ruse.rdkit.rgroup import Rgroup, RgroupDecomposer, mol_to_cores, Core
 from rdkit.Chem.Descriptors import HeavyAtomMolWt
 
+from rdkit import RDLogger
+RDLogger.DisableLog('rdApp.*')
+
 
 class TestRgroup(TestCase):
 

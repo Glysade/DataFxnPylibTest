@@ -6,6 +6,9 @@ from rdkit import Chem
 from ruse.rdkit.mcs import MCS, mcs_with_constant_smiles, mcs_match_fragment_smiles
 from ruse.rdkit.mmp import create_combined_structure
 
+from rdkit import RDLogger
+RDLogger.DisableLog('rdApp.*')
+
 
 class TestMcs(TestCase):
 

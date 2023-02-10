@@ -26,7 +26,7 @@ class PhyloTreeTestCase(TestCase):
         phylo_tree_builder = PhyloTreeBuilder()
         align_file = os.path.abspath(os.path.join(os.path.dirname(__file__), "resources/kinase_alignment.aln"))
         t = phylo_tree_builder.build_fasttree_tree(align_file)
-        Phylo.draw_ascii(t)
+        # Phylo.draw_ascii(t)
         phylo_tree_builder.cleanup()
         ids = [s.id for s in phylo_tree_builder.alignment]
 

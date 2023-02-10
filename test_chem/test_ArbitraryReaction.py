@@ -9,6 +9,9 @@ from rdkit.Chem import AllChem
 
 from ArbitraryReaction_script import run_reactions
 
+from rdkit import RDLogger
+RDLogger.DisableLog('rdApp.*')
+
 
 def run_script(in_file: str, execute: Callable[[DataFunctionRequest], DataFunctionResponse]) -> DataFunctionResponse:
     with open(in_file, 'r') as fh:

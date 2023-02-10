@@ -188,7 +188,7 @@ def findMCSsExhaustive(mols: list[Chem.Mol], ids: list[Any],
     min_mol_num_fac = stirling_fac(Decimal(min_mol_num))
     diff_fac = stirling_fac(Decimal(nmols - min_mol_num))
     approx_ncomb = int(nmol_fac / (min_mol_num_fac * diff_fac))
-    print(f'Approximate number of MCS determinations : {approx_ncomb}')
+    # print(f'Approximate number of MCS determinations : {approx_ncomb}')
 
     if num_procs < 0:
         num_procs = os.cpu_count() + num_procs

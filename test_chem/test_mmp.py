@@ -8,6 +8,8 @@ from ruse.rdkit.mmp import transform, result_to_mmp_transform, environment_rule_
     align_combined_molecules, database_property_names
 from ruse.rdkit.rdkit_utils import remove_atom_mappings, remove_explicit_hydrogens, RDKitFormat
 
+from rdkit import RDLogger
+RDLogger.DisableLog('rdApp.*')
 
 def default_database_filepath() -> str:
     return database_filepath('bioactivity-18_22_53_07')
@@ -213,8 +215,8 @@ class TestMmp(TestCase):
         transforms = result_to_mmp_transform(query_mol, result)
         grid = transforms.to_grid(molecules=True, column_major=True)
         data_table = transforms.to_data_table(RDKitFormat.smi, query)
-        print('product count {} transform count {} expected product count {} expected transform count {}'.format(
-            len(grid[0]), len(transforms.products), expected_product_count, expected_transform_count))
+        # print('product count {} transform count {} expected product count {} expected transform count {}'.format(
+        #     len(grid[0]), len(transforms.products), expected_product_count, expected_transform_count))
         self.assertTrue(expected_transform_count - 1000 <= len(transforms.products) <= expected_transform_count + 1000)
         self.assertEqual(len(grid), 8)
         self.assertTrue(expected_product_count - 1000 <= len(grid[0]) <= expected_product_count + 1000)
