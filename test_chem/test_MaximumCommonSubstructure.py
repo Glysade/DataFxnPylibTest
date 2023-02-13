@@ -12,6 +12,7 @@ from rdkit import Chem
 from rdkit import RDLogger
 RDLogger.DisableLog('rdApp.*')
 
+PRINTED_GUFF = False
 
 def run_script(in_file: str, execute: Callable[[DataFunctionRequest], DataFunctionResponse]) -> DataFunctionResponse:
     with open(in_file, 'r') as fh:
@@ -66,14 +67,19 @@ class ScriptTest(TestCase):
         """
         this_dir = Path(__file__).parent
         script_file = this_dir / 'MaximumCommonSubstructure_script_dev.py'
+        global PRINTED_GUFF
         if Path(script_file).exists():
-            print(f'Using development script')
+            if not PRINTED_GUFF:
+                print(f'Using development script')
+                PRINTED_GUFF = True
             from MaximumCommonSubstructure_script_dev import execute, findMCSs
             self._script_file = None
         else:
             data_fxn_dir = this_dir.parent.parent / 'DataFxns'
-            print(f'Using production script in {data_fxn_dir}')
             yaml_file = data_fxn_dir / 'python' / 'local' / 'MaximumCommonSubstructure.yaml'
+            if not PRINTED_GUFF:
+                print(f'Using production script in {yaml_file}')
+                PRINTED_GUFF = True
             self._script_file = this_dir / 'MaximumCommonSubstructure_script.py'
             if yaml_file.exists():
                 script_lines = extract_script(yaml_file)
@@ -88,6 +94,7 @@ class ScriptTest(TestCase):
         # if a script file was made, tidy it up
         if self._script_file is not None and self._script_file.exists():
             self._script_file.unlink()
+            pass  # so we can comment the unlink() easily
 
     def test_script(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_maximum_common_substructure.json'

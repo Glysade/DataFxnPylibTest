@@ -15,7 +15,7 @@ from yaml_to_script import extract_script
 from rdkit import RDLogger
 RDLogger.DisableLog('rdApp.*')
 
-
+PRINTED_GUFF = False
 def run_script(in_file: str, execute: Callable[[DataFunctionRequest], DataFunctionResponse]) -> DataFunctionResponse:
     with open(in_file, 'r') as fh:
         request_json = fh.read()
@@ -63,16 +63,22 @@ class ScriptTest(TestCase):
         Assume the DataFxn repo has been cloned alongside this one.
         """
         this_dir = Path(__file__).parent
-        script_file = this_dir / 'MaximumCommonSubstructure_script_dev.py'
+        script_file = this_dir / 'PAINSFilters_script_dev.py'
+        global PRINTED_GUFF
         if Path(script_file).exists():
-            print(f'Using development script')
+            if not PRINTED_GUFF:
+                print(f'Using development script')
+                PRINTED_GUFF = True
             from PAINSFilters_script_dev import (execute, highlight_molecules,
                                                  highlight_molecule,
                                                  run_pains)
             self._script_file = None
         else:
             data_fxn_dir = this_dir.parent.parent / 'DataFxns'
-            print(f'Using production script in {data_fxn_dir}')
+            yaml_file = data_fxn_dir / 'python' / 'local' / 'PAINSFilters.yaml'
+            if not PRINTED_GUFF:
+                print(f'Using production script in {yaml_file}')
+                PRINTED_GUFF = True
             yaml_file = data_fxn_dir / 'python' / 'local' / 'PAINSFilters.yaml'
             self._script_file = this_dir / 'PAINSFilters_script.py'
             if yaml_file.exists():
@@ -92,7 +98,7 @@ class ScriptTest(TestCase):
         # if a script file was made, tidy it up
         if self._script_file is not None and self._script_file.exists():
             self._script_file.unlink()
-            pass  # so we can umcomment the unlink() easily
+            pass  # so we can comment the unlink() easily
 
     def test_script(self) -> None:
         # print(f'Running test : {inspect.stack()[0].function}', flush=True)

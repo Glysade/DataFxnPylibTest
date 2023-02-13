@@ -32,9 +32,9 @@ class ScriptTest(TestCase):
         one that Spotfire will be running.  When developing, it's
         convenient to edit the script in this directory, transferring
         it to the YAML file once it's ready for production.
-        If there's a script MaximumCommonSubstructure_script_dev.py,
+        If there's a script ArbitraryReaction_script_dev.py,
         use that, otherwise make one from the YAML file and use that.
-        MaximumCommonSubstructure_script_dev.py should not be in the
+        Arbitrary_script_dev.py should not be in the
         repo, only ever in a development branch so testing a production
         repo will use the script derived from the YAML.
         Doing it this way allows for people editing the YAML directly,
@@ -44,7 +44,7 @@ class ScriptTest(TestCase):
         """
         global PRINTED_GUFF
         this_dir = Path(__file__).parent
-        script_file = this_dir / 'MaximumCommonSubstructure_script_dev.py'
+        script_file = this_dir / 'ArbitraryReaction_script_dev.py'
         if Path(script_file).exists():
             if not PRINTED_GUFF:
                 print(f'Using development script')
@@ -71,7 +71,7 @@ class ScriptTest(TestCase):
         # if a script file was made, tidy it up
         if self._script_file is not None and self._script_file.exists():
             self._script_file.unlink()
-            pass  # so we can umcomment the unlink() easily
+            pass  # so we can comment the unlink() easily
 
     def test_script(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_arbitrary_reaction.json'
