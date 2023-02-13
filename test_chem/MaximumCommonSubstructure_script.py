@@ -155,7 +155,7 @@ def findMCSsExhaustive(mols: list[Chem.Mol], ids: list[Any],
 
     Args:
         mols [Chem.Mol, ]: must be at least 2 molecules in set, obvs.
-        ids [Any, ]:
+        ids [Any, ]: ID from the spotfire column
         min_mol_num (int): minimum number of molecules having an MCS for
                          it to be returned.
         min_atom_num (int): minimum number of atoms in MCS for it to be
@@ -308,7 +308,7 @@ def findMCSs(mols: list[Chem.Mol], min_mol_num: int, min_atom_num: int,
                             returned
         min_bond_num (int): minimum number of bonds in MCS for it to be
                             returned
-        ids ([Any,]):
+        ids ([Any,]): ID from the spotfire column
         complete_rings (bool): if True (default) partial ring matches
                               won't be returned.
         max_time (int): maximum number of seconds to spend on the
