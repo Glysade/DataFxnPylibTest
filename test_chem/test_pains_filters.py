@@ -91,8 +91,8 @@ class ScriptTest(TestCase):
     def tearDown(self) -> None:
         # if a script file was made, tidy it up
         if self._script_file is not None and self._script_file.exists():
-            # self._script_file.unlink()
-            pass
+            self._script_file.unlink()
+            pass  # so we can umcomment the unlink() easily
 
     def test_script(self) -> None:
         # print(f'Running test : {inspect.stack()[0].function}', flush=True)
