@@ -79,7 +79,7 @@ def read_pains_queries() -> Optional[dict[str, str]]:
         return None
 
     pains_defs_file = Path(rdbase) / 'Data' / 'Pains' / 'wehi_pains.csv'
-    # print(f'Reading PAINS SMARTS from {pains_defs_file}')
+    print(f'Reading PAINS SMARTS from {pains_defs_file}')
     queries = {}
     try:
         with open(pains_defs_file, 'r', newline='') as f:
