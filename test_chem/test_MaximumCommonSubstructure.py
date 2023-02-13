@@ -24,17 +24,22 @@ def run_script_json(in_json: dict,
     return response
 
 
-def read_mols(mol_file: str) -> list[Chem.Mol]:
+def read_mols(mol_file: str) -> tuple[list[Chem.Mol], list[str]]:
     suppl = None
     if mol_file.endswith('.smi'):
         suppl = Chem.SmilesMolSupplier(mol_file, titleLine=False)
     elif mol_file.endswith('.sdf'):
         suppl = Chem.SDMolSupplier(mol_file)
     mols = []
-    for mol in suppl:
+    ids = []
+    for i, mol in enumerate(suppl):
         if mol:
             mols.append(mol)
-    return mols
+            try:
+                ids.append(mol.GetProp('_Name'))
+            except KeyError:
+                ids.append(f'Str_{i}')
+    return mols, ids
 
 
 class ScriptTest(TestCase):
@@ -115,8 +120,8 @@ class ScriptTest(TestCase):
     def test_timeout(self) -> None:
         from MaximumCommonSubstructure_script import findMCSs
         in_file = Path('__file__').parent / 'resources' / 'chembl_30_50.smi'
-        mols = read_mols(str(in_file))
-        mcss, timed_out = findMCSs(mols, 3, 6, 6, True, 60, 7)
+        mols, ids = read_mols(str(in_file))
+        mcss, timed_out = findMCSs(mols, 3, 6, 6, ids, True, 60, 7)
         self.assertTrue(timed_out)
         self.assertEqual(len(mcss), 17)
         self.assertEqual(mcss[0]['numMols'], 14)
@@ -125,9 +130,9 @@ class ScriptTest(TestCase):
     def test_greedy(self) -> None:
         from MaximumCommonSubstructure_script import findMCSs
         in_file = Path('__file__').parent / 'resources' / 'P00374_2d.sdf'
-        mols = read_mols(str(in_file))
+        mols, ids = read_mols(str(in_file))
         self.assertEqual(len(mols), 15)
-        mcss, timed_out = findMCSs(mols, 3, 6, 6, True, 60, -1, 'GREEDY')
+        mcss, timed_out = findMCSs(mols, 3, 6, 6, ids, True, 60, -1, 'GREEDY')
         self.assertFalse(timed_out)
         self.assertEqual(len(mcss), 5)
         self.assertEqual(mcss[0]['numMols'], 15)
@@ -136,8 +141,9 @@ class ScriptTest(TestCase):
     def test_exhaustive(self) -> None:
         from MaximumCommonSubstructure_script import findMCSs
         in_file = Path('__file__').parent / 'resources' / 'P00374_2d.sdf'
-        mols = read_mols(str(in_file))
-        mcss, timed_out = findMCSs(mols, 3, 6, 6, True, 60, -1, 'EXHAUSTIVE')
+        mols, ids = read_mols(str(in_file))
+        mcss, timed_out = findMCSs(mols, 3, 6, 6, ids, True, 60, -1,
+                                   'EXHAUSTIVE')
         self.assertFalse(timed_out)
         self.assertEqual(len(mcss), 16)
         self.assertEqual(mcss[0]['numMols'], 15)
