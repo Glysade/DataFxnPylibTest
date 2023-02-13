@@ -9,6 +9,7 @@
 
 import argparse
 import re
+import shutil
 
 
 from pathlib import Path
@@ -23,6 +24,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument('-O', '--output-dir', dest='output_dir',
                         required=True,
                         help='Name of directory for output scripts')
+    parser.add_argument('-Y', '--yaml-file', dest='yaml_files',
+                        required=True, action='append',
+                        help='Name of YAML file to process.  Multiple'
+                             ' instances allowed.')
     args = parser.parse_args()
     return args
 
@@ -66,7 +71,9 @@ def write_script_file(script_lines: list[str], filename: str,
 def main() -> None:
     args = parse_args()
     yaml_dir = Path(args.input_dir)
-    for f in yaml_dir.iterdir():
+    for yf in args.yaml_files:
+        f = Path(args.input_dir) / yf
+        print(yf)
         if f.is_file() and f.suffix == '.yaml':
             print(f'Doing file {f}')
             script_lines = extract_script(f)
