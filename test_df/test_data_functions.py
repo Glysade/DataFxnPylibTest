@@ -226,6 +226,16 @@ class DataFunctionTest(TestCase):
         self.assertEqual(7, len(response.outputTables[0].columns))
         self.assertEqual(2, len(response.outputTables[0].columns[0].values))
 
+    def test_named_data_function_reaction_table_search2(self) -> None:
+        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'reaction_table_search2.json')
+        _, response = run_named_data_function(file_in)
+        self.assertTrue(response)
+
+        self.assertEqual(0, len(response.outputColumns))
+        self.assertEqual(1, len(response.outputTables))
+        self.assertEqual(19, len(response.outputTables[0].columns))
+        self.assertEqual(217, len(response.outputTables[0].columns[0].values))
+
     def test_extract_genbank_regions(self) -> None:
         file_in = os.path.join(os.path.dirname(__file__), 'resources', 'extract_genbank_regions.json')
         _, response = run_named_data_function(file_in)
