@@ -3,4 +3,5 @@ CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1 Mol2
 CCN1CCCC1Nc1cc(C)c(-c2ccccc2O)nn1 Mol3
 CCN1CCCC1Cc1cc(C)c(-c2ccccc2O)nn1 Mol4
 Cc1cc(-c2cccs2)nnc1NCCN1CCOCC1 Mol5
-c1cccc1CCC Mol6
+c1ccccc1CCC Mol6
+CCc1cc(-c2ccccc2)nnc1C(=O)N1CCOCC1 Mol7
