@@ -92,6 +92,69 @@ class ScriptTest(TestCase):
         for smi, count in zip(exp_par_smiles, exp_par_counts):
             self.assertEqual(count, par_counts[smi])
 
+    def test_length_constraints(self) -> None:
+        file_in = Path(__file__).parent / 'resources' / 'test_linker_replacement1.json'
+        with open(file_in, 'r') as fh:
+            request_json = fh.read()
+        request_dict = json.loads(request_json)
+        request_dict['inputFields']['plusDeltaBonds']['data'] = 0
+        request_dict['inputFields']['minusDeltaBonds']['data'] = 0
+        request_json = json.dumps(request_dict)
+        lr = LinkerReplacements()
+        response = run_json(request_json, lr)
+
+        self.assertTrue(response)
+        self.assertEqual(1, len(response.outputTables))
+        self.assertEqual(2, len(response.outputTables[0].columns))
+        new_mols = column_to_molecules(response.outputTables[0].columns[1])
+        self.assertEqual(104, len(new_mols))
+        parent_mols = column_to_molecules(response.outputTables[0].columns[0])
+        self.assertEqual(104, len(parent_mols))
+        exp_par_counts = [18, 21, 9, 21, 18, 0, 17]
+        exp_par_smiles = ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
+                          'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
+                          'CCN1CCCC1Nc1cc(C)c(-c2ccccc2O)nn1',
+                          'CCN1CCCC1Cc1cc(C)c(-c2ccccc2O)nn1',
+                          'Cc1cc(-c2cccs2)nnc1NCCN1CCOCC1',
+                          'c1cccc1CCC']
+        par_counts = defaultdict(int)
+        for pm in parent_mols:
+            par_counts[Chem.MolToSmiles(pm)] += 1
+        for smi, count in zip(exp_par_smiles, exp_par_counts):
+            self.assertEqual(count, par_counts[smi])
+
+    def test_all_constraints(self) -> None:
+        file_in = Path(__file__).parent / 'resources' / 'test_linker_replacement1.json'
+        with open(file_in, 'r') as fh:
+            request_json = fh.read()
+        request_dict = json.loads(request_json)
+        request_dict['inputFields']['matchHbonds']['data'] = True
+        request_dict['inputFields']['plusDeltaBonds']['data'] = 0
+        request_dict['inputFields']['minusDeltaBonds']['data'] = 0
+        request_json = json.dumps(request_dict)
+        lr = LinkerReplacements()
+        response = run_json(request_json, lr)
+
+        self.assertTrue(response)
+        self.assertEqual(1, len(response.outputTables))
+        self.assertEqual(2, len(response.outputTables[0].columns))
+        new_mols = column_to_molecules(response.outputTables[0].columns[1])
+        self.assertEqual(104, len(new_mols))
+        parent_mols = column_to_molecules(response.outputTables[0].columns[0])
+        self.assertEqual(104, len(parent_mols))
+        exp_par_counts = [11, 6, 2, 11, 11, 0, 4]
+        exp_par_smiles = ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
+                          'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
+                          'CCN1CCCC1Nc1cc(C)c(-c2ccccc2O)nn1',
+                          'CCN1CCCC1Cc1cc(C)c(-c2ccccc2O)nn1',
+                          'Cc1cc(-c2cccs2)nnc1NCCN1CCOCC1',
+                          'c1cccc1CCC']
+        par_counts = defaultdict(int)
+        for pm in parent_mols:
+            par_counts[Chem.MolToSmiles(pm)] += 1
+        for smi, count in zip(exp_par_smiles, exp_par_counts):
+            self.assertEqual(count, par_counts[smi])
+
 
 if __name__ == '__main__':
     main()
