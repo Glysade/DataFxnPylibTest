@@ -1,0 +1,82 @@
+{
+  "executorId": 0,
+  "id": "0a960917-df24-4e71-8ee1-b4774b27a9fc",
+  "dataFxnDefId": "9ee4b0b4-f91f-50be-3464-44e23fc43053",
+  "serviceName": "Script",
+  "assembly": null,
+  "tableId": "b5af81a1-2c3b-4644-82a4-8f3de07ba23c",
+  "inputFields": {
+    "structureColumn": {
+      "id": "structureColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "b5af81a1-2c3b-4644-82a4-8f3de07ba23cyStructure <MOLFILE>"
+    },
+    "plusDeltaBonds": {
+      "id": "plusDeltaBonds",
+      "dataType": "integer",
+      "contentType": null,
+      "selectorType": null,
+      "data": -1
+    },
+    "minusDeltaBonds": {
+      "id": "minusDeltaBonds",
+      "dataType": "integer",
+      "contentType": null,
+      "selectorType": null,
+      "data": -1
+    },
+    "matchHbonds": {
+      "id": "matchHbonds",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": false
+    }
+  },
+  "maximumOutputColumns": 1,
+  "maximumOutputTables": 1,
+  "resultTables": null,
+  "serviceUri": "glysade.python",
+  "inputColumns": {
+    "b5af81a1-2c3b-4644-82a4-8f3de07ba23cyStructure <MOLFILE>": {
+      "dataType": "binary",
+      "name": "Structure <MOLFILE>",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "Structure <MOLFILE>",
+        "ColumnType": "Imported",
+        "DataType": "Binary",
+        "ExternalName": "Structure <MOLFILE>",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "test_bulk_replacement",
+        "Description": "",
+        "Dimension": "2"
+      },
+      "values": [
+        "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"
+      ]
+    }
+  },
+  "webServiceRequest": null,
+  "requestId": -1,
+  "tkid": null,
+  "script": "import csv\nimport itertools\nimport os\nfrom pathlib import Path\nfrom typing import Optional, Union\n\nfrom df.chem_helper import column_to_molecules, molecules_to_column\nfrom df.data_transfer import DataFunctionRequest, DataFunctionResponse, DataType, ColumnData, \\\n    string_input_field\nfrom rdkit import Chem\nfrom rdkit.Chem import rdmolops\n\n\ndef build_query_dict(query_defs: dict[str, str]) -> dict[str, Union[Chem.Mol, str]]:\n    \"\"\"\n    Makes RDKit query mols for the SMARTS in query_defs\n    Args:\n        query_defs [dict]:\n\n    Returns:\n        dict\n    \"\"\"\n    query_dict = {}\n    for name, smt in query_defs.items():\n        qmol = Chem.MolFromSmarts(smt, mergeHs=True)\n        if not qmol:\n            print(f'ERROR : failed to process SMARTS string {smt}'\n                  f' with name {name}.')\n        else:\n            query_dict[name] = {'qmol': qmol, 'SMARTS': smt}\n\n    return query_dict\n\n\ndef match_queries(mols: list[Chem.Mol], query_dict) -> list[tuple[list[str], Optional[Chem.Mol]]]:\n    \"\"\"\n    Match the queries against the molecules.  Returns list of tuples,\n    each tuple being a list of the names of the queries that hit and a\n    query mol combining all the query mols that matched each molecule,\n    or None if there were no matches for a molecule.\n    Args:\n        mols ([Chem.Mol, ]):\n        query_dict ({}):\n\n    Returns:\n        [[str,], ]\n    \"\"\"\n    hits = []\n    for i, mol in enumerate(mols):\n        hit_queries = None\n        hit_names = []\n        if mol is not None and mol:\n            for name, query in query_dict.items():\n                qmol = query['qmol']\n                if mol.HasSubstructMatch(qmol):\n                    hit_names.append(name)\n                    if hit_queries is None:\n                        hit_queries = Chem.Mol(qmol)\n                    else:\n                        hit_queries = rdmolops.CombineMols(hit_queries,\n                                                           Chem.Mol(qmol))\n        hits.append((hit_names, hit_queries))\n\n    return hits\n\n\ndef read_pains_queries() -> Optional[dict[str, str]]:\n    \"\"\"\n    Read the PAINS SMARTS patterns from\n    $RDBASE/Data/Pains/wehi_pains.csv.  Returns None if that file not\n    found.\n    Returns:\n        Dict[str: str]: the SMARTS keyed on name.\n    \"\"\"\n    try:\n        rdbase = os.environ['RDBASE']\n    except KeyError:\n        print(f'ERROR : no RDBASE')\n        return None\n\n    pains_defs_file = Path(rdbase) / 'Data' / 'Pains' / 'wehi_pains.csv'\n    print(f'Reading PAINS SMARTS from {pains_defs_file}')\n    queries = {}\n    try:\n        with open(pains_defs_file, 'r', newline='') as f:\n            csvreader = csv.reader(f)\n            for row in csvreader:\n                smt_name = row[1].replace('<regId=', '').replace('>', '')\n                queries[smt_name] = row[0]\n\n    except IOError:\n        print(f'ERROR : no file {pains_defs_file}')\n        return None\n    return queries\n\n\ndef highlight_molecule(mol: Chem.Mol, qmol: Chem.Mol) -> None:\n    \"\"\"\n    Use the qmol to add a highlight tag to mol in the Glysade format\n    for display in Spotfire.\n    Args:\n        mol (Chem.Mol): the molecule to be highlighted.\n        smarts (str): the query that defines the atoms and bonds to\n                         be highlighted.\n\n    Returns:\n\n    \"\"\"\n    if not qmol or qmol is None:\n        return\n\n    high_ats = []\n    high_bnds = []\n    # If multiple PAINS hit, and the hits overlap on a molecule, they\n    # don't show up unless the individual SMARTS patterns are matched\n    # separately.\n    for qmol_frag in Chem.GetMolFrags(qmol, asMols=True, sanitizeFrags=False):\n        matches = mol.GetSubstructMatches(qmol_frag)\n        for match in matches:\n            for pair in itertools.combinations(match, 2):\n                bond = mol.GetBondBetweenAtoms(pair[0], pair[1])\n                if bond is not None:\n                    high_bnds.append(bond.GetIdx())\n            high_ats.extend(match)\n\n    high_ats = list(set(high_ats))\n    high_bnds = list(set(high_bnds))\n    # print(f'atoms : {high_ats}')\n    # print(f'bonds : {high_bnds}')\n    high_ats_str = ' '.join([str(a+1) for a in high_ats])\n    high_bnds_str = ' '.join([str(b+1) for b in high_bnds])\n    prop_text = f'COLOR #ff0000\\nATOMS {high_ats_str}\\nBONDS {high_bnds_str}'\n    mol.SetProp('Renderer_Highlight', prop_text)\n\n\ndef highlight_molecules(mols: list[Chem.Mol], all_qmols: list[Chem.Mol]) -> None:\n\n    for mol, qmol in zip(mols, all_qmols):\n        if mol is not None:\n            highlight_molecule(mol, qmol)\n\n\ndef run_pains(mols: list[Chem.Mol]) -> list[tuple[bool, str, Chem.Mol]]:\n    \"\"\"\n    Run the PAINS filters on each molecule.  Returns a list of tuples.\n    Each tuple has a bool for whether it had a PAINS result,\n    a string which is the comma-separated list of names of any hits and\n    a Chem.Mol which is a query molecule made from a SMARTS string\n    which is the dot-separated list of SMARTS patterns of any hits.\n    Args:\n        mols ([Chem.Mol, ]):\n\n    Returns:\n        [(bool, str, Chem.Mol), ]\n    \"\"\"\n    pains_smarts = read_pains_queries()\n    pains_queries = build_query_dict(pains_smarts)\n    p_hits = match_queries(mols,pains_queries)\n    results = []\n    for mol, p_h in zip(mols, p_hits):\n        if p_h[1] is None:\n            res_bool = False\n            res_smt_names = ''\n        else:\n            res_bool = True\n            res_smt_names = ','.join(p_h[0])\n\n        results.append((res_bool, res_smt_names, p_h[1]))\n\n    return results\n\n\ndef execute(request: DataFunctionRequest) -> DataFunctionResponse:\n    column_id = string_input_field(request, 'structureColumn')\n    input_column = request.inputColumns[column_id]\n    mols = column_to_molecules(input_column)\n    pains = run_pains(mols)\n    pains_cols = [p[0] for p in pains]\n    pains_column = ColumnData(name=f'PAINS {input_column.name}?', dataType=DataType.BOOLEAN,\n                              values=pains_cols)\n    pains_strs = [p[1] for p in pains]\n    pains_strs_column = ColumnData(name=f'PAINS NAMES {input_column.name}', dataType=DataType.STRING,\n                                   values=pains_strs)\n    pains_mols = [p[2] for p in pains]\n    pains_smarts_column = molecules_to_column(pains_mols, f'PAINS SMARTS {input_column.name}',\n                                              DataType.BINARY)\n    highlight_molecules(mols, pains_mols)\n    pains_map_mols = []\n    for m, p in zip(mols, pains):\n        if p[0]:\n            pains_map_mols.append(m)\n        else:\n            pains_map_mols.append(None)\n    pains_hits_column = molecules_to_column(pains_map_mols, f'{input_column.name} PAINS MAP', DataType.BINARY)\n    response = DataFunctionResponse(outputColumns=[pains_column, pains_strs_column,\n                                                   pains_smarts_column, pains_hits_column])\n    return response\n",
+  "updateBehavior": "automatic",
+  "allowedClients": [
+    "Analyst",
+    "WebPlayer"
+  ],
+  "limitBy": "none",
+  "ironPython": null,
+  "chartsFxnType": null,
+  "chartsRequest": null
+}
