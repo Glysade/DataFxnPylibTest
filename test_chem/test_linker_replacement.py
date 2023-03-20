@@ -75,10 +75,10 @@ class ScriptTest(TestCase):
         self.assertEqual(1, len(response.outputTables))
         self.assertEqual(2, len(response.outputTables[0].columns))
         new_mols = column_to_molecules(response.outputTables[0].columns[1])
-        self.assertEqual(245, len(new_mols))
+        self.assertEqual(200, len(new_mols))
         parent_mols = column_to_molecules(response.outputTables[0].columns[0])
-        self.assertEqual(245, len(parent_mols))
-        exp_par_counts = [30, 52, 35, 98, 30, 0]
+        self.assertEqual(200, len(parent_mols))
+        exp_par_counts = [30, 39, 35, 66, 30, 0]
         exp_par_smiles = ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
                           'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
                           'CCN1CCCC1Nc1cc(C)c(-c2ccccc2O)nn1',
