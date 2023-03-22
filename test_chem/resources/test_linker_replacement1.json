@@ -33,6 +33,13 @@
       "contentType": null,
       "selectorType": null,
       "data": false
+    },
+    "maxMolsPerInput": {
+      "id": "maxMolsPerInput",
+      "dataType": "integer",
+      "contentType": null,
+      "selectorType": null,
+      "data": 1000
     }
   },
   "maximumOutputColumns": 1,
