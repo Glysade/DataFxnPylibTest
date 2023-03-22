@@ -1,9 +1,23 @@
 import unittest
 
+from os import environ
+from pathlib import Path
+from typing import Optional
+
 from rdkit import Chem, rdBase
 
 import df.replace_bioisostere_linkers as rbl
 
+
+def find_replacements_file() -> Optional[Path]:
+    ppath_dirs = environ['PYTHONPATH'].split(';')
+    for ppd in ppath_dirs:
+        ppd_par = Path(ppd).parent
+        data_dir = ppd_par / 'Data'
+        if data_dir.exists():
+            repl_file = data_dir / 'chembl_32_bioisostere_linkers.db'
+            return repl_file
+    return None
 
 class TestReplaceBioisostereLinkers(unittest.TestCase):
 
@@ -106,6 +120,17 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         self.assertEqual(1, len(new_mols))
         self.assertEqual('CC(O)(c1cc[nH]c1)C1CCNCC1', Chem.MolToSmiles(new_mols[0]))
 
+    def test_bad_mol_1(self) -> None:
+        # This one failed before because one of the possible linkers,
+        # C1C(*)CCCN1C(=O)*, can also produce the linker *C(=O)*
+        # because it's between the piperidine and a phenyl.  The fix
+        # was not to allow the larger linker in these circumstances.
+        smi = 'Cc1ccc(C(=O)N2CCCC(c3cccc(F)c3)C2)cc1'
+        repl_file = find_replacements_file()
+        self.assertIsNotNone(repl_file, "Couldn't find replacements file")
+        new_mols = rbl.replace_linkers(smi, repl_file, 8, 5,
+                                       1, 1, False, False)
+        self.assertEqual(35, len(new_mols))
 
 if __name__ == '__main__':
     unittest.main()
