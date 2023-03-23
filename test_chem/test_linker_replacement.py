@@ -45,10 +45,10 @@ class ScriptTest(TestCase):
         self.assertEqual(1, len(response.outputTables))
         self.assertEqual(2, len(response.outputTables[0].columns))
         new_mols = column_to_molecules(response.outputTables[0].columns[1])
-        self.assertEqual(374, len(new_mols))
+        self.assertEqual(394, len(new_mols))
         parent_mols = column_to_molecules(response.outputTables[0].columns[0])
-        self.assertEqual(374, len(parent_mols))
-        exp_par_counts = [47, 52, 60, 98, 47, 0, 70]
+        self.assertEqual(394, len(parent_mols))
+        exp_par_counts = [57, 52, 60, 98, 57, 0, 70]
         exp_par_smiles = ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
                           'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
                           'CCN1CCCC1Nc1cc(C)c(-c2ccccc2O)nn1',
@@ -76,10 +76,10 @@ class ScriptTest(TestCase):
         self.assertEqual(1, len(response.outputTables))
         self.assertEqual(2, len(response.outputTables[0].columns))
         new_mols = column_to_molecules(response.outputTables[0].columns[1])
-        self.assertEqual(171, len(new_mols))
+        self.assertEqual(181, len(new_mols))
         parent_mols = column_to_molecules(response.outputTables[0].columns[0])
-        self.assertEqual(171, len(parent_mols))
-        exp_par_counts = [30, 20, 35, 28, 30, 0, 28]
+        self.assertEqual(181, len(parent_mols))
+        exp_par_counts = [35, 20, 35, 28, 35, 0, 28]
         exp_par_smiles = ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
                           'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
                           'CCN1CCCC1Nc1cc(C)c(-c2ccccc2O)nn1',
@@ -107,10 +107,10 @@ class ScriptTest(TestCase):
         self.assertEqual(1, len(response.outputTables))
         self.assertEqual(2, len(response.outputTables[0].columns))
         new_mols = column_to_molecules(response.outputTables[0].columns[1])
-        self.assertEqual(104, len(new_mols))
+        self.assertEqual(112, len(new_mols))
         parent_mols = column_to_molecules(response.outputTables[0].columns[0])
-        self.assertEqual(104, len(parent_mols))
-        exp_par_counts = [18, 21, 9, 21, 18, 0, 17]
+        self.assertEqual(112, len(parent_mols))
+        exp_par_counts = [22, 21, 9, 21, 22, 0, 17]
         exp_par_smiles = ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
                           'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
                           'CCN1CCCC1Nc1cc(C)c(-c2ccccc2O)nn1',
@@ -139,10 +139,10 @@ class ScriptTest(TestCase):
         self.assertEqual(1, len(response.outputTables))
         self.assertEqual(2, len(response.outputTables[0].columns))
         new_mols = column_to_molecules(response.outputTables[0].columns[1])
-        self.assertEqual(104, len(new_mols))
+        self.assertEqual(51, len(new_mols))
         parent_mols = column_to_molecules(response.outputTables[0].columns[0])
-        self.assertEqual(104, len(parent_mols))
-        exp_par_counts = [11, 6, 2, 11, 11, 0, 4]
+        self.assertEqual(51, len(parent_mols))
+        exp_par_counts = [14, 6, 2, 11, 14, 0, 4]
         exp_par_smiles = ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
                           'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
                           'CCN1CCCC1Nc1cc(C)c(-c2ccccc2O)nn1',

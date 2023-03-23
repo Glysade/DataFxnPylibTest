@@ -23,24 +23,24 @@ def linker_from_dict(linker_dict) -> fl.Linker:
         name = 'Str_0'
 
     try:
-        num_atoms = linker_dict['num_atoms']
+        linker_atoms = linker_dict['linker_atoms']
     except KeyError:
-        num_atoms = 0
+        linker_atoms = []
 
     try:
-        mol_smiles = linker_dict['mol_smiles']
+        mol = Chem.MolFromSmiles(linker_dict['mol_smiles'])
     except KeyError:
-        mol_smiles = ''
+        mol = None
 
     try:
-        left_smiles = linker_dict['left_smiles']
+        left_mol = Chem.MolFromSmiles(linker_dict['left_smiles'])
     except KeyError:
-        left_smiles = ''
+        left_mol = None
 
     try:
-        right_smiles = linker_dict['right_smiles']
+        right_mol = Chem.MolFromSmiles(linker_dict['right_smiles'])
     except KeyError:
-        right_smiles = ''
+        right_mol = None
 
     try:
         num_donors = linker_dict['num_donors']
@@ -48,14 +48,14 @@ def linker_from_dict(linker_dict) -> fl.Linker:
         num_donors = 0
 
     try:
-        num_acceptors = linker_dict['num_donors']
+        num_acceptors = linker_dict['num_accetors']
     except KeyError:
         num_acceptors = 0
 
-    return fl.Linker(name=name, linker_smiles=linker_smiles,
-                     num_atoms=num_atoms,
-                     mol_smiles=mol_smiles, left_smiles=left_smiles,
-                     right_smiles=right_smiles,
+    return fl.Linker(name=name, linker=linker,
+                     linker_atoms=linker_atoms,
+                     mol=mol, left_mol=left_mol,
+                     right_mol=right_mol,
                      linker_length=linker_length, num_donors=num_donors,
                      num_acceptors=num_acceptors)
 
@@ -156,7 +156,8 @@ class TestLinkers(unittest.TestCase):
                                                                 'mol_smiles': 'C(=Cc1cc[nH]c1CCCCc1ccccc1)CCc1ncncn1',
                                                                 'symmetrical': False}]]]
         for i, tc in enumerate(test_cases[0:]):
-            _, linkers = fl.find_linkers((tc[0], f'Str_{i}'))
+            mol = Chem.MolFromSmiles(tc[0])
+            _, linkers = fl.find_linkers((mol, f'Str_{i}'))
             test_linkers = [linker_from_dict(ld) for ld in tc[1]]
             self.assertEqual(len(test_linkers), len(linkers), f'Test {i}')
             self.assertEqual(test_linkers, linkers, f'Test {i}')
@@ -168,21 +169,25 @@ class TestLinkers(unittest.TestCase):
         smis = ['C1CCC(CC1)c1ccc(cc1)C1CCCCC1', 'c1ncccc1c1ccc(cc1)C1CCCCC1',
                 'c1ncccc1c1ccc(cc1)c1cccnc1']
         for i, smi in enumerate(smis):
-            _, linkers = fl.find_linkers((smi, f'Str_{i + 1}'))
+            mol = Chem.MolFromSmiles(smi)
+            _, linkers = fl.find_linkers((mol, f'Str_{i + 1}'))
             self.assertEqual('c1cc([*:2])ccc1[*:1]',
                              linkers[0].linker_smiles, f'Test {i}')
 
     def test_split_linker1(self) -> None:
         # This one threw a Kekulization error at one point.  There
         # should be 2 linkers as it is asymmetrical.
-        _, linkers = fl.find_linkers(('Cc1ccccc1-c1nn(-c2c(Cl)cc(Cl)cc2Cl)c(=N)s1', 'Str_1'))
+        mol = Chem.MolFromSmiles('Cc1ccccc1-c1nn(-c2c(Cl)cc(Cl)cc2Cl)c(=N)s1')
+        _, linkers = fl.find_linkers((mol, 'Str_1'))
+        print(linkers[0].linker_smiles)
         self.assertEqual(2, len(linkers))
         self.assertEqual('N=c1sc([*:1])nn1[*:2]', linkers[0].linker_smiles)
 
     def test_split_linker2(self) -> None:
         # There should only be 1 linker, the one from the two end rings
         # is too long.
-        _, linkers = fl.find_linkers(('Cc1ccccc1CCc1nn(-c2c(Cl)cc(Cl)cc2Cl)c(=N)s1', 'Str_1'))
+        mol = Chem.MolFromSmiles('Cc1ccccc1CCc1nn(-c2c(Cl)cc(Cl)cc2Cl)c(=N)s1')
+        _, linkers = fl.find_linkers((mol, 'Str_1'))
         self.assertEqual(1, len(linkers))
 
     def test_remove_atom_map_num(self) -> None:
@@ -195,46 +200,39 @@ class TestLinkers(unittest.TestCase):
                       ('O=C(N[*:1])[*:2]', False), ('c1cc([*:1])cc([*:2])c1', True),
                       ('c1cc([*:1])nc([*:2])n1', False)]
         for tc in test_cases:
-            linker = fl.Linker(name='Str_0', linker_smiles=tc[0],
-                               num_atoms=0, mol_smiles='',
-                               left_smiles='', right_smiles='',
+            linker_mol = Chem.MolFromSmiles(tc[0])
+            linker = fl.Linker(name='Str_0', linker=linker_mol,
+                               linker_atoms=[], mol=None,
+                               left_mol=None, right_mol=None,
                                linker_length=0, num_donors=0, num_acceptors=0)
             self.assertEqual(tc[1], linker.symmetrical)
 
     def test_linkers_match(self) -> None:
         test_cases = [({'linker_smiles': 'O([*:1])[*:2]',
-                        'num_atoms': 0,
                         'left_smiles': 'c1cncc([*:1])c1',
                         'right_smiles': 'c1ccc([*:2])cc1'},
                        {'linker_smiles': 'O([*:1])[*:2]',
-                        'num_atoms': 0,
                         'left_smiles': 'c1cncc([*:1])c1',
                         'right_smiles': 'c1ccc([*:2])cc1'},
                        True),
                       ({'linker_smiles': 'C([*:1])[*:2]',
-                        'num_atoms': 0,
                         'left_smiles': 'c1cncc([*:1])c1',
                         'right_smiles': 'c1ccc([*:2])cc1'},
                        {'linker_smiles': 'O([*:1])[*:2]',
-                        'num_atoms': 0,
                         'left_smiles': 'c1cncc([*:1])c1',
                         'right_smiles': 'c1ccc([*:2])cc1'},
                        False),
                       ({'linker_smiles': 'O([*:1])[*:2]',
-                        'num_atoms': 0,
                         'left_smiles': 'c1cncc([*:1])c1',
                         'right_smiles': 'c1ccc([*:2])cc1'},
                        {'linker_smiles': 'O([*:1])[*:2]',
-                        'num_atoms': 0,
                         'left_smiles': 'c1ccc([*:1])cc1',
                         'right_smiles': 'c1cncc([*:2])c1'},
                        True),
                       ({'linker_smiles': 'O([*:1])[*:2]',
-                        'num_atoms': 0,
                         'left_smiles': 'c1ccc([*:1])cc1',
                         'right_smiles': 'O=C1C2CCCCC2C(=O)N1CC(=O)N1CCCSC1=[*:2]'},
                        {'linker_smiles': 'O([*:1])[*:2]',
-                        'num_atoms': 0,
                         'left_smiles': 'O=C(CN1C(=O)C2CCCCC2C1=O)N1CCCSC1=[*:1]',
                         'right_smiles': 'c1ccc([*:2])cc1'},
                        True),
@@ -293,27 +291,55 @@ class TestLinkers(unittest.TestCase):
         temp_path.unlink()
 
     def test_linker_obj(self) -> None:
-        l1 = fl.Linker('L1', 'O([*:1])[*:2]', 'c1ccncc1Oc1ccccc1',
-                       'c1cncc([*:1])c1', 'c1ccc([*:2])cc1', 3, 3, 0, 1)
+        l1_dict = {'name': 'L1',
+                   'linker_smiles': 'O([*:1])[*:2]',
+                   'mol_smiles': 'c1ccncc1Oc1ccccc1',
+                   'left_smiles': 'c1cncc([*:1])c1',
+                   'right_smiles': 'c1ccc([*:2])cc1',
+                   'linker_atoms': [6],
+                   'linker_length': 3,
+                   'num_donors': 0,
+                   'num_acceptors': 1}
+        l1 = linker_from_dict(l1_dict)
         self.assertTrue(l1.symmetrical)
         self.assertEqual(3, l1.path_length)
-        self.assertEqual(3, l1.num_atoms)
-        l2 = fl.Linker('L2', 'O([*:1])[*:2]', 'c1ccncc1Oc1ccccc1',
-                       'c1cncc([*:1])c1', 'c1ccc([*:2])cc1', 3, 3, 0, 1)
+        self.assertEqual(1, l1.num_atoms)
+
+        l2_dict = {'name': 'L2',
+                   'linker_smiles': 'O([*:1])[*:2]',
+                   'mol_smiles': 'c1ccncc1Oc1ccccc1',
+                   'left_smiles': 'c1cncc([*:1])c1',
+                   'right_smiles': 'c1ccc([*:2])cc1',
+                   'linker_atoms': [6],
+                   'linker_length': 3,
+                   'num_donors': 0,
+                   'num_acceptors': 1}
+        l2 = linker_from_dict(l2_dict)
         self.assertEqual(l1, l2)
-        l3 = fl.Linker('L3', 'O([*:1])[*:2]', 'c1ccccc1Oc1cnccc1',
-                       'c1ccc([*:1])cc1', 'c1cncc([*:2])c1', 3, 3, 0, 1)
+
+        l3_dict = {'name': 'L3',
+                   'linker_smiles': 'O([*:1])[*:2]',
+                   'mol_smiles': 'c1ccncc1Oc1ccccc1',
+                   'left_smiles': 'c1ccc([*:1])cc1',
+                   'right_smiles': 'c1cncc([*:2])c1',
+                   'linker_atoms': [6],
+                   'linker_length': 3,
+                   'num_donors': 0,
+                   'num_acceptors': 1}
+        l3 = linker_from_dict(l3_dict)
         self.assertEqual(l1, l3)
 
     def test_find_linkers(self) -> None:
         smi = 'c1ccccc1Oc1cnccc1'
-        mol_name, linkers = fl.find_linkers((smi, 'Str_0'))
+        mol = Chem.MolFromSmiles(smi)
+        mol_name, linkers = fl.find_linkers((mol, 'Str_0'))
         self.assertEqual(mol_name, 'Str_0')
-        exp_linker = fl.Linker(name='Str_0', mol_smiles=smi,
-                               linker_smiles='O([*:1])[*:2]',
-                               num_atoms=3,
-                               left_smiles='c1ccc([*:1])cc1',
-                               right_smiles='c1cncc([*:2])c1',
+        exp_linker = fl.Linker(name='Str_0',
+                               mol=mol,
+                               linker=Chem.MolFromSmiles('O([*:1])[*:2]'),
+                               linker_atoms=[6],
+                               left_mol=Chem.MolFromSmiles('c1ccc([*:1])cc1'),
+                               right_mol=Chem.MolFromSmiles('c1cncc([*:2])c1'),
                                linker_length=3,
                                num_donors=0,
                                num_acceptors=1)
