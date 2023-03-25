@@ -107,7 +107,7 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         db_file = 'resources/chembl_31_bios.db'
         infile = 'resources/test_bulk_replacement.smi'
         new_mols, query_cps = rbl.bulk_replace_linkers(infile, db_file, 8, 5, -1, -1,
-                                                       False, False, 10000)
+                                                       False, False, 10000, 3)
         self.assertEqual(7, len(new_mols))
         num_all_mols = 0
         for nm in new_mols:
