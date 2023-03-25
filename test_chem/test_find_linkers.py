@@ -179,7 +179,6 @@ class TestLinkers(unittest.TestCase):
         # should be 2 linkers as it is asymmetrical.
         mol = Chem.MolFromSmiles('Cc1ccccc1-c1nn(-c2c(Cl)cc(Cl)cc2Cl)c(=N)s1')
         _, linkers = fl.find_linkers((mol, 'Str_1'))
-        print(linkers[0].linker_smiles)
         self.assertEqual(2, len(linkers))
         self.assertEqual('N=c1sc([*:1])nn1[*:2]', linkers[0].linker_smiles)
 
