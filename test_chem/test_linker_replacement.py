@@ -1,4 +1,3 @@
-
 # Without adding the data function library to the project content roots PyCharm will not run this
 # test unless the data function library is added to sys.paths
 # import sys
@@ -21,6 +20,7 @@ from df.data_transfer import (DataFunction, DataFunctionRequest,
 
 from rdkit import Chem
 
+
 def run_script(in_file: str, test_class: DataFunction) -> DataFunctionResponse:
     with open(in_file, 'r') as fh:
         request_json = fh.read()
@@ -29,6 +29,7 @@ def run_script(in_file: str, test_class: DataFunction) -> DataFunctionResponse:
     response = test_class.execute(request)
     return response
 
+
 def run_json(request_json: str, test_class: DataFunction) -> DataFunctionResponse:
     request = DataFunctionRequest.parse_raw(request_json)
     response = test_class.execute(request)
@@ -36,18 +37,20 @@ def run_json(request_json: str, test_class: DataFunction) -> DataFunctionRespons
 
 
 class ScriptTest(TestCase):
-    
+
     def test_default_replacement(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_linker_replacement1.json'
         lr = LinkerReplacements()
         response = run_script(file_in, lr)
         self.assertTrue(response)
         self.assertEqual(1, len(response.outputTables))
-        self.assertEqual(2, len(response.outputTables[0].columns))
-        new_mols = column_to_molecules(response.outputTables[0].columns[1])
+        self.assertEqual(3, len(response.outputTables[0].columns))
+        new_mols = column_to_molecules(response.outputTables[0].columns[2])
         self.assertEqual(394, len(new_mols))
         parent_mols = column_to_molecules(response.outputTables[0].columns[0])
+        parent_ids = response.outputTables[0].columns[1].values
         self.assertEqual(394, len(parent_mols))
+        self.assertEqual(394, len(parent_ids))
         exp_par_counts = [57, 52, 60, 98, 57, 0, 70]
         exp_par_smiles = ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
                           'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
@@ -61,6 +64,8 @@ class ScriptTest(TestCase):
             par_counts[Chem.MolToSmiles(pm)] += 1
         for smi, count in zip(exp_par_smiles, exp_par_counts):
             self.assertEqual(count, par_counts[smi])
+        self.assertEqual('Mol1', parent_ids[0])
+        self.assertEqual('Mol7', parent_ids[-1])
 
     def test_match_hbonds(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_linker_replacement1.json'
@@ -74,9 +79,10 @@ class ScriptTest(TestCase):
 
         self.assertTrue(response)
         self.assertEqual(1, len(response.outputTables))
-        self.assertEqual(2, len(response.outputTables[0].columns))
-        new_mols = column_to_molecules(response.outputTables[0].columns[1])
+        self.assertEqual(3, len(response.outputTables[0].columns))
+        new_mols = column_to_molecules(response.outputTables[0].columns[2])
         self.assertEqual(181, len(new_mols))
+        self.assertEqual(181, len(response.outputTables[0].columns[1].values))
         parent_mols = column_to_molecules(response.outputTables[0].columns[0])
         self.assertEqual(181, len(parent_mols))
         exp_par_counts = [35, 20, 35, 28, 35, 0, 28]
@@ -105,11 +111,12 @@ class ScriptTest(TestCase):
 
         self.assertTrue(response)
         self.assertEqual(1, len(response.outputTables))
-        self.assertEqual(2, len(response.outputTables[0].columns))
-        new_mols = column_to_molecules(response.outputTables[0].columns[1])
+        self.assertEqual(3, len(response.outputTables[0].columns))
+        new_mols = column_to_molecules(response.outputTables[0].columns[2])
         self.assertEqual(112, len(new_mols))
         parent_mols = column_to_molecules(response.outputTables[0].columns[0])
         self.assertEqual(112, len(parent_mols))
+        self.assertEqual(112, len(response.outputTables[0].columns[1].values))
         exp_par_counts = [22, 21, 9, 21, 22, 0, 17]
         exp_par_smiles = ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
                           'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
@@ -137,9 +144,10 @@ class ScriptTest(TestCase):
 
         self.assertTrue(response)
         self.assertEqual(1, len(response.outputTables))
-        self.assertEqual(2, len(response.outputTables[0].columns))
-        new_mols = column_to_molecules(response.outputTables[0].columns[1])
+        self.assertEqual(3, len(response.outputTables[0].columns))
+        new_mols = column_to_molecules(response.outputTables[0].columns[2])
         self.assertEqual(51, len(new_mols))
+        self.assertEqual(51, len(response.outputTables[0].columns[1].values))
         parent_mols = column_to_molecules(response.outputTables[0].columns[0])
         self.assertEqual(51, len(parent_mols))
         exp_par_counts = [14, 6, 2, 11, 14, 0, 4]
