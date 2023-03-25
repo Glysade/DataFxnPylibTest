@@ -201,9 +201,17 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         self.assertEqual(12950, len(new_mols))
 
     def test_bad_mol_2(self) -> None:
-        # This one has a 3-way linker, which isn't allowed.
+        # These have 3-way linkers, which isn't allowed.
+        # They come out in the wash, though, because each cut to make
+        # the linker produces a substituent that is too big.
         repl_file = 'resources/chembl_31_bios.db'
         smi = 'c1ccncc1c1cc(c2c[nH]cc2)cc(c2cocc2)c1'
+        mol = Chem.MolFromSmiles(smi)
+        new_mols, _ = rbl.replace_linkers(mol, repl_file, 8, 5,
+                                          1, 1, False, False, 100)
+        self.assertEqual(0, len(new_mols))
+
+        smi = 'c1[nH]ccc1C(c1cocc1)c1cccnc1'
         mol = Chem.MolFromSmiles(smi)
         new_mols, _ = rbl.replace_linkers(mol, repl_file, 8, 5,
                                           1, 1, False, False, 100)
