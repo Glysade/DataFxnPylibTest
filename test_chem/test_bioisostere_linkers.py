@@ -5,7 +5,7 @@ import unittest
 
 from os import close
 from pathlib import Path
-from tempfile import mkstemp, NamedTemporaryFile
+from tempfile import mkstemp
 from typing import Union
 
 from rdkit import rdBase, Chem
