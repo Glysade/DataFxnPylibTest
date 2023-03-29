@@ -115,12 +115,24 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         infile = 'resources/test_bulk_replacement.smi'
         new_mols, query_cps, _ = rbl.bulk_replace_linkers(infile, db_file, 8, 5, -1, -1,
                                                           False, False, 10000, 3)
-        self.assertEqual(7, len(new_mols))
-        num_all_mols = 0
-        for nm in new_mols:
-            num_all_mols += len(nm)
-        self.assertEqual(84, num_all_mols)
-        self.assertEqual(7, len(query_cps))
+        self.assertEqual(84, len(new_mols))
+        self.assertEqual(84, len(query_cps))
+        # make sure they're in the input order
+        last_smi = None
+        smis = []
+        for qc in query_cps:
+            smi = Chem.MolToSmiles(qc)
+            if smi != last_smi:
+                smis.append(smi)
+                last_smi = smi
+        # the 6th mol has no linkers, so produces no results.
+        self.assertEqual(6, len(smis))
+        self.assertEqual(smis, ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
+                                'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
+                                'CCN1CCCC1Nc1cc(C)c(-c2ccccc2O)nn1',
+                                'CCN1CCCC1Cc1cc(C)c(-c2ccccc2O)nn1',
+                                'Cc1cc(-c2cccs2)nnc1NCCN1CCOCC1',
+                                'CCc1cc(-c2ccccc2)nnc1C(=O)N1CCOCC1'])
 
     def test_replace_with_limits(self) -> None:
         db_file = 'resources/chembl_31_bios.db'

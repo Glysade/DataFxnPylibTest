@@ -201,6 +201,8 @@ class ScriptTest(TestCase):
             self.assertEqual(count, par_counts[smi])
         self.assertEqual('Mol1', parent_ids[0])
         self.assertEqual('Mol3', parent_ids[-1])
+        # It's not possible to check any other output values due to the
+        # random sampling of the truncated sets.
 
 
 if __name__ == '__main__':
