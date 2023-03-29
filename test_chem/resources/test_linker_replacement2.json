@@ -41,6 +41,13 @@
       "selectorType": null,
       "data": false
     },
+    "noRingLinkers": {
+      "id": "noRingLinkers",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": false
+    },
     "maxMolsPerInput": {
       "id": "maxMolsPerInput",
       "dataType": "integer",

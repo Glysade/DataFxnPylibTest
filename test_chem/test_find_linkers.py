@@ -71,29 +71,31 @@ class TestLinkers(unittest.TestCase):
 
     def test_linker_subs_ok(self) -> None:
         test_cases = [('*CCC*', True), ('*CC(C)C*', True),
-                      ('*CC(CC)*', False), ('*CCCCC*', False), ('*CS(=O)(=O)*', True),
-                      ('*C(OC)*', False), ('*C1COC(*)CC1', True),
-                      ('*C1COC(*)C(CC)C1', False), ('*C1OC(*)C(CC)C1', False),
-                      ('*C(C1CC1)*', False), ('*C(C)(CC)C*', False),
-                      ('*C(C)(C)C*', True), ('*C1OC(C)(C)CC1*', True),
-                      ('*C(C1C(F)C1)*', False), ('*CCCCCCCCCC*', False)]
+                      ('*CC(CC)*', False), ('*CCCCC*', False),
+                      ('*CS(=O)(=O)*', True), ('*C(OC)*', False),
+                      ('*C1COC(*)CC1', True), ('*C1COC(*)C(CC)C1', False),
+                      ('*C1OC(*)C(CC)C1', False), ('*C(C1CC1)*', False),
+                      ('*C(C)(CC)C*', False), ('*C(C)(C)C*', True),
+                      ('*C1OC(C)(C)CC1*', True), ('*C(C1C(F)C1)*', False),
+                      ('*CCCCCCCCCC*', False)]
         for tc in test_cases[0:]:
             linker = Chem.MolFromSmiles(tc[0])
-            self.assertEqual(tc[1], fl.linker_is_ok(linker, 8), tc[0])
+            self.assertEqual(tc[1], fl.linker_is_ok(linker, 8, False), tc[0])
 
     def test_linker_bonds_ok(self) -> None:
         test_cases = [('*CCC*', True), ('*CCCC*', False),
                       ('*CC=C*', True), ('*C1CCCC(*)C1', True)]
         for tc in test_cases:
             linker = Chem.MolFromSmiles(tc[0])
-            self.assertEqual(tc[1], fl.linker_is_ok(linker, 8), tc[0])
+            self.assertEqual(tc[1], fl.linker_is_ok(linker, 8, False), tc[0])
 
     def test_linker_atoms_ok(self) -> None:
-        test_cases = [('*CCC*', True), ('*CCCC*', False),
-                      ('*CNCC*', True)]
+        test_cases = [('*CCC*', True, True), ('*CCCC*', True, False),
+                      ('*CNCC*', True, True), ('*c1c[nH]cc1*', True, False),
+                      ('*c1c[nH]cc1*', False, True)]
         for tc in test_cases:
             linker = Chem.MolFromSmiles(tc[0])
-            self.assertEqual(tc[1], fl.linker_is_ok(linker, 8), tc[0])
+            self.assertEqual(tc[2], fl.linker_is_ok(linker, 8, tc[1]), tc[0])
 
     def test_make_subs(self) -> None:
         test_cases = [['c1ccccc1CCc1cccnc1',
@@ -352,6 +354,24 @@ class TestLinkers(unittest.TestCase):
             num_don, num_acc = fl.count_donors_and_acceptors(Chem.MolFromSmiles(tc[0]))
             self.assertEqual(tc[1], num_don, f'{tc[0]} : donor')
             self.assertEqual(tc[2], num_acc, f'{tc[0]} : acceptor')
+
+    def test_contains_ring(self) -> None:
+        l1_dict = {'name': 'L1',
+                   'linker_smiles': 'O([*:1])[*:2]',
+                   'mol_smiles': 'c1ccncc1Oc1ccccc1',
+                   'left_smiles': 'c1ccc([*:1])cc1',
+                   'right_smiles': 'c1cncc([*:2])c1',
+                   'linker_atoms': [6],
+                   'linker_length': 3,
+                   'num_donors': 0,
+                   'num_acceptors': 1}
+        l1 = linker_from_dict(l1_dict)
+        self.assertFalse(l1.contains_ring)
+
+        l2_dict = l1_dict
+        l2_dict['linker_smiles'] = '[*:1]c1c([*:2])c[nH]c1'
+        l2 = linker_from_dict(l2_dict)
+        self.assertTrue(l2.contains_ring)
 
 
 if __name__ == '__main__':
