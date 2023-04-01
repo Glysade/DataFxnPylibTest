@@ -1,0 +1,301 @@
+{
+  "executorId": 0,
+  "id": "a96e3d0c-a19e-4f0a-b5be-01b59ddb33a3",
+  "dataFxnDefId": "2abb2403-f1f4-4f52-4695-e5f5ce1bc9a8",
+  "serviceName": "RGroupReplacement",
+  "assembly": null,
+  "tableId": "2fd12704-b04b-4762-9395-48816015f1cc",
+  "inputFields": {
+    "structureColumn": {
+      "id": "structureColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "2fd12704-b04b-4762-9395-48816015f1ccsSMILES"
+    },
+    "idColumn": {
+      "id": "idColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "2fd12704-b04b-4762-9395-48816015f1ccsCompound"
+    },
+    "coresColumn": {
+      "id": "coresColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "2fd12704-b04b-4762-9395-48816015f1ccyJM8Core"
+    },
+    "rGroupColumns": {
+      "id": "rGroupColumns",
+      "dataType": "list(string)",
+      "contentType": null,
+      "selectorType": "column",
+      "data": [
+        "2fd12704-b04b-4762-9395-48816015f1ccyJM8R1",
+        "2fd12704-b04b-4762-9395-48816015f1ccyJM8R2",
+        "2fd12704-b04b-4762-9395-48816015f1ccyJM8R3"
+      ]
+    },
+    "useLayer1": {
+      "id": "useLayer1",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": true
+    },
+    "useLayer2": {
+      "id": "useLayer2",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": false
+    }
+  },
+  "maximumOutputColumns": 1,
+  "maximumOutputTables": 1,
+  "resultTables": null,
+  "serviceUri": "glysade.python",
+  "inputColumns": {
+    "2fd12704-b04b-4762-9395-48816015f1ccsSMILES": {
+      "dataType": "string",
+      "name": "SMILES",
+      "contentType": "chemical/x-daylight-smiles",
+      "properties": {
+        "Name": "SMILES",
+        "ColumnType": "Imported",
+        "DataType": "String",
+        "ExternalName": "SMILES",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.StringDataComparer",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.StringFormatter",
+        "Origin": "jm8b00883_si_002",
+        "Description": ""
+      },
+      "values": [
+        "O=C1C(O)=C(C(NCC2=CC=CC=C2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N1C",
+        "O=C1C(O)=C(C(NCC2=CC=CC=C2)=O)N=C(CC3=CC=CC=C3)N1C",
+        "O=C1C(O)=C(C(NCC2=CC=CC=C2)=O)N=C(CC)N1C",
+        "O=C1C(O)=C(C(NCC2=CC=CC=C2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N1CC",
+        "O=C1C(O)=C(C(NC2=CC=CC=C2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N1C",
+        "O=C1C(O)=C(C(NCC2CCCCC2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N1C",
+        "O=C1C(O)=C(C(NCC2=NC=CC=C2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N1C",
+        "O=C1C(O)=C(C(NCC2=CN=CC=C2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N1C",
+        "O=C1C(O)=C(C(NCC2=C(F)C=CC=C2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N1C",
+        "O=C1C(O)=C(C(NCC2=CC=C(F)C=C2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N1C",
+        "O=C1C(O)=C(C(NCC2=CC(OCO3)=C3C=C2)=O)N=C(CC4=CC=CC=C4C(F)(F)F)N1C",
+        "O=C1C(O)=C(C(N(C)CC2=CC=CC=C2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N1C",
+        "O=C1C(O)=C(C(NC(C)C2=CC=CC=C2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N1C",
+        "O=C1C(O)=C(C(NCC2=CC=CC=C2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N1",
+        "O=C1C(O)=C(C(NCC2=CC=CC=C2)=O)N=C(C(C)C3=CC=CC=C3C(F)(F)F)N1C",
+        "OC1=C(C(NCC2=CC=CC=C2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N=C1OC",
+        "O=C1C(OC)=C(C(NCC2=CC=CC=C2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N1C",
+        "O=C1C(O)=C(C(CCC2=CC=CC=C2)=O)N=C(CC3=CC=CC=C3C(F)(F)F)N1C"
+      ]
+    },
+    "2fd12704-b04b-4762-9395-48816015f1ccsCompound": {
+      "dataType": "string",
+      "name": "Compound",
+      "contentType": null,
+      "properties": {
+        "Name": "Compound",
+        "ColumnType": "Imported",
+        "DataType": "String",
+        "ExternalName": "Compound",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.StringDataComparer",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.StringFormatter",
+        "Origin": "jm8b00883_si_002",
+        "Description": ""
+      },
+      "values": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P12",
+        "P13",
+        "P14",
+        "P15",
+        "P16",
+        "P17",
+        "P18"
+      ]
+    },
+    "2fd12704-b04b-4762-9395-48816015f1ccyJM8Core": {
+      "dataType": "binary",
+      "name": "JM8Core",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "JM8Core",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "JM8Core",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"852c0ae7-4702-4b85-91ab-3a93e63cf858\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column1\"}"
+      },
+      "values": [
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA==",
+        null,
+        null,
+        null,
+        "H4sIAAAAAAAEAK1UQQ7CIBC884pNPEN2F2jL2RoPxmp68A/e/X+E0lKitdpawmGms0yHhSAgjLY+3R+QBtdCAJkwASencw5ujIgi1KPyCAMiVdiI+m8X+GSRzxcXVBXb3GW/xKUkYyMyxHadCynDlZvMsmhHfRa5SRb5T19Gl03O6D1L87OL3KQvcpO+yJn7smBHM/el3c2u58yFFRltJvvyxYWyM1rvopMLdcE4Eu4UisQjkxObyjwqkuJRmStVUjxySXFAmBRPaCAUEyRCI0Egnf2Hhjhn/44drzErQ1yuoRNDDehQcWhq8QR2J7Dv9AQAAA=="
+      ]
+    },
+    "2fd12704-b04b-4762-9395-48816015f1ccyJM8R1": {
+      "dataType": "binary",
+      "name": "JM8R1",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "JM8R1",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "JM8R1",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"852c0ae7-4702-4b85-91ab-3a93e63cf858\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column2\"}"
+      },
+      "values": [
+        "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",
+        null,
+        null,
+        null,
+        "H4sIAAAAAAAEAJ2TTU7EMAyF9zlFJNZUfvlxnPV0YIFAaBbcgT33F3bDmIwECCWy1O/F9ZOdpiHauuxP7x/RV9pDiIBFpB+j9x7fEhEFff2eNqU2SKSIeRx7FE/xN4s5vlyEG4ywZSm05oKt5eS95LLugj5qAeb1iWodtQxem2hU4NpLTasuwuy9lLWJtCJzy0bYimCe6OH/LrhxobTqol/azyXLmoudS+nXW1fn+3K5+7Me7qKUjjChjzyS4aDiGaXqGSX2jFLzjJLMok8C5IIPGgL4Fs/6Oz++Dm2nA9s5v+zhEyLnbWbrAwAA"
+      ]
+    },
+    "2fd12704-b04b-4762-9395-48816015f1ccyJM8R2": {
+      "dataType": "binary",
+      "name": "JM8R2",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "JM8R2",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "JM8R2",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"852c0ae7-4702-4b85-91ab-3a93e63cf858\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column3\"}"
+      },
+      "values": [
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVIGa9+I7gpEDeDnM3lC/SWewCYAxJWMAKJuPq5cAEAA2dRe/MAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVIGa9+I7gpEDeDnM3lC/SWewCYAxJWMAKJuPq5cAEAA2dRe/MAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVIGa9+I7gpEDeDnM3lC/SWewCYAxJWMAKJuPq5cAEAA2dRe/MAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4lJQMAYyFBQMsCJLS0uFMCMDAwMukHoDPSDLGMIyNjY2gYsZKDgr4DICGYFM0TXQszAzM4SwDM3MDMgyRQFkiqklzBRzZLcEKePVbwQ3xRDMMYRwjMEsMMcXGFLuAWAOSFjBCCTi6ufCBQCh4DcwRgEAAA==",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVIGa9+I7gpEDeDnM3lC/SWewCYAxJWMAKJuPq5cAEAA2dRe/MAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVIGa9+I7gpEDeDnM3lC/SWewCYAxJWMAKJuPq5cAEAA2dRe/MAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVIGa9+I7gpEDeDnM3lC/SWewCYAxJWMAKJuPq5cAEAA2dRe/MAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVIGa9+I7gpEDeDnM3lC/SWewCYAxJWMAKJuPq5cAEAA2dRe/MAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVIGa9+I7gpEDeDnM3lC/SWewCYAxJWMAKJuPq5cAEAA2dRe/MAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVIGa9+I7gpEDeDnM3lC/SWewCYAxJWMAKJuPq5cAEAA2dRe/MAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVIGa9+I7gpEDeDnM3lC/SWewCYAxJWMAKJuPq5cAEAA2dRe/MAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVIGa9+I7gpEDeDnM3lC/SWewCYAxJWMAKJuPq5cAEAA2dRe/MAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVIGa9+I7gpEDeDnM3lC/SWewCYAxJWMAKJuPq5cAEAA2dRe/MAAAA=",
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2hHpBlAGIZoLM8FHAZgYy4sOpFsIKU8eo3gpsCcTPI2Vy+QG+5B4A5IGEFI5CIq58LFwA1+nB68wAAAA==",
+        null,
+        null,
+        null,
+        "H4sIAAAAAAAEAONSAIEgF+/MEgU4MHLh4gKSCgqGCgoGWJGlpaVCmJGBgQEXSL2BnimQCWEZoLKcFXAZgYxApujiMSVIGa9+I7gpEDeDnM3lC/SWewCYAxJWMAKJuPq5cAEAA2dRe/MAAAA="
+      ]
+    },
+    "2fd12704-b04b-4762-9395-48816015f1ccyJM8R3": {
+      "dataType": "binary",
+      "name": "JM8R3",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "JM8R3",
+        "ColumnType": "Result",
+        "DataType": "Binary",
+        "ExternalName": "JM8R3",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "RGroupDecomposition",
+        "Description": "",
+        "ChemCharts.DFResult": "{\"docPropId\":\"DataFxnProperty0\",\"dataFxnId\":\"852c0ae7-4702-4b85-91ab-3a93e63cf858\",\"dataFxnName\":\"Glysade.CSharpDataFxn\",\"propertyId\":\"column4\"}"
+      },
+      "values": [
+        "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",
+        null,
+        null,
+        null,
+        "H4sIAAAAAAAEAJ2TwQ7CIAyG7zxFE88jUAYtZ2c8GI3x4Dt49/1jWzayg3qANMvf/uuXMpgDXY/l8npDX7g4B1AtwteotcITQwjyHkzRU4pJVfCIPCsjeHEDHOEXYh+u9XJJuSnCjEOU1kHbLDhM4cIrhWIdpOh3wW2WWMIwBWtqvcTzIEV3ZGckPOQ4Rpm0w3aksxDxGAV9rnk76RT39+Vx+NufOiXKNbWnJmjOmoiaraSJqNwdUaU7oqg7org7vKdVU5Zc5Uc53y3RMiStnG6L+wD67/9jRQMAAA=="
+      ]
+    }
+  },
+  "webServiceRequest": null,
+  "requestId": -1,
+  "tkid": null,
+  "script": null,
+  "updateBehavior": "automatic",
+  "allowedClients": [
+    "Analyst",
+    "WebPlayer"
+  ],
+  "limitBy": "none",
+  "ironPython": "####################################################\n#  Copyright 2022 Glysade LLC, All Rights Reserved #\n####################################################\n\nimport sys,clr\nfrom Spotfire.Dxp.Data import DataTable, DataManager\nfrom Spotfire.Dxp.Application import PanelTypeIdentifiers\nfrom Spotfire.Dxp.Application import Panel\nimport Spotfire.Dxp.Application.PanelCollection\nfrom Spotfire.Dxp.Application.Visuals import BarChart, TrellisMode, IndividualScalingMode\n\nfrom System import AppDomain\nfor asm in AppDomain.CurrentDomain.GetAssemblies():\n    if asm.GetName().Name == 'Charts':\n        clr.AddReference(asm.FullName)\n\nfrom Charts import ChartsModel\nmodel_type = ChartsModel\n\n#tableId pass in args\ndataTable = ResultTables[0]\n\nif not dataTable:\n  raise Exception('target table not found')\n\npage = Document.Pages.AddNew(dataTable.Name)\nfilteringScheme = Document.FilteringSchemes[0]\nfilterPanel = page.FilterPanel\nfilterPanel.FilteringSchemeReference = filteringScheme\nif not filterPanel.Visible:\n    filterPanel.Visible = True\npage.DetailsOnDemandPanel.Visible = False\n\nfor tblGrp in filterPanel.TableGroups:\n    if tblGrp.Name != dataTable.Name:\n        tblGrp.Visible = False\n\ntableVis = page.Visuals.AddNew[model_type]()\ntableVis.SetKeyValue('visualization','table-visualization')\nkey = dataTable.Id.ToString()+\".table-visualization.table.transposed\"\ntableVis.SetKeyValue(key, 'false')\ntableVis.DataTable = dataTable\ntableVis.ConfigureColumns()\ntableVis.Marking = Document.Data.Markings.DefaultMarkingReference\n    \ntableVis.SetColumnRenderer(dataTable.Columns['Analog'], 'RDKit')\n\ntableVis.SetActiveVisual()",
+  "chartsFxnType": null,
+  "chartsRequest": null
+}
