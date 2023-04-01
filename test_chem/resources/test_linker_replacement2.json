@@ -1,0 +1,123 @@
+{
+  "executorId": 0,
+  "id": "e300a5ab-5b12-43b9-b2a5-04d971eb3b67",
+  "dataFxnDefId": "cf61bc05-8e4c-bf30-8107-2b9a4769f73c",
+  "serviceName": "LinkerReplacements",
+  "assembly": null,
+  "tableId": "e35fb8e7-4935-4ae2-af3c-23409d23746c",
+  "inputFields": {
+    "structureColumn": {
+      "id": "structureColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "e35fb8e7-4935-4ae2-af3c-23409d23746cyStructure <MOLFILE>"
+    },
+    "idColumn": {
+      "id": "idColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "e35fb8e7-4935-4ae2-af3c-23409d23746cs*molname"
+    },
+    "plusDeltaBonds": {
+      "id": "plusDeltaBonds",
+      "dataType": "integer",
+      "contentType": null,
+      "selectorType": null,
+      "data": 1
+    },
+    "minusDeltaBonds": {
+      "id": "minusDeltaBonds",
+      "dataType": "integer",
+      "contentType": null,
+      "selectorType": null,
+      "data": 1
+    },
+    "matchHbonds": {
+      "id": "matchHbonds",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": false
+    },
+    "noRingLinkers": {
+      "id": "noRingLinkers",
+      "dataType": "boolean",
+      "contentType": null,
+      "selectorType": null,
+      "data": false
+    },
+    "maxMolsPerInput": {
+      "id": "maxMolsPerInput",
+      "dataType": "integer",
+      "contentType": null,
+      "selectorType": null,
+      "data": 100
+    }
+  },
+  "maximumOutputColumns": 1,
+  "maximumOutputTables": 1,
+  "resultTables": null,
+  "serviceUri": "glysade.python",
+  "inputColumns": {
+    "e35fb8e7-4935-4ae2-af3c-23409d23746cyStructure <MOLFILE>": {
+      "dataType": "binary",
+      "name": "Structure <MOLFILE>",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "Structure <MOLFILE>",
+        "ColumnType": "Imported",
+        "DataType": "Binary",
+        "ExternalName": "Structure <MOLFILE>",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "test2",
+        "Description": "",
+        "Dimension": "2"
+      },
+      "values": [
+        "H4sIAAAAAAAEAKVUS24DIQzdR8odfIGMbMCA10lXVbpIpN6hUqRscn/FOBk8i3ZRsCzNgzc8/BPn+432O2h2OX3+PKBbOO13ylAESgD4q4sIfAdENIkDLpgTt8O0YKy5Id1TgyP8pbF1lwkmEyZk9EjF9JbhmOugDC05S4+Gw4RM6bUZlmlJIb/QRFK4FKn8KnbKcRvN9Z+dWmUktzkZbLjEuEbDMjo3tNamCXLFCRkbP0XCZbDElpQ1/BBmktIjBddoRktMOrzmttJvtD1bKUzOKWTnFGbnFBbnFFZfKRT/U4CwcwqJOqeQgnOhPTDbG8i5uLnhDPDxpS/SE+vgLzewBAAA",
+        "H4sIAAAAAAAEAKVWy2rEMAy8F/Yf9AM1kvyIde72VHYLLfQfCoVe+v9UtuMohPYQewnseCeaHY0dx7fvL748QPm8XV8+f2D78PXyoIwn8AEA/7xEBD4YEavEI7sY9X5F0YXEqcigUxrhCf7T2F9NxrvA6JuMJMyDMsFxjt1NFJyQ8b6hCRltihI1NNFUiZi6m/GIyaUcNjchDMqgyyTU3aR9Nq8n3TC19g5uzsgUN3GVObg50VQpCbquVzfL4ExpiVCS7kYGZ6rKZGkpTclg9NJSmmoKY5QVeebxdYN13Whx9H7v5sSEl2yYpcvgft3cT8qEKkNHmZPZJKxN8UQ2VYaqGz8nI9wi9jNNkVvEdzecR5cfu5Sou+G0n/D3kzL1BQPhKHPGTU2kykRtKuKETN22IM3IlKaWVWaiKdJnCjc3wzNVJjxv2UzJcH8YhmXqlt5OFDS+pWs916uO9NvX3+pIYTBOYTROYTJO4WKcwmycjsQ4AcJtpJBou1MhsXEM5V3eOQ8UjAtA5kUhmZcyMi8KKdsoQ9k9+p0CbF4UsnlRyOZFIVsuCtm8KORodRHKuaNzCXgxbgE2LwrZvOg/eDRnoRwt9+nSVqfELkEt2vWngubsBvB813PqL+lUMX7GCgAA",
+        "H4sIAAAAAAAEAKWVQWoDMQxF94XcwRfIYEke2V43XZW00EXvUCh00/vTb804GkoLrT0Y8p2PX76kmLl+vMvpLrTn5fL49hluD19Od3CYAksI8cdVaw2vHGM0xDkutWpqh2URIW4qLrBjuA+/MY5rw9BSVHZM4aqDGF4yF93TcC4TmK0onsGgqLUahmaKai1OPY1QGsYQ555GJI5hcCRL1p4mHXvz/M80617KeBrrTdwxU72ppaRNqZbxSRFbBoyewBlvcRLtadbBO4UxK0XtaWSwN4Zh3a7FBIaXlGvZMKo02OKGKWQYmcG0omw+5zRTVJuU3WtLsw7+iw2TtfdmeOAN0zvy7Wr+HUPosS3b4VPsO9tBJvcgV/cg1T3I7B5kcQ+76l4NFG8eJNHNgyTPAkmeBbLdtL5LgTwLJHkWSPIskORZIMmzQPIhi7QX4bEiT9YMP4dD/uvXEB6e8B79AmsVJO9mBwAA"
+      ]
+    },
+    "e35fb8e7-4935-4ae2-af3c-23409d23746cs*molname": {
+      "dataType": "string",
+      "name": "*molname",
+      "contentType": null,
+      "properties": {
+        "Name": "*molname",
+        "ColumnType": "Imported",
+        "DataType": "String",
+        "ExternalName": "*molname",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.StringDataComparer",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.StringFormatter",
+        "Origin": "test2",
+        "Description": ""
+      },
+      "values": [
+        "Mol1",
+        "Mol2",
+        "Mol3"
+      ]
+    }
+  },
+  "webServiceRequest": null,
+  "requestId": -1,
+  "tkid": null,
+  "script": null,
+  "updateBehavior": "automatic",
+  "allowedClients": [
+    "Analyst",
+    "WebPlayer"
+  ],
+  "limitBy": "none",
+  "ironPython": null,
+  "chartsFxnType": null,
+  "chartsRequest": null
+}
