@@ -1,5 +1,4 @@
 import json
-import random
 from collections import defaultdict
 from pathlib import Path
 from unittest import TestCase, main
@@ -11,6 +10,7 @@ from rdkit import Chem
 from df.RGroupReplacement import RGroupReplacement
 
 from rdkit import RDLogger
+
 RDLogger.DisableLog('rdApp.*')
 
 
@@ -62,13 +62,13 @@ def analogues_in_parents(parents, parent_ids, analogues) -> list[str]:
 
 # columns used in the output table.  So that when they are moved around
 # or added to in the DataFxn code, there's only one place they need
-#changing in the tests.
+# changing in the tests.
 PAR_COL = 0
 PAR_IDS_COL = 1
 MOLS_COL = 2
-CORES_COL = 3
+CORES_COL = 5
 CORE_NUMS_COL = 4
-R_CHG_COL = 5
+R_CHG_COL = 3
 
 
 class ScriptTest(TestCase):
@@ -94,15 +94,15 @@ class ScriptTest(TestCase):
         for par_id in response.outputTables[0].columns[1].values:
             parent_counts[par_id] += 1
         for i in range(9):
-            self.assertEqual(parent_counts[f'Mol{i+1}'], response.outputColumns[0].values[i])
+            self.assertEqual(parent_counts[f'Mol{i + 1}'], response.outputColumns[0].values[i])
         self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1ccccc1Cl')
         self.assertEqual(Chem.MolToSmiles(mols[-1]), 'COc1ccc(C)c(OC)n1')
         self.assertLess(calc_core_rmses(mols), 0.005)
         same_smis = analogues_in_parents(parents, parent_ids, mols)
         self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
-        mol1_highs = 'COLOR #00bfff\nATOMS\nBONDS 1 2 3 4 6 5 7\nCOLOR #dc143c\nATOMS\nBONDS 8'
+        mol1_highs = 'COLOR #00bfff\nATOMS\nBONDS 8'
         self.assertEqual(mols[0].GetProp('Renderer_Highlight'), mol1_highs)
-        molm1_highs = 'COLOR #00bfff\nATOMS\nBONDS 1 2 3 4 6 5 7\nCOLOR #dc143c\nATOMS\nBONDS 9 11'
+        molm1_highs = 'COLOR #00bfff\nATOMS\nBONDS 9 11'
         self.assertEqual(mols[-1].GetProp('Renderer_Highlight'), molm1_highs)
         self.assertEqual(changed_rgroups[0], 'R5')
         self.assertEqual(parent_ids[34], 'Mol5')
@@ -140,14 +140,14 @@ class ScriptTest(TestCase):
         for par_id in response.outputTables[0].columns[1].values:
             parent_counts[par_id] += 1
         for i in range(9):
-            self.assertEqual(parent_counts[f'Mol{i+1}'], response.outputColumns[0].values[i])
+            self.assertEqual(parent_counts[f'Mol{i + 1}'], response.outputColumns[0].values[i])
         self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1ccccc1F')
         self.assertEqual(Chem.MolToSmiles(mols[-1]), 'Cc1ccc(O)nc1S(=O)(=O)N(C)C')
         self.assertLess(calc_core_rmses(mols), 0.005)
         same_smis = analogues_in_parents(parents, parent_ids, mols)
         self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
         # check for a level 2 highlight
-        mol6highs = 'COLOR #00bfff\nATOMS\nBONDS 1 2 3 4 6 5 7\nCOLOR #ffbf00\nATOMS\nBONDS 8 9 10 11 12'
+        mol6highs = 'COLOR #ffbf00\nATOMS\nBONDS 8 9 10 11 12'
         self.assertEqual(mols[6].GetProp('Renderer_Highlight'), mol6highs)
         self.assertEqual(changed_rgroups[0], 'R5')
         self.assertEqual(parent_ids[121], 'Mol8')
@@ -184,14 +184,14 @@ class ScriptTest(TestCase):
         for par_id in response.outputTables[0].columns[1].values:
             parent_counts[par_id] += 1
         for i in range(9):
-            self.assertEqual(parent_counts[f'Mol{i+1}'], response.outputColumns[0].values[i])
+            self.assertEqual(parent_counts[f'Mol{i + 1}'], response.outputColumns[0].values[i])
         self.assertEqual(Chem.MolToSmiles(mols[0]), 'Cc1ccccc1Cl')
         self.assertEqual(Chem.MolToSmiles(mols[-1]), 'Cc1ccc(O)nc1S(=O)(=O)N(C)C')
         self.assertLess(calc_core_rmses(mols), 0.005)
         same_smis = analogues_in_parents(parents, parent_ids, mols)
         self.assertFalse(same_smis, f'Molecule(s) had same SMILES as parent : {" ".join(same_smis)}')
         # check for a level 2 highlight
-        mol6highs = 'COLOR #00bfff\nATOMS\nBONDS 1 2 3 4 6 5 7\nCOLOR #ffbf00\nATOMS\nBONDS 8'
+        mol6highs = 'COLOR #ffbf00\nATOMS\nBONDS 8'
         self.assertEqual(mols[6].GetProp('Renderer_Highlight'), mol6highs)
         self.assertEqual(changed_rgroups[0], 'R5')
         self.assertEqual(parent_ids[273], 'Mol8')
@@ -289,6 +289,16 @@ class ScriptTest(TestCase):
         rgr = RGroupReplacement()
         response = run_script(file_in, rgr)
         self.assertTrue(response)
+
+    def test_extra_map_num(self) -> None:
+        # The R Groups now have a map number as well as an isotope
+        # number.
+        file_in = Path(__file__).parent / 'resources' / 'test_r_group_replacement4.json'
+        rgr = RGroupReplacement()
+        response = run_script(file_in, rgr)
+        self.assertTrue(response)
+        mols = column_to_molecules(response.outputTables[0].columns[MOLS_COL])
+        self.assertEqual(131, len(mols))
 
 
 if __name__ == '__main__':
