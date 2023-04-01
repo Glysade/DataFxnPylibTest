@@ -1,0 +1,6 @@
+Name,SMILES
+CHEMBL50161,COC(=O)CCCC(=O)Nc1ccc2c(c1)-c1ccccc1C(=O)C2=O
+CHEMBL103126,O=C1C(=O)c2ccccc2C(O)=C1SC1CCCCC1
+CHEMBL289040,[N-]=[N+]=Nc1ccc2c(Nc3ccc(C(N)=O)cc3)c3ccc(N=[N+]=[N-])cc3nc2c1
+CHEMBL309680,O=C1C=C(Nc2ccc(F)cc2F)C(=O)c2cnccc21
+CHEMBL514188,COC1=CC([C@@H]2c3cc4c(cc3[C@@H](Nc3ccc([N+](=O)[O-])cc3)[C@H]3COC(=O)[C@@H]32)OCO4)=CC(=O)C1=O
