@@ -1,0 +1,75 @@
+{
+  "executorId": 0,
+  "id": "5b2f8c59-f5e2-47c7-b5fb-ee91bcfeeebb",
+  "dataFxnDefId": "22204149-ba9f-551e-6527-170776417d1a",
+  "serviceName": "Script",
+  "assembly": null,
+  "tableId": "5ef5fc17-5830-415d-8778-e1415b183f9a",
+  "inputFields": {
+    "structureColumn": {
+      "id": "structureColumn",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": "column",
+      "data": "5ef5fc17-5830-415d-8778-e1415b183f9ayStructure <MOLFILE>"
+    },
+    "reactionMode": {
+      "id": "reactionMode",
+      "dataType": "string",
+      "contentType": null,
+      "selectorType": null,
+      "data": "exhaustiveReaction"
+    },
+    "reactionQuery": {
+      "id": "reactionQuery",
+      "dataType": "string",
+      "contentType": "chemical/x-mdl-rxnfile",
+      "selectorType": null,
+      "data": "$RXN\r\nACS Document 1996\r\n  ChemDraw04052310142D\r\n\r\n  1  1\r\n$MOL\r\n\r\n\r\n\r\n  4  3  0  0  0  0  0  0  0  0999 V2000\r\n   -0.7145   -0.6187    0.0000 C   0  0  0  0  0  0  0  0  0  2  0  0\r\n   -0.0000   -0.2062    0.0000 C   0  0  0  0  0  0  0  0  0  3  0  0\r\n   -0.0000    0.6187    0.0000 O   0  0  0  0  0  0  0  0  0  1  0  0\r\n    0.7145   -0.6187    0.0000 O   0  0  0  0  0  0  0  0  0  4  0  0\r\n  1  2  1  0        0\r\n  2  3  2  0        0\r\n  2  4  1  0        0\r\nM  END\r\n$MOL\r\n\r\n\r\n\r\n  6  5  0  0  0  0  0  0  0  0999 V2000\r\n   -1.4289   -0.6187    0.0000 C   0  0  0  0  0  0  0  0  0  2  0  0\r\n   -0.7145   -0.2062    0.0000 C   0  0  0  0  0  0  0  0  0  3  0  0\r\n   -0.7145    0.6187    0.0000 O   0  0  0  0  0  0  0  0  0  1  0  0\r\n   -0.0000   -0.6187    0.0000 O   0  0  0  0  0  0  0  0  0  4  0  0\r\n    0.7145   -0.2062    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\r\n    1.4289   -0.6187    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\r\n  1  2  1  0        0\r\n  2  3  2  0        0\r\n  2  4  1  0        0\r\n  4  5  1  0        4\r\n  5  6  1  0        0\r\nM  END\r\n"
+    }
+  },
+  "maximumOutputColumns": 10,
+  "maximumOutputTables": 1,
+  "resultTables": null,
+  "serviceUri": "glysade.python",
+  "inputColumns": {
+    "5ef5fc17-5830-415d-8778-e1415b183f9ayStructure <MOLFILE>": {
+      "dataType": "binary",
+      "name": "Structure <MOLFILE>",
+      "contentType": "chemical/x-mdl-molfile",
+      "properties": {
+        "Name": "Structure <MOLFILE>",
+        "ColumnType": "Imported",
+        "DataType": "Binary",
+        "ExternalName": "Structure <MOLFILE>",
+        "IsValid": "True",
+        "Expression": "",
+        "Comparer": "Spotfire.Dxp.Data.Cxx.InlineDataComparer`1[Spotfire.Dxp.Data.BinaryLargeObject]",
+        "Formatter": "Spotfire.Dxp.Data.Formatters.BinaryFormatter",
+        "Origin": "test_reaction",
+        "Description": "",
+        "Dimension": "2"
+      },
+      "values": [
+        "H4sIAAAAAAAEAJ2RwQrCMBBE74X+w/yAYXaTRvfcepIqePAfBMGL/49poqaIgnZZwkyWfSzMeL1I22Cq47A73/AqHdpmmnRAAPixzQwnJVkQdNEYJiVOKaH8pTHR4xtj3hWjj+XlmBWdrDUW5cmlGHH0Fsuy2IYzzOHPaxgL8O2a3zGSYslvdkn66nzOSavrnrMR2O5Tmndb00OC7AEAAA==",
+        "H4sIAAAAAAAEAKWTwQrCMAyG74O9Q15gI822pD07TzIFD76DIHjx/THLVrODHlxDoH/6tx8lbafng+oK5riOp/sLPkFjXc1OssSvmVKCGyGiIRpsIw/9okjSrABbtREO8IuxTcd0hgkFGNvS8YIREd6NiRw5n4axAMOce7MX09iWtSOkUYAhw4QyTOS0YoRwe1OXP3tDnDE97sIEfbKWVunY2ZxVKnv3VA7uqWT3VIp7KqN7Yj8h+MqQqwngeNb/8gbAApuzTgMAAA==",
+        "H4sIAAAAAAAEAKWTTQrDIBCF94HcYS6gzIwadd10VdJCF71DodBN709HxdiUdpFEROY5+PnGn+n5MH0HqV3H0/0Fc+Ox71ImAgQA/NljjHBjRCwI1kRe5kGhJowuzaGWNMIF/jE+e8GQZodDWWyCbNEwh3UYG0OJvjBr3CQPrhZF6De6yZjkRtEOjHiwgWwFBrcRIydi55siph2YgWtRC8yKI1asmcxclN+GkVWcx6wkNHmsyrachG6hhqYk9E35/Pa5qVhzE8DxLD/kDdkzc8dAAwAA",
+        "H4sIAAAAAAAEAJ1SSwoCMQzdD8wdcoEpSZv+1o4rmRFceAdBcOP9MW1nbBcK2vCgL33kkYQsjzuPA6S4zKfbE96h53FIis/Aj4gxwlUjYraYUDlim4qFsQuFiYxwgG8eLUonqLRlnxgpYtKdNlJMfu/GWNfYrH/aEJXxjOPebmQoplhsgg2du0kr1rjZGGs6u5lIccRtqMC+3c35Zxup1xk5k9fkv5wJ5aoJtVUT6qrm8n1RzWjPFoDjKlf4Ami4uLSkAgAA",
+        "H4sIAAAAAAAEAKWUzW7DIAzH75X6Dn6BIJsAweemp6qdtMPeYdKkXfb+mg0JpFF7gCBL8T/gn2zzcf/98ecT6Picb99/UIadzyeZIa8G+NKYGb4sIibEYI3n6NRD4ziiYtDINMIHvGNsLWPITKONGcMcwwZzacSMIXs7TEs2aGIIpSh2ndkoxi85eMTOonKI9gYoB/djKOVgD2BSUQ4zZldUQ4tBMXHB7FrciglLcP9OQdmp4dBO6fEjm4+fNLs3G8Wgy7drh2npjV7NqRRlsQ8zlOM3HDh+JOkkS0q+Y/q3KleVuL6uFDfUOXGnqsSNT4prXADCosQlKivF1T1alQUan5SrcZTewVX5TZ53gOtDXst/RtJvpUwFAAA="
+      ]
+    }
+  },
+  "webServiceRequest": null,
+  "requestId": -1,
+  "tkid": null,
+  "script": "from collections import defaultdict, deque\nfrom typing import Optional\n\nfrom rdkit import Chem\nfrom rdkit.Chem.rdChemReactions import ChemicalReaction\nfrom rdkit.Chem.rdchem import MolSanitizeException\n\nfrom df.chem_helper import column_to_molecules, \\\n    molecules_to_column\nfrom df.data_transfer import DataFunctionRequest, DataFunctionResponse, DataType, \\\n    TableData, string_input_field\nfrom ruse.rdkit.rdkit_utils import sanitize_mol, string_to_reaction\n\n\ndef highlight_product(mol: Chem.Mol) -> None:\n    \"\"\"\n    Takes the molecule, and highlights any atoms that have an\n    'old_mapno' property.\n    \"\"\"\n    high_ats = []\n    for atom in mol.GetAtoms():\n        if atom.HasProp('old_mapno'):\n            high_ats.append(atom.GetIdx())\n\n    high_bnds = []\n    for at1 in high_ats:\n        for at2 in high_ats:\n            if at1 > at2:\n                bond = mol.GetBondBetweenAtoms(at1, at2)\n                if bond is not None:\n                    high_bnds.append(bond.GetIdx())\n    high_ats_str = ' '.join([str(a + 1) for a in high_ats])\n    high_bnds_str = ' '.join([str(b + 1) for b in high_bnds])\n    prop_text = f'COLOR #ff0000\\nATOMS {high_ats_str}\\nBONDS {high_bnds_str}'\n    mol.SetProp('Renderer_Highlight', prop_text)\n\n\ndef combine_prods_to_one_mol(prods: tuple[Chem.Mol]) -> Optional[Chem.Mol]:\n    new_prod = Chem.Mol()\n    for prod in prods:\n        new_prod = Chem.CombineMols(new_prod, prod)\n    try:\n        Chem.SanitizeMol(new_prod)\n    except MolSanitizeException:\n        return None\n    # sometimes we'll get a molecule that sanitizes but\n    # generates a bad SMILES.  Skip those.\n    smi = Chem.MolToSmiles(new_prod)\n    return Chem.MolFromSmiles(smi)\n\n\ndef run_reaction_single_product(mol: Chem.Mol, rxn: ChemicalReaction,\n                                reaction_mode: str) -> list[Optional[Chem.Mol]]:\n    \"\"\"\n    Do singleReaction or exhaustiveReaction mode\n    \"\"\"\n    final_mols = deque([mol])\n    final_mols_smiles = deque([Chem.MolToSmiles(mol)])\n    while True:\n        next_mol = final_mols.popleft()\n        these_prods = rxn.RunReactants((next_mol,))\n        # these_prods is a tuple of tuples of Chem.Mol\n        for prods in these_prods:\n            new_prod = combine_prods_to_one_mol(prods)\n            if new_prod is None:\n                continue\n            prod_smi = Chem.MolToSmiles(new_prod)\n            if prod_smi not in final_mols_smiles:\n                highlight_product(new_prod)\n                final_mols.append(new_prod)\n                final_mols_smiles.append(prod_smi)\n                if reaction_mode == 'singleReaction':\n                    break\n        if len(final_mols) < 2:\n            break\n    if final_mols:\n        return [final_mols[0]]\n    else:\n        return [None]\n\n\ndef run_reaction_multiple_products(mol: Chem.Mol, rxn: ChemicalReaction) -> list[Optional[Chem.Mol]]:\n    \"\"\"\n    Do multipleReaction mode\n    \"\"\"\n    all_prods = []\n    prod_smis = defaultdict(int)\n    next_bases = [Chem.Mol(mol)]\n    while True:\n        next_prods = []\n        for next_base in next_bases:\n            these_prods = rxn.RunReactants((next_base,))\n            for prods in these_prods:\n                new_prod = combine_prods_to_one_mol(prods)\n                if new_prod is None:\n                    continue\n                new_prod_smi = Chem.MolToSmiles(new_prod)\n                if new_prod_smi not in prod_smis:\n                    all_prods.append(new_prod)\n                    prod_smis[new_prod_smi] = 1\n                    next_prods.append(new_prod)\n        if not next_prods:\n            break\n        next_bases = next_prods\n\n    return all_prods\n\n\ndef run_reaction_on_mol(mol: Chem.Mol, rxn: ChemicalReaction,\n                        reaction_mode: str) -> list[Optional[Chem.Mol]]:\n    \"\"\"\n    Perform the reaction on a single molecule in the given mode.\n    See run_reactions for the explanation of the modes\n    \"\"\"\n    if reaction_mode == 'multipleReaction':\n        return run_reaction_multiple_products(mol, rxn)\n    else:\n        return run_reaction_single_product(mol, rxn, reaction_mode)\n\n\ndef run_reactions(mols: list[Chem.Mol], rxn: ChemicalReaction,\n                  reaction_mode: str) -> list[tuple[Chem.Mol, Optional[Chem.Mol]]]:\n    \"\"\"\n    Run the reaction on each of the input molecules, returning the\n    products. The product molecule may be more than 1 fragment, if the\n    reaction cleaved a bond, for example. If there is no product, None\n    is returned in the list.\n    If there is more than 1 reaction site in the molecule, the products\n    depends on reaction_mode.\n    If reaction_mode is 'singleReaction' then just the first product is\n    returned.\n    If reaction_mode is 'exhaustiveReaction' then all reactions are\n    performed on the single molecule, to return only 1 product.\n    If reaction_mode is 'multipleReaction' all reactions are performed\n    on successive products to produce multiple products.\n\n    :param mols ([Chem.Mol, ]:\n    :param rxn [ChemicalReaction]:\n    :param reaction_mode [str]:\n    :return [[Chem.Mol, ], ]:\n    \"\"\"\n    all_prods = []\n    for mol in mols:\n        if mol is not None and mol:\n            prod_mols = run_reaction_on_mol(mol, rxn, reaction_mode)\n            if prod_mols:\n                pms = [(mol, pm) for pm in prod_mols]\n                all_prods.extend(pms)\n            else:\n                all_prods.append((mol, None))\n        else:\n            all_prods.append((mol,None))\n\n    return all_prods\n\n\ndef execute(request: DataFunctionRequest) -> DataFunctionResponse:\n    column_id = string_input_field(request, 'structureColumn')\n    rxn_sketcher_field = request.inputFields['reactionQuery']\n    rxn_sketch_text = str(rxn_sketcher_field.data)\n    rxn = string_to_reaction(rxn_sketcher_field.contentType, rxn_sketch_text)\n\n    input_column = request.inputColumns[column_id]\n    mols = column_to_molecules(input_column)\n    reaction_mode = string_input_field(request, 'reactionMode')\n\n    products = run_reactions(mols, rxn, reaction_mode)\n    if reaction_mode == 'multipleReaction':\n        init_mols = [p[0] for p in products]\n        prods = [p[1] for p in products]\n        init_col = molecules_to_column(init_mols, f'{input_column.name}', DataType.BINARY)\n        prods_col = molecules_to_column(prods, f'{input_column.name} Products', DataType.BINARY)\n        output_table = TableData(tableName=f'{input_column.name} Products',\n                                 columns=[init_col, prods_col])\n        response = DataFunctionResponse(outputTables=[output_table])\n    else:\n        prods = [p[1] for p in products]\n        products_column = molecules_to_column(prods, f'Reaction Product',\n                                              DataType.BINARY)\n        response = DataFunctionResponse(outputColumns=[products_column])\n    return response\n",
+  "updateBehavior": "automatic",
+  "allowedClients": [
+    "Analyst",
+    "WebPlayer"
+  ],
+  "limitBy": "none",
+  "ironPython": null,
+  "chartsFxnType": null,
+  "chartsRequest": null
+}
