@@ -157,6 +157,22 @@ class ScriptTest(TestCase):
         self.assertEqual(len(prods), 1)
         self.assertEqual(Chem.MolToSmiles(prods[0]), 'CN(C)c1cnc2c(O)c(O)c(O)c(O)c2c1')
 
+    def test_exhaustive_mode2(self) -> None:
+        # Checks a bug where exhaustive didn't work properly for
+        # symmetrical molecules.
+        file_in = Path(__file__).parent / 'resources' / 'test_arbitrary_reaction6.json'
+        response = run_script(file_in, self._execute)
+        self.assertTrue(response)
+        prods = column_to_molecules(response.outputColumns[0])
+        self.assertEqual(len(prods), 5)
+        self.assertIsNone(prods[3])
+        exp_prods = ['CCOC(=O)CC', 'CCOC(=O)c1ccccc1',
+                     'CCOC(=O)CC(C)C(=O)OCC', None,
+                     'CCOC(=O)c1cc(C(=O)OCC)cc(C(=O)OCC)c1']
+        for p, ep in zip(prods, exp_prods):
+            if p is not None:
+                self.assertEqual(ep, Chem.MolToSmiles(p))
+
     def test_multiple_mode(self) -> None:
         file_in = Path(__file__).parent / 'resources' / 'test_arbitrary_reaction5.json'
         response = run_script(file_in, self._execute)
