@@ -196,6 +196,19 @@ class ScriptTest(TestCase):
         self.assertEqual(mcss[0]['numMols'], 15)
         self.assertEqual(mcss[-1]['numMols'], 3)
 
+    def test_too_many_mols_asked_for_in_mcss(self) -> None:
+        in_file = Path('__file__').parent / 'resources' / 'P00374_2d.sdf'
+        mols, ids = read_mols(str(in_file))
+        # Ask for at least 20 molecules in MCS - there are only 15
+        # molecules in the input set.  Previously this raised an
+        # exception when calculating the approximate number of MCS
+        # determinations.
+        mcss, timed_out = self._findMCSs(mols, 20, 6, 6, ids, True, 60, -1,
+                                         'EXHAUSTIVE')
+        self.assertFalse(timed_out)
+        self.assertEqual(len(mcss), 1)
+        self.assertEqual(mcss[0]['numMols'], 15)
+
 
 if __name__ == '__main__':
     main()
