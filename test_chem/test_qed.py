@@ -47,7 +47,7 @@ class ScriptTest(TestCase):
             self._script_file = None
         else:
             data_fxn_dir = this_dir.parent.parent / 'DataFxns'
-            yaml_file = data_fxn_dir / 'python' / 'local' / 'QEDScore.yaml'
+            yaml_file = data_fxn_dir / 'python' / 'local' / 'DrugLikenessScore.yaml'
             if not PRINTED_GUFF:
                 print(f'Using production script in {yaml_file}')
                 PRINTED_GUFF = True
