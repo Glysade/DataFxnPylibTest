@@ -31,9 +31,11 @@ class BioClientTest(TestCase):
         antibody_sequences = list(SeqIO.parse(seq_file, 'fasta'))[10:15]
         values = [str(s.seq) for s in antibody_sequences]
 
+        input_field = InputField(dataType=DataType.STRING, data='sequenceColumn', id=str(uuid.uuid4()))
         column = ColumnData(name='sequence', dataType=DataType.STRING,
                             contentType='chemical/x-sequence', values=values)
         request = DataFunctionRequest(serviceName='AntibodyNumbering', inputColumns={'sequenceColumn': column},
+                                      inputFields={'sequenceColumn': input_field},
                                       id=str(uuid.uuid4()))
         response = run_data_function_module(request)
         self._check_columns_present(len(values), 1, response.outputColumns)
