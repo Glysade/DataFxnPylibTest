@@ -199,12 +199,36 @@ class DataFunctionTest(TestCase):
 
     def test_translate_sequences_script(self) -> None:
         from test_df.translate_sequences_script import execute
-        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'translate_sequences_script.json')
-        _, response = run_script(file_in, execute)
+
+        with open(os.path.join(os.path.dirname(__file__), 
+                               'resources', 
+                               'TranslateDNAScript_StartSite_Test.txt'), 'r', encoding = 'UTF_8') \
+                as exp_fout:
+            expected_output = exp_fout.readlines()
+
+        expected_asis_output = [row.rstrip().split('\t')[2] for row in expected_output[1:]]
+        expected_ATG_output = [row.rstrip().split('\t')[3] for row in expected_output[1:]]
+        expected_table_output = [row.rstrip().split('\t')[4] for row in expected_output[1:]]
+
+        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'TranslateDNAScript_asis_in.json')
+        response = run_script(file_in, execute)
         self.assertTrue(response)
-        self.assertEqual(1, len(response.outputColumns))
-        self.assertEqual(0, len(response.outputTables))
-        self.assertEqual(21, len(response.outputColumns[0].values))
+        self.assertTrue(all([expected == actual for (expected, actual)
+                             in zip(expected_asis_output, response[1].outputColumns[0].values)]))
+
+        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'TranslateDNAScript_ATG_in.json')
+        response = run_script(file_in, execute)
+        self.assertTrue(response)
+        self.assertTrue(all([expected == actual for (expected, actual)
+                         in zip(expected_ATG_output[:-1], response[1].outputColumns[0].values[:-1])]))
+        self.assertTrue(response[1].outputColumns[0].values[-1] is None)
+
+        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'TranslateDNAScript_table_in.json')
+        response = run_script(file_in, execute)
+        self.assertTrue(response)
+        self.assertTrue(all([expected == actual for (expected, actual)
+                             in zip(expected_table_output, response[1].outputColumns[0].values)]))
+
 
     def test_named_data_function_translate_sequences_all_reading_frames(self) -> None:
         file_in = os.path.join(os.path.dirname(__file__), 'resources', 'translate_sequences_all_reading_frames.json')
