@@ -5,7 +5,7 @@
 # Once this is working copy the code below to the script tag in the data function definition
 
 from df.bio_helper import column_to_sequences, sequences_to_column
-from df.data_transfer import DataFunction, DataFunctionRequest, DataFunctionResponse, string_input_field
+from df.data_transfer import DataFunctionRequest, DataFunctionResponse, string_input_field
 
 from Bio.Data import CodonTable
 
