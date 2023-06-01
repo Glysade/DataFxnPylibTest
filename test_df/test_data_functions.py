@@ -199,13 +199,7 @@ class DataFunctionTest(TestCase):
 
     def test_translate_sequences_script(self) -> None:
         from test_df.translate_sequences_script import execute
-        # file_in = os.path.join(os.path.dirname(__file__), 'resources', 'translate_sequences_script.json')
-        # _, response = run_script(file_in, execute)
-        # self.assertTrue(response)
-        # self.assertEqual(1, len(response.outputColumns))
-        # self.assertEqual(0, len(response.outputTables))
-        # self.assertEqual(21, len(response.outputColumns[0].values))
-        
+
         with open(os.path.join(os.path.dirname(__file__), 
                                'resources', 
                                'TranslateDNAScript_StartSite_Test.txt'), 'r', encoding = 'UTF_8') \
