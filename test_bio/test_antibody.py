@@ -129,7 +129,7 @@ class TestAntibody(TestCase):
 
         return align_information
 
-    @skip("Abysis labelling is not reproducible over ANARCI versions")
+    # @skip("Abysis labelling is not reproducible over ANARCI versions")
     def test_abysis_small(self) -> None:
         def feature_location(name):
             feature = next(f for f in features if f.qualifiers['note'][0] == 'antibody_label: {}'.format(name))
@@ -144,18 +144,18 @@ class TestAntibody(TestCase):
         features = labelled_sequences[0].features
         start, end = feature_location('HFR1')
         self.assertEqual(start, 0)
-        self.assertEqual(end, 25)
+        self.assertEqual(end, 30)
         start, end = feature_location('CDR-H1')
-        self.assertEqual(start, 25)
-        self.assertEqual(end, 32)
+        self.assertEqual(start, 30)
+        self.assertEqual(end, 35)
         start, end = feature_location('HFR2')
-        self.assertEqual(start, 32)
-        self.assertEqual(end, 51)
+        self.assertEqual(start, 35)
+        self.assertEqual(end, 49)
         start, end = feature_location('CDR-H2')
-        self.assertEqual(start, 51)
-        self.assertEqual(end, 57)
+        self.assertEqual(start, 49)
+        self.assertEqual(end, 66)
         start, end = feature_location('HFR3')
-        self.assertEqual(start, 57)
+        self.assertEqual(start, 66)
         self.assertEqual(end, 98)
         start, end = feature_location('CDR-H3')
         self.assertEqual(start, 98)
@@ -164,7 +164,7 @@ class TestAntibody(TestCase):
         self.assertEqual(start, 108)
         self.assertEqual(end, 119)
 
-        out_file = os.path.join(os.path.dirname(__file__), 'output/abysis-small.gb')
+        out_file = os.path.join(os.path.dirname(__file__), 'output', 'abysis-small.gb')
         with open(out_file, 'w') as fh:
             SeqIO.write(labelled_sequences, fh, 'gb')
 

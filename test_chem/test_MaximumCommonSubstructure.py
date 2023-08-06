@@ -167,7 +167,7 @@ class ScriptTest(TestCase):
         self.assertEqual(response.outputTables[0].columns[3].values[-1], 6)
 
     def test_timeout(self) -> None:
-        in_file = Path('__file__').parent / 'resources' / 'chembl_30_50.smi'
+        in_file = Path(__file__).parent / 'resources' / 'chembl_30_50.smi'
         mols, ids = read_mols(str(in_file))
         mcss, timed_out = self._findMCSs(mols, 3, 6, 6, ids, True, 60, 7)
         self.assertTrue(timed_out)
@@ -176,7 +176,7 @@ class ScriptTest(TestCase):
         self.assertEqual(mcss[-1]['numMols'], 3)
 
     def test_greedy(self) -> None:
-        in_file = Path('__file__').parent / 'resources' / 'P00374_2d.sdf'
+        in_file = Path(__file__).parent / 'resources' / 'P00374_2d.sdf'
         mols, ids = read_mols(str(in_file))
         self.assertEqual(len(mols), 15)
         mcss, timed_out = self._findMCSs(mols, 3, 6, 6, ids, True, 60, -1,
@@ -187,7 +187,7 @@ class ScriptTest(TestCase):
         self.assertEqual(mcss[-1]['numMols'], 3)
 
     def test_exhaustive(self) -> None:
-        in_file = Path('__file__').parent / 'resources' / 'P00374_2d.sdf'
+        in_file = Path(__file__).parent / 'resources' / 'P00374_2d.sdf'
         mols, ids = read_mols(str(in_file))
         mcss, timed_out = self._findMCSs(mols, 3, 6, 6, ids, True, 60, -1,
                                          'EXHAUSTIVE')
@@ -197,7 +197,7 @@ class ScriptTest(TestCase):
         self.assertEqual(mcss[-1]['numMols'], 3)
 
     def test_too_many_mols_asked_for_in_mcss(self) -> None:
-        in_file = Path('__file__').parent / 'resources' / 'P00374_2d.sdf'
+        in_file = Path(__file__).parent / 'resources' / 'P00374_2d.sdf'
         mols, ids = read_mols(str(in_file))
         # Ask for at least 20 molecules in MCS - there are only 15
         # molecules in the input set.  Previously this raised an

@@ -5,7 +5,7 @@ Copyright (C) 2017 Anodyne Informatics, LLC
 import os
 from typing import List
 from unittest import TestCase
-from unittest import main
+from unittest import main, skip
 
 from rdkit.Chem.rdchem import Mol
 
@@ -13,10 +13,8 @@ from rdkit import Chem
 from ruse.rdkit.rgroup import Rgroup, RgroupDecomposer, mol_to_cores, Core
 from rdkit.Chem.Descriptors import HeavyAtomMolWt
 
-from rdkit import RDLogger
-RDLogger.DisableLog('rdApp.*')
 
-
+@skip("Skip python RGD as we use RDKit's")
 class TestRgroup(TestCase):
 
     def test_decomp(self) -> None:

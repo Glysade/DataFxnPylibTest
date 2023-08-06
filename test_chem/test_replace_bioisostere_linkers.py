@@ -37,14 +37,15 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         print(f'Using RDKit version {rdBase.rdkitVersion}')
 
     def test_db_files(self):
-        db_file = 'resources/no_such_database.db'
+        db_file = str(Path(__file__).parent / 'resources' / 'no_such_database.db')
         self.assertRaises(FileNotFoundError, rbl.check_db_file, db_file)
-        dbs = ['resources/test_db_no_bios.db', 'resources/test_db_no_linkers.db']
+        dbs = ['test_db_no_bios.db', 'test_db_no_linkers.db']
         for bad_db in dbs:
-            self.assertRaises(ValueError, rbl.check_db_file, bad_db)
+            bad_db_file = str(Path(__file__).parent / 'resources' / bad_db)
+            self.assertRaises(ValueError, rbl.check_db_file, bad_db_file)
 
     def test_fetch_bioisosteres1(self) -> None:
-        db_file = 'resources/chembl_31_bios.db'
+        db_file = str(Path(__file__).parent / 'resources' / 'chembl_31_bios.db')
         bios = rbl.fetch_bioisosteres('C(C[*:4])[*:3]', db_file, -1, -1,
                                       False, False, False)
         self.assertEqual(36, len(bios))
@@ -57,7 +58,7 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         self.assertEqual('O[C@H](C[*:4])[*:3]', bios[-1])
 
     def test_replace0(self) -> None:
-        db_file = 'resources/chembl_31_bios.db'
+        db_file = str(Path(__file__).parent / 'resources' / 'chembl_31_bios.db')
         mol = Chem.MolFromSmiles('c12ccccc2cc[nH]1')
         new_mols, _, _ = rbl.replace_linkers(mol, db_file, 8, 5, -1, -1,
                                              False, False, False, -1)
@@ -66,7 +67,7 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         self.assertEqual(0, len(new_mols))
 
     def test_replace1(self) -> None:
-        db_file = 'resources/chembl_31_bios.db'
+        db_file = str(Path(__file__).parent / 'resources' / 'chembl_31_bios.db')
         # This bit of database has 22 replacements for *CC*.
         mol = Chem.MolFromSmiles('c1ccccc1CCc1cnccc1')
         new_mols, _, linker_smis = \
@@ -81,14 +82,14 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         # self.assertEqual(2, num_lats)
 
     def test_replace1a(self) -> None:
-        db_file = 'resources/chembl_31_bios.db'
+        db_file = str(Path(__file__).parent / 'resources' / 'chembl_31_bios.db')
         mol = Chem.MolFromSmiles('c1cccc1CCC')
         new_mols, _, _ = rbl.replace_linkers(mol, db_file, 8, 5, -1, -1,
                                              False, False, False, -1)
         self.assertEqual(0, len(new_mols))
 
     def test_replace2(self) -> None:
-        db_file = 'resources/chembl_31_bios.db'
+        db_file = str(Path(__file__).parent / 'resources' / 'chembl_31_bios.db')
         mol = Chem.MolFromSmiles('c1ccccc1CCc1cnccc1OCOc1ccccc1')
         new_mols, _, linker_smis = \
             rbl.replace_linkers(mol, db_file, 8, 5, -1, -1, False, False,
@@ -103,7 +104,7 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         # self.assertEqual(5, num_lats)
 
     def test_replace3(self) -> None:
-        db_file = 'resources/chembl_31_bios.db'
+        db_file = str(Path(__file__).parent / 'resources' / 'chembl_31_bios.db')
         mol = Chem.MolFromSmiles('c1ccccc1CCc1cnccc1OCOc1cc(SC2CCNCC2)ccc1')
         new_mols, _, _ = rbl.replace_linkers(mol, db_file, 8, 5, -1, -1,
                                              False, False, False, -1)
@@ -116,8 +117,8 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         # self.assertEqual(6, num_lats)
 
     def test_bulk_replace1(self) -> None:
-        db_file = 'resources/chembl_31_bios.db'
-        infile = 'resources/test_bulk_replacement.smi'
+        db_file = str(Path(__file__).parent / 'resources' / 'chembl_31_bios.db')
+        infile = str(Path(__file__).parent / 'resources' / 'test_bulk_replacement.smi')
         new_mols, query_cps, _ = rbl.bulk_replace_linkers(infile, db_file, 8, 5, -1, -1,
                                                           False, False, False, -1, 3)
         self.assertEqual(84, len(new_mols))
@@ -140,7 +141,7 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
                                 'CCc1cc(-c2ccccc2)nnc1C(=O)N1CCOCC1'])
 
     def test_replace_with_limits(self) -> None:
-        db_file = 'resources/chembl_31_bios.db'
+        db_file = str(Path(__file__).parent / 'resources' / 'chembl_31_bios.db')
         mol = Chem.MolFromSmiles('c1c[nH]cc1CC1CCNCC1')
         new_mols, _, _ = rbl.replace_linkers(mol, db_file, 8, 5,
                                              -1, -1, False, False, False, -1)
@@ -153,7 +154,7 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         self.assertEqual('C(=C/C1CCNCC1)\c1cc[nH]c1', Chem.MolToSmiles(new_mols[1]))
 
     def test_replace_with_hbond_matches(self) -> None:
-        db_file = 'resources/chembl_31_bios.db'
+        db_file = str(Path(__file__).parent / 'resources' / 'chembl_31_bios.db')
         mol = Chem.MolFromSmiles('c1c[nH]cc1OC1CCNCC1')
         new_mols, _, _ = rbl.replace_linkers(mol, db_file, 8, 5,
                                              -1, -1, False, False, False, -1)
