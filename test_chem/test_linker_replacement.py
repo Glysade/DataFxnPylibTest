@@ -46,14 +46,14 @@ class ScriptTest(TestCase):
         self.assertEqual(1, len(response.outputTables))
         self.assertEqual(4, len(response.outputTables[0].columns))
         new_mols = column_to_molecules(response.outputTables[0].columns[2])
-        self.assertEqual(702, len(new_mols))
+        self.assertEqual(667, len(new_mols))
         parent_mols = column_to_molecules(response.outputTables[0].columns[0])
         parent_ids = response.outputTables[0].columns[1].values
         linker_smis = response.outputTables[0].columns[3].values
-        self.assertEqual(702, len(parent_mols))
-        self.assertEqual(702, len(parent_ids))
-        self.assertEqual(702, len(linker_smis))
-        exp_par_counts = [93, 87, 102, 162, 93, 0, 116, 49]
+        self.assertEqual(667, len(parent_mols))
+        self.assertEqual(667, len(parent_ids))
+        self.assertEqual(667, len(linker_smis))
+        exp_par_counts = [91, 87, 90, 153, 91, 0, 112, 43]
         exp_par_smiles = ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
                           'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
                           'CCN1CCCC1Nc1cc(C)c(-c2ccccc2O)nn1',
@@ -84,11 +84,11 @@ class ScriptTest(TestCase):
         self.assertEqual(1, len(response.outputTables))
         self.assertEqual(4, len(response.outputTables[0].columns))
         new_mols = column_to_molecules(response.outputTables[0].columns[2])
-        self.assertEqual(326, len(new_mols))
-        self.assertEqual(326, len(response.outputTables[0].columns[1].values))
+        self.assertEqual(305, len(new_mols))
+        self.assertEqual(305, len(response.outputTables[0].columns[1].values))
         parent_mols = column_to_molecules(response.outputTables[0].columns[0])
-        self.assertEqual(326, len(parent_mols))
-        exp_par_counts = [59, 30, 64, 36, 59, 0, 50, 28]
+        self.assertEqual(305, len(parent_mols))
+        exp_par_counts = [57, 30, 56, 33, 57, 0, 46, 26]
         exp_par_smiles = ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
                           'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
                           'CCN1CCCC1Nc1cc(C)c(-c2ccccc2O)nn1',
@@ -118,11 +118,11 @@ class ScriptTest(TestCase):
         self.assertEqual(1, len(response.outputTables))
         self.assertEqual(4, len(response.outputTables[0].columns))
         new_mols = column_to_molecules(response.outputTables[0].columns[2])
-        self.assertEqual(194, len(new_mols))
+        self.assertEqual(190, len(new_mols))
         parent_mols = column_to_molecules(response.outputTables[0].columns[0])
-        self.assertEqual(194, len(parent_mols))
-        self.assertEqual(194, len(response.outputTables[0].columns[1].values))
-        exp_par_counts = [39, 36, 9, 24, 39, 0, 18, 29]
+        self.assertEqual(190, len(parent_mols))
+        self.assertEqual(190, len(response.outputTables[0].columns[1].values))
+        exp_par_counts = [39, 36, 9, 24, 39, 0, 18, 25]
         exp_par_smiles = ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
                           'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
                           'CCN1CCCC1Nc1cc(C)c(-c2ccccc2O)nn1',
@@ -153,11 +153,11 @@ class ScriptTest(TestCase):
         self.assertEqual(1, len(response.outputTables))
         self.assertEqual(4, len(response.outputTables[0].columns))
         new_mols = column_to_molecules(response.outputTables[0].columns[2])
-        self.assertEqual(95, len(new_mols))
-        self.assertEqual(95, len(response.outputTables[0].columns[1].values))
+        self.assertEqual(93, len(new_mols))
+        self.assertEqual(93, len(response.outputTables[0].columns[1].values))
         parent_mols = column_to_molecules(response.outputTables[0].columns[0])
-        self.assertEqual(95, len(parent_mols))
-        exp_par_counts = [25, 10, 2, 13, 25, 0, 4, 16]
+        self.assertEqual(93, len(parent_mols))
+        exp_par_counts = [25, 10, 2, 13, 25, 0, 4, 14]
         exp_par_smiles = ['CCc1cc(-c2ccccc2)nnc1NCCN1CCOCC1',
                           'CCc1cc(-c2ccccc2)nnc1CCCN1CCOCC1',
                           'CCN1CCCC1Nc1cc(C)c(-c2ccccc2O)nn1',
