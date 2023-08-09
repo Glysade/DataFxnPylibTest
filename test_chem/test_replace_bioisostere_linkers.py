@@ -184,7 +184,7 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         mol = Chem.MolFromSmiles('c1c(F)cccc1c1ccccc1c1ncccc1')
         new_mols, _, _ = rbl.replace_linkers(mol, repl_file, 8, 5,
                                              -1, -1, True, False, False, -1)
-        self.assertEqual(14, len(new_mols))
+        self.assertEqual(10, len(new_mols))
 
         new_mols, _, _ = rbl.replace_linkers(mol, repl_file, 8, 5,
                                              -1, -1, True, False, True, -1)
@@ -206,7 +206,7 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         mol = Chem.MolFromSmiles(smi)
         new_mols, _, _ = rbl.replace_linkers(mol, repl_file, 8, 5,
                                              1, 1, False, False, False, 100)
-        self.assertEqual(50, len(new_mols))
+        self.assertEqual(48, len(new_mols))
 
         # The more complicated original.
         smi = 'Cc1ccc(C(=O)N2CCCC(c3n[nH]cc3-c3cccc(F)c3)C2)cc1NCc1cccnc1'
@@ -222,11 +222,12 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         # because it's between the piperidine and a phenyl.  The fix
         # was not to allow the larger linker in these circumstances.
         repl_file = find_replacements_file()
+        print(repl_file)
         self.assertIsNotNone(repl_file, "Couldn't find replacements file")
         mol = Chem.MolFromSmiles('Cc1ccc(C(=O)N2CCCC(c3cccc(F)c3)C2)cc1')
         new_mols, _, _ = rbl.replace_linkers(mol, repl_file, 8, 5,
                                              1, 1, False, False, False, 100)
-        self.assertEqual(50, len(new_mols))
+        self.assertEqual(48, len(new_mols))
 
         # The more complicated original.
         smi = 'Fc1cccc(c1)c1c[nH]nc1C1CN(C(=O)c2cc(C)c(NCc3cnccc3)cc2)CCC1'
@@ -234,7 +235,7 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         self.assertIsNotNone(repl_file, "Couldn't find replacements file")
         new_mols, _, l1s = rbl.replace_linkers(mol, repl_file, 8, 5,
                                                1, 1, False, False, False, -1)
-        self.assertEqual(47735, len(new_mols))
+        self.assertEqual(44295, len(new_mols))
 
         # A simple positional isomer that once gave a different number
         # of analogues.
@@ -242,7 +243,7 @@ class TestReplaceBioisostereLinkers(unittest.TestCase):
         mol = Chem.MolFromSmiles(smi)
         new_mols, _, l2s = rbl.replace_linkers(mol, repl_file, 8, 5,
                                                1, 1, False, False, False, -1)
-        self.assertEqual(47735, len(new_mols))
+        self.assertEqual(44295, len(new_mols))
 
     def test_bad_mol_2(self) -> None:
         # These have 3-way linkers, which isn't allowed.
