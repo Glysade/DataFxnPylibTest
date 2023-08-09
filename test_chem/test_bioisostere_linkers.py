@@ -126,8 +126,9 @@ class TestBioisostereLinkers(unittest.TestCase):
             self.assertEqual(er[2], bios.num_examples)
 
     def test_full1(self) -> None:
+        json_file = str(Path(__file__).parent / 'resources' / 'find_bioisosteres_test1.json')
         cli_args = ['--input-series-file',
-                    'resources/find_bioisosteres_test1.json',
+                    json_file,
                     '--min-examples', '3',
                     '--output-db-file']
         fh, db_file = mkstemp(suffix='.db', dir=Path.cwd())
