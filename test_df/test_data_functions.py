@@ -170,14 +170,74 @@ class DataFunctionTest(TestCase):
         self.assertEqual(0, len(response.outputTables))
         self.assertEqual(18, len(response.outputColumns[0].values))
 
-    def test_named_data_function_pairwise_sequence_alignment(self) -> None:
-        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'pairwise_sequence_alignment.json')
+    def test_named_data_function_multiple_sequence_alignment_subset(self) -> None:
+        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'MSAsubset_allrows_in.json')
         _, response = run_named_data_function(file_in)
         self.assertTrue(response)
 
-        self.assertEqual(4, len(response.outputColumns))
+        self.assertEqual(3, len(response.outputColumns))
         self.assertEqual(0, len(response.outputTables))
-        self.assertEqual(18, len(response.outputColumns[0].values))
+        self.assertEqual(20, len(response.outputColumns[0].values))
+
+        with open(os.path.join(os.path.dirname(__file__), 'resources', 'MSAsubset_allrows_out.txt')) as expected:
+            _ = expected.readline()
+            expected_values = [line.strip().split()[4] for line in expected]
+            actual_values = response.outputColumns[2].values
+            self.assertTrue(all([float(exp) == round(act,2) for exp, act in zip(expected_values, actual_values)]))
+
+        # file_in = os.path.join(os.path.dirname(__file__), 'resources', 'MSAsubset_filteredrows_in.json')
+        # _, response = run_named_data_function(file_in)
+        # self.assertTrue(response)
+
+        # self.assertEqual(3, len(response.outputColumns))
+        # self.assertEqual(0, len(response.outputTables))
+        # self.assertEqual(20, len(response.outputColumns[0].values))
+
+        # with open(os.path.join(os.path.dirname(__file__), 'resources', 'MSAsubset_filteredrows_out.txt')) as expected:
+        #     _ = expected.readline()
+        #     lines = [line.strip().split() for line in expected]
+        #     expected_values = [line[4] for line in lines if len(line) == 5]
+        #     actual_values = [val for val in response.outputColumns[2].values if val is not None]
+        #     self.assertTrue(all([float(exp) == round(act,2) for exp, act in zip(expected_values, actual_values)]))
+
+        # file_in = os.path.join(os.path.dirname(__file__), 'resources', 'MSAsubset_markedrows_in.json')
+        # _, response = run_named_data_function(file_in)
+        # self.assertTrue(response)
+
+        # self.assertEqual(3, len(response.outputColumns))
+        # self.assertEqual(0, len(response.outputTables))
+        # self.assertEqual(20, len(response.outputColumns[0].values))
+
+        # with open(os.path.join(os.path.dirname(__file__), 'resources', 'MSAsubset_markedrows_out.txt')) as expected:
+        #     _ = expected.readline()
+        #     lines = [line.strip().split() for line in expected]
+        #     expected_values = [line[4] for line in lines if len(line) == 5]
+        #     actual_values = [val for val in response.outputColumns[2].values if val is not None]
+        #     self.assertTrue(all([float(exp) == round(act,2) for exp, act in zip(expected_values, actual_values)]))
+
+        # file_in = os.path.join(os.path.dirname(__file__), 'resources', 'MSAsubset_filteredmarkedrows_in.json')
+        # _, response = run_named_data_function(file_in)
+        # self.assertTrue(response)
+
+        # self.assertEqual(3, len(response.outputColumns))
+        # self.assertEqual(0, len(response.outputTables))
+        # self.assertEqual(20, len(response.outputColumns[0].values))
+
+        # with open(os.path.join(os.path.dirname(__file__), 'resources', 'MSAsubset_filteredmarkedrows_out.txt')) as expected:
+        #     _ = expected.readline()
+        #     lines = [line.strip().split() for line in expected]
+        #     expected_values = [line[4] for line in lines if len(line) == 5]
+        #     actual_values = [val for val in response.outputColumns[2].values if val is not None]
+        #     self.assertTrue(all([float(exp) == round(act, 2) for exp, act in zip(expected_values, actual_values)]))
+
+    def  test_named_data_function_pairwise_sequence_alignment(self) -> None:
+         file_in = os.path.join(os.path.dirname(__file__), 'resources', 'pairwise_sequence_alignment.json')
+         _, response = run_named_data_function(file_in)
+         self.assertTrue(response)
+
+         self.assertEqual(4, len(response.outputColumns))
+         self.assertEqual(0, len(response.outputTables))
+         self.assertEqual(18, len(response.outputColumns[0].values))
 
     def test_named_data_function_identify_enzyme_restriction_sites(self) -> None:
         file_in = os.path.join(os.path.dirname(__file__), 'resources', 'identify_enzyme_restriction_sites.json')
