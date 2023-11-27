@@ -1,11 +1,11 @@
+from collections import defaultdict
 import glob
 import importlib
 import os
-import shutil
 from typing import Callable, Tuple
 from unittest import TestCase, main, skip
 
-from df.data_transfer import DataFunctionRequest, DataFunctionResponse, DataFunction
+from df.data_transfer import DataFunctionRequest, DataFunctionResponse, DataFunction, DataType
 
 def clean_output_files() -> None:
     patterns = ['*.xml', '*.fasta', 'ig*.out', '*_in.dnd', '*_out.aln', '*.tree', '*.pdb', '*.phr', '*.pin',
@@ -47,8 +47,55 @@ def run_script(in_file: str, execute: Callable[[DataFunctionRequest], DataFuncti
 class mAb_DataFunctionTest(TestCase):
 
     def test_antibody_structure_prediction(self) -> None:
+        # test simplest case
         file_in = os.path.join(os.path.dirname(__file__), 'resources', 'AbStructPred_Basic_in.json')
         _, response = run_named_data_function(file_in)
+
+        self.assertTrue(response)
+
+        self.assertEqual(1, len(response.outputTables))
+        self.assertEqual(8, len(response.outputTables[0].columns[0].values))
+
+        expected_table = defaultdict(list)
+        with open(os.path.join(os.path.dirname(__file__), 'resources', 'AbStructPred_Basic_out.txt')) as df_out:
+            header = df_out.readline().strip().split('\t')
+            for l in df_out:
+                l_tokens = l.strip().split('\t')
+                for idx, h in enumerate(header):
+                    expected_table[h].append(l_tokens[idx])
+
+            for column in response.outputTables[0].columns:
+                if column.name in expected_table:
+                    expected_values = expected_table[column.name]
+                    actual_values = column.values
+                    if column.dataType == DataType.INTEGER:
+                        expected_values = [int(v) for v in expected_values]
+                    self.assertTrue(all([exp == act for exp, act in zip(expected_values, actual_values)]))
+
+        # test most complex case
+        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'AbStructPred_AllOptions_in.json')
+        _, response = run_named_data_function(file_in)
+
+        self.assertTrue(response)
+
+        self.assertEqual(1, len(response.outputTables))
+        self.assertEqual(32, len(response.outputTables[0].columns[0].values))
+
+        expected_table = defaultdict(list)
+        with open(os.path.join(os.path.dirname(__file__), 'resources', 'AbStructPred_AllOptions_out.txt')) as df_out:
+            header = df_out.readline().strip().split('\t')
+            for l in df_out:
+                l_tokens = l.strip().split('\t')
+                for idx, h in enumerate(header):
+                    expected_table[h].append(l_tokens[idx])
+
+            for column in response.outputTables[0].columns:
+                if column.dataType != DataType.BINARY and column.name in expected_table:
+                    expected_values = expected_table[column.name]
+                    actual_values = column.values
+                    if column.dataType == DataType.INTEGER:
+                        expected_values = [int(v) for v in expected_values]
+                    self.assertTrue(all([exp == act for exp, act in zip(expected_values, actual_values)]))
 
     @classmethod
     def tearDownClass(cls) -> None:
