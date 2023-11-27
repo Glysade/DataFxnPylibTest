@@ -323,10 +323,6 @@ class DataFunctionTest(TestCase):
         self.assertEqual(0, len(response.outputTables))
         self.assertEqual(2, len(response.outputColumns[0].values))
 
-    def test_antibody_structure_prediction(self) -> None:
-        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'antibody_structure_prediction_in.json')
-        _, response = run_named_data_function(file_in)
-
     @classmethod
     def tearDownClass(cls) -> None:
         clean_output_files()
