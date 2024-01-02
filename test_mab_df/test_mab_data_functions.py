@@ -97,6 +97,13 @@ class mAb_DataFunctionTest(TestCase):
                         expected_values = [int(v) for v in expected_values]
                     self.assertTrue(all([exp == act for exp, act in zip(expected_values, actual_values)]))
 
+    def test_relative_accessible_surface_area(self) -> None:
+        # test simplest case
+        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'RASA_in.json')
+        _, response = run_named_data_function(file_in)
+
+        self.assertTrue(response)
+
     @classmethod
     def tearDownClass(cls) -> None:
         clean_output_files()
