@@ -5,6 +5,9 @@ import os
 from typing import Callable, Tuple
 from unittest import TestCase, main, skip
 
+from Bio import SeqIO
+
+from df.bio_helper import column_to_sequences
 from df.data_transfer import DataFunctionRequest, DataFunctionResponse, DataFunction, DataType
 
 def clean_output_files() -> None:
@@ -98,11 +101,41 @@ class mAb_DataFunctionTest(TestCase):
                     self.assertTrue(all([exp == act for exp, act in zip(expected_values, actual_values)]))
 
     def test_relative_accessible_surface_area(self) -> None:
-        # test simplest case
-        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'RASA_in.json')
-        _, response = run_named_data_function(file_in)
+
+        # run the test data
+        test_file_in = os.path.join(os.path.dirname(__file__), 'resources', 'RASA_in.json')
+        _, response = run_named_data_function(test_file_in)
 
         self.assertTrue(response)
+
+        # get actual and expected outputs
+        actual_column = column_to_sequences(response.outputColumns[0])
+
+        with open(os.path.join(os.path.dirname(__file__), 'resources', 'RASA_out.gb'), 'r') as expected_out:
+            expected_column = list(SeqIO.parse(expected_out, 'genbank'))
+
+        # compare the Solvent Exposed Residue and RASA features between actual and expected
+        for actual_record, expected_record in zip(actual_column, expected_column):
+            actual_features_exposed = [f for f in actual_record.features \
+                                       if 'feature_name' in f.qualifiers and \
+                                          f.qualifiers['feature_name'][0] == 'Solvent Exposed Residue']
+            expected_features_exposed = [f for f in expected_record.features \
+                                         if 'feature_name' in f.qualifiers and \
+                                         f.qualifiers['feature_name'][0] == 'Solvent Exposed Residue']
+            self.assertTrue(all([actual_feature.qualifiers == expected_feature.qualifiers \
+                                 for actual_feature, expected_feature \
+                                 in zip(actual_features_exposed, expected_features_exposed)]))
+
+            actual_features_RASA = [f for f in actual_record.features \
+                                   if 'feature_name' in f.qualifiers and \
+                                   f.qualifiers['feature_name'][0] == 'Relative Accessible Surface Area']
+            expected_features_RASA = [f for f in expected_record.features \
+                                      if 'feature_name' in f.qualifiers and \
+                                      f.qualifiers['feature_name'][0] == 'Relative Accessible Surface Area']
+            self.assertTrue(all([actual_feature.qualifiers == expected_feature.qualifiers \
+                                 for actual_feature, expected_feature \
+                                 in zip(actual_features_RASA, expected_features_RASA)]))
+
 
     @classmethod
     def tearDownClass(cls) -> None:
