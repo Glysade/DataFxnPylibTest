@@ -284,6 +284,11 @@ class DataFunctionTest(TestCase):
         self.assertEqual(0, len(response.outputTables))
         self.assertEqual(18, len(response.outputColumns[0].values))
 
+    def test_extract_genbank_regions_to_table(self) -> None:
+        file_in = os.path.join(os.path.dirname(__file__), 'resources', 'ExtractGenbankRegions_toTable_in.json')
+        _, response = run_named_data_function(file_in)
+        self.assertTrue(response)
+
     def test_named_near_neighbors_category_transition_search(self) -> None:
         file_in = os.path.join(os.path.dirname(__file__), 'resources',
                                'near_neighbors_free_wilson_transition_search.json')
